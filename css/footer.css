@@ -1,0 +1,126 @@
+footer{
+    background-color: var(--black);
+    width: 100%;
+}
+
+.footer_section{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+}
+
+.logotipo_Footer{
+    display: grid;
+    grid-template-columns: 1fr 20fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_Footer{
+    width: 200px;
+}
+
+.footer_box{
+    display: flex;
+    flex-direction: column;
+}
+
+.white_Paragraph_Footer{
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+#email-footer{
+    width: 30%;
+    height: 45px;
+    background-color: var(--gold2);
+    color: var(--black);
+    border-radius: 5px;
+    font-family: 'Garant Pro', sans-serif;
+    padding-left: 15px;
+    margin: 30px 0px 30px 0px;                                
+}
+
+#button-footer{
+    height: 45px;
+    width: 10%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--black )0%, var(--gold2)100%);
+    color: var(--white);
+    font-family: 'Garant Pro', sans-serif;                                    
+}
+
+
+
+.footer_text{
+    display: flex;
+    color: var(--white); 
+    font-family: 'TT Rationalist Trl', sans-serif;
+    text-decoration: none;                                       
+}
+
+.white_Title_H3_Footer{
+    color:var(--white);
+    line-height: 35px;
+}
+
+.footer_about,
+.footer_company,
+.footer_contact{
+    color: var(--white) ;
+    text-decoration: none;
+    list-style: none;
+}
+
+a{
+    color: rgba(255, 255, 255, 0.568);
+    
+}
+a:link{
+    text-decoration: none;
+    line-height: 35px;
+} 
+
+.copyright{
+    color: var(--white);
+    text-align: right;
+    padding: 20px;
+}
+@media  (max-width: 750px){
+    #email-footer{
+        width: 50%;                           
+    }
+    #button-footer{
+        height: 45px;                               
+    }
+}
+
+@media  (min-width: 350px) and (max-width: 500px){
+    .logo_Footer{
+        width: 100px;
+    }
+
+    .footer_section{
+        padding-left: 20px;
+    }
+
+    #email-footer{
+        width: 60%;
+        margin: 10px 0px 20px 0px;                                
+    }
+    
+    #button-footer{
+        height: 45px;
+        width: 20%;                      
+    }
+
+    .white_Paragraph_Footer{
+        font-size: 14px;
+    }
+    .footer_text{
+        flex-direction: column;
+    }
+
+
+
+}
