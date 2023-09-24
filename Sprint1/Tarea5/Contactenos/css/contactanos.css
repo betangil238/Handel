@@ -59,6 +59,7 @@ body {
 
 .redirection{
     opacity: 100%;
+    margin-top: 25px;
 }
 
 .link {
@@ -272,6 +273,10 @@ a:link{
         display: flex;
         flex-direction: colum;
         margin: 0 10%;
+    }
+
+    .footer_copyright>p{
+       text-align: center;
     }
 }
 
