@@ -1,0 +1,51 @@
+/*Preguntas*/
+
+.faq{
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.head_faq{
+    text-align: center;
+    color: var(--white);
+}
+
+.container_Question_faq{
+    padding: 5px 0;
+    color: var(--white);
+    max-width: 800px;
+}
+
+.question{
+    font-family: 'TT rationalist trl';
+    padding: 15px 0;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    font-size: 20px;
+}
+
+.answer{
+    font-family: 'Garant pro';
+    opacity: 0;
+    height: 0;
+    display: flex;
+    font-size: 15px;
+}
+
+.answer.active{
+    opacity: 1;
+    height: auto;
+}
+
+hr{
+    width: 0.5px;
+    display: inline-block; 
+    margin: 1px 25px;
+}
