@@ -148,7 +148,7 @@ textarea{
 
 /*Cajones*/
 .contact-form form input {
-    width: 30%;
+    width: 70%;
     padding: 11.2px;
     border: none;
     background: none;
@@ -159,7 +159,7 @@ textarea{
 
 /*Cajón 'mensaje'*/
 .contact-form form textarea {
-    width: 30%;
+    width: 70%;
     padding: 11.2px;
     border: none;
     background: none;
