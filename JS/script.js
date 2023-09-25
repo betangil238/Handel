@@ -17,3 +17,10 @@ function RemoveClassActive(){
         pregunta.nextElementSibling.classList.remove("active")
     });
 }
+
+let btnContacto=document.getElementById("button_Contactenos");
+
+// Agrega un evento click al botón para redirigir al usuario
+btnContacto.addEventListener("click", function() {
+    window.location.href = "contactanos.html";
+});

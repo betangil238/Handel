@@ -55,3 +55,4 @@ email.addEventListener("input", function () {
         alert("Ingresa una dirección de correo válida.");
        }
 });
+
