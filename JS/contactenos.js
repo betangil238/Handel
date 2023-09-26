@@ -50,5 +50,9 @@ function validar(){
     if (!correoValido.test(email.value)) {
         // Si no es válido, mostrar un mensaje de error
         alert("Ingresa una dirección de correo válida.");
+        // Evitar que el formulario se envíe
+        return false;
     }
+    return true;
+    
 }
