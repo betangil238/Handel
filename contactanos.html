@@ -8,6 +8,11 @@
     <link href="https://fonts.cdnfonts.com/css/tt-rationalist-trl" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032" rel="stylesheet"> 
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+    <!-- Referencia a SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Referencia a SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
 </head>
 <body>
@@ -31,7 +36,7 @@
                 <h2 class="textContacto">contáctanos</h2>
             </div>
             <div class="contact-form">
-                <form action="https://formspree.io/f/xnqkgrpz" method="POST">
+                <form action="https://formspree.io/f/xnqkgrpz" method="POST" id="miFormulario"">
                     <div class="border">
                         <p> 
                             <label>Nombre</label>
