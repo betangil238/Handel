@@ -6,8 +6,8 @@ const expresiones = {
 }
 function mostrarAlerta() {
     Swal.fire({
-        title: 'Alerta Personalizada',
-        text: 'Este es un mensaje personalizado.',
+        title: 'Muchas gracias',
+        text: 'El equipo de Handel se contactará contigo.',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
         confirmButtonText: 'Aceptar', // Puedes cambiar el texto del botón
         customClass: {
@@ -35,7 +35,7 @@ function mostrarAlertaRechazo(text) {
 }
 
 
-const nombre = document.getElementById("name");
+const nombre = document.getElementById("fname");
 
 nombre.addEventListener("input", function () {
     // Verificar si el valor del input contiene números
@@ -76,7 +76,7 @@ textarea.addEventListener("input", function () {
     }
 });
 
-const formulario = document.getElementById("miFormulario");
+const formulario = document.getElementById("formulario");
 const botonEnviar = formulario.querySelector("button[type='submit']");
 const inputCorreo = formulario.querySelector("#email");
 
@@ -91,8 +91,11 @@ formulario.addEventListener("submit", function (event) {
         // Si la validación es exitosa, permite que el formulario se envíe
         mostrarAlerta();
         formulario.submit();
+        formulario.reset();
     }
 });
+
+
 
 
 
