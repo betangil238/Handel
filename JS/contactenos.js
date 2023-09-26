@@ -11,7 +11,7 @@ nombre.addEventListener("input", function () {
     // Verificar si el valor del input contiene números
     if (/\d/.test(nombre.value)) {
         // Si contiene números, mostrar un mensaje de error
-       alert("No se permiten números en el texto.") ;
+         alert("No se permiten números en el texto.") ;
         nombre.value = nombre.value.replace(/\d/g, ""); // Eliminar los números
     } 
 });
@@ -22,8 +22,8 @@ affair.addEventListener("input", function () {
     // Verificar si el valor del input contiene números
     if (/\d/.test(affair.value)) {
         // Si contiene números, mostrar un mensaje de error
-       alert("No se permiten números en el texto.") ;
-       affair.value = affair.value.replace(/\d/g, ""); // Eliminar los números
+        alert("No se permiten números en el texto.") ;
+        affair.value = affair.value.replace(/\d/g, ""); // Eliminar los números
     } 
 });
 
@@ -44,15 +44,11 @@ textarea.addEventListener("input", function () {
     }
 });
 
-const email= document.getElementById("email");
-
-email.addEventListener("input", function () {
-    // Verificar si el valor del input es una dirección de correo válida
-    const correoValido = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)){
-        alert("La dirección de email " + valor + " es correcta.");
-       } else {
+function validar(){
+    const email= document.getElementById("email");
+    const correoValido = /\S+@\S+\.\S+/;
+    if (!correoValido.test(email.value)) {
+        // Si no es válido, mostrar un mensaje de error
         alert("Ingresa una dirección de correo válida.");
-       }
-});
-
+    }
+}
