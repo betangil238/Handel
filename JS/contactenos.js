@@ -57,7 +57,7 @@ function validar(){
     
 }
 document.addEventListener('DOMContentLoaded', function(){
-    let formulario = document.getElementById('form');
+    let formulario = document.getElementById('formulario');
     formulario.addEventListener('submit', function() {
       formulario.reset();
     });
