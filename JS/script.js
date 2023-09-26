@@ -1,4 +1,3 @@
-
 // Conexion de la seccion question del HTML almacenada en la variable preguntas
 const preguntas = document.querySelectorAll(".question");
 

@@ -1,15 +1,17 @@
+// Listado de expresiones regulares posibles a ser usada en cada input
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 	asunto: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     mensaje: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 }
+// funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta() {
     Swal.fire({
         title: 'Muchas gracias',
         text: 'El equipo de Handel se contactará contigo.',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
-        confirmButtonText: 'Aceptar', // Puedes cambiar el texto del botón
+        confirmButtonText: 'Aceptar', // Texto del boton
         customClass: {
             container: 'mi-alerta',
             title: 'mi-titulo',
@@ -18,7 +20,7 @@ function mostrarAlerta() {
         }
     });
 }
-
+// funcion que muestra una alerta de error
 function mostrarAlertaRechazo(text) {
     Swal.fire({
         title: 'Error',
@@ -34,7 +36,7 @@ function mostrarAlertaRechazo(text) {
     });
 }
 
-
+// verificacion del input name
 const nombre = document.getElementById("fname");
 
 nombre.addEventListener("input", function () {
@@ -47,6 +49,7 @@ nombre.addEventListener("input", function () {
     } 
 });
 
+// verificacion del input asunto
 const affair = document.getElementById("affair");
 
 affair.addEventListener("input", function () {
@@ -59,6 +62,7 @@ affair.addEventListener("input", function () {
     } 
 });
 
+// Funcion en el text area para limitar la cantidad de caracteres
 const textarea = document.getElementById("message");
 const contador = document.getElementById("contador");
 const limiteCaracteres = 700;
@@ -76,6 +80,7 @@ textarea.addEventListener("input", function () {
     }
 });
 
+// Funcion que valida que el formato del correo este de forma adecuada
 const formulario = document.getElementById("formulario");
 const botonEnviar = formulario.querySelector("button[type='submit']");
 const inputCorreo = formulario.querySelector("#email");
