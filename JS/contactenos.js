@@ -4,14 +4,45 @@ const expresiones = {
 	asunto: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     mensaje: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
 }
+function mostrarAlerta() {
+    Swal.fire({
+        title: 'Alerta Personalizada',
+        text: 'Este es un mensaje personalizado.',
+        icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
+        confirmButtonText: 'Aceptar', // Puedes cambiar el texto del botón
+        customClass: {
+            container: 'mi-alerta',
+            title: 'mi-titulo',
+            content: 'mi-contenido',
+            confirmButton: 'mi-boton'
+        }
+    });
+}
+
+function mostrarAlertaRechazo(text) {
+    Swal.fire({
+        title: 'Error',
+        text: `${text}`,
+        icon: 'error',
+        confirmButtonText: 'Cerrar',
+        customClass: {
+            container: 'mi-alerta-error',
+            title: 'mi-titulo-error',
+            content: 'mi-contenido-error',
+            confirmButton: 'mi-boton-error'
+        }
+    });
+}
+
 
 const nombre = document.getElementById("name");
 
 nombre.addEventListener("input", function () {
     // Verificar si el valor del input contiene números
     if (/\d/.test(nombre.value)) {
+        mostrarAlertaRechazo("No se admiten numeros en el nombre");
         // Si contiene números, mostrar un mensaje de error
-         alert("No se permiten números en el texto.") ;
+        // alert("No se permiten números en el texto.") ;
         nombre.value = nombre.value.replace(/\d/g, ""); // Eliminar los números
     } 
 });
@@ -22,7 +53,8 @@ affair.addEventListener("input", function () {
     // Verificar si el valor del input contiene números
     if (/\d/.test(affair.value)) {
         // Si contiene números, mostrar un mensaje de error
-        alert("No se permiten números en el texto.") ;
+        // alert("No se permiten números en el texto.") ;
+        mostrarAlertaRechazo("No se admiten numeros en el asunto");
         affair.value = affair.value.replace(/\d/g, ""); // Eliminar los números
     } 
 });
@@ -44,21 +76,23 @@ textarea.addEventListener("input", function () {
     }
 });
 
-function validar(){
-    const email= document.getElementById("email");
-    const correoValido = /\S+@\S+\.\S+/;
-    if (!correoValido.test(email.value)) {
-        // Si no es válido, mostrar un mensaje de error
-        alert("Ingresa una dirección de correo válida.");
-        // Evitar que el formulario se envíe
-        return false;
+const formulario = document.getElementById("miFormulario");
+const botonEnviar = formulario.querySelector("button[type='submit']");
+const inputCorreo = formulario.querySelector("#email");
+
+formulario.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+    const expresionRegularCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    // Validar el correo electrónico con la expresión regular
+    if (!expresionRegularCorreo.test(inputCorreo.value)) {
+        mostrarAlertaRechazo("Ingrese una direccion de correo en este formato: example@email.com");
+        // alert("El correo electrónico no es válido. Por favor, ingrese un correo válido.");
+    } else {
+        // Si la validación es exitosa, permite que el formulario se envíe
+        mostrarAlerta();
+        formulario.submit();
     }
-    return true;
-    
-}
-document.addEventListener('DOMContentLoaded', function(){
-    let formulario = document.getElementById('formulario');
-    formulario.addEventListener('submit', function() {
-      formulario.reset();
-    });
-  });
+});
+
+
+
