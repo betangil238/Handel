@@ -18,20 +18,25 @@ signupForm.addEventListener('submit', (e) =>
     // El método .find se encarga de buscar un elemento en la lista de objetos
     const isUserRegistered = Users.find(user => user.email === email)
 
-    // Si el email que desee registrar, ya existe, nos dirá que ya se encuentra registrado, sino me permitirá ingresar sin problema al sistema
+
+    
+
+
+
+    //Si el email que desee registrar, ya existe, nos dirá que ya se encuentra registrado, sino me permitirá ingresar sin problema al sistema
     if(isUserRegistered) {
-        return alert('El usuario ya esta registrado!')
+        return alert('¡El usuario ya está registrado!')
     }
 
-    // Aquí especificamos que nos agregue los datos a la lista
+    //Aquí especificamos que nos agregue los datos a la lista
     Users.push({name: name, email: email, password: password})
 
-    // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
+    //Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
     localStorage.setItem('users', JSON.stringify(Users))
 
-    // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
-    alert('Registro Exitoso!')
+    //Aquí especificamos que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
+    alert('¡Registro Exitoso!')
 
-    // Si el registro fue exitoso, nos redigirá al login
+    //Si el registro fue exitoso, nos redigirá al login
     window.location.href = 'login.html'
 })
