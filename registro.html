@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/loginRegistro.css">
     <title>Registro</title>
+     <!-- Icono del title -->
+     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+     <!-- Referencia a SweetAlert2 CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+     <!-- Referencia a SweetAlert2 JS -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
     <section>
@@ -17,6 +23,8 @@
             <input type="email" placeholder="example@mail.com" id="email" required>
             <label>Contraseña</label>
             <input type="password" placeholder="****" id="password" required>
+            <label>Confirmar Contraseña</label>
+            <input type="password" placeholder="****" id="password1" required>
             <input type="submit" value="Registro">
         </form>
         <p>¿Ya tienes una cuenta? <a href="login.html">Login</a></p>
