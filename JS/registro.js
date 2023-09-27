@@ -18,7 +18,12 @@ signupForm.addEventListener('submit', (e) =>
     // El método .find se encarga de buscar un elemento en la lista de objetos
     const isUserRegistered = Users.find(user => user.email === email)
 
-    // Si el email que desee registrar, ya existe, nos dirá que ya se encuentra registrado, sino me permitirá ingresar sin problema al sistema
+
+    
+
+
+
+    //Si el email que desee registrar, ya existe, nos dirá que ya se encuentra registrado, sino me permitirá ingresar sin problema al sistema
     if(isUserRegistered) {
         mostrarAlertaRechazo();
         // return alert('El usuario ya esta registrado!')
