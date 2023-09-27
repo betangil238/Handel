@@ -4,7 +4,26 @@ if (!user) {
 }
 const logout=document.querySelector('#logout')
 logout.addEventListener('click',()=>{
-    alert('Hasta Pronto')
+    mostrarAlerta();
     localStorage.removeItem('login_success')
-    window.location.href='login.html'
+    setTimeout(() => {
+        window.location.href='login.html';
+    }, 2500);
+    
 })
+
+// funcion que muestra una alerta de resultado exitoso
+function mostrarAlerta() {
+    Swal.fire({
+        title: 'Muchas gracias',
+        text: 'Hasta pronto',
+        icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
+        confirmButtonText: 'Aceptar', // Texto del boton
+        customClass: {
+            container: 'mi-alerta',
+            title: 'mi-titulo',
+            content: 'mi-contenido',
+            confirmButton: 'mi-boton'
+        }
+    });
+}

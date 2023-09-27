@@ -20,18 +20,56 @@ signupForm.addEventListener('submit', (e) =>
 
     // Si el email que desee registrar, ya existe, nos dirá que ya se encuentra registrado, sino me permitirá ingresar sin problema al sistema
     if(isUserRegistered) {
-        return alert('El usuario ya esta registrado!')
+        mostrarAlertaRechazo();
+        // return alert('El usuario ya esta registrado!')
+    }else{
+        // Aquí especificamos que nos agregue los datos a la lista
+        Users.push({name: name, email: email, password: password})
+
+        // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
+        localStorage.setItem('users', JSON.stringify(Users))
+
+        // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
+        // alert('Registro Exitoso!')
+        mostrarAlerta();
+
+        // Si el registro fue exitoso, nos redigirá al login luego de 3 segundos
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2500);
     }
 
-    // Aquí especificamos que nos agregue los datos a la lista
-    Users.push({name: name, email: email, password: password})
-
-    // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
-    localStorage.setItem('users', JSON.stringify(Users))
-
-    // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
-    alert('Registro Exitoso!')
-
-    // Si el registro fue exitoso, nos redigirá al login
-    window.location.href = 'login.html'
+   
 })
+
+function mostrarAlerta() {
+    Swal.fire({
+        title: 'Registro',
+        text: 'exitoso',
+        icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
+        confirmButtonText: 'Aceptar', // Texto del boton
+        customClass: {
+            container: 'mi-alerta',
+            title: 'mi-titulo',
+            content: 'mi-contenido',
+            confirmButton: 'mi-boton'
+        }
+    });
+}
+//funcion para mostrar el mensaje durante un tiempo en ms
+
+// funcion que muestra una alerta de error
+function mostrarAlertaRechazo() {
+    Swal.fire({
+        title: 'Error',
+        text: `El usuario ya esta registrado!`,
+        icon: 'error',
+        confirmButtonText: 'Cerrar',
+        customClass: {
+            container: 'mi-alerta-error',
+            title: 'mi-titulo-error',
+            content: 'mi-contenido-error',
+            confirmButton: 'mi-boton-error'
+        }
+    });
+}
