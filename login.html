@@ -14,20 +14,44 @@
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
-    <section>
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label>Email</label>
-            <input type="email" placeholder="example@mail.com" id="email" required autofocus>
-            <label>Contraseña</label>
-            <input type="password" placeholder="****" id="password" required>
-            <input type="submit" value="Ingresar">
-        </form>
-        <div>
-            <p>¿No tienes una cuenta? <a href="registro.html">Registro</a></p>
-            <p><a href="#">Olvidé mi contraseña</a></p>
-        </div>
-    </section>
+    <nav class="fondo">
+        <nav class="nav_Header">
+            <div class="nav_Container container">
+                <div class="logo">
+                    <img class="logo_img" src="Img/LogoCompletoBlanco.png" alt="LogoHandel">
+                </div>    
+            
+                <div class="redirection">
+                    <a href="index.html" class="link">About Us</a>
+                    <a href="contactanos.html" class="link">Contáctanos</a>
+                </div>
+            </div>
+        </nav>
+        <section>
+            <div class="container_Login">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" placeholder=" 👤 example@mail.com" id="email" required autofocus>
+                    <input type="password" placeholder="🔒︎ Contraseña" id="password" required>
+                    <span></span>
+                    <div class="redirections">
+                        <p id="password"><a href="#">¿olvidaste contraseña? </a></p>
+                        <input type="submit" value="Iniciar sesion" id="submit">
+                        <p>¿No tienes cuenta? <a href="registro.html">Registrate</a></p>
+                    </div>
+                </form>
+                <div class="register">
+                    <span class="horizontal-line">---------</span>
+                    <p>Registrate con otros</p>
+                    <span class="horizontal-line">--------</span>
+                </div>
+                <div class="buttons_Redirection">
+                    <button >Google</button>
+                    <button >Facebook</button>
+                </div>
+            </div>
+        </section>
+    </nav>
     <script src="js/login.js"></script>
 </body>
 </html>
