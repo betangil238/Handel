@@ -19,8 +19,7 @@ body{
 
 .sorryContainer{
     display: block;
-    font-family: 'Garant Pro', sans-serif;
-                                                
+    font-family: 'Garant Pro', sans-serif;                                            
 }
 header{
     font-family: 'TT Rationalist Trl', sans-serif;
@@ -69,4 +68,58 @@ h1{
 .sorryButton:hover{
     background: linear-gradient(180deg, var(--gold1) 0%, var(--gold2) 100%);
 
+}
+
+@media  (min-width: 350px) and (max-width: 650px){
+    h1{
+        font-family: 'TT Rationalist Trl', sans-serif;
+        font-size: 28px;    
+        margin: 10px;                                        
+    }
+    .sorryImg {
+        width: 120px;
+        margin-left: 100px;
+        margin-right: -20px;
+    }
+    
+    .logo {
+        text-align: left;
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+    .sorryLogo {
+        font-family: 'TT rationalist trl';
+        font-weight: 400;
+        margin-top: 45px;
+        margin-left: -10px;
+        font-size: 35px;
+    }
+    
+    .sorryTitle{
+        font-size: 18px;  
+        margin-bottom: 30px;
+    }
+   
+    .underImg{
+        width: 70%;
+        margin-bottom: 40px;
+    }
+    .sorryContainer{
+        margin-top: 50px;
+                                    
+    }
+    
+    .sorryButton{
+        padding: 25px 40px;
+        background: linear-gradient(180deg, var(--gold2) 0%, var(--gold1) 100%);
+        border-radius: 40px;
+        text-decoration: none;
+        color: #000;
+    
+    }
+    .sorryButton:hover{
+        background: linear-gradient(180deg, var(--gold1) 0%, var(--gold2) 100%);
+    }
+    
 }

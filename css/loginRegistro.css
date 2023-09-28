@@ -190,6 +190,8 @@ p>a{
     border: none;
     cursor: pointer;
     font-weight: bold;
+    font-size: 16px;
+    font-family: 'Garant Pro', sans-serif; 
 }
 .register{
     display: flex;
