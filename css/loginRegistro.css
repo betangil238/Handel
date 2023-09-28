@@ -132,7 +132,7 @@ section{
     align-items: center;
 }
 input{
-    height: 40px;
+    height: 50px;
     width: 70%;
     border-radius: 9px;
     margin: 20px;
@@ -140,7 +140,7 @@ input{
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0);
     outline-color: #ffffff;
-    color: #424242;
+    color: #ffffff;
     font-size: 15px;
 }
 
@@ -154,20 +154,24 @@ input{
 }
 p>a{
     text-decoration: none;
-    color: #5a5151;
+    color: #c2bdbd;
+
 }
 
 #submit{
-    background-image: linear-gradient(90deg,white 50%,var(--black) 100%);
-    opacity: 70%;
+    background-image: linear-gradient(90deg,white 40%,var(--black) 150%);
+    border-radius: 20px;
     width: 40%;
     color: #000;
     border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 .register{
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 25px 0;
 }
 hr{
     width: 90px;
@@ -200,7 +204,10 @@ section p{
 
 section button{
     background-color: #ffffff;
-    color: #fff;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-family: var(--font-mono);
     transition: var(--transition);
     border: none;
@@ -209,8 +216,13 @@ section button{
     margin-top: 1.5em;
     font-size: 1em;
     margin-bottom: 20px;
+    height: 50px;
+    cursor: pointer;
 }
-
+svg{
+    width: 40px;
+    margin-right: 10px;
+}
 
 @media  (min-width: 350px) and (max-width: 600px){
 
