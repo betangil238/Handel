@@ -5,18 +5,143 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/loginRegistro.css">
-    <title>Home</title>
+    <title>Mi perfil - Handel</title>
      <!-- Icono del title -->
      <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
-     <!-- Referencia a SweetAlert2 CSS -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-     <!-- Referencia a SweetAlert2 JS -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+     <!-- Link Boxicons-->
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <!-- Link a CSS -->
+     <link rel="stylesheet" href="/css/pgppal.css">
+     <!-- Link a JS -->
+     <script src="JS/pgppal.js"></script>
 </head>
 <body>
-    <section>
-        <h1>Home</h1>
-        <button id="logout">Logout</button>
+    <!--Esta es la columna donde aparecen todos los datos del perfil-->
+    <section class="container1">
+
+        <!--Container del logo de Handel-->
+        <div class="container1LogoHandel">
+            <img src="/Img/LogoCompletoBlanco.png" class="logo">
+        </div>
+
+        <!--En este div se almacena la columna donde aparecen todos los datos del perfil-->
+        <div class="container1Perfil">
+            <div class="container1DatosPerfil">
+                <img src="/Img/imgPpPpal/usuario.png" class="container1imgPerfil">
+                <h4 class="container1NombrePerfil">Nombre del Perfil</h4>
+                <h5>@usuario</h5>
+            </div>
+
+        <!--Este div contiene los datos de ranking del perfil (números de subastas, transacciones y puntuación)-->
+        <div class="container1RankingPerfil">
+           <div class="container1RankingNumeros">
+                <p>000</p>
+                <p>000</p>
+                <p>0.0<i class='bx bxs-star'></i></p> <!--ícono de estrella-->
+            </div>
+            <div class="container1RankingTexto">
+                <p>Subastas</p>
+                <p>Transacciones</p>
+                <p>Puntuación</p>
+            </div>
+        </div>
+            
+        <!--Este div contiene los íconos y textos de navgeación de la columna izquierda-->
+        <div class="container1ColumnaIconosTexto">
+            <p><i class='bx bx-home-alt'></i> Inicio</p>
+            <p><i class='bx bx-sync'></i>  Subastas</p>
+            <p><i class='bx bx-sync'></i>  Trueques</p>
+            <p><i class='bx bx-chat'></i>  Mensajes</p>
+            <p><i class='bx bxs-cog'></i>  Configuración</p>
+        </div>
+
+        <!--Este div contiene la línea de división del icono logout de la columna izquierda-->
+            <div>
+                <hr class="container1Linea">
+            </div>
+
+        <!--Este div contiene el botón de logout-->
+        <div>
+            <button onclick id="logout"><i class='bx bx-log-out'></i>  Salir</button>
+        </div>
+    </div>
+    </section>
+    
+    <!--Este section contiene el resto del contenido (columna derecha)-->
+    <section class="container2">
+        <!--Este div contiene la barra de búsqueda, íconos y botón publicar-->
+        <div class="navBarra">
+            <input id="barraBusqueda">
+            <!--ICONO NOTIFICACIÓN, NAVEGAR Y BOTON PUBLICAR???-->
+        </div>
+
+        <!--Este div contiene el contenido de la columna derecha SIN la barra de arriba-->
+        <div class="container2ColumnaDer">
+            <!--Este div contiene la parte de tendencias (título e imágenes)-->
+            <div class="container2Trends">
+                <!--Este div contiene el título de tendencias-->
+                <div class="container2TitleTrends">
+                    <h3>Subastas En Tendencia</h3>
+                </div>
+                <!--Este div contiene las imágenes de tendencias-->
+                <div>
+                    <img src="/Img/imgPpPpal/imgTrends1.jpg" class="container2ImgTrends">
+                    <img src="/Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
+                    <img src="/Img/imgPpPpal/imgTrends3.jpg" class="container2ImgTrends">
+                    <img src="/Img/imgPpPpal/imgTrends4.jpg" class="container2ImgTrends">
+                    <img src="/Img/imgPpPpal/imgTrends5.jpg" class="container2ImgTrends">
+                    <img src="/Img/imgPpPpal/imgTrends6.jpg" class="container2ImgTrends">
+                </div>
+            </div>
+            <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+            <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+            <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+            <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+            <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+            <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+            <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+            <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+           <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+           <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+            <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
+            <div class="TruequeCards">
+                <img src="/Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <img src="/Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"><!--Imagen pequeña del perfil-->
+                <p class="cardsTruqueName">Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div> 
+        </div>
     </section>
     <script src="JS/pgppal.js"></script>
 </body>
