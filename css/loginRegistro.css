@@ -144,6 +144,10 @@ input{
     font-size: 15px;
 }
 
+.signupForm{
+    display: flex;
+}
+
 .redirections{
     display: flex;
     flex-direction: column;
