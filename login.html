@@ -31,15 +31,23 @@
             <div class="container_Login">
                 <h2>Login</h2>
                 <form id="loginForm">
-                    <label>Email</label>
-                    <input type="email" placeholder="example@mail.com" id="email" required autofocus>
-                    <label>Contraseña</label>
-                    <input type="password" placeholder="****" id="password" required>
-                    <p><a href="#">Olvidé mi contraseña</a></p>
-                    <input type="submit" value="Ingresar">
+                    <input type="email" placeholder=" 👤 example@mail.com" id="email" required autofocus>
+                    <input type="password" placeholder="🔒︎ Contraseña" id="password" required>
+                    <span></span>
+                    <div class="redirections">
+                        <p id="password"><a href="#">¿olvidaste contraseña? </a></p>
+                        <input type="submit" value="Iniciar sesion" id="submit">
+                        <p>¿No tienes cuenta? <a href="registro.html">Registrate</a></p>
+                    </div>
                 </form>
-                <div>
-                    <p>¿No tienes una cuenta? <a href="registro.html">Registro</a></p>
+                <div class="register">
+                    <span class="horizontal-line">---------</span>
+                    <p>Registrate con otros</p>
+                    <span class="horizontal-line">--------</span>
+                </div>
+                <div class="buttons_Redirection">
+                    <button >Google</button>
+                    <button >Facebook</button>
                 </div>
             </div>
         </section>

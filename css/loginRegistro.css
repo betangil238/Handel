@@ -2,9 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/tt-rationalist-trl');
 
 :root{
-    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
     --transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
     --black: #000;
     --grey: #ECECEC;
@@ -20,12 +18,12 @@
 }
 
 body{
-    font-family: var(--font-mono);
+    font-family: 'Garant pro';
 }
 
 /*FONDO MARTILLO */
 .fondo{
-    background-image: url(/Img/martillo-juzgado.jpg);
+    background-image: url(../Img/martillo-juzgado.jpg);
     background-size: cover;
     background-position: center;
 
@@ -76,16 +74,6 @@ body{
     font-size: 18px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /* CUADRO DE ALERTA */
 /* Estilo para el contenedor de la alerta APROBADA*/
 .mi-alerta {
@@ -134,22 +122,68 @@ section{
     align-items:end;
     justify-content: center;
     flex-direction: column;
-    padding: 1em;
 }
 
 .container_Login{
-    background-color:rgba(0,0,0,0.26);
+    background-image: url(../Img/FrameLogin.png);
+    background-size: cover;
+    border-radius: 40px 0 0 40px;
     border: 2px red solid;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+input{
+    height: 40px;
+    width: 70%;
+    border-radius: 9px;
+    margin: 20px;
+    border: 1px solid #ccc; /* Añade un borde para destacar el input */
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    outline-color: #ffffff;
+    color: #424242;
+    font-size: 15px;
+}
+
+.redirections{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+p>a{
+    text-decoration: none;
+    color: #5a5151;
+}
+
+#submit{
+    background-image: linear-gradient(90deg,white 50%,var(--black) 100%);
+    opacity: 70%;
+    width: 40%;
+    color: #000;
+    border: none;
+}
+.register{
+    display: flex;
+    align-items: center;
+}
+.horizontal-line {
+    flex-grow: 1; /* Hace que las líneas ocupen el espacio disponible */
+    height: 1px; /* Establece la altura de las líneas horizontales */
+    background-color: #000; /* Cambia el color de las líneas según tus preferencias */
+    margin: 0 10px; /* Añade espaciado horizontal entre las líneas y el texto */
+}
+
+.buttons_Redirection{
+    display: flex;
     flex-direction: column;
 }
-
-section h1{
-    font-size: 3em;
-}
-
 section h2{
     text-align:center;
     width: 100%;
@@ -160,52 +194,12 @@ section h2{
     margin-top: 10px;
 }
 
-section form{
-    padding: 10px 35px;
-    display:flex;
-    flex-wrap: wrap;
-    max-width: 500px;
-    border-radius: 20px;
-    border: 2px solid rgba(0,0,0,.1);
-}
-
-section form label{
-    width: 100%;
-    padding: 0.2em;
-    margin-bottom: 0.5em;
-    color: var(--white);
-}
-
-section form input{
-    width: 100%;
-    border-radius: 9px;
-    border: none;
-    outline-color: #003DFF;
-    background-color: #eee;
-}
-
-section form input[type='submit']{
-    background-color: #003DFF;
-    color: #fff;
-    font-family: var(--font-mono);
-    transition: var(--transition);
-    width: 30%;
-
-} 
-
 section form input[type='submit']:active{
     transform: scale(0.97);
 }
 
 section p{
     color: var(--white);
-
-}
-
-
-section p a{
-    text-decoration: none;
-    color: #003DFF;
 }
 
 
