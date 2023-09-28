@@ -19,14 +19,10 @@
 
 body{
     font-family: 'Garant pro';
-}
-
-/*FONDO MARTILLO */
-.fondo{
-    background-image: url(../Img/martillo-juzgado.jpg);
+    overflow: hidden;
     background-size: cover;
     background-position: center;
-
+    background-image: url(../Img/martillo-juzgado.jpg);
 }
 
 /*BARRA DE NAVEGACIÓN*/
@@ -34,7 +30,6 @@ body{
 .nav_Header {
     width: 100%;
     height: 30px;
-
 }
 .nav_Container {
     display: grid;
@@ -120,15 +115,15 @@ section{
     flex-wrap: wrap;
     height: 100vh;
     align-items:end;
-    justify-content: center;
+    margin-top: 50px;
+    justify-content: top;
     flex-direction: column;
 }
 
 .container_Login{
-    background-image: url(../Img/FrameLogin.png);
+    background-image: url(../Img/FondoLoginDifuso.png);
     background-size: cover;
     border-radius: 40px 0 0 40px;
-    border: 2px red solid;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -171,13 +166,11 @@ p>a{
 }
 .register{
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
-.horizontal-line {
-    flex-grow: 1; /* Hace que las líneas ocupen el espacio disponible */
-    height: 1px; /* Establece la altura de las líneas horizontales */
-    background-color: #000; /* Cambia el color de las líneas según tus preferencias */
-    margin: 0 10px; /* Añade espaciado horizontal entre las líneas y el texto */
+hr{
+    width: 90px;
 }
 
 .buttons_Redirection{
@@ -206,7 +199,7 @@ section p{
 /* Home */
 
 section button{
-    background-color: #003DFF;
+    background-color: #ffffff;
     color: #fff;
     font-family: var(--font-mono);
     transition: var(--transition);
@@ -215,4 +208,20 @@ section button{
     border-radius: 9px;
     margin-top: 1.5em;
     font-size: 1em;
+    margin-bottom: 20px;
+}
+
+
+@media  (min-width: 350px) and (max-width: 600px){
+
+    .logo_img {
+        width: 80px;
+        margin-left: 10px;
+        margin-right: -20px;
+    }
+    .link {
+        padding: 5px;
+        font-size: 15px;
+    }
+
 }
