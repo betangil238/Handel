@@ -120,7 +120,7 @@ section{
     flex-direction: column;
 }
 
-.container_Login{
+.container_Login, .container_Password, .container_newPassword{
     background-image: url(../Img/FondoLoginDifuso.png);
     background-size: cover;
     border-radius: 40px 0 0 40px;
@@ -130,7 +130,19 @@ section{
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-top: 2.5%;
+    padding-bottom: 15px;
+    width: 450px;
 }
+.container_Password, .container_newPassword{
+    padding:50px;
+
+    margin-top: 7.5%;
+}
+label{
+    color: white;
+}
+
 input{
     height: 50px;
     width: 70%;
@@ -194,6 +206,7 @@ section h2{
     font-family: 'TT Rationalist Trl';
     margin-top: 10px;
 }
+
 
 section form input[type='submit']:active{
     transform: scale(0.97);
