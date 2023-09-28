@@ -1,0 +1,125 @@
+.body {
+    background: #000;
+    font-family: 'Garant Pro';
+}
+
+/*COLUMNA IZQUIERDA*/
+.container1 {
+    width: 23%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #1E1E1E;
+    color: #ffffff;
+}
+
+/*Logo*/
+.container1LogoHandel {
+    width: 100%;
+    text-align: left;
+}
+
+.logo {
+    width: 25%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+}
+
+/*Información del perfil: imagen, nombre, usuario*/
+.container1DatosPerfil {
+    text-align: center;
+    line-height: 23px;
+    font-family: 'Garant Pro';
+    font-size: 18px;
+}
+
+/*Imagen perfil columna izquierda*/
+.container1imgPerfil {
+    width: 20%;
+    border-radius: 35px;
+}
+
+/*Información perfil sobre ranking en subastas, transacciones y puntuación*/
+.container1RankingNumeros {
+    display: inline-flex;
+    align-items: center;
+    font-size: 'Garant Pro';
+    margin-left: 10%;
+}
+
+/*Texto subastas, transacciones, puntuación*/
+.container1RankingTexto {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-family: 'Garant Pro';
+    justify-content: space-between;
+    margin-left: 10%;
+    grid-template-columns: 5px 5px 5px;
+}
+
+/*Íconos y textos de inicio, subastas, trueques, mensajes, configuración*/
+.container1ColumnaIconosTexto {
+    margin-top: 30px;
+    font-family: 'Garant Pro';
+    margin-left: 10%;
+}
+
+/*Línea de división*/
+.container1Linea {
+    margin-left: 10%;
+}
+
+/*Botón de salir*/
+#logout {
+    background-color: #1E1E1E;
+    font-family: 'Garant Pro';
+    padding: 0px;
+    margin-left: 10%;
+}
+
+/*COLUMNA DERECHA*/
+.container2 {
+    width: 60%;
+    margin-left: 250px;
+    margin-top: 20px;
+    background: #000;
+}
+
+/*Barra de búsqueda*/
+.navBarra {
+
+}
+
+
+/*Imágenes productos en subasta que son tendencia*/
+.container2ImgTrends {
+    width: 90px;
+    border-radius: 50px;
+}
+
+
+
+/*Imagen del objeto a truequear en las cards*/
+.imgObjetoTrueque {
+    width:150px;
+    display: flex;
+    border-radius: 20px;
+}
+
+/*Imagen pequeña de perfil en las cards de productos para truequear*/
+.imgPerfilTrueque {
+    width: 6%;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
+.cardsTruqueName {
+    font-family: "Garant Pro";
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+
+
+
+
