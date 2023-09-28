@@ -22,7 +22,7 @@
                 </div>    
             
                 <div>
-                    <a href="#about_us" class="link">Login</a>
+                    <a href="login.html" class="link">Login</a>
                     <a href="contactanos.html" class="link">Contáctanos</a>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     </p>
                     <div class="button_Container">
                         <button type="button" class="black_Button" id="button_Contactenos">Contáctanos</button> 
-                        <button type="button" class="white_Button">Registrarse</button> 
+                        <button type="button" class="white_Button" onclick="location.href = 'login.html'">Registrarse</button> 
                     </div>
                 </div>              
             </div>
@@ -85,7 +85,7 @@
                         <h2 class="card_number">1</h2>
                         <div class="card_Text">
                             <h2 class="card_Titulo">Publica cuantas veces quieras</h2>
-                            <p class="card_text">Tener la opción de compartir tus productos,servicios u objetos sin limite de publicaciones, te da literalmente el poder de dominar los truques y subastas según tus necesidades, así obtendras una mayor rentabilidad en menor tiempo.</p>
+                            <p class="card_text">Tener la opción de compartir tus productos,servicios u objetos sin limite de publicaciones, te da literalmente el poder de dominar los trueques y subastas según tus necesidades, así obtendras una mayor rentabilidad en menor tiempo.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -134,7 +134,7 @@
                 <div class="card_Team_Text">
                     <h3 class="yellow_Title_Name">Sofia Quimbay Cadena</h3>
                     <h4 class="white_Title_Card">Back End Leader</h4>
-                    <p class="card_Team_P">Participante de la 3ra cohorte de el curso Desarrollador Full-Stack / Java Jr de Generation Colombia e ingeniera mecatrónica en proceso. Con Handel buscamos impactar y mejorar la forma de hacer truques online</p>
+                    <p class="card_Team_P">Participante de la 3ra cohorte de el curso Desarrollador Full-Stack / Java Jr de Generation Colombia e ingeniera mecatrónica en proceso. Con Handel buscamos impactar y mejorar la forma de hacer trueques online</p>
                 </div>
             </div>
             <div class="card_Team_White">
@@ -153,7 +153,7 @@
             <p class="white_Paragraph_Join">Somos una red social única en su estilo que le brinda a las personas la oportunidad de hacer enormes cambios en el mundo a partir de pequeñas acciones. <br>¿Qué esperas para unirte a esta maravillosa comunidad?</p>
         </div> 
         <div>
-            <button type="button" class="join_Button">Regístrate</button>
+            <button type="button" class="join_Button" onclick="location.href = 'login.html'">Regístrate</button>
         </div>
     </section>  
     <section class="faq" id="faq">
@@ -205,7 +205,7 @@
             </div>
             <div class="answer">
                 <hr>
-                <p class="white_Paragraph_faq">Para aquellos usuarios que son parte del plan free, se tienen habilitados 3 artículos para realizar truques y/o subastas, en caso de que quieras ampliar este límite, puedes dirigirte a la sección de compras y acceder a los increíbles beneficios del plan premium.</p>
+                <p class="white_Paragraph_faq">Para aquellos usuarios que son parte del plan free, se tienen habilitados 3 artículos para realizar trueques y/o subastas, en caso de que quieras ampliar este límite, puedes dirigirte a la sección de compras y acceder a los increíbles beneficios del plan premium.</p>
             </div>
         </div>
 
@@ -229,12 +229,12 @@
             </div>
 
             <div class="footer_box">
-                <div>
-                    <input type="email" placeholder="Ingresa tu correo electrónico" id="email-footer">
+                <form action="https://formspree.io/f/mgejnjwz" method="POST" target="_blank" id="formulario">
+                    <input type="email" placeholder="Ingresa tu correo electrónico" id="email-footer" required>
                     <button onclick="enviarCorreo()" id="button-footer">Enviar</button>
-                </div>
+                </form>
                 <div>
-                    <p class="white_Paragraph_Footer">Alta experiencia en el manejo de truques y subastas</p>
+                    <p class="white_Paragraph_Footer">Alta experiencia en el manejo de trueques y subastas</p>
                 </div>
             </div>
 
