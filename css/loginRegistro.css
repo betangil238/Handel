@@ -19,7 +19,6 @@
 
 body{
     font-family: 'Garant pro';
-    overflow: hidden;
     background-size: cover;
     background-position: center;
     background-image: url(../Img/martillo-juzgado.jpg);
@@ -143,6 +142,27 @@ label{
     color: white;
 }
 
+.container_registro{
+    background-image: url(../Img/FondoLoginDifuso.png);
+    background-size: cover;
+    border-radius: 40px 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.signupForm>div{
+    display: flex;
+    flex-direction: column;
+}
 input{
     height: 50px;
     width: 70%;
@@ -156,8 +176,8 @@ input{
     font-size: 15px;
 }
 
-.signupForm{
-    display: flex;
+label{
+    color: var(--white);
 }
 
 .redirections{
@@ -206,7 +226,9 @@ section h2{
     font-family: 'TT Rationalist Trl';
     margin-top: 10px;
 }
-
+.h2_Register{
+    margin-bottom: 20px;
+}
 
 section form input[type='submit']:active{
     transform: scale(0.97);
@@ -216,6 +238,9 @@ section p{
     color: var(--white);
 }
 
+.p_Count{
+    margin-bottom: 30px;
+}
 
 /* Home */
 
