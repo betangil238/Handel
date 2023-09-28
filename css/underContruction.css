@@ -1,0 +1,67 @@
+body{
+
+text-align: center;
+                                             
+}
+
+:root{
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+
+.sorryContainer{
+    display: block;
+    font-family: 'Garant Pro', sans-serif;
+                                                
+}
+header{
+    font-family: 'TT Rationalist Trl', sans-serif;
+    width: 100%;
+    background: linear-gradient(180deg, #0000007e 0%, var(--white) 100%); 
+                                      
+}
+
+
+h1{
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-size: 48px;                                            
+}
+
+.logo {
+    text-align: left;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.sorryImg {
+    width: 120px;
+    margin-left: 100px;
+    margin-right: -20px;
+}
+
+.sorryLogo {
+    font-family: 'TT rationalist trl';
+    font-weight: 400;
+    margin-top: 60px;
+    font-size: 35px;
+}
+
+.underImg{
+    width: 25%;
+}
+
+.sorryButton{
+    padding: 25px 40px;
+    background: linear-gradient(180deg, var(--gold2) 0%, var(--gold1) 100%);
+    border-radius: 40px;
+    text-decoration: none;
+    color: #000;
+
+}
+.sorryButton:hover{
+    background: linear-gradient(180deg, var(--gold1) 0%, var(--gold2) 100%);
+
+}
