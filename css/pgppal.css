@@ -1,5 +1,16 @@
 @import url('https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032');
 @import url('https://fonts.cdnfonts.com/css/tt-rationalist-trl');
+
+:root{
+
+    --transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+
 *{
     width: 100%;
     margin: 0;
@@ -10,6 +21,7 @@
 
 .body {
     font-family: 'Garant Pro';
+    overflow-x: hidden;
 }
 main{
     display: flex;
@@ -47,7 +59,7 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
-    line-height: 23px;
+    line-height: 25px;
     font-family: 'Garant Pro';
     font-size: 18px;
 }
@@ -56,6 +68,7 @@ main{
 .container1imgPerfil {
     width: 20%;
     border-radius: 35px;
+    margin-bottom: 5px;
 }
 
 /*Información perfil sobre ranking en subastas, transacciones y puntuación*/
@@ -147,10 +160,15 @@ hr{
     background: #000;
 }
 
-/*Barra de búsqueda*/
-.navBarra{
+/*Contenedor de barra de búsqueda e íconos*/
+.navBarra {
     font-family: 'Garant Pro';
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
 }
+
+/*Barra de búsqueda*/
 #barraBusqueda {
     width: 60%;
     margin-left: 10%;
@@ -161,37 +179,121 @@ hr{
     background-color: #1E1E1E;
     color: white;
     border: none;
-    
 }
 
+/*Íconos de notificaciones y suscripciones*/
+.iconosNavBarra {
+    width: 30px;
+    color: #ffffff;
+    padding: 10px 0px 0px 10px;
+}
+
+/*Botón de publicar*/
+.navBarra button {
+    width: 100px;
+    border-radius: 50px;
+    margin-left: 15px;
+    display: flex;
+    padding: 7px;
+    font-family: 'Garant Pro';
+    border: none;
+    background: linear-gradient(90deg, var(--gold2) 0%, var(--black)100%);
+    color: var(--white);
+}
+
+/*Ícono botón Publicar*/
+.navBarra button i {
+    width: 20px;
+    margin-top: 3px;
+}
+
+/*Container de la columna derecha sin la barra de navegación*/
+.container2ColumnaDer {
+    padding: 10px 10px 10px 45px;
+}
+
+
+/*Título "Subastas en tendencia*/
+.container2TitleTrends {
+    color: #ffffff;
+    font-family: 'Garant Pro';
+    margin: 10px;
+}
 
 /*Imágenes productos en subasta que son tendencia*/
 .container2ImgTrends {
     width: 90px;
     border-radius: 50px;
     color: rgb(255, 255, 255);
+    margin-left: 20px;
+}
+
+/*Título de la sección "Trueques"*/
+.titleTrueques {
+    color: #ffffff;
+    font-family: 'Garant Pro';
+    margin: 10px;
 }
 
 
+/*Container de todas las cards*/
+.containerTruequeCards {
+    width: 60%;
+    display: grid;
+    grid-template-columns:50% 50% 50%;
+}
 
-/*Imagen del objeto a truequear en las cards*/
+/*Container cards de la sección Trueques*/
+.truequeCards {
+    color: #ffffff;
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+/*Imagen en las cards del objeto que se va a truequear*/
 .imgObjetoTrueque {
-    width:150px;
+    width: 100%;
     display: flex;
     border-radius: 20px;
 }
 
-/*Imagen pequeña de perfil en las cards de productos para truequear*/
-.imgPerfilTrueque {
-    width: 6%;
-    border-radius: 30px;
+.truequeCardInfo {
+    display: grid;
+    grid-template-columns: 15% 35% 25% 25%;
     margin-top: 5px;
 }
 
-.cardsTruqueName {
+/*Imagen pequeña de perfil en las cards de productos para truequear*/
+.imgPerfilTrueque {
+    width: 80%;
+    border-radius: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/**/
+.cardsTruequeName {
     font-family: "Garant Pro";
-    font-size: 12px;
-    margin-top: 0px;
+    font-size: 13px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.truequeCardsIconNum {
+    font-family: 'Garant Pro';
+    margin-top: 10px;
+}
+
+.truequeCardsIconNum p {
+    font-family: 'Garant Pro';
+
+}
+
+.truequeCardsIconNum i {
+    width: 8px;
+    margin-right: 10px;
 }
 
 
