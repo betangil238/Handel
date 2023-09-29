@@ -1,15 +1,30 @@
+@import url('https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032');
+@import url('https://fonts.cdnfonts.com/css/tt-rationalist-trl');
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background: #000000; */
+}
+
 .body {
-    background: #000;
     font-family: 'Garant Pro';
+}
+main{
+    display: flex;
+    flex-direction: row;
 }
 
 /*COLUMNA IZQUIERDA*/
 .container1 {
-    width: 23%;
+    width: 25%;
     margin: 0px;
     padding: 0px;
     background-color: #1E1E1E;
     color: #ffffff;
+    position: fixed;
+    height: 100%;
 }
 
 /*Logo*/
@@ -19,6 +34,7 @@
 }
 
 .logo {
+    margin-top: 10px;
     width: 25%;
     margin-bottom: 10%;
     margin-left: 10%;
@@ -26,6 +42,10 @@
 
 /*Información del perfil: imagen, nombre, usuario*/
 .container1DatosPerfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     line-height: 23px;
     font-family: 'Garant Pro';
@@ -39,11 +59,15 @@
 }
 
 /*Información perfil sobre ranking en subastas, transacciones y puntuación*/
-.container1RankingNumeros {
-    display: inline-flex;
+.container1RankingPerfil {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     align-items: center;
-    font-size: 'Garant Pro';
-    margin-left: 10%;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Garant Pro';
+    font-size: 14px;
 }
 
 /*Texto subastas, transacciones, puntuación*/
@@ -57,37 +81,87 @@
     grid-template-columns: 5px 5px 5px;
 }
 
+.parrafoEstrella{
+    display: flex;
+    flex-direction: row;
+}
+
+.parrafoEstrella>i{
+    margin-left: -50px;
+}
+
 /*Íconos y textos de inicio, subastas, trueques, mensajes, configuración*/
 .container1ColumnaIconosTexto {
+    display: flex;
+    flex-direction: column;
     margin-top: 30px;
     font-family: 'Garant Pro';
     margin-left: 10%;
 }
 
+.container1ColumnaIconosTexto>div {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+}
+.container1ColumnaIconosTexto>div>i {
+    width: 25px ;
+}
+
 /*Línea de división*/
-.container1Linea {
-    margin-left: 10%;
+
+hr{
+    width: 89%;
+    margin: 10%;
+    color: #8b8989;
 }
 
 /*Botón de salir*/
 #logout {
-    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: row;
+    background-color: #1e1e1e00;
     font-family: 'Garant Pro';
     padding: 0px;
-    margin-left: 10%;
+    margin-left: 15px;
+    width: 80%;
+    color: #ffffff;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
 }
+
+#logout>i{
+    width: 50px;
+    size: 200%;
+    font-size: 20px;
+} 
+
 
 /*COLUMNA DERECHA*/
 .container2 {
-    width: 60%;
-    margin-left: 250px;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    width: 75%;
     background: #000;
 }
 
 /*Barra de búsqueda*/
-.navBarra {
-
+.navBarra{
+    font-family: 'Garant Pro';
+}
+#barraBusqueda {
+    width: 60%;
+    margin-left: 10%;
+    margin-top: 10px;
+    border-radius: 60px;
+    height: 20px;
+    padding: 15px;
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    
 }
 
 
@@ -95,6 +169,7 @@
 .container2ImgTrends {
     width: 90px;
     border-radius: 50px;
+    color: rgb(255, 255, 255);
 }
 
 

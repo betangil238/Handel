@@ -2,8 +2,9 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 if (!user) {
     window.location.href="login.html"  
 }
-const logout=document.getElementById('logout')
+const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
+    console.log("entre");
     mostrarAlerta();
     localStorage.removeItem('login_success')
     setTimeout(() => {
