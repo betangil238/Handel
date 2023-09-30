@@ -124,14 +124,15 @@ h2{
     flex-wrap: wrap;
     margin-bottom: 30px;
     justify-content: center;
+    max-width: 870px;
 }
 
-.products{
+/* .products{
     display: flex;
     flex-direction:row;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 .cardProduct{
     margin: 10px;
     display: flex;
