@@ -1,8 +1,9 @@
+/*Fuentes tipográficas*/
 @import url('https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032');
 @import url('https://fonts.cdnfonts.com/css/tt-rationalist-trl');
 
+/*Paleta de colores*/
 :root{
-
     --transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
     --black: #000;
     --grey: #ECECEC;
@@ -11,6 +12,7 @@
     --gold2: #D7AE00;
 }
 
+/*Especificaciones generales*/
 *{
     width: 100%;
     margin: 0;
@@ -19,16 +21,19 @@
     /* background: #000000; */
 }
 
+/*Especificaciones generales para el contenido del body*/
 .body {
     font-family: 'Garant Pro';
     overflow-x: hidden;
 }
+
+/*Especificaciones para el container main que encierra todo el contenido*/
 main{
     display: flex;
     flex-direction: row;
 }
 
-/*COLUMNA IZQUIERDA*/
+/*COLUMNA IZQUIERDA-información del perfil*/
 .container1 {
     width: 25%;
     margin: 0px;
@@ -52,7 +57,7 @@ main{
     margin-left: 10%;
 }
 
-/*Información del perfil: imagen, nombre, usuario*/
+/*Información principal del perfil: imagen, nombre, usuario*/
 .container1DatosPerfil {
     display: flex;
     flex-direction: column;
@@ -64,14 +69,14 @@ main{
     font-size: 18px;
 }
 
-/*Imagen perfil columna izquierda*/
+/*Imagen perfil de la columna izquierda*/
 .container1imgPerfil {
     width: 20%;
     border-radius: 35px;
     margin-bottom: 5px;
 }
 
-/*Información perfil sobre ranking en subastas, transacciones y puntuación*/
+/*Información sobre ranking del perfil en subastas, transacciones y puntuación*/
 .container1RankingPerfil {
     margin-top: 20px;
     display: grid;
@@ -83,33 +88,43 @@ main{
     font-size: 14px;
 }
 
-/*Texto subastas, transacciones, puntuación*/
-.container1RankingTexto {
+Texto subastas, transacciones, puntuación*/
+.container1RankingPerfil {
     display: inline-flex;
     align-items: center;
-    font-size: 13px;
     font-family: 'Garant Pro';
     justify-content: space-between;
     margin-left: 10%;
     grid-template-columns: 5px 5px 5px;
 }
 
+.containerSubastas {
+    font-size: 12px;
+}
+
+.containerTransacciones {
+    font-size: 12px;
+}
+
+.containerPuntuacion {
+    font-size: 12px;
+}
+
+
 .parrafoEstrella{
     display: flex;
-    flex-direction: row;
 }
 
 .parrafoEstrella>i{
-    margin-left: -50px;
+    margin-left: -50%;
 }
 
 /*Íconos y textos de inicio, subastas, trueques, mensajes, configuración*/
 .container1ColumnaIconosTexto {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
     font-family: 'Garant Pro';
-    margin-left: 10%;
+    padding: 20px;
 }
 
 .container1ColumnaIconosTexto>div {
@@ -118,11 +133,10 @@ main{
     flex-direction: row;
 }
 .container1ColumnaIconosTexto>div>i {
-    width: 25px ;
+    width: 25px;
 }
 
 /*Línea de división*/
-
 hr{
     width: 89%;
     margin: 10%;
@@ -150,8 +164,7 @@ hr{
     font-size: 20px;
 } 
 
-
-/*COLUMNA DERECHA*/
+/*COLUMNA DERECHA-barra de búsqueda, íconos, botón e información de subastas y truques*/
 .container2 {
     display: flex;
     flex-direction: column;
@@ -171,7 +184,7 @@ hr{
 /*Barra de búsqueda*/
 #barraBusqueda {
     width: 60%;
-    margin-left: 10%;
+    margin-left: 3%;
     margin-top: 10px;
     border-radius: 60px;
     height: 20px;
@@ -197,11 +210,11 @@ hr{
     padding: 7px;
     font-family: 'Garant Pro';
     border: none;
-    background: linear-gradient(90deg, var(--gold2) 0%, var(--black)100%);
+    background: linear-gradient(90deg, var(--gold2) 0%, var(--black)110%);
     color: var(--white);
 }
 
-/*Ícono botón Publicar*/
+/*Ícono + del botón Publicar*/
 .navBarra button i {
     width: 20px;
     margin-top: 3px;
@@ -209,7 +222,7 @@ hr{
 
 /*Container de la columna derecha sin la barra de navegación*/
 .container2ColumnaDer {
-    padding: 10px 10px 10px 45px;
+    padding: 10px 10px 10px 10px;
 }
 
 
@@ -220,9 +233,9 @@ hr{
     margin: 10px;
 }
 
-/*Imágenes productos en subasta que son tendencia*/
+/*Imágenes de los productos de la sección "Subastas en tendencia"*/
 .container2ImgTrends {
-    width: 90px;
+    width: 70px;
     border-radius: 50px;
     color: rgb(255, 255, 255);
     margin-left: 20px;
@@ -235,10 +248,9 @@ hr{
     margin: 10px;
 }
 
-
 /*Container de todas las cards*/
 .containerTruequeCards {
-    width: 60%;
+    width: 68%;
     display: grid;
     grid-template-columns:50% 50% 50%;
 }
@@ -255,48 +267,178 @@ hr{
 .imgObjetoTrueque {
     width: 100%;
     display: flex;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
+/*Container de la información en las cards: foto de perfil, nombre, likes y comentarios*/
 .truequeCardInfo {
     display: grid;
-    grid-template-columns: 15% 35% 25% 25%;
-    margin-top: 5px;
+    grid-template-columns: 50% 50%;
 }
 
 /*Imagen pequeña de perfil en las cards de productos para truequear*/
 .imgPerfilTrueque {
-    width: 80%;
-    border-radius: 30px;
+    width: 60%;
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 0px;
+    border-radius: 40px
 }
 
-/**/
+/*Nombre del perfil en la card*/
 .cardsTruequeName {
     font-family: "Garant Pro";
-    font-size: 13px;
+    font-size: 20px;
     color: #ffffff;
-    margin-top: 10px;
-    margin-left: 5px;
+    margin-top: 20px;
+    margin-left: -20px;
 }
 
+/*Container del número e ícono de likes y comentarios*/
 .truequeCardsIconNum {
     font-family: 'Garant Pro';
     margin-top: 10px;
+    padding-left: 30px;
 }
 
+/*Número de likes y comentarios*/
 .truequeCardsIconNum p {
     font-family: 'Garant Pro';
-
 }
 
+/*Ícono de likes y comentarios*/
 .truequeCardsIconNum i {
     width: 8px;
     margin-right: 10px;
 }
 
+/*Especificaciones para media query*/
+@media (min-width: 320px) and (max-width: 700px) {
 
+    .container1imgPerfil {
+        width: 40%;
+    }
 
+    .container1NombrePerfil {
+        font-size: 60%;
+        line-height: 10px;
+    }
+
+    .container1RankingPerfil {
+        display: block;
+        font-size: 65%;
+    }
+
+    .parrafoEstrella>i{
+        margin-left: -65%;
+    }
+
+    .container1ColumnaIconosTexto {
+        font-size: 60%;
+        line-height: 5px;
+    }
+
+    #logout {
+        width: 80%;
+        font-size: 10px;
+    }
+
+    #logout p {
+        margin-left: -30%;
+    }
+    
+    #logout>i{
+        width: 30px;
+        font-size: 15px;
+    } 
+
+    .navBarra button {
+        width: 60px;
+        font-size: 10px;
+        margin-left: 8px;
+    }
+
+    .navBarra button i {
+        width: 12px;
+    }
+
+    /*Container de la columna derecha sin la barra de navegación*/
+    .container2ColumnaDer {
+        padding: 10px 10px 10px 10px;
+        }
+
+    .container2TitleTrends {
+        font-size: 12px;
+    }
+
+    .container2ImgTrends {
+        width: 40px;
+    }
+
+    .titleTrueques {
+        font-size: 12px;
+    }
+
+    .truequeCards {
+        padding: 5px;
+    }
+
+    /*Nombre del perfil en la card*/
+    .cardsTruequeName {
+        font-size: 10px;
+        margin-left: -5px;
+        margin-top: 10px;
+    }
+
+    .truequeCardsIconNum {
+        margin-left: 5px;
+        padding-bottom: 5px;
+    }
+
+    .truequeCardsIconNum p {
+    font-size: 8px;
+    }
+
+    .truequeCardsIconNum i {
+        width: 8px;
+        margin-right: 5px;
+    }
+
+}
+
+/*Especificaciones para media query*/
+@media (min-width: 700px) and (max-width: 900px) {
+
+    .container1RankingPerfil {
+        display: block;
+        font-size: 65%;
+    }
+
+    .parrafoEstrella>i{
+        margin-left: -80%;
+    }
+
+    .container1ColumnaIconosTexto {
+        font-size: 60%;
+        line-height: 5px;
+    }
+
+    .truequeCards {
+        padding: 5px;
+    }
+
+    #logout {
+        width: 80%;
+        font-size: 10px;
+    }
+
+    #logout p {
+        margin-left: -30%;
+    }
+    
+    #logout>i{
+        width: 30px;
+        font-size: 15px;
+    } 
+}
 
 
