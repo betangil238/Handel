@@ -34,7 +34,7 @@
             <div class="container1Perfil">
                 <div class="container1DatosPerfil">
                     <img src="Img/imgPpPpal/usuario.png" class="container1imgPerfil">
-                    <h4 class="container1NombrePerfil"><span>Nombre del Perfil</span></h4>
+                    <h4 class="container1NombrePerfil"><span class="nombreprofile">Nombre del Perfil</span></h4>
                     <h5>@<span>usuario</span></h5>
                 </div>
                 <!--Este div contiene los datos de ranking del perfil (números de subastas, transacciones y puntuación)-->
@@ -45,7 +45,7 @@
                     </div>
                     <div class="containerTransacciones">
                         <p>000</p>
-                        <p>Transacciones</p>
+                        <p>Canjes</p>
                     </div>
                     <div class="containerPuntuacion">
                         <div class="parrafoEstrella">
@@ -57,26 +57,26 @@
                 </div>
             <!--Este div contiene los íconos y textos de navgeación de la columna izquierda-->
                 <div class="container1ColumnaIconosTexto">
-                    <div>
-                        <i class='bx bx-home-alt'></i> 
+                    <a href="index.html"><div class="redirections" >
+                        <i class='bx bx-home-alt' ></i> 
                         <p>Inicio</p>
-                    </div>
-                    <div>
-                        <i class='bx bx-sync'></i>  
+                    </div></a>
+                    <a><div class="redirections">
+                        <i class='bx bx-sync'><span class="letra">S</span></i>  
                         <p>Subastas</p>
-                    </div>
-                    <div>
-                        <i class='bx bx-sync'></i>
+                    </div></a>
+                    <a><div class="redirections">
+                        <i class='bx bx-sync'><span class="letra">T</span></i>
                         <p>Trueques</p>
-                    </div>
-                    <div>
+                    </div></a>
+                    <a><div class="redirections">
                         <i class='bx bx-chat'></i>
                         <p>Mensajes</p>
-                    </div>
-                    <div>
+                    </div></a>
+                    <a><div class="redirections">
                         <i class='bx bxs-cog'></i>
                         <p>Ajustes</p>
-                    </div>
+                    </div></a>
                 </div>
 
             <!--Este div contiene la línea de división del icono logout de la columna izquierda-->
@@ -85,8 +85,8 @@
                 </div>
 
             <!--Este div contiene el botón de logout-->
-                <div>
-                    <button id="logout"><i class='bx bx-log-out'></i><p>Salir</p></button>
+                <div class="salir">
+                    <button id="logout"><i class='bx bx-log-out'></i><span class="salir_boton">Salir</span></button>
                 </div>
             </div>
         </section>
@@ -95,10 +95,12 @@
         <section class="container2">
             <!--Este div contiene la barra de búsqueda, íconos y botón publicar-->
             <div class="navBarra">
-                <input type="search" id="barraBusqueda" placeholder="Buscar">
-                <p class="iconosNavBarra"><i class='bx bx-bell'></i></p>
-                <p class="iconosNavBarra"><i class='bx bx-store-alt'></i></p>
-                <button id="public"><i class='bx bx-plus-circle'></i>Publicar</button>
+                <input type="search" id="barraBusqueda" placeholder="🔍︎ Buscar">
+                <div class="navBarra_iconos">
+                    <a class="iconosNavBarra"><i class='bx bx-bell'></i></a>
+                    <a class="iconosNavBarra" href="suscripcion.html"><i class='bx bx-store-alt'></i></a>
+                    <button id="public"><i class='bx bx-plus-circle'></i>Publicar</button>
+                </div>
             </div>
 
             <!--Este div contiene el contenido de la columna derecha SIN la barra de arriba-->
@@ -110,7 +112,7 @@
                         <h3>Subastas en tendencia</h3>
                     </div>
                     <!--Este div contiene las imágenes de tendencias-->
-                   <div>
+                    <div class="historias">
                         <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
                         <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
                         <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
@@ -127,9 +129,7 @@
                     <div class="truequeCards">
                         <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
                         <div class="truequeCardInfo">
-                            
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
+                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
                             <div class="cardsTruequeName">
                                 <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
                             </div>
@@ -146,8 +146,7 @@
                         <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
                         <div class="truequeCardInfo">
                             
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
+                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
                             <div class="cardsTruequeName">
                                 <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
                             </div>
@@ -164,8 +163,7 @@
                         <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
                         <div class="truequeCardInfo">
                             
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
+                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
                             <div class="cardsTruequeName">
                                 <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
                             </div>
