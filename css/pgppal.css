@@ -161,6 +161,9 @@ hr{
     margin: 10%;
     color: #8b8989;
 }
+.salir_boton{
+    text-align: start;
+}
 
 /*Botón de salir*/
 #logout {
@@ -321,7 +324,7 @@ hr{
     margin-top: 10px;
     align-items: center;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 1fr 3fr 1fr 1fr;
 }
 
 /*Imagen pequeña de perfil en las cards de productos para truequear*/
@@ -343,7 +346,7 @@ hr{
 /*Container del número e ícono de likes y comentarios*/
 .truequeCardsIconNum {
     font-family: 'Garant Pro';
-    padding-left: 30px;
+    padding-left: 10px;
 }
 
 /*Número de likes y comentarios*/
@@ -374,6 +377,7 @@ hr{
         position: fixed;
         height: 70px;
         width: 100%;
+        z-index: 20;
     }
 
     /*Logo*/
@@ -491,6 +495,28 @@ hr{
     background: #000;
 }
 
+.truequeCards {
+    width: 150px;
+    height: 190px;
+    color: #ffffff;
+    margin: 8px;
+    border-radius: 10px;
+    background-image: linear-gradient(360deg, var(--gold2) 0%, var(--black) 20%);
+}
+.imgPerfilTrueque{
+    width: 40%;
+}
+.cardsTruequeName{
+    display: none;
+}
+.truequeCardInfo {
+    margin-top: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 8px;
+}
+
 }
 
 @media (min-width: 320px) and (max-width: 500px) {
@@ -519,6 +545,12 @@ hr{
         width: 15%;
         margin-top: 25px;
         margin-left: 10px;
+    }
+    .container1ColumnaIconosTexto{
+        width: 79%;
+    }
+    .salir{
+        width: 6%;
     }
 }
 
