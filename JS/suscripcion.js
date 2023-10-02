@@ -1,4 +1,4 @@
-import KEYS from "keys.js"
+import KEYS from "../JS/keys.js"
 /* inicio encabezado------------------------------------------------------------*/ 
 let arreglo=[];
 let carritoVisible = false;
