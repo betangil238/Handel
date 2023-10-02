@@ -1,3 +1,8 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if (user) {
+    window.location.href="pgppal.html"  
+}
+
 //Inicializamos una variable que recibirá los datos del formulario
 const loginForm = document.querySelector('#loginForm')
 

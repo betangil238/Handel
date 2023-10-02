@@ -2,7 +2,10 @@ import KEYS from "../JS/keys.js"
 /* inicio encabezado------------------------------------------------------------*/ 
 
 // <!------------------------------------------------------ INICIO SECCION MAIN ------------------------------------------->
-
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if (!user) {
+    window.location.href="login.html"  
+}
 // ******* CONEXION CON EL MARKET PLACE *****************************************
 
 const d =document;
