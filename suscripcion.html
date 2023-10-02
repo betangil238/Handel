@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/ecomerce.css"> 
 </head>
 <body>
     <!--encabezado--------------------------------------------------------------------------------------------------------->
@@ -228,8 +229,30 @@
                         <a href="javascript:agregarProducto({'Producto':'Sello','precio':77000})" class="buyButton" id="buySello" rel="nofollow">Comprar ahora</a>
                     </div>
                 </article> 
+            </section>
+
+                <section class="E-comerce" id="E-comerce"></section>
+
+                <template class="cardProduct" id="tarjeta">
+                    <figure class="imagePackageE">
+                        <img class="productImage">
+                        <div class="infoCard">
+                            <p class="description"></p>
+                            <b><p class="price priceecomerce"></p></b>
+                        </div>
+                        <b><p class="nameProduct descriptionecomerce"></p></b>
+                        <div class="buy">
+                            <div class="incrementShop"> 
+                                <i class='bx bx-heart' onclick="color()"></i>
+                            </div>
+                            <a class="buyButton" id="buy" rel="nofollow">Comprar ahora</a>
+                        </div>
+                    </figure>
+                </template> 
+
+
             <!-- </div> -->
-        </section>
+        
     </main>
 <!--                                                 INICIO FOOTER                                        -->
     <footer>
@@ -277,6 +300,7 @@
         </div>
     </footer>
 <!--                                                FIn FOOTER                                        -->
-    <script src="JS/suscripcion.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="JS/suscripcion.js" type="module"></script>
 </body>
 </html>
