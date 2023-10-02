@@ -51,13 +51,14 @@ body {
 .container_Numero{
     color: var(--white);
     display: flex;
+    align-items: center;
     width: 30%;
     text-align: center;
 }
 
 .circulo_Numero1{
-    width: 20px;
-	height: 20px;
+    width: 30px;
+	height: 30px;
 	shape-outside: circle();
     clip-path: circle();
 	background: var(--gold2);
@@ -70,8 +71,8 @@ body {
 }
 
 .circulo_Numero{
-    width: 20px;
-	height: 20px;
+    width: 30px;
+	height: 30px;
 	shape-outside: circle();
     clip-path: circle();
 	background: #535658;
@@ -98,14 +99,14 @@ body {
 
 .container_Principal{
     background-color: #212121;
-    width: 70%;
-    margin-left: 15%;
+    width: 60%;
+    margin-left: 20%;
     margin-top: 30px;
     border-radius: 10px;
-    height: 480px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    padding: 15px;
+    padding: 20px;
+
 }
 
 .conteiner_Info > p{
@@ -150,12 +151,20 @@ body {
     color: var(--white);
     display: flex;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .categoria{
     margin-right: 10%;
 }
 
+.categoria > p{
+    font-size: 15px;
+}
+
+.vistas > p{
+    font-size: 15px;
+}
 
 select{
     background-color: #3F3D46;
@@ -171,8 +180,10 @@ select{
 }
 
 .seleccionar{
+    background-color: #3F3D46;
+    border-radius: 10px;
     display:flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     color: var(--white);
     padding: 10px 0px;
     font-size: 13px;
@@ -187,9 +198,14 @@ select{
     color: var(--white);
 }
 
-.seleccionar p{
-    font-size: 10px;
+
+.etique{
+    width: 40%;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
+
 
 .container_Botones{
     display: flex;
@@ -200,9 +216,7 @@ button{
     width: 30%;
     padding: 10px 0px;
     border-radius: 10px;
-    margin-bottom: 30px;
     border: none;
-    
 }
 
 .cancelar{
@@ -213,9 +227,9 @@ button{
 }
 
 .borde_Imagen{
-    width: 70%;
+    width: 80%;
     margin-left: 10%;
-    border: 1px gray solid ;
+    border: 1px rgb(128, 128, 128, 0.4) solid ;
     border-radius: 10px;
     padding: 3%;
 }
@@ -274,4 +288,63 @@ button{
 
     
     
+}
+
+@media  (min-width: 320px) and (max-width: 715px){
+    .container_Principal{
+        background-color: #212121;
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        padding: 30px;
+    }
+
+
+
+    .conteiner_Info{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    .cat_Vistas{
+        color: var(--white);
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .categoria{
+        margin-right: 0%;
+        margin-bottom: 20px;
+    }
+
+
+
+    .borde_Imagen{
+        width: 40%;
+        margin-left: 30%;
+        margin-bottom: 20px;
+        
+    }
+    
+    .imagen{
+        border-radius: 10px;
+    }
+
+    .seleccionar{
+        background-color: #3F3D46;
+        border-radius: 10px;
+        display:flex;
+        flex-direction: column;
+        color: var(--white);
+        padding: 10px 0px;
+        font-size: 13px;
+    }
+    
+
 }

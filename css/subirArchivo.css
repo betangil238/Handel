@@ -53,11 +53,12 @@ body {
     display: flex;
     width: 30%;
     text-align: center;
+    align-items: center;
 }
 
 .circulo_Numero1{
-    width: 20px;
-	height: 20px;
+    width: 30px;
+	height: 30px;
 	shape-outside: circle();
     clip-path: circle();
 	background: var(--gold2);
@@ -70,8 +71,8 @@ body {
 }
 
 .circulo_Numero{
-    width: 20px;
-	height: 20px;
+    width: 30px;
+	height: 30px;
 	shape-outside: circle();
     clip-path: circle();
 	background: #535658;
