@@ -193,7 +193,11 @@ Promise.all([
 
 
 d.addEventListener("click", e=>{
-    if (e.target.matches(".E-comerce *") ) {
+    if (e.target.matches(".incrementShop, .incrementIcon")) {
+        if (e.target.classList.contains('bx') || e.target.classList.contains('bxs')) {
+            color(e.target); // Llama a la función color() y pasa el ícono como argumento
+        }
+    } else if (e.target.matches(".E-comerce *") ) {
         let priceId = e.target.parentElement.getAttribute("data-price");
         Stripe(KEYS.public).redirectToCheckout({
             lineItems: [{
@@ -213,21 +217,20 @@ d.addEventListener("click", e=>{
 })
 
 // funcion que cambia de color el corazon al darle click
-$(document).ready(function() {
-    $(".bx").click(function() {
-        alert("click")
-        // Obtener la clase actual del icono
-        var claseActual = $(this).attr("class");
+function color(icon) {
+    // Obtener la clase actual del icono
+    var claseActual = icon.classList;
 
-        // Verificar la clase actual y cambiarla
-        if (claseActual === 'bx bx-heart') {
-            $(this).removeClass('bx bx-heart').addClass('bx bxs-heart');
-            this.style.color="red";
-        } else {
-            $(this).removeClass('bx bxs-heart').addClass('bx bx-heart');
-            this.style.color="white";
-        }
-    });
-});
+    // Verificar la clase actual y cambiarla
+    if (claseActual.contains('bx-heart')) {
+        icon.classList.remove('bx-heart');
+        icon.classList.add('bxs-heart');
+        icon.style.color = "red";
+    } else if (claseActual.contains('bxs-heart')) {
+        icon.classList.remove('bxs-heart');
+        icon.classList.add('bx-heart');
+        icon.style.color = "white";
+    }
+}
 
 
