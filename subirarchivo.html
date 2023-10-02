@@ -7,6 +7,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
     <link rel="stylesheet" href="css/subirArchivo.css">
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="JS/subirarchivo.js"></script>
 </head>
 <body>
     <div class="nav_Main">
@@ -54,12 +56,19 @@
             <h2>Subir nueva imagen </h2>
             <p>Aceptamos jpg, .npg, .raw</p>
 
-           <div class="subir_Archivo"> 
+           <div class="image-upload-wrap"> 
                 <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                 <i class='bx bxs-file-blank' ></i>
                 <p>Subir archivo desde dispositivo</p>
                 <p class="texto_Archivo">Tamaño máximo 50MB</p>
            </div> 
+
+           <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span class="image-title">Uploaded Image</span></button>
+                </div>
+           </div>
             
             <div class="container_Botones">
                 <button class="cancelar">Cancelar</button>
