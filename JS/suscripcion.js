@@ -1,4 +1,4 @@
-import KEYS from "../JS/keys.js"
+import KEYS from "keys.js"
 /* inicio encabezado------------------------------------------------------------*/ 
 let arreglo=[];
 let carritoVisible = false;
@@ -201,8 +201,8 @@ d.addEventListener("click", e=>{
                 quantity: 1
             }],
             mode:"payment",
-            successUrl:"http://127.0.01:5501/success.html",
-            cancelUrl:"http://127.0.01:5501/cancel.html"
+            successUrl:"https://betangil238.github.io/Handel/success.html",
+            cancelUrl:"https://betangil238.github.io/Handel/cancel.html"
         })
         .then(res => {
             if (res.error){
