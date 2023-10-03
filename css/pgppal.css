@@ -397,6 +397,7 @@ hr{
 .container1Perfil{
     display: flex;
     flex-direction: row-reverse;
+
     width: 85%;
     justify-content: space-between;
 
@@ -417,9 +418,10 @@ hr{
 /*Imagen perfil de la columna izquierda*/
 .container1imgPerfil {
     width: 50px;
-    border-radius: 35px;
     margin-left: 10px;
     margin-bottom: 2px;
+    shape-outside: circle();
+    clip-path: circle();
 }
 
 

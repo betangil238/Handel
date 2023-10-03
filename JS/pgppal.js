@@ -9,8 +9,32 @@ logout.addEventListener('click',()=>{
     setTimeout(() => {
         window.location.href='login.html';
     }, 2500);
-    
 })
+
+// CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
+const perfil = document.querySelector(".container1imgPerfil");
+
+if((user.name).toLowerCase()=="daniel betancur giraldo"){
+    perfil.src='../Img/DanielBeta.jpeg'
+}else if((user.name).toLowerCase()=="sofia quimbay cadena"){
+    perfil.src='../Img/SofiaQuimbay.jpeg'
+}else if((user.name).toLowerCase()=="laura valentina Leon castro"){
+    perfil.src='../Img/ValeLeon.jpeg'
+}else if((user.name).toLowerCase()=="maria juliana ortiz patiño"){
+    perfil.src='../Img/JuliOrtiz.jpeg'
+}else{
+    perfil.src='../Img/perfilAlternativo.png'
+}
+
+const nombreperfil = document.querySelector(".nombreprofile");
+nombreperfil.textContent=user.name;
+
+const configuracion= JSON.parse(localStorage.getItem('configuracion'))
+console.log(configuracion);
+const usuarioperfil = document.getElementById("userCode");
+const configuracionUsuario= configuracion.find(config =>  user.email ===config.email )
+console.log(user.email);
+usuarioperfil.textContent=configuracionUsuario.usuario;
 
 // funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta() {
@@ -28,4 +52,5 @@ function mostrarAlerta() {
     });
 }
 
+// FUNCION PARA CREAR MEDIANTE JSON ARTICULOS EN LA SECCION PPAL
 
