@@ -25,6 +25,121 @@ body {
 
 }
 
+.navBar{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--black);
+    width: 100%;
+    height: 80px; 
+}
+
+.navBar a{
+    display: inline;
+    color: var(--white);
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-size: 20px;
+    font-weight:500;                           
+}
+
+.logosNav{
+    align-items: center;
+    margin: 10px 0px;
+    align-items: center;
+    width: 10%;
+    margin-left: 50px;
+    padding-bottom: 8px;
+
+}
+
+.logoNavBar2 img{
+    display: none;
+
+}
+.linksNavBar{
+    margin-top: 30px;
+    text-align: center;
+    width: 60%;
+}
+.linksNavBar  a{
+    padding: 0px 20px;
+}
+.navBarIcons{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width:10%;
+    margin-top: 30px;
+}
+.navBarIcons a{
+    padding: 0px 20px;
+}
+.navBarIcons:hover {
+    color: var(--gold2);
+}
+.navBarIcons:active {
+    color: var(--gold1);
+}
+
+.profileConfig{
+    text-align: left;
+    width: 10%;
+    margin-top: 15px;
+    margin-left: 2%;
+    padding-left: 50px;
+    float: left;
+}
+
+.profileConfig li{
+    list-style: none;
+    text-align: left;
+
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menuButton{
+    display: none;
+}
+.burguerMenu{
+    visibility: hidden;
+}
+
+.profileList{
+    display: none;
+    min-width: 200px;
+    text-align: center;
+
+}
+.profileList a{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Garant pro';
+    padding: 20px 10px;
+    margin-right: 50px;
+}
+.profileList a:hover{
+    background-color: var(--black);
+}
+.profileConfig:hover .profileList {
+    display: block;
+    position: absolute;
+    background-color: rgb(46, 46, 46);
+    width: 150px;
+    text-align:left;
+    position: relative;
+    right: 150px;
+    z-index: 50;
+}
+.profileConfig img{
+    width: 50px;
+}
+
+
+
+
+
 .nav_Header {
     width: 100%;
     height: 30px;
@@ -45,6 +160,7 @@ body {
     align-content: center;
     justify-content: center;
     margin-left: 30%;
+    margin-top: 30px;
 
 }
 
@@ -319,4 +435,86 @@ button{
         margin-left:-37%;
     }
     
+}
+
+@media  (min-width: 350px) and (max-width: 1255px){
+    .navBar{
+        align-items: center;
+        height: 80px;
+    }
+    .linksNavBar{
+        display: none;
+    }
+    .menuButton{
+        display: flex;
+        width: 25%;
+        background-color: var(--black);
+        height: 40px;
+        margin-left: 25px;
+    }
+    .burguerMenu{
+        visibility: visible;
+        color: var(--white);
+        width: 50px;
+        border-width: 1.5px;
+        border-radius: 9px;
+        text-align: center;
+    }
+    .burguerMenu:hover{
+        background-color: var(--gold2);
+    }
+    .burguerMenu:active{
+        background-color: var(--gold1);
+    }
+    .burguerMenu i{
+        text-align: center;
+        font-size: 35px;
+    }
+    
+    .logosNav{
+        width: 25%;
+    }
+    .logoNavBar2 img{
+        width: 30px;
+        align-items: center;
+        display: flex;
+    }
+
+    .logoNavBar img{
+        display: none;
+    }
+    .navBarIcons{
+        width: 25%;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .navBarIcons a{
+        padding: 0px 5px;
+        margin-bottom: 25px;
+    }
+    .profileConfig{
+        width: 25%;
+        padding-left: 0px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+    .profileConfig:hover .profileList {
+        display: block;
+        background-color: rgb(46, 46, 46);
+        width: 150px;
+        text-align:left;
+        position: fixed;
+        right: 100px;
+        z-index: 50;
+    }
+
+    .menuButton:hover .linksNavBar{
+        display: block;
+        background-color: rgb(46, 46, 46);
+        z-index: 50;
+        text-align:left;
+        position: fixed;
+
+
+    }
 }
