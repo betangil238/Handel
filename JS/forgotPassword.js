@@ -21,12 +21,18 @@
 //             window.location.href = 'newPassword.html';
 //     }
 // })
+// Funcion que se ejecuta con click desde el HTML de FORGOTPASSWORD
 function validar(){
+    const verificacionPrevia= JSON.parse(localStorage.getItem('USUARIO')) || false
+    if (verificacionPrevia) {
+        localStorage.removeItem('USUARIO'); 
+    }
     let email = document.querySelector('#email').value
     console.log(email);
     const Users = JSON.parse(localStorage.getItem('users')) || []
     // Aquí validamos si los datos son iguales a los que se registraron
     let validUser = Users.find(user => user.email === email)
+    // CREAMOS TEMPORALMENTE UNA SESION DE ALMACENAMIENTO DE DATOS EN EL LOCAL STORAGE
     localStorage.setItem('USUARIO', JSON.stringify(validUser));
     // Inicializamos un condicional, especificando de que si los datos son diferentes, no nos permita iniciar sesión
     if(!validUser) {
@@ -40,20 +46,32 @@ function validar(){
     }
 }
 
-const contra = document.getElementById('submit1');
 
+
+const contra = document.getElementById('submit1');
 contra.addEventListener('click', (e)=>{
+    // TOMAMOS LOS DATOS DEL LOCAL STORAGE KEY usuario, CREADO EN EL HTML FORGOT PASSWORD
     const usuario = JSON.parse(localStorage.getItem('USUARIO'));
+    // CAPTURAMOS LA CONTRASENA DEL INPUT
     let p1 = document.getElementById("password").value;
     if(validarpassword()){
+        // SI LA CONTRASENA ES VALIDA TOMA TODOS LOS ELEMENTOS DE LA KEY USER Y LA ALMACENA EN EL ARRAY Users
         const Users = JSON.parse(localStorage.getItem('users')) || []
+        // almacena en validuser el usuario con el correo traido
         const validUser = Users.find(user => user.email === usuario.email)
+        // le cambiamos la contrasena al usuario capturado en forgotpassword
         usuario.password=p1;
+        // eliminamos completamente la key de users, pero los datos se almacenaron en USERS (variable)
         localStorage.removeItem('users')
+        // Buscamos dentro del array users la posicion del elemento con contrasena a cambiar
         let indiceAEliminar =  Users.indexOf(validUser);
+        // eliminamos del array el dato que vamos a cambiar
         Users.splice(indiceAEliminar,1);
+        // ingresamos el valor corregido al array users
         Users.push(usuario);
+        // creamos en el local storage un contenedor con el dato actualizado, con el nombre que estaba previamente
         localStorage.setItem('users', JSON.stringify(Users))
+        // eliminamos el contenedor USUARIO temporal que nos sirvio para capturar la informacion del forgot password
         localStorage.removeItem('USUARIO');
         mostrarAlerta();
         setTimeout(() => {

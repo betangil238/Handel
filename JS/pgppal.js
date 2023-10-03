@@ -4,7 +4,6 @@ if (!user) {
 }
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
-    console.log("entre");
     mostrarAlerta();
     localStorage.removeItem('login_success')
     setTimeout(() => {

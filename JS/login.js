@@ -15,6 +15,7 @@ loginForm.addEventListener('submit', (e) => {
     const Users = JSON.parse(localStorage.getItem('users')) || []
     // Aquí validamos si los datos son iguales a los que se registraron
     const validUser = Users.find(user => user.email === email && user.password === password)
+    console.log(validUser);
     // Inicializamos un condicional, especificando de que si los datos son diferentes, no nos permita iniciar sesión
     if(!validUser) {
         mostrarAlertaRechazo();
