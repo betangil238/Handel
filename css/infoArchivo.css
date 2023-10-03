@@ -172,6 +172,7 @@ select{
     border-radius: 10px;
     border: none;
     width: 100%;
+    cursor: pointer;
 }
 
 .etiquetas{
@@ -216,6 +217,7 @@ button{
     padding: 10px 0px;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 }
 
 .cancelar{
@@ -223,6 +225,7 @@ button{
     border: 1px white solid;
     color: white;
     margin-right: 40%;
+    cursor: pointer;
 }
 
 .borde_Imagen{

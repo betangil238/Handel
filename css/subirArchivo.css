@@ -237,12 +237,14 @@ button{
     border-radius: 10px;
     margin-bottom: 30px;
     border: none;
+    cursor: pointer;
 }
 
 .cancelar{
     background-color: #000;
     border: 1px white solid;
     color: white;
+    cursor: pointer;
 }
 
 
