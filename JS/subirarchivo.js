@@ -1,3 +1,8 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if (!user) {
+    window.location.href="login.html"  
+}
+
 function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -38,3 +43,4 @@ function readURL(input) {
   imageUploadWrap.addEventListener('dragleave', function () {
     imageUploadWrap.classList.remove('image-dropping');
   });
+
