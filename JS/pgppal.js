@@ -15,15 +15,15 @@ logout.addEventListener('click',()=>{
 const perfil = document.querySelector(".container1imgPerfil");
 
 if((user.name).toLowerCase()=="daniel betancur giraldo"){
-    perfil.src='../Img/DanielBeta.jpeg'
+    perfil.src='Img/DanielBeta.jpeg'
 }else if((user.name).toLowerCase()=="sofia quimbay cadena"){
-    perfil.src='../Img/SofiaQuimbay.jpeg'
+    perfil.src='Img/SofiaQuimbay.jpeg'
 }else if((user.name).toLowerCase()=="laura valentina Leon castro"){
-    perfil.src='../Img/ValeLeon.jpeg'
+    perfil.src='Img/ValeLeon.jpeg'
 }else if((user.name).toLowerCase()=="maria juliana ortiz patiño"){
-    perfil.src='../Img/JuliOrtiz.jpeg'
+    perfil.src='Img/JuliOrtiz.jpeg'
 }else{
-    perfil.src='../Img/perfilAlternativo.png'
+    perfil.src='Img/perfilAlternativo.png'
 }
 
 const nombreperfil = document.querySelector(".nombreprofile");
