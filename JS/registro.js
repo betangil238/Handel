@@ -49,12 +49,12 @@ signupForm.addEventListener('submit', (e) => {
 // VERIFICACION CONTRASEÑAS REGISTRO EN HANDEL
 function validarpassword(){
 //Id de contraseña de HTML
-var p1 = document.getElementById("password").value;
-var p2 = document.getElementById("password1").value;
+let p1 = document.getElementById("password").value;
+let p2 = document.getElementById("password1").value;
 
 //Evita que queden espacios en blanco
-var espacios = false;
-var cont = 0;
+let espacios = false;
+let cont = 0;
 
     while (!espacios && (cont < p1.length)) {
         if (p1.charAt(cont) == " ")

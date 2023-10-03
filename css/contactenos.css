@@ -87,6 +87,7 @@ body {
     z-index: 20;
 }
 .logo {
+    cursor: pointer;
     text-align: left;
     display: flex;
     margin-bottom: 15px;

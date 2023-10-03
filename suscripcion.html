@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200;300&display=swap" rel="stylesheet"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Seccion Premium</title>
+    <link rel="stylesheet" href="css/suscripcion.css">
+    <link rel="stylesheet" href="css/footer.css">   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/ecomerce.css"> 
+</head>
+<body>
+    <!--encabezado--------------------------------------------------------------------------------------------------------->
+
+    <!------------------------------------------------------ INICIO SECCION MAIN ------------------------------------------->
+    
+    <main>
+        <h2 id="comprar">Sacale ventaja a tus transacciones</h2>
+                <section class="E-comerce" id="E-comerce"></section>
+
+                <template class="cardProduct" id="tarjeta">
+                    <figure class="imagePackageE">
+                        <img class="productImage">
+                        <div class="infoCard">
+                            <p class="description"></p>
+                            <b><p class="price priceecomerce"></p></b>
+                        </div>
+                        <b><p class="nameProduct descriptionecomerce"></p></b>
+                        <div class="buy">
+                            <div class="incrementShop"> 
+                                <i class='bx bx-heart incrementIcon'></i>
+                            </div>
+                            <a class="buyButton" id="buy" rel="nofollow">Comprar ahora</a>
+                        </div>
+                    </figure>
+                </template> 
+    </main>
+<!--                                                 INICIO FOOTER                                        -->
+    <footer>
+        <div class="footer_section">
+            <div class="logotipo_Footer">
+                <div>
+                    <img src="Img/LogoCompletoBlanco.png" class="logo_Footer">
+                </div>
+            </div>
+
+            <div class="footer_box">
+                <form action="https://formspree.io/f/mgejnjwz" method="POST" target="_blank" id="formulario">
+                    <input type="email" placeholder="Ingresa tu correo electrónico" id="email-footer" required>
+                    <button onclick="enviarCorreo()" id="button-footer">Enviar</button>
+                </form>
+                <div>
+                    <p class="white_Paragraph_Footer">Alta experiencia en el manejo de trueques y subastas</p>
+                </div>
+            </div>
+
+            <div class="footer_text">
+                <div class="footer_about">
+                    <h3 class="white_Title_H3_Footer">Acerca de nosotros</h3>
+                    <li><a href="index.html#header">¿Qué es Handel?</a></li>
+                    <li><a href="index.html#about_us">Acerca de nosotros</a></li>
+                    <li><a href="index.html#premium_Benefits">Beneficios premium</a></li>
+                    <li><a href="index.html#our_Team">Nuestro equipo de trabajo</a></li>
+                </div>
+                <div class="footer_company">
+                    <h3 class="white_Title_H3_Footer">Compañía</h3>
+                    <li><a href="index.html#join_Handel">¿Por qué ser parte de Handel?</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="#">Privacy & Policy</a></li>
+                    <li><a href="#">Features</a></li>
+                </div>
+                <div class="footer_contact">
+                    <h3 class="white_Title_H3_Footer">Contacto</h3>
+                    <li><a href="#">+57 310 000 0000</a></li>
+                    <li><a href="#">handelgeneration@gmail.com</a></li>
+                </div>
+            </div>    
+            <div class="footer_copyright">
+                <p class="copyright">Handel by CodeTrade &copy; 2023</p>
+            </div> 
+        </div>
+    </footer>
+<!--                                                FIn FOOTER                                        -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="JS/suscripcion.js" type="module"></script>
+</body>
+</html>

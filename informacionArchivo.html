@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información</title>
+    <link rel="stylesheet" href="css/infoArchivo.css">
+    <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+</head>
+<body>
+    <div class="nav_Main">
+        <nav class="nav_Header">
+
+        </nav>
+        <div class="numeros">
+            <div class="container_Numero">
+                <div class="circulo_Numero1">
+                    <p>1</p>
+                </div>
+                <div class="texto_Numero1">
+                    <p>Subir imagen</p>
+                </div>
+            </div>
+
+            <div class="flecha">
+                <p>></p>
+            </div>
+
+            <div class="container_Numero">
+                <div class="circulo_Numero1">
+                    <p>2</p>
+                </div>
+                <div class="texto_Numero1">
+                    <p>Información</p>
+                </div>
+            </div>
+
+            <div class="flecha">
+                <p>></p>
+            </div>
+
+            <div class="container_Numero">
+                <div class="circulo_Numero">
+                    <p>3</p>
+                </div>
+                <div class="texto_Numero">
+                    <p>Vista previa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_Principal">
+            <div class="conteiner_Info">
+                <p>Titulo de la publicación </p>
+                <div class="container_TituloPubli">
+                    <input placeholder="Texto" required>
+                    <p>Este campo es obligatorio</p>
+                </div>
+                <p>Descripción</p>
+                <div class="container_Descripcion">
+                    <input placeholder="Descripción" required>
+                </div>
+                <div class="cat_Vistas">
+                    <div class="categoria">
+                        <p>Categoría</p>
+                        <form action="#">
+                            <select name="categorias" id="cate">
+                              <option value="ropa">Ropa</option>
+                              <option value="uten">Utencilios</option>
+                              <option value="juguetes">Juguetes</option>
+                              <option value="tec">Tecnología</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="vistas">
+                        <p>¿Quién puede verlo?</p>
+                        <form action="#">
+                            <select name="privacidad" id="cate">
+                              <option value="todos">Todos(Público)</option>
+                              <option value="priv">Privado</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="etiquetas">
+                    <p>Etiquetas</p>
+                    <div class="seleccionar">
+                        <div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="deporte">&nbsp;Colección
+                            </div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="arte">&nbsp;Antiguo
+                            </div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="arte">&nbsp;Nuevo
+                            </div>
+                        </div>
+                        <div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="arte">&nbsp;Usado
+                            </div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="arte">&nbsp;Personalizado
+                            </div>
+                            <div class="etique">
+                                <input type="checkbox" name="intereses" value="arte">&nbsp;Averiado
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container_Botones">
+                    <button class="cancelar" onclick="location.href = 'subirarchivo.html'">Volver</button>
+                    <button>Siguiente</button>
+                </div>
+            </div>
+            <div class="container_Imagen">
+                <div class="borde_Imagen">
+                    <img class= "imagen" src="/Img/truque.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+</body>
+</html>
