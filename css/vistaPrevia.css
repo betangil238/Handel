@@ -582,6 +582,36 @@ button{
         margin-left: 15%;
     }
 
+}
 
+@media  (min-width: 320px) and (max-width: 499px){
+    .vistas_Likes{
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+    
+    .likes{
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .likes > i{
+        width: 10%;
+    }
+    
+    .vistas{
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .vistas > span{
+        width: 15%;
+    }    
 
 }
