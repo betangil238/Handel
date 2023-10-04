@@ -1,0 +1,194 @@
+.containerConfig {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    width: 75%;
+    height: 100vh;
+    background: #000;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.containerElementos{
+    background-color: black;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-bottom: 0;
+
+}
+
+.Alerta{
+    color: #D7AE00;
+}
+h2{
+    color: var(--white);
+    font-family: 'TT rationalist trl';
+    font-weight: normal;
+    margin: 20px 20px 0px 20px;
+}
+
+.containerElementos>p{
+    color: var(--white);
+    margin-left: 20px;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.image-upload-wrap{
+    border: 2px dashed rgba(198, 198, 198, 0.65);
+    height: 200px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: black;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+.image-dropping,
+.image-upload-wrap:hover{
+    background-color: rgb(222, 222, 222, 0.5);
+    border: 2px dashed black;
+    color: #000;
+
+}
+
+.image-upload-wrap > i{
+    color: #fff;
+    opacity: 0.3;
+    font-size: 70px;
+    width: 70px;
+    margin-top: 30px;
+}
+
+
+.image-upload-wrap > p{
+    color: var(--white);
+    font-size: 12px;
+}
+
+
+.file-upload-input {
+    position: absolute;
+    margin-left: -41%;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.texto_Archivo{
+    color: var(--white);
+    font-size: 10px;
+    margin-bottom: 30px;
+}
+
+
+.file-upload-content{
+    display: none;
+    text-align: center;
+}
+
+.image-title-wrap{
+    padding: 0 15px 15px 15px;
+    color: #222;
+}
+
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.remove-image {
+    width: 60%;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    transition: all .2s ease;
+    outline: none;
+    font-weight: 700;
+}
+  
+.remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+  
+.remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+}
+
+.inputsInformacion{
+    background-color: #2a292d;
+    border-radius: 15px 15px 10px 10px;
+    margin: 10px 0px 20px;
+    padding: 20px 10px;
+}
+
+.inputsInformacion>div>label{
+    margin: 10px 10px;
+    color: #ffffff;
+}
+.inputsInformacion >div> input{
+    background-color: #3F3D46;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container_Botones{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    width: 35%;
+    margin: 0px 25px;
+    padding: 15px 0px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancelar{
+    background-color: #000;
+    border: 1px white solid;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 805px) {
+    .containerConfig {
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+    }
+
+    .containerElementos{
+        margin-bottom: 30px;
+    }
+}

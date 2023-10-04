@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes</title>
+    <!-- Icono del title -->
+    <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+    <!-- Link Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Link a CSS -->
+    <link rel="stylesheet" href="css/pgppal.css">
+    <link rel="stylesheet" href="css/ajustes.css">
+    <!-- Referencia a SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Referencia a SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- Prototype y Scriptaculous-->
+    <script src='http://www.google.com/jsapi'/>
+    <script>
+    google.load("prototype","1.6.1.0");
+    google.load("scriptaculous", "1.8.3");
+    </script>
+</head>
+<body>
+    <main>
+        <!--Esta es la columna donde aparecen todos los datos del perfil-->
+        <section class="container1">
+            <!--Container del logo de Handel-->
+            <div class="container1LogoHandel">
+                <img src="Img/LogoCompletoBlanco.png" class="logo">
+            </div>
+            <!--En este div se almacena la columna donde aparecen todos los datos del perfil-->
+            <div class="container1Perfil">
+                <div class="container1DatosPerfil">
+                    <img class="container1imgPerfil">
+                    <h4 class="container1NombrePerfil"><span class="nombreprofile"></span></h4>
+                    <h5><span id="userCode"></span></h5>
+                </div>
+                <!--Este div contiene los datos de ranking del perfil (números de subastas, transacciones y puntuación)-->
+                <div class="container1RankingPerfil">
+                    <div class="containerSubastas">
+                        <p>000</p>
+                        <p>Subastas</p>
+                    </div>
+                    <div class="containerTransacciones">
+                        <p>000</p>
+                        <p>Canjes</p>
+                    </div>
+                    <div class="containerPuntuacion">
+                        <div class="parrafoEstrella">
+                            <p>0.0</p> 
+                            <i class='bx bxs-star'></i><!--ícono de estrella-->
+                        </div>
+                        <p>Puntuación</p>
+                    </div>
+                </div>
+                <div class="container1ColumnaIconosTexto">
+                    <a href="index.html"><div class="redirections" >
+                        <i class='bx bx-home-alt' ></i> 
+                        <p>Inicio</p>
+                    </div></a>
+                    <a><div class="redirections">
+                        <i class='bx bx-sync'><span class="letra">S</span></i>  
+                        <p>Subastas</p>
+                    </div></a>
+                    <a><div class="redirections">
+                        <i class='bx bx-sync'><span class="letra">T</span></i>
+                        <p>Trueques</p>
+                    </div></a>
+                    <a><div class="redirections">
+                        <i class='bx bx-chat'></i>
+                        <p>Mensajes</p>
+                    </div></a>
+                    <a href="pgppal.html"><div class="redirections">
+                        <i class='bx bxs-cog'></i>
+                        <p>Ajustes</p>
+                    </div></a>
+                </div>
+                <div class="container1Linea">
+                    <hr>
+                </div>
+
+                <div class="salir">
+                    <button id="logout"><i class='bx bx-log-out'></i><span class="salir_boton">Salir</span></button>
+                </div>
+            </div>
+        </section>
+        
+        <!--Este section contiene el resto del contenido (columna derecha)-->
+        <section class="containerConfig">
+            <div class="containerElementos">
+                <h2 class="Alerta"> Recuerda que el cambio que realices no tiene reversa</h2>
+                <h2>Subir nueva imagen </h2>
+                <p>Aceptamos jpg, .npg, .raw</p>
+
+                <div class="image-upload-wrap"> 
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <i class='bx bxs-file-blank' ></i>
+                    <p>Subir archivo desde dispositivo</p>
+                    <p class="texto_Archivo">Tamaño máximo 50MB</p>
+                </div> 
+
+                <div class="file-upload-content">
+                    <img class="file-upload-image" src="#" alt="your image" />
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span class="image-title">Uploaded Image</span></button>
+                    </div>
+                </div>
+
+                <div class="inputsInformacion">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" id="name" required>
+                    </div>
+                    <div>
+                        <label>Usuario</label>
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
+                </div>
+
+                <div class="container_Botones">
+                    <button class="cancelar" onclick="location.href = 'pgppal.html'">Cancelar</button>
+                    <button type="button" onclick="location.href = 'pgppal.html'">Guardar cambios</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="JS/pgppal.js"></script>
+</body>
+</html>
