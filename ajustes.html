@@ -73,7 +73,7 @@
                         <i class='bx bx-chat'></i>
                         <p>Mensajes</p>
                     </div></a>
-                    <a href="pgppal.html"><div class="redirections">
+                    <a class="ruedaconfig" href="pgppal.html"><div class="redirections">
                         <i class='bx bxs-cog'></i>
                         <p>Ajustes</p>
                     </div></a>
@@ -116,13 +116,13 @@
                     </div>
                     <div>
                         <label>Usuario</label>
-                        <input type="text" name="usuario" id="usuario" required>
+                        <input type="text" name="usuario" id="usuario" maxlength="7" required>
                     </div>
                 </div>
 
                 <div class="container_Botones">
                     <button class="cancelar" onclick="location.href = 'pgppal.html'">Cancelar</button>
-                    <button type="button" onclick="location.href = 'pgppal.html'">Guardar cambios</button>
+                    <button type="button" id="guardar">Guardar cambios</button>
                 </div>
             </div>
         </section>

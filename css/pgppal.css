@@ -11,7 +11,47 @@
     --gold1: #FFE680;
     --gold2: #D7AE00;
 }
+/* CUADRO DE ALERTA */
+/* Estilo para el contenedor de la alerta APROBADA*/
+.mi-alerta {
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+}
 
+.mi-titulo {
+    color: #333;
+    font-size: 20px;
+}
+
+.mi-contenido {
+    color: #666;
+}
+
+.mi-boton {
+    background-color: #007bff;
+    color: #fff;
+    width: 100px;
+}
+/* Estilo para el contenedor de la alerta RECHAZADA*/
+.mi-alerta-error {
+    background-color: #ffcccc;
+    border: 2px solid #ff0000;
+}
+
+.mi-titulo-error {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+.mi-contenido-error {
+    color: #ff3333;
+}
+
+.mi-boton-error {
+    background-color: #ff0000;
+    color: #fff;
+    width: 100px;
+}
 /*Especificaciones generales*/
 *{
     width: 100%;
