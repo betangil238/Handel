@@ -98,9 +98,14 @@ body {
     margin-left:15%;
     margin-top: 30px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.conteiner_Arriba{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 25px;
 }
 
 .conteiner_Info{
@@ -155,12 +160,13 @@ hr{
     font-size: 13px;
     width: 90%;
     font-weight: bold;
+    text-align: justify;
 }
 
 
 .autor_Propiedades{
     display: flex;
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .autor{
@@ -260,12 +266,27 @@ hr{
     margin-left: -10%;
 }
 
+.boton_Volver{
+    width: 25%;
+    opacity: 0.7;
+    cursor: pointer;
+    margin-top: 35px;
+    background-color: black;
+    color: var(--white);
+    padding: 8px;
+    border: white solid;
+}
 
 
 .container_Botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    width: 100%;
+}
+
+.botones_derecha{
     display: flex;
-    width: 90%;
-    margin-left: 5%;
+    flex-direction: row;
 }
 
 
@@ -311,6 +332,19 @@ button{
 
 }
 
+.volver{
+    background-color: #000;
+    opacity: 0.6;
+    color: var(--white);
+    border: white solid;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px 5px;
+    width: 35%;
+    font-size: 12px;
+}
+
 
 @media  (min-width: 601px) and (max-width: 1000px){
     .numeros{
@@ -330,6 +364,8 @@ button{
         text-align: center;
         font-size: 12px;
     }
+
+
 
     
 
@@ -380,32 +416,17 @@ button{
 
 @media (min-width:800px) and (max-width:950px){
     .container_Botones{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        width: 100%;
+    }
+    
+    .botones_derecha{
         display: flex;
-        flex-direction: column;
-        width: 90%;
-        align-items: center;
-        margin-top: 25%;
-
+        flex-direction: row;
     }
-    .pujar{
-        background-color: var(--white);
-        color: #000;
-        border: none;
-        margin: 0px;
-        padding: 15px 5px;
-        width: 80%;
-        margin-bottom: 20px;
-    }
-    
-    .abandonar{
-        background-color: #000;
-        color: var(--white);
-        border: white solid;
-        margin: 0px;
-        padding: 10px 5px;
-        width: 80%;
-        font-size: 12px;
-    
+    .volver{
+        width: 50%;
     }
     
 }
@@ -421,6 +442,10 @@ button{
         flex-direction: column;
         padding: 25px;
     }
+    .conteiner_Arriba{
+        display: flex;
+        flex-direction: column;
+    }
     .descripcion_Objeto{
         color: var(--white);
         font-size: 13px;
@@ -432,6 +457,10 @@ button{
         display: flex;
         flex-direction: column;
     }
+    .volver{
+        width: 50%;
+    }
+    
 
     
     
@@ -612,6 +641,14 @@ button{
     
     .vistas > span{
         width: 15%;
+    }
+    .container_Botones{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        align-items: center;
     }    
 
 }
+
+
