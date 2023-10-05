@@ -81,7 +81,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 100px;
     /* min-width: 700px; */
 }
 
@@ -99,8 +98,8 @@ body {
 }
 
 .black_Paragraph{
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: justify;
 }
 
@@ -140,10 +139,18 @@ body {
 }
 
 /*ACERCA DE NOSOTROS*/
+.handel_Header{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    align-items: center;
+}
 
 .about_Us {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
+    margin-top: 30px;
 
 }
 
@@ -263,7 +270,7 @@ footer{
     }
 
     .handel_About {
-        padding: 30px 80px 50px 50px;
+        padding: 0px;
         text-align: center;
     }
     .black_Paragraph{
@@ -301,7 +308,7 @@ footer{
 
     /*Texto*/
     .handel_About {
-        padding: 0px 30px 20px 0px;
+        padding: 0px;
         margin: 0;
         text-align: center;
     }
