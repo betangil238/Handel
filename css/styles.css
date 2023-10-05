@@ -108,6 +108,8 @@ body {
 .button_Container{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
 }
 .black_Button {
@@ -196,6 +198,7 @@ body {
 /*¿Por qué Handel*/
 .join_Handel{
     background-image: url(../Img/derecho-justicia-convergen-ia-generativa-mazo-antiguo.jpg);
+    opacity: 0.9;
     background-size: cover;
     height: 450px;
     text-align: center;

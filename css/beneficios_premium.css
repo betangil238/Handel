@@ -34,7 +34,7 @@
 .white_Paragraph_Bene{
     font-family: 'Garant Pro';
     color: white;
-    font-weight: bold;
+    font-weight:normal;
     font-size: 12px;
     width: 60%;
     margin-left: 18%;
@@ -70,7 +70,7 @@
     font-family: 'Garant Pro';
     color: white;
     text-align: justify;
-    font-weight: bold;
+    font-weight:normal;
     font-size: 12px;
 }
 
@@ -157,8 +157,17 @@
     margin-top: 25px;
     font-family: 'Garant Pro';
     font-size: 12px;
-    font-weight: bold;
+    font-weight: normal;
     margin-right: 10px;
+}
+.card_Team_P_White{
+    text-align: justify;
+    margin-top: 25px;
+    font-family: 'Garant Pro';
+    font-size: 12px;
+    font-weight:normal;
+    margin-right: 10px;
+    color: var(--white);
 }
 
 .yellow_Title_Name{
