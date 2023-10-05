@@ -28,11 +28,13 @@ signupForm.addEventListener('submit', (e) => {
     const password = document.querySelector('#password').value
     if(validarpassword() && validarUsuario() && validarCorreo() ){
         const Users = JSON.parse(localStorage.getItem('users')) || []
+        const Configuracion = JSON.parse(localStorage.getItem('configuracion')) || []
         // Aquí especificamos que nos agregue los datos a la lista
         Users.push({name: name, email: email, password: password})
-
+        Configuracion.push({name: name, name2:"",email: email,reset:0,usuario:cadena(),usuario1:""})
         // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
         localStorage.setItem('users', JSON.stringify(Users))
+        localStorage.setItem('configuracion', JSON.stringify(Configuracion))
 
         // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
         // alert('Registro Exitoso!')
@@ -45,6 +47,18 @@ signupForm.addEventListener('submit', (e) => {
         }, 2500);
     }
 })
+// Funcion que genera un usuario aleatorio
+function cadena() {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let cadenaAleatoria = '@';
+  
+    for (let i = 0; i < 7; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+      cadenaAleatoria += caracteres.charAt(indiceAleatorio);
+    }
+  
+    return cadenaAleatoria;
+  }
 
 // VERIFICACION CONTRASEÑAS REGISTRO EN HANDEL
 function validarpassword(){

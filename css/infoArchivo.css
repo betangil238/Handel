@@ -16,18 +16,12 @@
     padding: 0;
     box-sizing: border-box;
 
-
 }
 
 body {
     font-family: 'Garant pro';
     background-color: #000;
-
-}
-
-.nav_Header {
-    width: 100%;
-    height: 30px;
+    display: flex;
 
 }
 
@@ -45,6 +39,7 @@ body {
     align-content: center;
     justify-content: center;
     margin-left: 30%;
+    margin-top: 100px;
 
 }
 
@@ -240,11 +235,33 @@ button{
     border-radius: 10px;
 }
 
-footer{
-    height: 50px;
+.elegir_True_Sub{
+    display: flex;
+    padding: 10%;
+    color: var(--white);
+    justify-content: center;
+    font-size: 14px;
 }
 
 
+.elegir_Trueque{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.elegir_Trueque > input{
+    width: 16px;
+}
+
+.elegir_Subasta{
+    display: flex;
+    justify-content: center;
+}
+
+.elegir_Subasta > input{
+    width: 16px;
+}
 
 
 
@@ -305,9 +322,8 @@ footer{
         display: flex;
         flex-wrap: wrap-reverse;
         padding: 30px;
+        margin-bottom: 40px;
     }
-
-
 
     .conteiner_Info{
         display: flex;
@@ -329,12 +345,10 @@ footer{
     }
 
 
-
     .borde_Imagen{
         width: 40%;
         margin-left: 30%;
-        margin-bottom: 20px;
-        
+        margin-bottom: 0px;        
     }
     
     .imagen{
@@ -350,6 +364,126 @@ footer{
         padding: 10px 0px;
         font-size: 13px;
     }
-    
+    .elegir_True_Sub{
+        display: flex;
+        flex-direction: row;
+        padding: 5%;
+        color: var(--white);
+        justify-content: center;
+        font-size: 14px;
+        align-items: center;
+    }
 
+    form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .elegir_Trueque{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    
+    .elegir_Trueque > input{
+        width: 16px;
+    }
+    
+    .elegir_Subasta{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .elegir_Subasta > input{
+        width: 16px;
+    }
+
+
+}
+
+/*Diseño responsive*/
+
+@media  (min-width: 350px) and (max-width: 1255px){
+    .navBar{
+        align-items: center;
+        height: 80px;
+    }
+    .linksNavBar{
+        display: none;
+    }
+    .menuButton{
+        display: flex;
+        width: 25%;
+        background-color: var(--black);
+        height: 40px;
+        margin-left: 25px;
+    }
+    .burguerMenu{
+        visibility: visible;
+        color: var(--white);
+        width: 50px;
+        border-width: 1.5px;
+        border-radius: 9px;
+        text-align: center;
+    }
+    .burguerMenu:hover{
+        background-color: var(--gold2);
+    }
+    .burguerMenu:active{
+        background-color: var(--gold1);
+    }
+    .burguerMenu i{
+        text-align: center;
+        font-size: 35px;
+    }
+    
+    .logosNav{
+        width: 25%;
+    }
+    .logoNavBar2 img{
+        width: 30px;
+        align-items: center;
+        display: flex;
+    }
+
+    .logoNavBar img{
+        display: none;
+    }
+    .navBarIcons{
+        width: 25%;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .navBarIcons a{
+        padding: 0px 5px;
+        margin-bottom: 25px;
+    }
+    .profileConfig{
+        width: 25%;
+        padding-left: 0px;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+    .profileConfig:hover .profileList {
+        display: block;
+        background-color: rgb(46, 46, 46);
+        width: 150px;
+        text-align:left;
+        position: fixed;
+        right: 100px;
+        z-index: 50;
+    }
+
+    .menuButton:hover .linksNavBar{
+        display: block;
+        background-color: rgb(46, 46, 46);
+        z-index: 50;
+        text-align:left;
+        position: fixed;
+
+
+    }
 }

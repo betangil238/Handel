@@ -98,8 +98,8 @@ body {
 }
 
 .black_Paragraph{
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: justify;
 }
 
@@ -107,6 +107,8 @@ body {
 .button_Container{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
 }
 .black_Button {
@@ -137,10 +139,19 @@ body {
 }
 
 /*ACERCA DE NOSOTROS*/
+.handel_Header{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    align-items: center;
+}
 
 .about_Us {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
+    margin-top: 30px;
+
 }
 
 .side_Container{
@@ -194,6 +205,7 @@ body {
 /*¿Por qué Handel*/
 .join_Handel{
     background-image: url(../Img/derecho-justicia-convergen-ia-generativa-mazo-antiguo.jpg);
+    opacity: 0.9;
     background-size: cover;
     height: 450px;
     text-align: center;
@@ -235,6 +247,11 @@ footer{
         width: 80%;
         padding: 0;
     }
+    .handel_Header {
+
+        margin-top: 0;
+        /* min-width: 700px; */
+    }
 }
 
 @media (max-width: 700px) {
@@ -253,7 +270,7 @@ footer{
     }
 
     .handel_About {
-        padding: 30px 80px 50px 50px;
+        padding: 0px;
         text-align: center;
     }
     .black_Paragraph{
@@ -291,7 +308,7 @@ footer{
 
     /*Texto*/
     .handel_About {
-        padding: 0px 30px 20px 0px;
+        padding: 0px;
         margin: 0;
         text-align: center;
     }

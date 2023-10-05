@@ -33,9 +33,9 @@
             <!--En este div se almacena la columna donde aparecen todos los datos del perfil-->
             <div class="container1Perfil">
                 <div class="container1DatosPerfil">
-                    <img src="Img/imgPpPpal/usuario.png" class="container1imgPerfil">
-                    <h4 class="container1NombrePerfil"><span class="nombreprofile">Nombre del Perfil</span></h4>
-                    <h5>@<span>usuario</span></h5>
+                    <img class="container1imgPerfil">
+                    <h4 class="container1NombrePerfil"><span class="nombreprofile"></span></h4>
+                    <h5><span id="userCode"></span></h5>
                 </div>
                 <!--Este div contiene los datos de ranking del perfil (números de subastas, transacciones y puntuación)-->
                 <div class="container1RankingPerfil">
@@ -61,7 +61,7 @@
                         <i class='bx bx-home-alt' ></i> 
                         <p>Inicio</p>
                     </div></a>
-                    <a><div class="redirections">
+                    <a id="ruedaconfig"><div class="redirections">
                         <i class='bx bx-sync'><span class="letra">S</span></i>  
                         <p>Subastas</p>
                     </div></a>
@@ -73,7 +73,7 @@
                         <i class='bx bx-chat'></i>
                         <p>Mensajes</p>
                     </div></a>
-                    <a><div class="redirections">
+                    <a class="ruedaconfig"><div class="redirections">
                         <i class='bx bxs-cog'></i>
                         <p>Ajustes</p>
                     </div></a>
@@ -99,7 +99,7 @@
                 <div class="navBarra_iconos">
                     <a class="iconosNavBarra"><i class='bx bx-bell'></i></a>
                     <a class="iconosNavBarra" href="suscripcion.html"><i class='bx bx-store-alt'></i></a>
-                    <button id="public" onclick="location.href='subirarchivo.html'""><i class='bx bx-plus-circle'></i>Publicar</button>
+                    <button id="public" onclick="location.href='subirarchivo.html'"><i class='bx bx-plus-circle'></i>Publicar</button>
                 </div>
             </div>
 
@@ -269,9 +269,7 @@
                     <div class="truequeCards">
                         <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
                         <div class="truequeCardInfo">
-                            
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
+                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
                             <div class="cardsTruequeName">
                                 <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
                             </div>
@@ -283,6 +281,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="truequeCards">
+                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                        <div class="truequeCardInfo">
+                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
+                            <div class="cardsTruequeName">
+                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                            </div>
+                            <div class="truequeCardsIconNum">
+                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+                            </div>
+                            <div class="truequeCardsIconNum">
+                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             
