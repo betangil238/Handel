@@ -100,12 +100,12 @@
             <div class="conteiner_Info">
                 <p>Titulo de la publicación </p>
                 <div class="container_TituloPubli">
-                    <input placeholder="Texto" required>
+                    <input placeholder="Texto" id="titulo" required>
                     <p>Este campo es obligatorio</p>
                 </div>
                 <p>Descripción</p>
                 <div class="container_Descripcion">
-                    <input placeholder="Descripción" required>
+                    <input placeholder="Descripción"  id="descripcion" required>
                 </div>
                 <div class="cat_Vistas">
                     <div class="categoria">
@@ -113,9 +113,19 @@
                         <form action="#">
                             <select name="categorias" id="cate">
                               <option value="ropa">Ropa</option>
-                              <option value="uten">Utencilios</option>
+                              <option value="utensilios">Utensilios</option>
                               <option value="juguetes">Juguetes</option>
-                              <option value="tec">Tecnología</option>
+                              <option value="tecnologia">Tecnología</option>
+                              <option value="vehiculo">Vehículos</option>
+                              <option value="deportes">Deportes</option>
+                              <option value="electrodomesticos">Electrodomésticos</option>
+                              <option value="belleza">Belleza</option>
+                              <option value="papeleria">Papelería</option>
+                              <option value="bebes">Bebes</option>
+                              <option value="moda">Moda</option>
+                              <option value="videojuegos">Videojuegos</option>
+                              <option value="hogar">Hogar</option>
+                              <option value="otros">Otros</option>
                             </select>
                         </form>
                     </div>
@@ -159,7 +169,7 @@
                 </div>
                 <div class="container_Botones">
                     <button class="cancelar" onclick="location.href = 'subirarchivo.html'">Volver</button>
-                    <button onclick="location.href = 'vistaPrevia.html'">Siguiente</button>
+                    <button id="siguiente">Siguiente</button>
                 </div>
             </div>
             <div class="container_Imagen">
@@ -169,7 +179,7 @@
                 <div class="elegir_True_Sub">
                     <form action="#">
                         <div class="elegir_Trueque">
-                            <input type="radio" name="elegir" value="trueque">Trueque
+                            <input type="radio" name="elegir" value="trueque" checked>Trueque
                         </div>
                         <div class="elegir_Subasta">
                             <input type="radio" name="elegir" value="subasta">Subasta
@@ -180,5 +190,6 @@
         </div>
     </div>
     <script src="JS/salir.js"></script>
+    <script src="JS/infoArchivo.js"></script>
 </body>
 </html>
