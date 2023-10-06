@@ -1,0 +1,147 @@
+/*Paleta de colores*/
+:root{
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+
+/*Especificaciones Main*/
+.bigContainer { 
+    display: flex;
+    color: var(--white);
+}
+
+/*Especificaciones Container 1 - izquierda*/
+.container1 {
+    width:35%;
+    padding: 30px;
+    padding-top: 100px;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Garant Pro';
+}
+
+/*Especificaciones del título Mensajes*/
+.titleMensajes {
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+/*Especificaciones para la barra de búsqueda*/
+.barraDeBusqueda input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #1E1E1E;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Garant Pro';
+}
+
+/*Especificaciones container Reciente (título, imagen, nombre de usuario)*/
+.containerReciente {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*Especificaciones título Reciente*/
+.containerReciente h3 {
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+/*Especificaciones contenedor imagen y nombre de perfil en Reciente*/
+.imgNameReciente {
+    width: 30%;
+    text-align: center;
+}
+
+/*Especificaciones imagen de perfil en Reciente*/
+.imgNameReciente img {
+    width: 50%;
+    border-radius: 50px;
+}
+
+/*Especificaciones nombre de usuario en Reciente*/
+.imgNameReciente p {
+   font-size: 14px;
+   margin: 0;
+   padding: 0;
+}
+
+/*Especificaciones título Conversaciones*/
+.titleConversaciones { 
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+/*Especificaciones contenedor chat Individual ---- ESTE ES EL QUE GENERA ERROR*/
+.chatIndividual {
+    display: grid;
+    grid-template-columns: 15% 80% 10%
+}
+
+/*Especificaciones imagen chat Individual*/
+.chatIndividual img {
+    width: 90%;
+    border-radius: 30px;
+}
+
+/*Especificaciones contenedor nombre de usuario y mensaje recibido en chat Individual*/
+.chatUserNameMessage {
+    padding-left: 10px;
+}
+
+/*Especificaciones nombre de usuario en chat Individual*/
+.chatIndividual h4 {
+    font-size: 15px;
+}
+
+/*Especificaciones mensaje recibido en chat Individual*/
+.chatIndividual p {
+    font-size: 11px;
+}
+
+/*Especificaciones contenedor información del chat individual*/
+.chatInfoChatIndividual {
+    vertical-align: bottom;
+}
+
+/*Especificaciones información del chat individual (hora recibido)*/
+.chatInfoChatIndividual p {
+    font-size: 10px;
+    vertical-align: bottom;
+}
+
+/*Especificaciones Container 2 - derecha*/
+.container2 {
+    width:65%;
+    background: linear-gradient(145deg, #524302 0%, #000 60%);
+    padding-left: 35%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Especificaciones Container 2 - derecha*/
+.container2 {
+    width:65%;
+    background: linear-gradient(145deg, #524302 0%, #000 60%);
+    padding-left: 35%;
+}
