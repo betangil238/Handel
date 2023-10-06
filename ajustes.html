@@ -17,11 +17,12 @@
     <!-- Referencia a SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <!-- Prototype y Scriptaculous-->
-    <script src='http://www.google.com/jsapi'/>
+    <script src='http://www.google.com/jsapi'></script>
     <script>
     google.load("prototype","1.6.1.0");
     google.load("scriptaculous", "1.8.3");
     </script>
+    <script src="JS/ajustes.js"></script>
 </head>
 <body>
     <main>
@@ -88,7 +89,7 @@
             </div>
         </section>
         
-        <!--Este section contiene el resto del contenido (columna derecha)-->
+       
         <section class="containerConfig">
             <div class="containerElementos">
                 <h2 class="Alerta"> Recuerda que el cambio que realices no tiene reversa</h2>
@@ -96,7 +97,7 @@
                 <p>Aceptamos jpg, .npg, .raw</p>
 
                 <div class="image-upload-wrap"> 
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*">
                     <i class='bx bxs-file-blank' ></i>
                     <p>Subir archivo desde dispositivo</p>
                     <p class="texto_Archivo">Tamaño máximo 50MB</p>

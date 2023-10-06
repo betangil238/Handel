@@ -287,28 +287,6 @@ hr{
     margin-left: -10%;
 }
 
-.boton_Volver{
-    width: 25%;
-    opacity: 0.7;
-    cursor: pointer;
-    margin-top: 35px;
-    background-color: black;
-    color: var(--white);
-    padding: 8px;
-    border: white solid;
-}
-
-
-.container_Botones{
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
-    width: 100%;
-}
-
-.botones_derecha{
-    display: flex;
-    flex-direction: row;
-}
 
 
 .borde_Imagen{
@@ -323,6 +301,11 @@ hr{
     border-radius: 10px;
 }
 
+.botones_derecha{
+    display: flex;
+    flex-direction: row;
+}
+
 button{
     border-radius: 10px;
     cursor: pointer;
@@ -335,9 +318,10 @@ button{
     border: none;
     margin-top: 30px;
     margin-bottom: 10px;
-    margin-right: 10px;
-    padding: 15px 5px;
-    width: 80%;
+    margin-left: 10px;
+    padding: 10px 5px;
+    width: 50%;
+    margin-left: 10%;
 }
 
 .abandonar{
@@ -346,23 +330,71 @@ button{
     border: white solid;
     margin-top: 30px;
     margin-bottom: 10px;
-    margin-left: 10px;
     padding: 10px 5px;
-    width: 80%;
     font-size: 12px;
+    width: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+    opacity: 0.7;
+}
+
+
+.footer{
+    background-color: #2A2831;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 
 }
 
+.footer_Textos{
+    margin: 10px 10px 10px 25px ;
+}
+
+.footer_Textos > h4{
+    font-family: 'TT rationalist trl';
+    font-weight: normal;
+    color: var(--white);
+    font-size: 18px;
+}
+
+.footer_Textos > p{
+    color: var(--white);
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.footer_Botones{
+    display: flex;
+    align-items: center;
+    margin: 10px 25px 10px 10px;
+}
+
+.footer_Botones > button{
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0px ;
+    width: 30%;
+    height: 80%;
+}
+
 .volver{
-    background-color: #000;
-    opacity: 0.6;
+    background-color:  #2A2831;
     color: var(--white);
     border: white solid;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    padding: 10px 5px;
-    width: 35%;
+    font-size: 12px;
+    margin-right: 5%;
+    margin-left: 35%;
+}
+
+.publicar{
+    background-color: var(--white);
+    color: black;
+    border: none;
     font-size: 12px;
 }
 
@@ -436,12 +468,7 @@ button{
 
 
 @media (min-width:800px) and (max-width:950px){
-    .container_Botones{
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-        width: 100%;
-    }
-    
+ 
     .botones_derecha{
         display: flex;
         flex-direction: row;
@@ -558,6 +585,39 @@ button{
     }
 
 
+    
+    .footer_Botones{
+        display: flex;
+        align-items: center;
+        margin: 10px 25px 10px 10px;
+    }
+    
+    .footer_Botones > button{
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0px ;
+        width: 50%;
+        height: 60%;
+    }
+    
+    .volver{
+        background-color:  #2A2831;
+        color: var(--white);
+        border: white solid;
+        font-size: 12px;
+        margin-right: 0%;
+        margin-left: 5%;
+    }
+    
+    .publicar{
+        background-color: var(--white);
+        color: black;
+        border: none;
+        font-size: 12px;
+        margin-left: 10%;
+    }
+
+
 
 }
 
@@ -632,6 +692,71 @@ button{
         margin-left: 15%;
     }
 
+    .footer{
+        background-color: #2A2831;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin-left: 15%;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    
+    }
+    
+    .footer_Textos{
+        margin: 10px ;
+        width: 90%;
+    }
+    
+    .footer_Textos > h4{
+        font-family: 'TT rationalist trl';
+        font-weight: normal;
+        color: var(--white);
+        font-size: 15px;
+    }
+    
+    .footer_Textos > p{
+        color: var(--white);
+        font-size: 10px;
+        opacity: 0.5;
+    }
+
+
+    .footer_Botones{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .footer_Botones > button{
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0px ;
+        width: 40%;
+        height: 35px;
+    }
+    
+    .volver{
+        background-color:  #2A2831;
+        color: var(--white);
+        border: white solid;
+        font-size: 12px;
+        margin-right: 10%;
+        margin-left: 0%;
+    }
+    
+    .publicar{
+        background-color: var(--white);
+        color: black;
+        border: none;
+        font-size: 12px;
+        margin-left: 0%;
+        margin-bottom: 0px;
+    }
+
+
 }
 
 @media  (min-width: 320px) and (max-width: 499px){
@@ -663,13 +788,29 @@ button{
     .vistas > span{
         width: 15%;
     }
-    .container_Botones{
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        align-items: center;
-    }    
 
+    .botones_derecha{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pujar{
+        margin: 20px 0px;
+        padding: 10px 5px;
+        width: 50%;
+    }
+    
+    .abandonar{
+        margin: 0;
+        padding: 10px 5px;
+        font-size: 12px;
+        width: 50%;
+        opacity: 0.7;
+    }
+
+ 
+    
 }
 
 

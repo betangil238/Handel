@@ -104,6 +104,7 @@ h2{
 .file-upload-image {
     max-height: 200px;
     max-width: 200px;
+    object-fit: contain;
     margin: auto;
     padding: 20px;
 }
