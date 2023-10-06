@@ -16,6 +16,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Garant pro';
     /* background: #000000; */
 }
 /* CUADRO DE ALERTA */
@@ -65,6 +66,7 @@
 .body {
     font-family: 'Garant Pro';
     display: flex;
+    background: #000;
 }
 
 /*Especificaciones para el container main que encierra todo el contenido*/
@@ -72,7 +74,7 @@
 .Cuerpo{
     display: flex;
     background-color: #000000; 
-    height: 100vh;
+    height: 100%;
 }
 .Cuerpo_editable{
     margin-top: 100px;
@@ -175,12 +177,35 @@ button{
     width: 80%;
     height: 170px;
 }
+i{
+    width: 25px;
+    margin-right: 5px;
+  }
+.material-symbols-outlined{
+    width: 30px;
+}
+
+.NombreUsuario{
+    font-size: 25px;
+    font-family: 'TT rationalist trl';
+}
+.CantidadLikes{
+    width: 45px;
+}
+
+.CantidadVistas{
+    margin-right: 10px;
+    width: 40px;
+
+}
 
 .contenedor{
     display: flex;
     flex-direction: row;
-    margin: 2px solid var(--white);
+    border: 1px solid rgba(128, 128, 128, 0.474);
     padding: 10px 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 .imagenContainer{
     width: 25%;
@@ -189,7 +214,6 @@ button{
     margin-left: 10%;
     width: 90%;
     border-radius: 20px;
-    
 }
 .infoProducto{
     color: #ECECEC;
@@ -216,6 +240,8 @@ button{
     display: flex;
     flex-direction: row;
 }
+
+
 
 .infoGral{
     display: flex;
