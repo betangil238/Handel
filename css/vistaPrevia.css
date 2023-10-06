@@ -585,6 +585,39 @@ button{
     }
 
 
+    
+    .footer_Botones{
+        display: flex;
+        align-items: center;
+        margin: 10px 25px 10px 10px;
+    }
+    
+    .footer_Botones > button{
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0px ;
+        width: 50%;
+        height: 60%;
+    }
+    
+    .volver{
+        background-color:  #2A2831;
+        color: var(--white);
+        border: white solid;
+        font-size: 12px;
+        margin-right: 0%;
+        margin-left: 5%;
+    }
+    
+    .publicar{
+        background-color: var(--white);
+        color: black;
+        border: none;
+        font-size: 12px;
+        margin-left: 10%;
+    }
+
+
 
 }
 
@@ -658,6 +691,71 @@ button{
         width: 70%;
         margin-left: 15%;
     }
+
+    .footer{
+        background-color: #2A2831;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        margin-left: 15%;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    
+    }
+    
+    .footer_Textos{
+        margin: 10px ;
+        width: 90%;
+    }
+    
+    .footer_Textos > h4{
+        font-family: 'TT rationalist trl';
+        font-weight: normal;
+        color: var(--white);
+        font-size: 15px;
+    }
+    
+    .footer_Textos > p{
+        color: var(--white);
+        font-size: 10px;
+        opacity: 0.5;
+    }
+
+
+    .footer_Botones{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+    }
+
+    .footer_Botones > button{
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0px ;
+        width: 40%;
+        height: 35px;
+    }
+    
+    .volver{
+        background-color:  #2A2831;
+        color: var(--white);
+        border: white solid;
+        font-size: 12px;
+        margin-right: 10%;
+        margin-left: 0%;
+    }
+    
+    .publicar{
+        background-color: var(--white);
+        color: black;
+        border: none;
+        font-size: 12px;
+        margin-left: 0%;
+        margin-bottom: 0px;
+    }
+
 
 }
 
