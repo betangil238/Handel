@@ -58,7 +58,7 @@
         </div>
 </nav>
 <!--/.Navbar -->
-<div class="nav_Main">
+    <div class="nav_Main">
         <div class="numeros">
             <div class="container_Numero">
                 <div class="circulo_Numero1">
@@ -145,16 +145,26 @@
                     <div class="borde_Imagen">
                         <img class= "imagen" src="Img/truque.png">
                     </div>
+                    <div class="botones_derecha">
+                        <button class="pujar" onclick="location.href = 'subastas.html'">Pujar</button>
+                        <button class="abandonar" onclick="location.href = 'pgppal.html'">Abandonar subasta</button>
+                    </div>
                 </div>
             </div>
-            <div class="container_Botones">
+
+        </div>
+
+        <div class="footer">
+            <div class="footer_Textos">
+                <h4>Por favor verificalo antes de publicar</h4>
+                <p>Estas a un click de realizar tu sueño</p>
+            </div>
+            <div class="footer_Botones">
                 <button class="volver" onclick="location.href = 'informacionArchivo.html'">Volver</button>
-                <div class="botones_derecha">
-                    <button class="pujar" onclick="location.href = 'subastas.html'">Pujar</button>
-                    <button class="abandonar" onclick="location.href = 'pgppal.html'">Abandonar subasta</button>
-                </div>
+                <button class="publicar" type="button" onclick="validar()">Publicar</button>
             </div>
         </div>
+
     </div>
     <script src="JS/vistaPrevia.js"></script>
     <script src="JS/salir.js"></script>
