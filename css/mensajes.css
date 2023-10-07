@@ -21,6 +21,7 @@
 /*Especificaciones Container 1 - izquierda*/
 .container1 {
     width:35%;
+    height: 100vh;
     padding: 30px;
     padding-top: 100px;
     background: var(--black);
@@ -119,7 +120,19 @@
 
 /*Especificaciones contenedor información del chat individual*/
 .chatInfoChatIndividual {
-    vertical-align: bottom;
+    text-align: center;
+}
+
+/*Especificaciones indicador número de mensajes recibidos sin leer de chat individual*/
+.numberMessages {
+    text-align: center;
+    font-weight: 800;
+    width: 15px;
+    color: var(--black);
+    background: var(--gold2);
+    border-radius: 50px;
+    margin: 5px;
+    margin-left: 10px;
 }
 
 /*Especificaciones información del chat individual (hora recibido)*/
@@ -135,19 +148,87 @@
     padding-left: 35%;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*Especificaciones Container 2 - derecha*/
 .container2 {
     width:65%;
     background: linear-gradient(145deg, #524302 0%, #000 60%);
     padding-left: 35%;
+}
+
+@media (min-width: 320px) and (max-width: 500px) {
+    .container1 {
+        width: 100%;
+    }
+
+    .titleMensajes {
+        font-size: 15px;
+    }
+
+    .containerReciente h3 {
+        font-size: 15px;
+    }
+
+    .imgNameReciente img {
+        width: 40%;
+    }
+
+    .imgNameReciente p {
+        font-size: 10px;
+     }
+
+     .titleConversaciones { 
+        font-size: 15px;
+    }
+
+    .chatIndividual img {
+        width: 80%;
+    }
+
+    .chatUserNameMessage {
+        padding-left: 0px;
+    }
+
+    .chatIndividual h4 {
+        font-size: 13px;
+    }
+
+
+    /*Quitar visualización container 2*/
+    .container2 {
+        display: none;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+    .titleMensajes {
+        font-size: 17px;
+    }
+
+    .containerReciente h3 {
+        font-size: 17px;
+    }
+
+    .imgNameReciente img {
+        width: 70%;
+    }
+
+    .imgNameReciente p {
+        font-size: 10px;
+     }
+
+     .titleConversaciones { 
+        font-size: 17px;
+    }
+
+    .chatIndividual img {
+        width: 100%;
+    }
+
+    .chatIndividual h4 {
+        font-size: 12px;
+    }
+
+    .chatIndividual p {
+        font-size: 9px;
+    }
 }
