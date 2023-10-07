@@ -59,6 +59,7 @@
     padding: 0px 50px;
     display: flex;
     flex-direction: row;
+    list-style: none;
 }
 .navBarIcons{
     display: flex;
