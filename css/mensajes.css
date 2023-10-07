@@ -21,6 +21,7 @@
     background: var(--black);
     color: var(--white);
     font-family: 'Garant Pro';
+    height: 100vh;
 }
 
 /*Especificaciones del título Mensajes*/
@@ -87,7 +88,7 @@
 /*Especificaciones contenedor chat Individual ---- ESTE ES EL QUE GENERA ERROR*/
 .chatIndividual {
     display: grid;
-    grid-template-columns: 15% 80% 10%
+    grid-template-columns: 1fr 8fr 1fr;
 }
 
 /*Especificaciones imagen chat Individual*/

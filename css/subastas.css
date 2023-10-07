@@ -104,6 +104,9 @@
     border-bottom: 2px solid rgb(248, 248, 248);
     width: 50%;
 }
+#activas::before{
+    content: "Publicaciones Activas";
+}
 #sugeridas{
     color: grey;
     background-color: #000;
@@ -141,6 +144,7 @@
     border-left: 1px solid #a1a1a1;
     width: 25%;
 }
+
 .publicaciones1>button>box-icon{
     width: 40px ;
     margin: 0;
@@ -168,6 +172,9 @@ width: 37.5%;
 .publicaciones3>button{
     height: 30px;
 }
+#crear::before{
+    content: "+ Crear";
+}
 button{
     cursor: pointer;
 }
@@ -175,7 +182,7 @@ button{
 .ContenidoSubastas{
     margin-top: 30px;
     width: 80%;
-    height: 170px;
+    height: 100%;
 }
 i{
     width: 25px;
@@ -241,8 +248,6 @@ i{
     flex-direction: row;
 }
 
-
-
 .infoGral{
     display: flex;
     flex-direction: row;
@@ -277,7 +282,117 @@ i{
     background-color: #333;
     border: 0;
     border-radius: 20px;
-    width: 60%;
-    height: 25px;
+    width: 80%;
+    height: 35px;
 }
 
+/* MEDIA QUERY PARA LA BARRA DE FILTROS */
+@media  (min-width: 350px) and (max-width: 1080px){
+    #activas{
+        width: 50%;
+    }
+    #activas::before{
+        content: "Publicaciones Activas";
+    }
+    #sugeridas{
+        width: 50%;
+        margin-right:0% ;
+    }
+    #activas::before {
+        content: "Activas";
+    }
+    .btnFiltro{
+        color: transparent;
+        font-size: 0;
+    } 
+}
+
+@media  (min-width: 350px) and (max-width: 649px){
+    #crear::before{
+        content: "+";
+    }
+}
+
+@media  (min-width: 350px) and (max-width: 550px){
+    #sugeridas{
+        display: none;
+    }
+    .publicaciones1>input{
+        padding: 0;
+    }
+}
+
+/* MEDIA QUERY PARA LAS TARJETAS */
+@media  (min-width: 630px) and (max-width: 700px){
+    .contenedor{
+        font-size: 12PX;
+    }
+    i{
+        display: none;
+        font-size: 0;
+    }
+    .bx-heart{
+        display: none;
+    }
+    .parrafoLikes{
+        height: 24px;
+    }
+    .material-symbols-outlined{
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media  (min-width: 350px) and (max-width: 700px){
+    .contenedor{
+        font-size: 12PX;
+    }
+  
+    .bx-heart{
+        display: none;
+    }
+    .parrafoLikes{
+        height: 24px;
+    }
+    .material-symbols-outlined{
+        display: none;
+        visibility: hidden;
+    }
+    .participar{
+        width: 90px;
+    }
+}
+@media  (min-width: 350px) and (max-width: 630px){
+
+    .parrafoVistas{
+        display: none;
+    }
+    .contenido{
+        margin-left: 5px;
+    }
+
+    .parrafoLikes{
+        display: none;
+    }
+    .contenedor{
+        flex-direction: column;
+        align-items: center;
+    }
+    .infoGral{
+        align-items: center;
+        flex-direction: column;
+    }
+    .btnParticipar{
+        width: 300px;
+    }
+    .participar{
+        margin-top: 10px;
+        border-radius: 5px;
+        width: 100px;
+    }
+    .NombreUsuario{
+        text-align: center;
+    }
+
+
+}
