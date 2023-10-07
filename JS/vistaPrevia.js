@@ -45,3 +45,31 @@ inputPrecio.addEventListener("input", function() {
   });
 
   //FALTA IMPLEMENTAR QUE LOS INPUTS NO ESTEN VACIOS
+
+  const publicar = document.querySelector(".publicar");
+  publicar.addEventListener("click", function(){
+    if(inputPrecio.value=="" && inputIncremento.value=="" ){
+        mostrarAlertaRechazo("Llene ambos campos")
+    }else if(inputPrecio.value==""){
+        mostrarAlertaRechazo("Llene el campo de precio")
+    }else if(inputIncremento.value==""){
+        mostrarAlertaRechazo("Llene el campo de incremento")
+    }else{
+        window.location.href="subastas.html"
+    }
+  })
+
+  function mostrarAlertaRechazo(text) {
+    Swal.fire({
+        title: 'Error',
+        text: `${text}`,
+        icon: 'error',
+        confirmButtonText: 'Cerrar',
+        customClass: {
+            container: 'mi-alerta-error',
+            title: 'mi-titulo-error',
+            content: 'mi-contenido-error',
+            confirmButton: 'mi-boton-error'
+        }
+    });
+}
