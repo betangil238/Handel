@@ -10,7 +10,7 @@ siguiente.addEventListener("click",function(){
         mostrarAlertaRechazo("Diligencie el campo de descripcion");
     }
     else{
-        window.location.href= 'vistaPrevia.html';
+        window.location.href= 'vistaprevia.html';
     }
 })
 
@@ -28,3 +28,5 @@ function mostrarAlertaRechazo(mensaje) {
         }
     });
 }
+
+

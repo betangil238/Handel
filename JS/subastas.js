@@ -1,6 +1,3 @@
-// import  productos from "./productosJSON.js";
-// console.log(productos);
-
 const productos=[{imagen:"Img/subastas/1.png",id:"965458",likes:"320",vistas:"4220",categoria:"Autos",visibilidad:"publico",etiquetas:"autos,mecanica,taller"},
 {imagen:"Img/subastas/2.png",id:"961581",likes:"824",vistas:"1220",categoria:"Mascotas",visibilidad:"privado",etiquetas:"cachorros,comida,juguetes"},
 {imagen:"Img/subastas/3.png",id:"845214",likes:"201",vistas:"5842",categoria:"Sonido",visibilidad:"publico",etiquetas:"musica,reggaeton,Dj"},
@@ -10,14 +7,31 @@ const productos=[{imagen:"Img/subastas/1.png",id:"965458",likes:"320",vistas:"42
 {imagen:"Img/subastas/7.png",id:"124",likes:"23",vistas:"546",categoria:"Juguetes",visibilidad:"publico",etiquetas:"nuevo, personalizado"},
 {imagen:"Img/subastas/8.png",id:"125",likes:"77",vistas:"323",categoria:"Ropa",visibilidad:"publico",etiquetas:""},
 {imagen:"Img/subastas/9.png",id:"126",likes:"88",vistas:"325",categoria:"Bebes",visibilidad:"publico",etiquetas:"usado"},
-{imagen:"Img/subastas/12.png",id:"126",likes:"88",vistas:"325",categoria:"Bebes",visibilidad:"publico",etiquetas:"usado"}
+{imagen:"Img/subastas/10.png",id:"126",likes:"88",vistas:"325",categoria:"Bebes",visibilidad:"publico",etiquetas:"usado"}
 ]
+const categoria=["Ropa","Utensilios","Juguetes","Tecnología","Vehículos","Deportes","Electrodomésticos","Belleza","Papelería","Bebes","Moda","Videojuegos","Hogar","Otros"]
 
 const empaquetador=document.querySelector(".ContenidoSubastas");
 const tarjeta = document.querySelector(".contenedor");
 
+function epocaIndustrial(){
+    for(let i=0;i<20;i++){
+    const producto= {};
+    const posicion=Math.floor((Math.random()*categoria.length));
+    const categoria1= `${categoria[posicion]}`;
+    console.log(categoria1);
+    producto.imagen=`Img/subastas/${Math.floor((Math.random()*11)+1)}.png`
+    producto.id=`Sub#${Math.floor((Math.random()*9000))}`;
+    producto.likes=Math.floor((Math.random()*999)+1);
+    producto.vistas=Math.floor((Math.random()*9999)+1);
+    producto.categoria=categoria1;
+    producto.visibilidad="publico";
+    producto.etiquetas="musica,reggaeton,Dj";
+    productos.push(producto); 
+    }
+}
 function producirProductos(){
-    console.log("entro");
+    epocaIndustrial()
     productos.forEach(e => {
         empaquetador.innerHTML+=`<article class="contenedor">
         <div class="imagenContainer">
@@ -50,7 +64,8 @@ function producirProductos(){
             </div>
         </div>
     </article>`
-    });
+    }); 
 }
+
 
 producirProductos();
