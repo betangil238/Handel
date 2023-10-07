@@ -245,7 +245,7 @@ h2{
     justify-content: space-between;
 }
 
-button{
+.container_Botones > button{
     width: 35%;
     margin: 0px 25px;
     padding: 15px 0px;

@@ -231,19 +231,25 @@ select{
 
 }
 
-button{
+
+.cancelar{
     width: 30%;
     padding: 10px 0px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-}
-
-.cancelar{
     background-color: #000;
     border: 1px white solid;
     color: white;
     margin-right: 40%;
+    cursor: pointer;
+}
+
+.siguiente_{
+    width: 30%;
+    padding: 10px 0px;
+    border-radius: 10px;
+    border: none;
     cursor: pointer;
 }
 
