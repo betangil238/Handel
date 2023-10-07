@@ -13,48 +13,56 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- Referencia a SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script defer src="/JS/navBar.js"></script>
     <title>NavBar</title>
+    
 </head>
 <body>
     
 <!--Navbar -->
-
-    <nav class="navBar">
-        <div class="logosNav">
-           <a class="logoNavBar"  href="pgppal.html"><img src="Img/LogoCompletoBlanco.png" alt=""> </a> 
-            <a class="logoNavBar2" href="pgppal.html"><img src="Img/LogoSinFondoBlanco.png" alt=""></a>
-        </div>
-        
-        <div class="linksNavBar">
-            <a href="subastas.html">Subastas</a>
-            <a href="trueques.html">Trueques</a>
-            <a href="contactanos.html">Contáctanos</a>
-            <a href="index.html">About Us</a>
-            <a href="suscripcion.html">Premium</a>
-        </div>
-        <div class="navBarIcons">
+    <header>
+        <nav class="navBar">
+            <div class="logosNav">
+               <a class="logoNavBar"  href="pgppal.html"><img src="Img/LogoCompletoBlanco.png" alt=""> </a> 
+                <a class="logoNavBar2" href="pgppal.html"><img src="Img/LogoSinFondoBlanco.png" alt=""></a>
+            </div>
             
-            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M12 22a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22zm7-7.414V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v4.586l-1.707 1.707A.996.996 0 0 0 3 17v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a.996.996 0 0 0-.293-.707L19 14.586z"></path></svg></a>
+            <div class="linksNavBar ">
+                <ul>
+                    <li class="linksItems"><a href="trueques.html">Trueques</a></li>
+                    <li class="linksItems"><a href="subastas.html">Subastas</a></li>
+                    <li class="linksItems"><a href="contactanos.html">Contáctanos</a></li>
+                    <li class="linksItems"><a href="index.html">About Us</a></li>
+                    <li class="linksItems"><a href="suscripcion.html">Premium</a></li>
+                </ul>
+            </div>
+            <div class="navBarIcons">
+                
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M12 22a2.98 2.98 0 0 0 2.818-2H9.182A2.98 2.98 0 0 0 12 22zm7-7.414V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v4.586l-1.707 1.707A.996.996 0 0 0 3 17v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a.996.996 0 0 0-.293-.707L19 14.586z"></path></svg></a>
+    
+                <a href="mensajes.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M18.999 2h-14c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5l3.5 4 3.5-4h3.5c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path></svg></a>
+            </div>
+               <div class="profileConfig ">
+                    <button class="profileImg "><img src="Img/Contacts-icon2.png" alt=""></button>
+                    <div class="profileList">
 
-            <a href="mensajes.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M18.999 2h-14c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5l3.5 4 3.5-4h3.5c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path></svg></a>
-        </div>
-           <div class="profileConfig">
-                <a class="profileImg"><img src="Img/Contacts-icon2.png" alt=""></a>
-                <div class="profileList">
-                    <a href="subirarchivo.html"><i class='bx bx-plus-circle'></i>Publicar</a>
-                    <a href=""><i class='bx bxs-wallet' ></i>Billetera</a>
-                    <a href="ajustes.html"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
-                    <hr>
-                    <a href="login.html" id="logout"><i class='bx bx-exit'></i>Cerrar sesión</a>
-                    
+                        <a href="subirarchivo.html"><i class='bx bx-plus-circle'></i>Publicar</a>
+                        <a href=""><i class='bx bxs-wallet' ></i>Billetera</a>
+                        <a href="ajustes.html"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
+                        <hr>
+                        <a href="login.html" id="logout"><i class='bx bx-exit'></i>Cerrar sesión</a>
+                        </li>                
+                    </div>
                 </div>
-            </div>
-        
-            <div class="menuButton">
-                <a href=""><input class="burguerMenu" ><i class='bx bx-menu'></i></a>
-            </div>
-    </nav>
+                <div class="menuButton">
+                    <button class="burgerMenu"><a href="#"><i class='bx bx-menu'></i></a></button>
+                </div>    
+               
+        </nav>
+    </header>
+    
 <!--/.Navbar -->
 <script src="JS/salir.js"></script>
+
 </body>
 </html>
