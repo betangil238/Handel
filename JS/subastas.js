@@ -1,4 +1,4 @@
-const productos=[{imagen:"Img/subastas/1.png",id:"965458",likes:"320",vistas:"4220",categoria:"Autos",visibilidad:"publico",etiquetas:"autos,mecanica,taller"},
+const productos=[{imagen:"Img/subastas/1.png",id:"965458",likes:"320",vistas:"4220",categoria:"Autos",visibilidad:"Público",etiquetas:"autos,mecanica,taller"},
 // {imagen:"Img/subastas/2.png",id:"961581",likes:"824",vistas:"1220",categoria:"Mascotas",visibilidad:"privado",etiquetas:"cachorros,comida,juguetes"},
 // {imagen:"Img/subastas/3.png",id:"845214",likes:"201",vistas:"5842",categoria:"Sonido",visibilidad:"publico",etiquetas:"musica,reggaeton,Dj"},
 // {imagen:"Img/subastas/4.png",id:"957521",likes:"112",vistas:"8542",categoria:"Ropa",visibilidad:"publico",etiquetas:"segunda,roto,trapos"},
@@ -22,7 +22,7 @@ function epocaIndustrial(){
     producto.likes=Math.floor((Math.random()*999)+1);
     producto.vistas=Math.floor((Math.random()*9999)+1);
     producto.categoria=categoria1;
-    producto.visibilidad="publico";
+    producto.visibilidad="Público";
     producto.etiquetas="musica,reggaeton,Dj";
     productos.push(producto); 
     }
