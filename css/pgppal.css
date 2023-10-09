@@ -17,6 +17,9 @@
     background-color: #f5f5f5;
     border: 2px solid #ccc;
 }
+input{
+    font-family: 'Garant pro';
+}
 
 .mi-titulo {
     color: #333;

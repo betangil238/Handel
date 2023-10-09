@@ -101,6 +101,11 @@
     flex-direction: column;
     background-color: #000000; 
     height: 100%;
+    background-image: url(../Img/fondo_Premium_Cont.png);
+    background-size: cover;
+    object-fit: none;
+    background-position: right center;
+    background-attachment: fixed;
 }
 .Cuerpo_editable{
     /* margin-top: 100px;  ACTIVAR CUANDO SE BORRE NATALIA */
@@ -273,6 +278,9 @@ i{
 .parrafoVistas{
     display: flex;
     flex-direction: row;
+}
+input{
+    font-family: 'Garant pro';
 }
 
 .infoGral{

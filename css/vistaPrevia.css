@@ -15,13 +15,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
     font-family: 'Garant pro';
     background-color: #000;
     display: flex;
+}
+input{
+    font-family: 'Garant pro';
+    color: #ECECEC;
 }
 /* Estilo para el contenedor de la alerta RECHAZADA*/
 .mi-alerta-error {

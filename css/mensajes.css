@@ -17,7 +17,10 @@
     display: flex;
     color: var(--white);
 }
-
+input{
+    font-family: 'Garant pro';
+    color: white;
+}
 /*Especificaciones Container 1 - izquierda*/
 .container1 {
     width:35%;

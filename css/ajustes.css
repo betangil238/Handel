@@ -17,22 +17,25 @@
     flex-direction: column;
     width: 60%;
     margin-bottom: 0;
-
+    align-items: center;
 }
 
 .Alerta{
     color: #D7AE00;
 }
+
+input{
+    font-family: 'Garant pro';
+}
 h2{
     color: var(--white);
     font-family: 'TT rationalist trl';
     font-weight: normal;
-    margin: 20px 20px 0px 20px;
+    margin: 20px 0;
 }
 
 .containerElementos>p{
     color: var(--white);
-    margin-left: 20px;
     font-size: 13px;
     margin-bottom: 30px;
 }

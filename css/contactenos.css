@@ -156,9 +156,12 @@ body {
     margin-left: 20px;
 
 }
+
 input{
     border-bottom: 50px rgb(255, 255, 255) solid;
+    font-family: 'Garant pro';
 }
+
 .border>p{
     width: 100%;
 }

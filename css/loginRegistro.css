@@ -23,7 +23,9 @@ body{
     background-position: center;
     background-image: url(../Img/martillo-juzgado.jpg);
 }
-
+input{
+    font-family: 'Garant pro';
+}
 /*BARRA DE NAVEGACIÓN*/
 
 .nav_Header {
