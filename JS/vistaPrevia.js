@@ -55,7 +55,7 @@ inputPrecio.addEventListener("input", function() {
     }else if(inputIncremento.value==""){
         mostrarAlertaRechazo("Llene el campo de incremento")
     }else{
-        window.location.href="subastas.html"
+        window.location.href="trueques.html"
     }
   })
 
