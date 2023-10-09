@@ -115,7 +115,7 @@ a{
     transition: .9s;
 }
 .profileList {
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: rgb(46, 46, 46);
     z-index: 50;
@@ -128,7 +128,11 @@ a{
     line-height: 60px;
     height: calc(100%-80px);
     overflow-y: auto;
-    bottom: 100%;
+    
+}
+.profileConfig_visible {
+    display: block;
+
 }
 .profileList i{
     text-align: center;
@@ -156,7 +160,7 @@ a{
         margin-right: 30px;
         background-color: none;
     }
-    .burgerMenu {
+    .burgerMenu{
         visibility: visible;
         background-color: var(--black);
         border: none;
@@ -201,16 +205,15 @@ a{
         flex-direction: column;
         background-color: rgb(46, 46, 46);
         z-index: 50;
-        text-align: right;
+        text-align:left;
         position: absolute;
         right: 0;
         top: 80px;
         width: 100%;
         text-align: center;
         line-height: 60px;
-        height: calc(100% - 80px);
-        overflow-y: auto;
-        bottom: 100%;
+        height: calc(100%-80px);
+        overflow-y: auto;    
     }
     .profileList i{
         text-align: center;
@@ -226,7 +229,7 @@ a{
     }
 
     .linksNavBar ul{
-        display: flex;
+        display: none;
         flex-direction: column;
         background-color: rgb(46, 46, 46);
         z-index: 50;
@@ -237,22 +240,22 @@ a{
         width: 100%;
         text-align: center;
         line-height: 70px;
-        height: calc(100% - 80px);
+        height: calc(100%-80px);
         overflow-y: auto;
-        bottom: 100%;
         transition: .9s;
         list-style: none;
+        padding: 0px 0px;
     }
+
     .linksItems:hover {
         background-color: var(--black);
         transition: .9s;
     }
 
-
     .linksNavBar_visible{
-        bottom: 0;
+        display: flex;
     }
-    .profileConfig_visible {
-        bottom: 0;
+    .profileConfig_visible{
+        display: flex;
     }
 }
