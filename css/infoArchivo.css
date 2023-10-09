@@ -19,6 +19,9 @@
 }
 
 /* Estilo para el contenedor de la alerta RECHAZADA*/
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
+  }
 .mi-alerta-error {
     background-color: #ffcccc;
     border: 2px solid #ff0000;

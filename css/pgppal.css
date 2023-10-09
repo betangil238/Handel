@@ -13,6 +13,9 @@
 }
 /* CUADRO DE ALERTA */
 /* Estilo para el contenedor de la alerta APROBADA*/
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
+  }
 .mi-alerta {
     background-color: #f5f5f5;
     border: 2px solid #ccc;

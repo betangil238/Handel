@@ -16,6 +16,9 @@
     padding:0;
     box-sizing:border-box;
 }
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
+}
 
 body{
     font-family: 'Garant pro';
