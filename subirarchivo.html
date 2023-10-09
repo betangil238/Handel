@@ -16,6 +16,7 @@
     <!-- Referencia a SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="css/subirArchivo.css">
+    <script defer src="/JS/navBar.js"></script>
 </head>
 <body>
     <!--Navbar -->
@@ -26,7 +27,7 @@
         </div>
         
         <div class="linksNavBar ">
-            <ul>
+            <ul id="menuBurger">
                 <li class="linksItems"><a href="trueques.html">Trueques</a></li>
                 <li class="linksItems"><a href="subastas.html">Subastas</a></li>
                 <li class="linksItems"><a href="contactanos.html">Contáctanos</a></li>
@@ -53,9 +54,8 @@
                 </div>
             </div>
             <div class="menuButton">
-                <button class="burgerMenu"><a href="#"><i class='bx bx-menu'></i></a></button>
+                <button onclick="menuburger()" class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
             </div>    
-           
     </nav>
 <!--/.Navbar -->
     <div class="nav_Main">

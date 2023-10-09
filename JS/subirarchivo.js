@@ -41,9 +41,9 @@ function readURL(input) {
     imageUploadWrap.classList.add('image-dropping');
   });
   
-  imageUploadWrap.addEventListener('dragleave', function () {
+imageUploadWrap.addEventListener('dragleave', function () {
     imageUploadWrap.classList.remove('image-dropping');
-  });
+});
 
 function validar(){
   const fileUpload = document.querySelector('.file-upload-input');

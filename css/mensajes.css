@@ -19,8 +19,9 @@
 .bigContainer { 
     display: flex;
     color: var(--white);
-}
-input{
+} 
+
+.input_Buscar{
     font-family: 'Garant pro';
     color: white;
 }
