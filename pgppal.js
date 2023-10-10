@@ -138,8 +138,6 @@ guardar.addEventListener("click",function(){
     }
 })
 
-
-
 // funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta(mensaje) {
     Swal.fire({
@@ -155,8 +153,6 @@ function mostrarAlerta(mensaje) {
         }
     });
 }
-
-
 function mostrarAlertaRechazo(mensaje) {
     Swal.fire({
         title: 'Error',
