@@ -114,6 +114,8 @@ guardar.addEventListener("click",function(){
         if(inputusuario.value=="" || inputname.value==""){
             mostrarAlertaRechazo("Campos vacios");
         }else{
+            // Borramos del local storage toda la seccion de configuracion, debido que no podemos modificar directamente el objeto que ya tiene la informacion sin actualizar almacenada
+            localStorage.removeItem('configuracion');
             // Busca el indice en el arreglo obtenido del local storage capturado en configuracion con los datos de "ConfiguracionUsuario"
             let indiceAEliminar =  configuracion.indexOf(configuracionUsuario);
             // Elimina del array el objeto
@@ -124,8 +126,6 @@ guardar.addEventListener("click",function(){
             configuracionUsuario.reset=1;
             // Agregamos el objeto actualizado con los parametros correspondientes
             configuracion.push(configuracionUsuario);
-            // Borramos del local storage toda la seccion de configuracion, debido que no podemos modificar directamente el objeto que ya tiene la informacion sin actualizar almacenada
-            localStorage.removeItem('configuracion');
             // Creamos nuevamente la seccion configuracion con toda la informacion actualizada
             localStorage.setItem('configuracion', JSON.stringify(configuracion))
             // Notificamos un cambio exitoso y redireccionamos a la pagina ppal luego de 2 segundos y medio
