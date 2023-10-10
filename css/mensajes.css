@@ -19,7 +19,8 @@
 .bigContainer { 
     display: flex;
     color: var(--white);
-} 
+    font-family: 'Garant Pro';
+}
 
 .input_Buscar{
     font-family: 'Garant pro';
@@ -34,7 +35,7 @@
     background: var(--black);
     color: var(--white);
     font-family: 'Garant Pro';
-    height: 100vh;
+    border-right: 1px solid #1a1919;
 }
 
 /*Especificaciones del título Mensajes*/
@@ -55,6 +56,7 @@
     border: none;
     border-radius: 10px;
     font-family: 'Garant Pro';
+    color: #fff;
 }
 
 /*Especificaciones container Reciente (título, imagen, nombre de usuario)*/
@@ -98,7 +100,7 @@
     margin-bottom: 10px;
 }
 
-/*Especificaciones contenedor chat Individual ---- ESTE ES EL QUE GENERA ERROR*/
+/*Especificaciones contenedor chat Individual*/
 .chatIndividual {
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
@@ -118,6 +120,15 @@
 /*Especificaciones nombre de usuario en chat Individual*/
 .chatIndividual h4 {
     font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chatMessage {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*Especificaciones mensaje recibido en chat Individual*/
@@ -151,18 +162,111 @@
 /*Especificaciones Container 2 - derecha*/
 .container2 {
     width:65%;
-    background: linear-gradient(145deg, #524302 0%, #000 60%);
-    padding-left: 35%;
+    background: linear-gradient(240deg, #524302 0%, #000 60%);
+    padding-top: 80px;
+}
+ /*Barra estática de la conversación completa*/
+.staticBarChat {
+    position: fixed;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 3% 55% 5%;
+    padding: 15px;
 }
 
-/*Especificaciones Container 2 - derecha*/
-.container2 {
-    width:65%;
-    background: linear-gradient(145deg, #524302 0%, #000 60%);
-    padding-left: 35%;
+/*Contenedor de los mensajes recibidos y enviados*/
+.containerAllMessages {
+    overflow-y: scroll;
+    height: 70vh;
+    padding: 30px;
+    margin-top: 40px;
 }
+
+/*Especificaciones de la fecha en el chat completo*/
+.fechaChat {
+    font-size: 10px;
+    text-align: center;
+    background-color: #302f2fe5;
+    width: 10%;
+    border-radius: 5px;
+    margin-left: 45%;
+    margin-bottom: 10px;
+}
+
+/*Especificaciones container de los mensajes recibidos*/
+.messageReceived {
+    width: fit-content;
+    background: linear-gradient(145deg, var(--gold1) 0%, var(--gold2) 100%);
+    padding: 2%;
+    margin: 2%;
+    border-radius: 5px;
+    color: var(--black);
+    font-size: 13px;
+}
+
+/*Especificaciones container de los mensajes enviados*/
+.messageSent {
+    width: fit-content;
+    float: right;
+    background: linear-gradient(145deg, #a09f9f 0%, var(--grey) 100%);
+    border:  #000;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 13px;
+}
+
+/*Especificaciones de la barra para escribir y enviar el mensaje*/
+.writingTextBar {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    padding: 20px;
+    text-align: center;
+}
+
+/*Especificaciones de la barra que contiene ícono emoji, input, ícono img e ícono cámara*/
+.writingMessageInput {
+    display: grid;
+    grid-template-columns: 10% 70% 10% 10%;
+    background: #1E1E1E;
+    border-radius: 10px;
+}
+
+/*Especificaciones del ícono para insertar emojis en la barra de escritura*/
+.writingMessageInput i {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+
+/*Especificaciones para el input donde se escribe el mensaje*/
+.writingMessageInput input {
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-family: 'Garant Pro';
+}
+
+/*Especificaciones del botón de enviar*/
+.iconSendMessage button{
+    width: 40px;
+    border-radius: 100%;
+    padding: 10px;
+    border: none;
+    background: var(--gold2)
+}
+ /*Especificaciones ícono de enviar*/
+.iconSendMessage i {
+    font-size: 80%;
+    color: #fff;
+}
+
 
 @media (min-width: 320px) and (max-width: 500px) {
+
     .container1 {
         width: 100%;
     }
@@ -199,10 +303,19 @@
         font-size: 13px;
     }
 
-
     /*Quitar visualización container 2*/
     .container2 {
+        width: 100%;
+        height: 100vh;
         display: none;
+    }
+
+    .staticBarChat {
+        position: fixed;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 10% 80% 5%;
+        padding: 15px;
     }
 }
 
@@ -237,5 +350,16 @@
 
     .chatIndividual p {
         font-size: 9px;
+    }
+
+    /*Container 2*/
+    .userNameChat {
+        font-size: 13px;
+        margin-left: 10px;
+    } 
+
+    /*Botón de enviar*/
+    .iconSendMessage button{
+        width: 30px;
     }
 }

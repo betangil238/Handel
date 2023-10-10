@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--Link CSS Navbar-->
+    <link rel="stylesheet" href="css/navBar.css">
+    <!--Link CSS Mensajes-->
+    <link rel="stylesheet" href="css/mensajes.css">
     <!--Links alertas-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Referencia a SweetAlert2 CSS -->
@@ -62,7 +68,7 @@
 
     <!--CONTENEDOR 1 - IZQUIERDA-->
         <!--Contenedor de barra de búsqueda, reciente y mensajes-->
-        <section class="container1">
+        <section class="container1" id="containerHiden">
 
             <!--Contenedor título Mensajes y barra de búsqueda-->
             <div class="containerMensajesBarra">
@@ -97,15 +103,14 @@
                             <!--Imagen de usuario en el chat-->
                             <img src="Img/imgPpPpal/usuario.png">
                             <!--Container nombre de usuario y mensaje-->
-                            <div class="chatUserNameMessage">
+                            <div class="chatUserNameMessage" id="ocultarContainer()">
                                 <h4 class="chatUserName">Nombre de Usuario</h4>
-                                <p class="chatMessage">Hola</p>
+                                <p class="chatMessage">Hola, me interesa uno de tus productos. ¿Te interesaría un trueque?</p>
                             </div>
                             <!--Container de indicador # de mensajes recibidos en ese chat y fecha de recepción del mensaje-->
                             <div class="chatInfoChatIndividual">
                                 <p class="numberMessages"><span>1</span></p>
                                 <p>13:00</p>
-                                <!--¿INDICADOR MENSAJES SIN LEER?-->
                             </div>
                         </div>
                     </div>            
@@ -115,7 +120,56 @@
 
     <!--CONTENEDOR 2 - DERECHA-->
         <!--Contenedor de visualización del chat seleccionado-->
-        <section class="container2">
+        <section class="container2" id="showContainer">
+            <!--Container barra estática del chat (ícono volver, nombre de usuario, ícono más opciones)-->
+            <div class="staticBarChat">
+                <!--Container del ícono volver (debe visible solo en pantalla para celular)-->
+                <div class="iconoArrowBack">
+                    <i class='bx bx-arrow-back'></i>
+                </div>
+                <!--Container nombre de usuario en la barra estática del chat-->
+                <div class="userNameChat">
+                    <h4>Nombre de Usuario</h4>
+                </div>
+                <!--Container ícono más opciones-->
+                <div class="moreOpsIcon">
+                    <i class='bx bx-dots-vertical-rounded' ></i>
+                </div>
+            </div>
+
+            <!--Container conversación completa (fecha + mensajes recibidos y enviados)-->
+            <div class="containerAllMessages">
+                <!--Container de la fecha en el chat-->
+                <div class="fechaChat">
+                    <h4>Hoy</h4>
+                </div>
+                <!--Container individual de mensajes recibidos-->
+                <div class="messageReceived">
+                    <p>Hola, ¿te interesa un trueque?</p>
+                </div>
+                <!--Container individual de mensajes enviados-->
+                <div class="messageSent">
+                    <p>Hola, siii, ¿qué productos tienes?</p>
+                </div>
+            </div>
+
+            <!--Container barra de escribir mensaje + íconos (emoji, imgs, cámara) + botón enviar-->
+            <div class="writingTextBar"> 
+                <!--Container barra de escribir mensajes + íconos-->
+                <div class="writingMessageInput">
+                    <!--Ícono emojis-->
+                    <i class='bx bxs-happy-alt'></i>
+                    <input type="text" placeholder="Escribe tu mensaje...">
+                    <!--Ícono img-->
+                    <i class='bx bx-image-alt'></i>
+                    <!--Ícono cámara-->
+                    <i class='bx bx-camera'></i>
+                </div>
+                <!--Container botón e ícono de enviar mensaje-->
+                <div class="iconSendMessage">
+                    <button onclick><i class='bx bxs-send'></i></button>
+                </div>
+            </div>
         </section>
     </main>
     <script src="JS/salir.js"></script>
