@@ -221,7 +221,6 @@ a{
         width: 100%;
         text-align: center;
         line-height: 60px;
-        height: calc(100% - 80px);
         overflow-y: auto;    
     }
     .profileList i{
