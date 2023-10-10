@@ -5,27 +5,40 @@ const burgerMenu=document.querySelector(".burgerMenu")
 const profileList=document.querySelector(".profileList");
 const profileImg=document.querySelector(".profileImg");
 
-
 burgerMenu.addEventListener("click",()=>{
-    
     const estilo=window.getComputedStyle(links);
+    const estilo1=window.getComputedStyle(profileList);
     if(estilo.display==="none"){
         links.style.display="flex";
+        if(estilo1.display==="flex"){
+            profileList.style.display="none";
+        }
     }else{
         links.style.display="none";
     }
-    console.log("ola");
-    /*links.classList.toggle("linksNavBar_visible");*/
-    
-    
 })
 
-/*function menuburger(){
-    console.log("ke ase");
-    links.classList.toggle("linksNavBar_visible");
-}*/
-
 profileImg.addEventListener("click",()=>{
-    console.log("ke ase");
-    profileList.classList.toggle("profileConfig_visible");
+    const estilo=window.getComputedStyle(links);
+    const estilo1=window.getComputedStyle(profileList);
+    if(estilo1.display==="none"){
+        profileList.style.display="flex";
+        if(estilo.display=="flex"){
+            links.style.display="none";
+        }
+    }else{
+        profileList.style.display="none";
+    }
+})
+
+const notificaciones = document.querySelector(".notifications");
+const icono = document.querySelector(".notificationIcon");
+icono.addEventListener("click",function(){
+    const estilo=window.getComputedStyle(notificaciones);
+    console.log("click");
+    if(estilo.display==="none"){
+        notificaciones.style.display="flex";
+    }else{
+        notificaciones.style.display="none";
+    }
 })
