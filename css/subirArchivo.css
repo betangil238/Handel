@@ -23,6 +23,10 @@ body {
     display: flex;
 }
 /* Estilo para el contenedor de la alerta RECHAZADA*/
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
+}
+
 .mi-alerta-error {
     background-color: #ffcccc;
     border: 2px solid #ff0000;
@@ -54,7 +58,6 @@ body {
 }
 
 .numeros{
-
     display: flex;
     width: 35%;
     align-content: center;
@@ -137,8 +140,6 @@ h2{
     margin-bottom: 30px;
 }
 
-
-
 .image-upload-wrap{
     border: 2px dashed rgba(198, 198, 198, 0.65);
     height: 200px;
@@ -150,7 +151,6 @@ h2{
     border-radius: 10px;
     position: relative;
 }
-
 
 .image-dropping,
 .image-upload-wrap:hover{
@@ -237,15 +237,12 @@ h2{
     transition: all .2s ease;
 }
 
-
-
-
 .container_Botones{
     display: flex;
     justify-content: space-between;
 }
 
-button{
+.container_Botones > button{
     width: 35%;
     margin: 0px 25px;
     padding: 15px 0px;
@@ -295,8 +292,6 @@ button{
     .file-upload-input {
         margin-left:-40%;
     }
-
-
 }
 
 @media  (min-width: 320px) and (max-width: 600px){
@@ -332,87 +327,5 @@ button{
     .file-upload-input {
         margin-left:-37%;
     }
-    
-}
-
-@media  (min-width: 350px) and (max-width: 1255px){
-    .navBar{
-        align-items: center;
-        height: 80px;
-    }
-    .linksNavBar{
-        display: none;
-    }
-    .menuButton{
-        display: flex;
-        width: 25%;
-        background-color: var(--black);
-        height: 40px;
-        margin-left: 25px;
-    }
-    .burguerMenu{
-        visibility: visible;
-        color: var(--white);
-        width: 50px;
-        border-width: 1.5px;
-        border-radius: 9px;
-        text-align: center;
-    }
-    .burguerMenu:hover{
-        background-color: var(--gold2);
-    }
-    .burguerMenu:active{
-        background-color: var(--gold1);
-    }
-    .burguerMenu i{
-        text-align: center;
-        font-size: 35px;
-    }
-    
-    .logosNav{
-        width: 25%;
-    }
-    .logoNavBar2 img{
-        width: 30px;
-        align-items: center;
-        display: flex;
-    }
-
-    .logoNavBar img{
-        display: none;
-    }
-    .navBarIcons{
-        width: 25%;
-        align-items: center;
-        margin-left: 10px;
-    }
-    .navBarIcons a{
-        padding: 0px 5px;
-        margin-bottom: 25px;
-    }
-    .profileConfig{
-        width: 25%;
-        padding-left: 0px;
-        margin-left: 20px;
-        margin-bottom: 15px;
-    }
-    .profileConfig:hover .profileList {
-        display: block;
-        background-color: rgb(46, 46, 46);
-        width: 150px;
-        text-align:left;
-        position: fixed;
-        right: 100px;
-        z-index: 50;
-    }
-
-    .menuButton:hover .linksNavBar{
-        display: block;
-        background-color: rgb(46, 46, 46);
-        z-index: 50;
-        text-align:left;
-        position: fixed;
-
-
-    }
+  
 }

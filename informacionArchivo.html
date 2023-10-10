@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información</title>
-    <link rel="stylesheet" href="css/infoArchivo.css">
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
     <link href="https://fonts.cdnfonts.com/css/tt-rationalist-trl" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032" rel="stylesheet">  
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Referencia a SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- Referencia a SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-
+    <link rel="stylesheet" href="css/infoArchivo.css">
+    <link rel="stylesheet" href="css/navBar.css">
 </head>
 <body>
   
@@ -28,12 +27,14 @@
         <a class="logoNavBar2" href="pgppal.html"><img src="Img/LogoSinFondoBlanco.png" alt=""></a>
     </div>
     
-    <div class="linksNavBar">
-        <a href="subastas.html">Subastas</a>
-        <a href="trueques.html">Trueques</a>
-        <a href="contactanos.html">Contáctanos</a>
-        <a href="index.html">About Us</a>
-        <a href="suscripcion.html">Premium</a>
+    <div class="linksNavBar ">
+        <ul id="menuBurger">
+            <li class="linksItems"><a href="trueques.html">Trueques</a></li>
+            <li class="linksItems"><a href="subastas.html">Subastas</a></li>
+            <li class="linksItems"><a href="contactanos.html">Contáctanos</a></li>
+            <li class="linksItems"><a href="index.html">About Us</a></li>
+            <li class="linksItems"><a href="suscripcion.html">Premium</a></li>
+        </ul>
     </div>
     <div class="navBarIcons">
         
@@ -41,21 +42,21 @@
 
         <a href="mensajes.html"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M18.999 2h-14c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3.5l3.5 4 3.5-4h3.5c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path></svg></a>
     </div>
-       <div class="profileConfig">
-            <a class="profileImg"><img src="Img/Contacts-icon2.png" alt=""></a>
+       <div class="profileConfig ">
+            <button class="profileImg "><img src="Img/Contacts-icon2.png" alt=""></button>
             <div class="profileList">
+
                 <a href="subirarchivo.html"><i class='bx bx-plus-circle'></i>Publicar</a>
                 <a href=""><i class='bx bxs-wallet' ></i>Billetera</a>
                 <a href="ajustes.html"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
                 <hr>
-                <a href="login.html" id="logout"><i class='bx bx-exit'></i>Cerrar sesión</a>
-                
+                <a href="#" id="logout"><i class='bx bx-exit'></i>Cerrar sesión</a>
+                </li>                
             </div>
         </div>
-    
         <div class="menuButton">
-            <a class="burguerMenu" ><i class='bx bx-menu'></i></a>
-        </div>
+            <button onclick="menuburger()" class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
+        </div>    
 </nav>
 <!--/.Navbar -->
 <div class="nav_Main">
@@ -107,69 +108,49 @@
                 <div class="container_Descripcion">
                     <input placeholder="Descripción"  id="descripcion" required>
                 </div>
+                <div class="etiquetas">
+                    <p>Etiquetas</p>
+                    <div class="seleccionar">
+                        <input type="text" id="etiquetaInput" placeholder="Etiqueta">
+                        <div class="listadoEtiquetas"></div>
+                    </div>
+                </div>
                 <div class="cat_Vistas">
                     <div class="categoria">
                         <p>Categoría</p>
                         <form action="#">
                             <select name="categorias" id="cate">
-                              <option value="ropa">Ropa</option>
-                              <option value="utensilios">Utensilios</option>
-                              <option value="juguetes">Juguetes</option>
-                              <option value="tecnologia">Tecnología</option>
-                              <option value="vehiculo">Vehículos</option>
-                              <option value="deportes">Deportes</option>
-                              <option value="electrodomesticos">Electrodomésticos</option>
-                              <option value="belleza">Belleza</option>
-                              <option value="papeleria">Papelería</option>
-                              <option value="bebes">Bebes</option>
-                              <option value="moda">Moda</option>
-                              <option value="videojuegos">Videojuegos</option>
-                              <option value="hogar">Hogar</option>
-                              <option value="otros">Otros</option>
+                                <option value="Ropa">Ropa</option>
+                                <option value="Utensilios">Utensilios</option>
+                                <option value="Juguetes">Juguetes</option>
+                                <option value="Tecnologia">Tecnología</option>
+                                <option value="Vehiculo">Vehículos</option>
+                                <option value="Deportes">Deportes</option>
+                                <option value="Electrodomesticos">Electrodomésticos</option>
+                                <option value="Belleza">Belleza</option>
+                                <option value="Papeleria">Papelería</option>
+                                <option value="Bebes">Bebes</option>
+                                <option value="Moda">Moda</option>
+                                <option value="Videojuegos">Videojuegos</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Otros">Otros</option>
                             </select>
                         </form>
                     </div>
                     <div class="vistas">
                         <p>¿Quién puede verlo?</p>
                         <form action="#">
-                            <select name="privacidad" id="cate">
-                              <option value="todos">Todos(Público)</option>
-                              <option value="priv">Privado</option>
+                            <select name="privacidad" id="cate1">
+                                <option value="Todos">Todos(Público)</option>
+                                <option value="Privado">Privado</option>
                             </select>
                         </form>
                     </div>
                 </div>
-                <div class="etiquetas">
-                    <p>Etiquetas</p>
-                    <div class="seleccionar">
-                        <div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="deporte">&nbsp;Colección
-                            </div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="arte">&nbsp;Antiguo
-                            </div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="arte">&nbsp;Nuevo
-                            </div>
-                        </div>
-                        <div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="arte">&nbsp;Usado
-                            </div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="arte">&nbsp;Personalizado
-                            </div>
-                            <div class="etique">
-                                <input type="checkbox" name="intereses" value="arte">&nbsp;Averiado
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                
                 <div class="container_Botones">
                     <button class="cancelar" onclick="location.href = 'subirarchivo.html'">Volver</button>
-                    <button id="siguiente">Siguiente</button>
+                    <button class="siguiente_" id="siguiente">Siguiente</button>
                 </div>
             </div>
             <div class="container_Imagen">
@@ -191,5 +172,6 @@
     </div>
     <script src="JS/salir.js"></script>
     <script src="JS/infoArchivo.js"></script>
+    <script defer src="JS/navBar.js"></script>
 </body>
 </html>

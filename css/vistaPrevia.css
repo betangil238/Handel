@@ -15,13 +15,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
 }
 
 body {
     font-family: 'Garant pro';
     background-color: #000;
     display: flex;
+}
+input{
+    font-family: 'Garant pro';
+    color: #ECECEC;
 }
 /* Estilo para el contenedor de la alerta RECHAZADA*/
 .mi-alerta-error {
@@ -193,6 +200,30 @@ hr{
 .autor{
     color: var(--white);
     width: 45%;
+    margin-bottom: 10px;
+}
+
+.autor_Ganador{
+    display: flex;
+    flex-direction: column;
+}
+
+.ganador{
+    color: var(--white);
+    width: 45%;
+}
+
+.titulo_Oferta{
+    color: var(--white);
+    opacity: 0.5;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.usuario_Oferta{
+    color: var(--white);
+    font-size: 12px;
 }
 
 .autor > p{
@@ -200,6 +231,7 @@ hr{
     opacity: 0.5;
     font-size: 14px;
     font-weight: bold;
+    width: 60%;
 }
 .foto_us_Autor{
     display: flex;
@@ -210,6 +242,7 @@ hr{
 .foto_us_Autor > p{
     margin-left: 10px;
     font-size: 12px;
+    width: 60%;
 }
 
 .foto_autor{
@@ -232,7 +265,7 @@ hr{
     color: var(--white);
     font-size: 12px;
     opacity: 0.5;
-    width: 40%;
+    width: 80px;
     font-weight: bold;
 }
 
@@ -241,7 +274,6 @@ hr{
     border: none;
     border-radius: 5px;
     width: 40%;
-    margin-left: -10%;
     font-size: 10px;
 }
 
@@ -254,7 +286,7 @@ hr{
     color: var(--white);
     font-size: 12px;
     opacity: 0.5;
-    width: 40%;
+    width: 80px;
     font-weight: bold;
 }
 
@@ -262,7 +294,7 @@ hr{
     color: var(--white);
     font-size: 12px;
     font-weight: bold;
-    margin-left: 3%;
+    width: 50%;
 }
 
 
@@ -274,7 +306,7 @@ hr{
     color: var(--white);
     font-size: 12px;
     opacity: 0.5;
-    width: 40%;
+    width: 80px;
     font-weight: bold;
 }
 
@@ -284,7 +316,6 @@ hr{
     border-radius: 5px;
     width: 40%;
     font-size: 10px;
-    margin-left: -10%;
 }
 
 
@@ -461,9 +492,30 @@ button{
         width: 45%;
         margin-bottom: 15px;
     }
-    
+
+    .autor_Ganador{
+        display: flex;
+        flex-direction: row;
+    }
+
     
 }
+
+@media  (min-width: 500px) and (max-width: 650px){
+    .autor_Ganador{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .ganador{
+        color: var(--white);
+        width: 100%;
+    }
+
+
+    
+}
+
 
 
 
@@ -526,7 +578,7 @@ button{
 
     .autor{
         color: var(--white);
-        width: 60%;
+        width: 45%;
         margin-bottom: 15px;
     }
 
@@ -539,7 +591,6 @@ button{
     }
 
 }
-
 
 @media  (min-width: 500px) and (max-width: 649px){
     .autor_Propiedades{
@@ -571,7 +622,6 @@ button{
         color: var(--white);
         font-size: 12px;
         font-weight: bold;
-        margin-left: 16%;
     }
     
     
@@ -630,8 +680,13 @@ button{
 
     .autor{
         color: var(--white);
-        width: 60%;
+        width: 50%;
         margin-bottom: 15px;
+    }
+
+    .autor_Ganador{
+        display: flex;
+        flex-direction: row;
     }
 
     .valor_Actual > p{
@@ -655,7 +710,7 @@ button{
         color: var(--white);
         font-size: 12px;
         opacity: 0.5;
-        width: 100%;
+        width: 50%;
         font-weight: bold;
     }
 

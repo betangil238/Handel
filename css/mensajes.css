@@ -7,6 +7,14 @@
     --gold2: #D7AE00;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#swal2-html-container {
+    margin-left: 0 !important; /* Establece el margen izquierdo a 0 */
+  }
 /*Especificaciones Main*/
 .bigContainer { 
     display: flex;
@@ -14,6 +22,10 @@
     font-family: 'Garant Pro';
 }
 
+.input_Buscar{
+    font-family: 'Garant pro';
+    color: white;
+}
 /*Especificaciones Container 1 - izquierda*/
 .container1 {
     width:35%;
@@ -91,7 +103,7 @@
 /*Especificaciones contenedor chat Individual*/
 .chatIndividual {
     display: grid;
-    grid-template-columns: 15% 80% 10%
+    grid-template-columns: 1fr 8fr 1fr;
 }
 
 /*Especificaciones imagen chat Individual*/
