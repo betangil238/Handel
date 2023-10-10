@@ -10,7 +10,13 @@ siguiente.addEventListener("click",function(){
         mostrarAlertaRechazo("Diligencie el campo de descripcion");
     }
     else{
-        window.location.href= 'vistaPrevia.html';
+        // Obtén todos los elementos de radio con el atributo name="elegir"
+        const radio = document.getElementById("radioTrueque");
+           if(radio.checked){
+               window.location.href='vistaPreviaTrueques.html';
+           }else{
+               window.location.href= 'vistaPreviaSubastas.html';
+           }  
     }
 })
 

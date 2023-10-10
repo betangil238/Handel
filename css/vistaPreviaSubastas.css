@@ -132,6 +132,7 @@ input{
 }
 
 .conteiner_Arriba{
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -353,8 +354,12 @@ button{
     padding: 10px 5px;
     width: 50%;
     margin-left: 10%;
+    transition: 1s;
 }
 
+.pujar:hover{
+    scale: 1.2;
+}
 .abandonar{
     background-color: #000;
     color: var(--white);
@@ -867,5 +872,27 @@ button{
  
     
 }
+@media  (min-width: 1400px) {
 
+.container_Principal{
+    background-color: #212121;
+    width: 1000px;
+    margin:auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.footer{
+    background-color: #2A2831;
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 
+}
+}
