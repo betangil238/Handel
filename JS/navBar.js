@@ -5,7 +5,6 @@ const burgerMenu=document.querySelector(".burgerMenu")
 const profileList=document.querySelector(".profileList");
 const profileImg=document.querySelector(".profileImg");
 let anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-console.log(anchoPantalla);
 
 burgerMenu.addEventListener("click",()=>{
     const estilo=window.getComputedStyle(links);
