@@ -2,6 +2,9 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 if (!user) {
     window.location.href="login.html"  
 }
+const icono = document.getElementById("bell");
+const notificaciones = document.querySelector(".notifications");
+
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
@@ -11,7 +14,15 @@ logout.addEventListener('click',()=>{
         window.location.href='login.html';
     }, 2500);
 })
-
+icono.addEventListener("click",function(){
+    console.log("click");
+    const estilo=window.getComputedStyle(notificaciones);
+    if(estilo.display==="none"){
+        notificaciones.style.display="flex";
+    }else{
+        notificaciones.style.display="none";
+    }
+})
 
 // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
 const perfil = document.querySelector(".container1imgPerfil");
@@ -99,9 +110,6 @@ inputusuario.addEventListener('input', e=>{
     }
 })
 
-
-
-
 const guardar = document.getElementById("guardar");
 // Aqui se genera las acciones al dar click en guardar
 guardar.addEventListener("click",function(){
@@ -134,9 +142,11 @@ guardar.addEventListener("click",function(){
                 window.location.href='pgppal.html';
             }, 2500);
         }
-        
     }
 })
+
+
+
 
 
 

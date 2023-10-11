@@ -35,7 +35,6 @@ const notificaciones = document.querySelector(".notifications");
 const icono = document.querySelector(".notificationIcon");
 icono.addEventListener("click",function(){
     const estilo=window.getComputedStyle(notificaciones);
-    console.log("click");
     if(estilo.display==="none"){
         notificaciones.style.display="flex";
     }else{
