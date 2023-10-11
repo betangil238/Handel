@@ -16,7 +16,6 @@ if(window.location.href.includes("pgppal.html")){
 const icono = document.getElementById("bell");
 const notificaciones = document.querySelector(".notifications");
 icono.addEventListener("click",function(){
-    console.log("click");
     const estilo=window.getComputedStyle(notificaciones);
     if(estilo.display==="none"){
         notificaciones.style.display="flex";
