@@ -4,6 +4,8 @@ const list=document.querySelector("#menuBurger")
 const burgerMenu=document.querySelector(".burgerMenu")
 const profileList=document.querySelector(".profileList");
 const profileImg=document.querySelector(".profileImg");
+let anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+console.log(anchoPantalla);
 
 burgerMenu.addEventListener("click",()=>{
     const estilo=window.getComputedStyle(links);
@@ -21,14 +23,23 @@ burgerMenu.addEventListener("click",()=>{
 profileImg.addEventListener("click",()=>{
     const estilo=window.getComputedStyle(links);
     const estilo1=window.getComputedStyle(profileList);
-    if(estilo1.display==="none"){
-        profileList.style.display="flex";
-        if(estilo.display=="flex"){
-            links.style.display="none";
+    if(anchoPantalla > 1255){
+        if(estilo1.display==="none"){
+            profileList.style.display="flex";
+        }else{
+            profileList.style.display="none";
         }
     }else{
-        profileList.style.display="none";
+        if(estilo1.display==="none"){
+            profileList.style.display="flex";
+            if(estilo.display=="flex"){
+                links.style.display="none";
+            }
+        }else{
+            profileList.style.display="none";
+        }
     }
+    
 })
 
 const notificaciones = document.querySelector(".notifications");
