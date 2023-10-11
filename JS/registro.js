@@ -130,7 +130,7 @@ function validarUsuario(){
 function mostrarAlerta() {
     Swal.fire({
         title: 'Registro',
-        text: 'exitoso',
+        text: 'Exitoso',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
         confirmButtonText: 'Aceptar', // Texto del boton
         customClass: {
