@@ -2,8 +2,6 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 if (!user) {
     window.location.href="login.html"  
 }
-const icono = document.getElementById("bell");
-const notificaciones = document.querySelector(".notifications");
 
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
@@ -14,6 +12,9 @@ logout.addEventListener('click',()=>{
         window.location.href='login.html';
     }, 2500);
 })
+if(window.location.href.includes("pgppal.html")){
+const icono = document.getElementById("bell");
+const notificaciones = document.querySelector(".notifications");
 icono.addEventListener("click",function(){
     console.log("click");
     const estilo=window.getComputedStyle(notificaciones);
@@ -23,6 +24,7 @@ icono.addEventListener("click",function(){
         notificaciones.style.display="none";
     }
 })
+}
 
 // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
 const perfil = document.querySelector(".container1imgPerfil");
@@ -38,6 +40,7 @@ if((user.name).toLowerCase()=="daniel betancur giraldo"){
 }else{
     perfil.src='Img/perfilAlternativo.png'
 }
+
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
 const nombreperfil = document.querySelector(".nombreprofile");
@@ -85,6 +88,7 @@ if(configuracionUsuario.reset==0){
     usuarioperfil.textContent=configuracionUsuario.usuario1;
 }
 
+if(window.location.href.includes("ajustes.html")){
 const inputname = document.getElementById("name");
 // Este listener de Eventos se activa cada que se escribe una letra y modifica el panel izquierdo para el nombre
 inputname.addEventListener('input', e=>{
@@ -99,6 +103,7 @@ inputname.addEventListener('input', e=>{
         nombreperfil.textContent=valor;
     }
 })
+
 // Este listener de Eventos se activa cada que se escribe una letra y modifica el panel izquierdo para el usuario
 const inputusuario = document.getElementById("usuario");
 inputusuario.addEventListener('input', e=>{
@@ -109,6 +114,7 @@ inputusuario.addEventListener('input', e=>{
         usuarioperfil.textContent="@"+valor;
     }
 })
+
 
 const guardar = document.getElementById("guardar");
 // Aqui se genera las acciones al dar click en guardar
@@ -144,10 +150,7 @@ guardar.addEventListener("click",function(){
         }
     }
 })
-
-
-
-
+}
 
 
 // funcion que muestra una alerta de resultado exitoso
