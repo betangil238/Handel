@@ -375,20 +375,20 @@ input{
     .contenedor{
         font-size: 12PX;
     }
-    i{
+
+    .likes_Vistas>.parrafoLikes>.bx-heart{
         display: none;
         font-size: 0;
     }
-    .bx-heart{
+    .likes_Vistas>.parrafoVistas>.material-symbols-outlined{
         display: none;
+        font-size: 0;
     }
+
     .parrafoLikes{
         height: 24px;
     }
-    .material-symbols-outlined{
-        display: none;
-        visibility: hidden;
-    }
+
 }
 
 @media  (min-width: 350px) and (max-width: 700px){
@@ -396,22 +396,15 @@ input{
         font-size: 12PX;
     }
   
-    .bx-heart{
-        display: none;
-    }
     .parrafoLikes{
         height: 24px;
     }
-    .material-symbols-outlined{
-        display: none;
-        visibility: hidden;
-    }
+
     .participar{
         width: 90px;
     }
 }
 @media  (min-width: 350px) and (max-width: 630px){
-
 
     .likes_Vistas{
         display: none;
@@ -445,6 +438,4 @@ input{
     .NombreUsuario{
         text-align: center;
     }
-
-
 }
