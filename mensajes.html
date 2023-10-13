@@ -107,7 +107,9 @@
                         <!--Container de un chat individual: img, nombre, mensaje, # de mensajes y fecha-->
                         <div class="chatIndividual">
                             <!--Imagen de usuario en el chat-->
-                            <img src="Img/imgPpPpal/usuario.png">
+                            <div class="chatIndivImg">
+                                <img src="Img/imgPpPpal/usuario.png">
+                            </div>
                             <!--Container nombre de usuario y mensaje-->
                             <div class="chatUserNameMessage" id="ocultarContainer()">
                                 <h4 class="chatUserName">Nombre de Usuario</h4>
@@ -137,10 +139,6 @@
                 <div class="userNameChat">
                     <h4>Nombre de Usuario</h4>
                 </div>
-                <!--Container ícono más opciones-->
-                <div class="moreOpsIcon">
-                    <i class='bx bx-dots-vertical-rounded' ></i>
-                </div>
             </div>
 
             <!--Container conversación completa (fecha + mensajes recibidos y enviados)-->
@@ -150,12 +148,16 @@
                     <h4>Hoy</h4>
                 </div>
                 <!--Container individual de mensajes recibidos-->
-                <div class="messageReceived">
-                    <p>Hola, ¿te interesa un trueque?</p>
+                <div class="yellowMessages">
+                    <div class="messageReceived">
+                        <p>Hola, ¿te interesa un trueque?</p>
+                    </div>
                 </div>
                 <!--Container individual de mensajes enviados-->
-                <div class="messageSent">
-                    <p>Hola, siii, ¿qué productos tienes?</p>
+                <div class="greyMessages">
+                    <div class="messageSent">
+                        <p>Hola, siii, ¿qué productos tienes?</p>
+                    </div>
                 </div>
             </div>
 
@@ -165,7 +167,7 @@
                 <div class="writingMessageInput">
                     <!--Ícono emojis-->
                     <i class='bx bxs-happy-alt'></i>
-                    <input type="text" placeholder="Escribe tu mensaje...">
+                    <input type="text" placeholder="Escribe tu mensaje..." class="inputMessage">
                     <!--Ícono img-->
                     <i class='bx bx-image-alt'></i>
                     <!--Ícono cámara-->
@@ -173,12 +175,13 @@
                 </div>
                 <!--Container botón e ícono de enviar mensaje-->
                 <div class="iconSendMessage">
-                    <button onclick><i class='bx bxs-send'></i></button>
+                    <button class="sendButtonClick"><i class='bx bxs-send'></i></button>
                 </div>
             </div>
         </section>
     </main>
     <script src="JS/salir.js"></script>
     <script defer src="JS/navBar.js"></script>
+    <script src="JS/mensajes.js"></script>
 </body>
 </html>
