@@ -21,7 +21,7 @@ sendButton.addEventListener("click", function(){
 /*Input enter*/
 inputMessage.addEventListener("keydown", function(e){
 
-    if(e.key=== 'Enter' && inputMessage.value != ""){
+    if(e.key=== 'Enter'){
         const message = inputMessage.value;
 
         containerInput.innerHTML+=`<div class="greyMessages">
