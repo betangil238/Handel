@@ -262,6 +262,41 @@ hr{
     /* margin-right: 40px; */
 }
 
+.notifications{
+    overflow: hidden;
+    padding: 10px 15px;
+    text-align: left;
+    padding-left: 10px;
+    font-family: 'Garant pro';
+    display: none;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+    z-index: 58;
+    text-align:left;
+    position: absolute;
+    top: 80px;
+    right: 10%;
+    width: 40%;
+    line-height: 20px;
+    overflow-y: auto;
+    color: white;
+    border-radius: 0 0 20px 20px;
+    max-height: 190px;
+}
+
+.material-symbols-outlined{
+    width: 24px;
+    margin-right: 10px;
+    color: #D7AE00;
+}
+
+.notifications p{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
 /*Barra de búsqueda*/
 #barraBusqueda {
     width: 80%;
@@ -409,9 +444,20 @@ hr{
     margin-right: 10px;
 }
 
-
-
+@media (min-width: 1100px){
+    .notifications{
+        right: 10%;
+        width: 20%;
+    }
+}
+@media (min-width: 1500px){
+    .notifications{
+        right: 5%;
+        width: 15%;
+    }
+}
 @media (min-width: 320px) and (max-width: 805px) {
+
     main{
         display: flex;
         flex-direction: column;
@@ -427,6 +473,9 @@ hr{
         height: 70px;
         width: 100%;
         z-index: 20;
+    }
+    .notifications{
+        top: 130px;
     }
 
     /*Logo*/
@@ -574,12 +623,15 @@ hr{
 }
 
 @media (min-width: 320px) and (max-width: 500px) {
-
         /*Logo*/
 .container1LogoHandel {
     margin-top: 6px;
     width: 15%;
     text-align: left;
+}
+.notifications{
+    right: 150px;
+    width: 50%;
 }
 
 .logo {

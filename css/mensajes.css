@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032');
+@import url('https://fonts.cdnfonts.com/css/tt-rationalist-trl');
+
 /*Paleta de colores*/
 :root{
     --black: #000;
@@ -138,6 +141,8 @@
 
 /*Especificaciones contenedor información del chat individual*/
 .chatInfoChatIndividual {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
 }
@@ -146,10 +151,11 @@
 .numberMessages {
     text-align: center;
     font-weight: 800;
+    padding: 1px 0px;
     width: 15px;
     color: var(--black);
     background: var(--gold2);
-    border-radius: 50px;
+    border-radius: 100px;
     margin: 5px;
     margin-left: 10px;
 }

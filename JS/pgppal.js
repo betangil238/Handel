@@ -2,6 +2,7 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 if (!user) {
     window.location.href="login.html"  
 }
+
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
@@ -11,7 +12,18 @@ logout.addEventListener('click',()=>{
         window.location.href='login.html';
     }, 2500);
 })
-
+if(window.location.href.includes("pgppal.html")){
+const icono = document.getElementById("bell");
+const notificaciones = document.querySelector(".notifications");
+icono.addEventListener("click",function(){
+    const estilo=window.getComputedStyle(notificaciones);
+    if(estilo.display==="none"){
+        notificaciones.style.display="flex";
+    }else{
+        notificaciones.style.display="none";
+    }
+})
+}
 
 // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
 const perfil = document.querySelector(".container1imgPerfil");
@@ -27,6 +39,7 @@ if((user.name).toLowerCase()=="daniel betancur giraldo"){
 }else{
     perfil.src='Img/perfilAlternativo.png'
 }
+
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
 const nombreperfil = document.querySelector(".nombreprofile");
@@ -74,6 +87,7 @@ if(configuracionUsuario.reset==0){
     usuarioperfil.textContent=configuracionUsuario.usuario1;
 }
 
+if(window.location.href.includes("ajustes.html")){
 const inputname = document.getElementById("name");
 // Este listener de Eventos se activa cada que se escribe una letra y modifica el panel izquierdo para el nombre
 inputname.addEventListener('input', e=>{
@@ -88,6 +102,7 @@ inputname.addEventListener('input', e=>{
         nombreperfil.textContent=valor;
     }
 })
+
 // Este listener de Eventos se activa cada que se escribe una letra y modifica el panel izquierdo para el usuario
 const inputusuario = document.getElementById("usuario");
 inputusuario.addEventListener('input', e=>{
@@ -98,8 +113,6 @@ inputusuario.addEventListener('input', e=>{
         usuarioperfil.textContent="@"+valor;
     }
 })
-
-
 
 
 const guardar = document.getElementById("guardar");
@@ -134,10 +147,9 @@ guardar.addEventListener("click",function(){
                 window.location.href='pgppal.html';
             }, 2500);
         }
-        
     }
 })
-
+}
 
 
 // funcion que muestra una alerta de resultado exitoso
