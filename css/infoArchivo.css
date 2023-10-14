@@ -63,7 +63,8 @@ body {
     background-size: cover;
     object-fit: none;
     background-position: right center;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 30px;
 }
 
 .numeros{
