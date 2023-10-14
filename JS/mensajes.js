@@ -62,10 +62,8 @@ emojis.forEach((emoji) => {
   emoji.addEventListener("click", function () {
     // Obtiene el emoji del elemento actual
     const emojiSeleccionado = emoji.textContent;
-
     // Agrega el emoji al valor del input
     inputMessage.value += emojiSeleccionado;
-
     // Oculta el contenedor de emojis
     contenedorEmoji.style.display = "none";
   });
