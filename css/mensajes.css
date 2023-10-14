@@ -236,6 +236,7 @@
     border-radius: 5px;
     color: var(--black);
     font-size: 13px;
+    word-wrap:break-word;
 }
 
 .messageReceived p {
@@ -267,6 +268,7 @@
     border-radius: 7px;
     color: var(--black);
     font-size: 13px;
+    word-wrap:break-word;
 }
 
 /*Especificaciones de la barra para escribir y enviar el mensaje*/
