@@ -35,4 +35,17 @@ inputMessage.addEventListener("keydown", function(e){
 })
 
 
+/*Funcionalidad de enviar imagen*/
+document.getElementById("fileInput").click();
+
+document.getElementById("fileInput").addEventListener("change", function(event) {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+        const preview = document.getElementById("imagePreview");
+        preview.src = URL.createObjectURL(selectedFile);
+    }
+});
+
+
+
 
