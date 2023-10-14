@@ -562,6 +562,7 @@ h5{
     text-decoration: none;
     color: #ECECEC;
 }
+
 .container1ColumnaIconosTexto>a>div>p {
     display: none;
 }
@@ -633,6 +634,10 @@ hr{
     right: 150px;
     width: 50%;
 }
+.container1ColumnaIconosTexto>a{
+    width: fit-content;
+    margin-right: 14px;
+}
 
 .logo {
     margin-top: 15px;
@@ -660,4 +665,8 @@ hr{
     }
 }
 
-
+@media (min-width: 320px) and (max-width: 400px) {
+    .container1ColumnaIconosTexto>a{
+        margin-right: 10px;
+    }
+}

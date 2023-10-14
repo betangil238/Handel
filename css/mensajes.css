@@ -250,8 +250,14 @@
 
 .messageSent p {
     white-space: normal;
+    display: flex;
+    flex-direction: column;
 }
 
+.hora{
+    color: #8a8a8a;
+    font-size: 10px;
+}
 /*Especificaciones container de los mensajes enviados*/
 .messageSent {
     align-items: right;
@@ -302,6 +308,15 @@
     padding: 10px;
     font-family: 'Garant Pro';
     color: #fff;
+}
+.bxs-happy-alt{
+    cursor: pointer;
+    transition: 1s;
+}
+
+.bxs-happy-alt:hover{
+    color: #D7AE00;
+    scale: 1.1;
 }
 
 /*Especificaciones del botón de enviar*/
