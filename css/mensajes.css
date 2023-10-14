@@ -23,6 +23,7 @@
     display: flex;
     color: var(--white);
     font-family: 'Garant Pro';
+    height: 100vh;
 }
 
 .input_Buscar{
@@ -32,9 +33,9 @@
 /*Especificaciones Container 1 - izquierda*/
 .container1 {
     width:35%;
-    height: 100vh;
-    padding: 30px;
-    padding-top: 100px;
+    height: calc(100% - 80px);
+    margin-top: 80px;
+    padding: 0px 30px 30px 30px;
     background: var(--black);
     color: var(--white);
     font-family: 'Garant Pro';
@@ -171,9 +172,13 @@
 
 /*Especificaciones Container 2 - derecha*/
 .container2 {
+    display: flex;
+    flex-direction: column;
     width:65%;
     background: linear-gradient(240deg, #524302 0%, #000 60%);
-    padding-top: 80px;
+    margin-top: 80px;
+    height: calc(100% - 80px);
+    overflow-y: hidden;
 }
  /*Barra estática de la conversación completa*/
 .staticBarChat {
@@ -182,15 +187,15 @@
     display: grid;
     grid-template-columns: 3% 55% 5%;
     padding: 15px;
+    height: 10%;
 }
 
 /*Contenedor de los mensajes recibidos y enviados*/
 .containerAllMessages {
     width: 100%;
+    height: 90%;
     overflow-y: scroll;
-    height: 70vh;
-    padding: 30px;
-    margin-top: 40px;
+    padding: 45px 30px 0px 30px;
     display: flex;
     flex-direction: column;
 }
@@ -269,7 +274,7 @@
 .writingTextBar {
     display: grid;
     grid-template-columns: 90% 10%;
-    padding: 20px;
+    padding: 5px 20px 0 20px;
     text-align: center;
 }
 
@@ -357,7 +362,6 @@
     /*Quitar visualización container 2*/
     .container2 {
         width: 100%;
-        height: 100vh;
     }
 
     .staticBarChat {
