@@ -51,3 +51,34 @@ icono.addEventListener("click",function(){
         notificaciones.style.display="none";
     }
 })
+
+
+const ajusteAlerta = document.querySelector(".ajustesRedirection");
+// Captura de datos del local storage plasmados con el Item de configuracion
+const configuracionLocal= JSON.parse(localStorage.getItem('configuracion'))
+// Busqueda del usuario activo al cual corresponde el login sucess del local storage con el de configuracion
+const configuracionUser= configuracionLocal.find(config =>  user.email ===config.email )
+ajusteAlerta.addEventListener("click",function(){
+// Validacion de autorizacion para la pagina de ajustes
+if(configuracionUser.reset==1){
+    mostrarAlertaRechazo("Lo sentimos,ya cambiaste tu nombre y usuario");
+
+}else {
+    window.location.href='ajustes.html';
+}
+}) 
+
+function mostrarAlertaRechazo(mensaje) {
+    Swal.fire({
+        title: 'Error',
+        text: mensaje,
+        icon: 'error',
+        confirmButtonText: 'Cerrar',
+        customClass: {
+            container: 'mi-alerta-error',
+            title: 'mi-titulo-error',
+            content: 'mi-contenido-error',
+            confirmButton: 'mi-boton-error'
+        }
+    });
+}
