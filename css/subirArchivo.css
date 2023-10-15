@@ -53,7 +53,7 @@ body {
     background-size: cover;
     object-fit: none;
     background-position: right center;
-    height: 100vh;
+    height: 100%;
     margin-top: 90px;
 }
 
@@ -123,6 +123,7 @@ body {
     border-radius: 10px;
     display:flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 h2{

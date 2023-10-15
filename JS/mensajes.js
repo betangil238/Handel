@@ -2,6 +2,7 @@ const inputMessage = document.querySelector(".inputMessage");
 const containerInput = document.querySelector(".containerAllMessages");
 const sendButton = document.querySelector(".sendButtonClick");
 
+
 // Función para obtener la hora actual en formato HH:MM
 function obtenerHoraActual() {
   const fecha = new Date();
@@ -68,3 +69,39 @@ emojis.forEach((emoji) => {
     contenedorEmoji.style.display = "none";
   });
 });
+
+
+const chatIndividual = document.querySelectorAll(".chatIndividual");
+const contenedor2 = document.querySelector(".container2");
+const contenedor1 = document.querySelector(".container1");
+const contenedorInicial = document.querySelector(".conteinerInicial");
+
+const chatNameUser = document.querySelector(".userNameChat");
+chatIndividual.forEach((chat) =>{
+  chat.addEventListener("click", function(){
+    const nameUser = chat.querySelector(".chatUserName").textContent;
+    chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
+    if(window.screen.width <= 500){
+      contenedor1.style.display = "none";
+      contenedorInicial.style.display = "none";
+      contenedor2.style.display = "flex";
+    }else{
+      contenedorInicial.style.display = "none";
+      contenedor2.style.display = "flex";
+    }
+
+  });
+});
+
+
+const flecha = document.querySelector(".bx-arrow-back");
+flecha.addEventListener("click", function(){
+  if(window.screen.width <= 500){
+    contenedor1.style.display = "block";
+    contenedorInicial.style.display = "none";
+    contenedor2.style.display = "none";
+  }else{
+    contenedorInicial.style.display = "flex";
+    contenedor2.style.display = "none";
+  }
+})

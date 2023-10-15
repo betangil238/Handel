@@ -65,9 +65,21 @@
 
 /*Especificaciones container Reciente (título, imagen, nombre de usuario)*/
 .containerReciente {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+
+.containerImgsReciente{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    gap: 10px;
+
+}
+/*::-webkit-scrollbar{
+    width: 2px;
+}*/
+
 
 /*Especificaciones título Reciente*/
 .containerReciente h3 {
@@ -85,13 +97,13 @@
 
 /*Especificaciones imagen de perfil en Reciente*/
 .imgNameReciente img {
-    width: 50%;
+    width: 20px;
     border-radius: 50px;
 }
 
 /*Especificaciones nombre de usuario en Reciente*/
 .imgNameReciente p {
-   font-size: 14px;
+   font-size: 10px;
    margin: 0;
    padding: 0;
 }
@@ -101,13 +113,26 @@
     font-family: 'TT Rationalist Trl', sans-serif;
     font-size: 20px;
     font-weight: lighter;
-    margin-bottom: 10px;
+    height: 6%;
+    margin-bottom: 4%;
+}
+
+.containerConversaciones{
+    height: 60%;
+}
+
+.chatsGenerales{
+    overflow-y: auto;
+    height: 90%;
+    
 }
 
 /*Especificaciones contenedor chat Individual*/
 .chatIndividual {
     display: grid;
     grid-template-columns: 15% 70% 15%;
+    cursor: pointer;
+    margin: 15px 0px;
 }
 
 /*Especificaciones imagen chat Individual*/
@@ -179,7 +204,40 @@
     margin-top: 80px;
     height: calc(100% - 80px);
     overflow-y: hidden;
+    display: none;
 }
+
+
+.conteinerInicial{
+    display: flex;
+    flex-direction: column;
+    width:65%;
+    background: linear-gradient(240deg, #524302 0%, #000 60%);
+    margin-top: 80px;
+    height: calc(100% - 80px);
+    overflow-y: hidden;
+    justify-content: center;
+}
+
+.conteinerMensaje{
+    align-items: center;
+}
+
+.mensajeBienvenida{
+    text-align: center;
+    font-size: 30px;
+    opacity: 0.7;
+    font-family: 'TT Rationalist Trl';
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+.iconoArrowBack > i{
+    cursor: pointer;
+}
+
+
  /*Barra estática de la conversación completa*/
 .staticBarChat {
     position: fixed;
@@ -336,9 +394,12 @@
 
 @media (min-width: 320px) and (max-width: 500px) {
 
+    .conteinerInicial{
+        display: none;
+    }
+
     .container1 {
         width: 100%;
-        display: none;
     }
 
     .titleMensajes {
@@ -391,7 +452,6 @@
 @media (min-width: 501px) and (max-width: 700px) {
     .container1 {
         padding: 20px;
-        padding-top: 110px;
     }
     .titleMensajes {
         font-size: 17px;
@@ -451,7 +511,7 @@
 
 @media (min-width: 1100px) {
     .imgNameReciente img {
-        width: 49px;
+        width: 35px;
     }
 
     .chatIndividual img {
