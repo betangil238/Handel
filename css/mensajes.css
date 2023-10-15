@@ -76,10 +76,29 @@
     gap: 10px;
 
 }
-/*::-webkit-scrollbar{
-    width: 2px;
-}*/
 
+.containerImgsReciente::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.containerImgsReciente::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.containerImgsReciente::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+
+.containerImgsReciente::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.containerImgsReciente::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
 
 /*Especificaciones título Reciente*/
 .containerReciente h3 {
@@ -124,8 +143,31 @@
 .chatsGenerales{
     overflow-y: auto;
     height: 90%;
-    
 }
+
+
+.chatsGenerales::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.chatsGenerales::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.chatsGenerales::-webkit-scrollbar:vertical{
+    width: 8px;
+}
+
+.chatsGenerales::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.chatsGenerales::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 
 /*Especificaciones contenedor chat Individual*/
 .chatIndividual {
@@ -258,6 +300,29 @@
     flex-direction: column;
 }
 
+
+.containerAllMessages::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.containerAllMessages::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.containerAllMessages::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.containerAllMessages::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 20px;
+    border: none;
+}
+.containerAllMessages::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
 /*Especificaciones de la fecha en el chat completo*/
 .fechaChat {
     font-size: 10px;
@@ -354,12 +419,13 @@
 .writingMessageInput i {
     font-size: 18px;
     padding-top: 10px;
+    cursor: pointer;
 }
 
 
 /*Especificaciones para el input donde se escribe el mensaje*/
 .writingMessageInput input {
-    background-color: #1E1E1E;
+    background-color: #363535;
     border-radius: 10px;
     width: 100%;
     border: none;
@@ -383,8 +449,18 @@
     border-radius: 100%;
     padding: 10px;
     border: none;
-    background: var(--gold2)
+    background: var(--gold2);
+    cursor: pointer;
 }
+
+.sendButtonClick{
+    transition: 1s;
+}
+
+.sendButtonClick:hover{
+    transform: scale(1.25);
+}
+
  /*Especificaciones ícono de enviar*/
 .iconSendMessage i {
     font-size: 80%;
@@ -536,7 +612,7 @@
     background-color: rgb(0, 0, 0);
     z-index: 58;
     position: absolute;
-    top: 64%;
+    bottom: 50px;
     right: 48%;
     overflow-y: auto;
     border-radius: 20px;
