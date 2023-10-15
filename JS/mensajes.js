@@ -104,4 +104,5 @@ flecha.addEventListener("click", function(){
     contenedorInicial.style.display = "flex";
     contenedor2.style.display = "none";
   }
+  contenedorEmoji.style.display = "none";
 })
