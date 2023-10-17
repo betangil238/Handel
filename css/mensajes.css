@@ -23,6 +23,7 @@
     display: flex;
     color: var(--white);
     font-family: 'Garant Pro';
+    height: 100vh;
 }
 
 .input_Buscar{
@@ -32,9 +33,9 @@
 /*Especificaciones Container 1 - izquierda*/
 .container1 {
     width:35%;
-    height: 120vh;
-    padding: 30px;
-    padding-top: 100px;
+    height: calc(100% - 80px);
+    margin-top: 80px;
+    padding: 0px 30px 30px 30px;
     background: var(--black);
     color: var(--white);
     font-family: 'Garant Pro';
@@ -64,8 +65,39 @@
 
 /*Especificaciones container Reciente (título, imagen, nombre de usuario)*/
 .containerReciente {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.containerImgsReciente{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    gap: 10px;
+
+}
+
+.containerImgsReciente::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.containerImgsReciente::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.containerImgsReciente::-webkit-scrollbar:horizontal {
+    height: 5px;
+}
+
+
+.containerImgsReciente::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.containerImgsReciente::-webkit-scrollbar-track {
+    border-radius: 10px;  
 }
 
 /*Especificaciones título Reciente*/
@@ -84,13 +116,13 @@
 
 /*Especificaciones imagen de perfil en Reciente*/
 .imgNameReciente img {
-    width: 50%;
+    width: 20px;
     border-radius: 50px;
 }
 
 /*Especificaciones nombre de usuario en Reciente*/
 .imgNameReciente p {
-   font-size: 14px;
+   font-size: 10px;
    margin: 0;
    padding: 0;
 }
@@ -100,14 +132,54 @@
     font-family: 'TT Rationalist Trl', sans-serif;
     font-size: 20px;
     font-weight: lighter;
-    margin-bottom: 10px;
+    height: 6%;
+    margin-bottom: 4%;
 }
+
+.containerConversaciones{
+    height: 60%;
+}
+
+.chatsGenerales{
+    overflow-y: auto;
+    height: 90%;
+}
+
+
+.chatsGenerales::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.chatsGenerales::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.chatsGenerales::-webkit-scrollbar:vertical{
+    width: 8px;
+}
+
+.chatsGenerales::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.chatsGenerales::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 
 /*Especificaciones contenedor chat Individual*/
 .chatIndividual {
     display: grid;
     grid-template-columns: 15% 70% 15%;
+    cursor: pointer;
+    margin: 15px 0px;
 }
+.chatIndividual:hover {
+    background-color:#343434 ;
+}
+
 
 /*Especificaciones imagen chat Individual*/
 .chatIndivImg {
@@ -171,11 +243,47 @@
 
 /*Especificaciones Container 2 - derecha*/
 .container2 {
+    display: flex;
+    flex-direction: column;
     width:65%;
     background: linear-gradient(240deg, #524302 0%, #000 60%);
-    padding-top: 80px;
-    height: 120vh;
+    margin-top: 80px;
+    height: calc(100% - 80px);
+    overflow-y: hidden;
+    display: none;
 }
+
+
+.conteinerInicial{
+    display: flex;
+    flex-direction: column;
+    width:65%;
+    background: linear-gradient(240deg, #524302 0%, #000 60%);
+    margin-top: 80px;
+    height: calc(100% - 80px);
+    overflow-y: hidden;
+    justify-content: center;
+}
+
+.conteinerMensaje{
+    align-items: center;
+}
+
+.mensajeBienvenida{
+    text-align: center;
+    font-size: 30px;
+    opacity: 0.7;
+    font-family: 'TT Rationalist Trl';
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+.iconoArrowBack > i{
+    cursor: pointer;
+}
+
+
  /*Barra estática de la conversación completa*/
 .staticBarChat {
     position: fixed;
@@ -183,18 +291,41 @@
     display: grid;
     grid-template-columns: 3% 55% 5%;
     padding: 15px;
+    height: 10%;
 }
 
 /*Contenedor de los mensajes recibidos y enviados*/
 .containerAllMessages {
     width: 100%;
+    height: 90%;
     overflow-y: scroll;
-    height: 70vh;
-    padding: 30px;
-    margin-top: 40px;
+    padding: 45px 30px 0px 30px;
     display: flex;
     flex-direction: column;
 }
+
+
+.containerAllMessages::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.containerAllMessages::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.containerAllMessages::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.containerAllMessages::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    border-radius: 20px;
+    border: none;
+}
+.containerAllMessages::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
 
 /*Especificaciones de la fecha en el chat completo*/
 .fechaChat {
@@ -237,6 +368,7 @@
     border-radius: 5px;
     color: var(--black);
     font-size: 13px;
+    word-wrap:break-word;
 }
 
 .messageReceived p {
@@ -245,8 +377,14 @@
 
 .messageSent p {
     white-space: normal;
+    display: flex;
+    flex-direction: column;
 }
 
+.hora{
+    color: #8a8a8a;
+    font-size: 10px;
+}
 /*Especificaciones container de los mensajes enviados*/
 .messageSent {
     align-items: right;
@@ -262,13 +400,14 @@
     border-radius: 7px;
     color: var(--black);
     font-size: 13px;
+    word-wrap:break-word;
 }
 
 /*Especificaciones de la barra para escribir y enviar el mensaje*/
 .writingTextBar {
     display: grid;
     grid-template-columns: 90% 10%;
-    padding: 20px;
+    padding: 5px 20px 0 20px;
     text-align: center;
 }
 
@@ -284,12 +423,13 @@
 .writingMessageInput i {
     font-size: 18px;
     padding-top: 10px;
+    cursor: pointer;
 }
 
 
 /*Especificaciones para el input donde se escribe el mensaje*/
 .writingMessageInput input {
-    background-color: #1E1E1E;
+    background-color: #363535;
     border-radius: 10px;
     width: 100%;
     border: none;
@@ -297,9 +437,14 @@
     font-family: 'Garant Pro';
     color: #fff;
 }
+.bxs-happy-alt{
+    cursor: pointer;
+    transition: 1s;
+}
 
-#fileInput {
-    display: none;
+.bxs-happy-alt:hover{
+    color: #D7AE00;
+    scale: 1.1;
 }
 
 /*Especificaciones del botón de enviar*/
@@ -308,8 +453,18 @@
     border-radius: 100%;
     padding: 10px;
     border: none;
-    background: var(--gold2)
+    background: var(--gold2);
+    cursor: pointer;
 }
+
+.sendButtonClick{
+    transition: 1s;
+}
+
+.sendButtonClick:hover{
+    transform: scale(1.25);
+}
+
  /*Especificaciones ícono de enviar*/
 .iconSendMessage i {
     font-size: 80%;
@@ -319,9 +474,12 @@
 
 @media (min-width: 320px) and (max-width: 500px) {
 
+    .conteinerInicial{
+        display: none;
+    }
+
     .container1 {
         width: 100%;
-        display: none;
     }
 
     .titleMensajes {
@@ -374,7 +532,6 @@
 @media (min-width: 501px) and (max-width: 700px) {
     .container1 {
         padding: 20px;
-        padding-top: 110px;
     }
     .titleMensajes {
         font-size: 17px;
@@ -434,7 +591,7 @@
 
 @media (min-width: 1100px) {
     .imgNameReciente img {
-        width: 49px;
+        width: 35px;
     }
 
     .chatIndividual img {
@@ -445,6 +602,88 @@
     .chatIndivImg {
         display: flex;
         justify-content: right;
+    }
+}
+
+
+/* EMOJIS CSS */
+
+.emoji-container{
+    margin: auto;
+    width: 200px;
+    height: 400px;
+    display: none;
+    background-color: rgb(0, 0, 0);
+    z-index: 58;
+    position: absolute;
+    bottom: 50px;
+    right: 48%;
+    overflow-y: auto;
+    border-radius: 20px;
+    max-height: 190px;
+}
+
+.emoji-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    box-shadow: 0 2px 40px -10px rgba(0,0,0,0.8);
+    border-radius: 6px;
+    background: #3b3939;
+    padding: 20px;
+}
+
+.emoji{
+    position: relative;
+    font-size: 22px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin: 5px auto;
+    transition: all 200ms;
+    will-change: transform;
+}
+
+.emoji:hover{
+    transform: scale(1.3);
+}
+
+
+@media (min-width: 500px) {
+    .emoji-container{
+        right: 23%;
+
+    }
+}
+@media (min-width: 600px) {
+    .emoji-container{
+        right: 31%;
+
+    }
+}
+@media (min-width: 800px) {
+    .emoji-container{
+        right: 39%;
+    }
+}
+@media (min-width: 1100px) {
+    .emoji-container{
+        right: 46%;
+    }
+}
+@media (min-width: 1700px) {
+    .emoji-container{
+        right: 53%;
+
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 500px) {
+    .emoji-container{
+        right: 64%;
+        width: 120px;
     }
 }
 

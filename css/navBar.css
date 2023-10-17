@@ -90,7 +90,10 @@
     float: left;
 
 }
-
+.handelImage{
+    max-width: 130px;
+    max-height: 48px;
+}
 .notifications{
     padding: 10px 15px;
     text-align: left;
@@ -112,6 +115,33 @@
     border-radius: 0 0 20px 20px;
     max-height: 190px;
 }
+
+
+
+.notifications::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.notifications::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.notifications::-webkit-scrollbar:vertical{
+    width: 10px;
+}
+
+.notifications::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.notifications::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
+
 #campana{
     width: 24px;
     margin-right: 10px;
@@ -226,10 +256,12 @@ a{
 
     .logoNavBar img{
         display: none;
+
     }
+
     .navBarIcons{
         width: 50%;
-        align-items: center;
+        /*align-items: center;*/
         margin-left: 10px;
     }
     .navBarIcons a{

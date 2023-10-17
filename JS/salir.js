@@ -13,6 +13,8 @@ logout.addEventListener('click',()=>{
     }, 2500);
 })
 
+
+
 function mostrarAlerta() {
     Swal.fire({
         title: 'Muchas gracias',
