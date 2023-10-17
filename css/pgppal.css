@@ -284,6 +284,29 @@ hr{
     max-height: 190px;
 }
 
+.notifications::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.notifications::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.notifications::-webkit-scrollbar:vertical{
+    width: 8px;
+}
+
+.notifications::-webkit-scrollbar-thumb {
+    background-color: #343434;
+    border-radius: 20px;
+    border: none;
+}
+
+.notifications::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
 .material-symbols-outlined{
     width: 24px;
     margin-right: 10px;
