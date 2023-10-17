@@ -233,6 +233,9 @@ select{
     margin-bottom: 10px;
 }
 
+#titulo,#descripcion{
+    color: white;
+}
 .listadoEtiquetas{
     margin: 10px 0;
     justify-content: left;
