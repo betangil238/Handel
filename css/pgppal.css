@@ -234,6 +234,12 @@ hr{
     font-size: 20px;
 } 
 
+
+
+
+.fondoVariable{
+    background-color: rgb(0, 0, 0, 0.5);
+}
 /* MENU DESPLEGABLE PARA IMAGEN */
 .containerDesplegable{
     overflow: hidden;
@@ -243,7 +249,6 @@ hr{
     font-family: 'Garant pro';
     display: none;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
     opacity: 1;
     z-index: 58;
     text-align:left;
@@ -259,15 +264,23 @@ hr{
     justify-content: center;
     text-align: center;
     border-radius: 20px;
+    -webkit-animation-name: animarsuperior;
+    -webkit-animation-duration: 0.8s;
     animation-name: animarsuperior;
-    animation-duration: 0.8s;
-}
+    animation-duration: 0.8s
+  }
   
-@keyframes animarsuperior {
+  @-webkit-keyframes animatetop {
+    from {opacity:0} 
+    to {opacity:1}
+  }
+  
+  @keyframes animarsuperior {
     from {opacity:0}
-    to { opacity:1}
-}
-
+    to {opacity:1}
+  }
+  
+  
 .containerDesplegable .material-symbols-outlined{
     position: absolute;
     width: 10%;
