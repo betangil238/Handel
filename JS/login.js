@@ -62,4 +62,7 @@ function mostrarAlertaRechazo() {
             confirmButton: 'mi-boton-error'
         }
     });
+
+    const margen = document.querySelector("div:where(.swal2-container)");
+    margen.style.padding = "30px"
 }
