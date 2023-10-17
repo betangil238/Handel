@@ -47,7 +47,7 @@ const botonEmoji=document.querySelector(".bxs-happy-alt");
 
 
 // Agrega un evento de clic al botón de emoji
-botonEmoji.addEventListener("click", function () {
+gitbotonEmoji.addEventListener("click", function () {
   if (getComputedStyle(contenedorEmoji).display === 'none') {
     contenedorEmoji.style.display = "flex";
   } else {
