@@ -151,6 +151,57 @@ guardar.addEventListener("click",function(){
 })
 }
 
+// CODIGO PARA EL MENU DESPLEGABLE DE LA IMAGEN DE PERFIL
+const menuDesplegable = document.querySelector(".containerDesplegable");
+const imagenclick= document.querySelector(".container1imgPerfil");
+const nombreperfil1 = document.querySelector(".nombreprofile1");
+const usuarioperfil1 = document.getElementById("userCode1");
+const todo = document.querySelector(":not(.containerDesplegable)");
+const tituloFoto=document.querySelector(".tituloFoto");
+const botonCargar=document.querySelector(".cargarfoto");
+const salirProfile= document.querySelector(".Salir");
+imagenclick.addEventListener("click",function(){
+    if((window.getComputedStyle(menuDesplegable)).display=="none"){
+        menuDesplegable.style.display="flex"
+    }else{
+        menuDesplegable.style.display="none"
+    } 
+    if(configuracionUsuario.reset==0){
+        nombreperfil1.textContent=user.name;
+        usuarioperfil1.textContent=configuracionUsuario.usuario;
+    }else{
+        nombreperfil1.textContent=configuracionUsuario.name2;
+        usuarioperfil1.textContent=configuracionUsuario.usuario1;
+    }
+    if(window.screen.width>805){
+        nombreperfil1.style.display="none"
+        usuarioperfil1.style.display="none"
+        menuDesplegable.style.height="30%"
+        menuDesplegable.style.top="35%"
+        menuDesplegable.style.left="150%"
+        menuDesplegable.style.width="100%"
+        menuDesplegable.style.backgroundColor="black"
+    }else if(window.screen.width>500){
+        nombreperfil1.style.display="none"
+        usuarioperfil1.style.display="flex"
+        menuDesplegable.style.height="300%"
+        menuDesplegable.style.top="80px"
+        menuDesplegable.style.left="58%"
+        menuDesplegable.style.width="40%"
+        menuDesplegable.style.backgroundColor="#333"
+    }else{
+        nombreperfil1.style.display="flex"
+        usuarioperfil1.style.display="flex"
+        tituloFoto.style.display="none";
+        menuDesplegable.style.backgroundColor="#333"
+        botonCargar.style.width="50%"
+        botonCargar.style.marginLeft="25%"
+    }
+});
+
+salirProfile.addEventListener("click",function(){
+    menuDesplegable.style.display="none"
+});
 
 // funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta(mensaje) {
@@ -167,7 +218,6 @@ function mostrarAlerta(mensaje) {
         }
     });
 }
-
 
 function mostrarAlertaRechazo(mensaje) {
     Swal.fire({

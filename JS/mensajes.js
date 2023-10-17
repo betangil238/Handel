@@ -86,6 +86,7 @@ chatIndividual.forEach((chat) =>{
       contenedorInicial.style.display = "none";
       contenedor2.style.display = "flex";
     }else{
+      chat.style.backgroundColor = "#343434";
       contenedorInicial.style.display = "none";
       contenedor2.style.display = "flex";
     }
@@ -103,6 +104,11 @@ flecha.addEventListener("click", function(){
   }else{
     contenedorInicial.style.display = "flex";
     contenedor2.style.display = "none";
+    chatIndividual.forEach((chat) =>{
+      chat.style.backgroundColor  = "#000";
+    })
   }
   contenedorEmoji.style.display = "none";
 })
+
+
