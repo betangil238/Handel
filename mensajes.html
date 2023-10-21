@@ -18,10 +18,6 @@
     <title>Mensajes - Handel</title>
     <!-- Icono del title -->
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
-    <!--Link CSS Mensajes-->
-    <link rel="stylesheet" href="css/mensajes.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/navBar.css">
 </head>
 <body>
     <main class="bigContainer">
@@ -59,7 +55,14 @@
         <button class="profileImg "><img src="Img/Contacts-icon2.png" alt=""></button>
         <div class="profileList">
             <a href="subirarchivo.html"><i class='bx bx-plus-circle'></i>Publicar</a>
-            <a href=""><i class='bx bxs-wallet' ></i>Billetera</a>
+            <a href="#" id="wallet"><i class='bx bxs-wallet' ></i>Billetera</a>
+                <div class="containerBilletera">
+                    <div class="containerSaldo">
+                        <p class="saldoTitle"><i class='bx bx-wallet'></i>Tu saldo es:</p>
+                        <p class="saldo">$0</p>
+                    </div>
+                        <button class="recargarButton" id="charge">Recargar</button>
+                </div>
             <a class="ajustesRedirection"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
             <hr>
             <a href="login.html" id="logout"><i class='bx bx-exit'></i>Cerrar sesión</a>              
@@ -68,9 +71,7 @@
     <div class="menuButton">
         <button class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
     </div>
-
 </nav>
-
 
     <!--CONTENEDOR 1 - IZQUIERDA-->
         <!--Contenedor de barra de búsqueda, reciente y mensajes-->
@@ -301,7 +302,12 @@
                     <i class='bx bxs-happy-alt'></i>
                     <input type="text" placeholder="Escribe tu mensaje..." class="inputMessage">
                     <!--Ícono img-->
-                    <i class='bx bx-image-alt'></i>
+                    <div class="sendImageChat">
+                        <input type="file" id="fileInput" accept="image/*">
+                        <label for="fileInput">
+                            <i class='bx bx-image-alt' alt="Cargar imagen"></i>
+                        </label>
+                   </div> 
                     <!--Ícono cámara-->
                     <i class='bx bx-camera'></i>
                 </div>
