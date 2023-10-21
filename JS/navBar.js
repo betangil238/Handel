@@ -82,3 +82,21 @@ function mostrarAlertaRechazo(mensaje) {
         }
     });
 }
+
+/*Funcionalidades Billetera*/
+const billetera = document.getElementById("wallet");
+const mostrarBilletera = document.querySelector(".containerBilletera");
+
+billetera.addEventListener("click", function () {
+   if(getComputedStyle(mostrarBilletera).display == "none") {
+    mostrarBilletera.style.display = "flex";
+   } else {
+    mostrarBilletera.style.display = "none";
+   }
+   console.log("ww");
+});
+
+
+
+
+
