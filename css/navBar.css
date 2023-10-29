@@ -218,6 +218,24 @@ a{
     height: 50px;
 }
 
+.linksItems:hover{
+    scale: 1.2;
+    transition: 0.9s;
+}
+.navBarIcons a:hover{
+    scale: 1.2;
+    transition: 0.9s;
+}
+.profileImg:hover{
+    scale: 1.2;
+    transition: 0.9s;
+}
+
+.logosNav:hover{
+    scale: 1.2;
+    transition: 0.9s;
+}
+
 /*Diseño responsive*/
 
 @media  (min-width: 350px) and (max-width: 1255px){
