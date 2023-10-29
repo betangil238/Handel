@@ -108,6 +108,7 @@ flecha.addEventListener("click", function(){
       chat.style.backgroundColor  = "#000";
     })
   }
+  contenedorEmoji.style.display = "none";
 })
 
 

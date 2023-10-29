@@ -164,6 +164,59 @@ a{
     cursor: pointer;
 }
 
+/*Especificaciones sección Billetera*/
+.containerBilletera {
+    display: none;
+    flex-direction: column;
+    width: 30%;
+    min-width: 255px;
+    max-width: 320px;
+    height: auto;
+    color: var(--white);
+    font-family: 'Garant Pro';
+    justify-content: center;
+    margin-left: 5%;
+    padding: 10px;
+    align-items: center;
+    background-color: #3a3a37;
+    border-radius: 20px;
+}
+
+.containerSaldo {
+    background: #474646;
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*Especificaciones título 'Tu saldo es'*/
+.saldoTitle {
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+/*Especificaciones monto del saldo*/
+.saldo {
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.containerBilletera button {
+    margin-bottom: 10px;
+    color: black;  
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(180deg, var(--gold2) 0%, var(--gold1) 100%);
+    text-align: center;
+    border-radius: 40px;
+    margin-top: 10px;
+    font-size: 14px;
+    height: 35px;
+    width: 30%;
+    padding: 0px;
+    cursor: pointer;
+    border: none;
+}
+
 .menuButton{
     display: none;
 }
@@ -418,4 +471,9 @@ a{
         border-radius: 0 0 20px 20px;
         max-height: 190px;
     }
+}
+
+/*Diseño responsive Billetera*/
+@media (min-width: 350px) and (max-width: 800px) {
+
 }

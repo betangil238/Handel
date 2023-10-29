@@ -22,6 +22,8 @@
 //     }
 // })
 // Funcion que se ejecuta con click desde el HTML de FORGOTPASSWORD
+
+if(window.location.href.includes("forgotPassword.html")){
 function validar(){
     const verificacionPrevia= JSON.parse(localStorage.getItem('USUARIO')) || false
     if (verificacionPrevia) {
@@ -46,8 +48,15 @@ function validar(){
     }
 }
 
+const validarCorreo= document.getElementById("submit")
+validarCorreo.addEventListener("click",function(){
+    validar();
+})
+
+}
 
 
+if(window.location.href.includes("newPassword.html")){
 const contra = document.getElementById('submit1');
 contra.addEventListener('click', (e)=>{
     // TOMAMOS LOS DATOS DEL LOCAL STORAGE KEY usuario, CREADO EN EL HTML FORGOT PASSWORD
@@ -79,36 +88,31 @@ contra.addEventListener('click', (e)=>{
         }, 2500);
     }
 })
-
+}
 
 
 function validarpassword(){
     //Id de contraseña de HTML
     let p1 = document.getElementById("password").value;
     let p2 = document.getElementById("password1").value;
-    
     //Evita que queden espacios en blanco
     let espacios = false;
     let cont = 0;
-    
         while (!espacios && (cont < p1.length)) {
             if (p1.charAt(cont) == " ")
                 espacios = true;
                 cont++;
         }
-    
     //Evita que quede un campo de contraseña vacío
         if (espacios) {
             mostrarAlertaRechazo("La contraseña no puede contener espacios en blanco")
             return false;
         }
-    
         if (p1.length == 0 || p2.length == 0) {
             mostrarAlertaRechazo("La contraseña no puede contener espacios en blanco");
             // alert("Los campos de la password no pueden quedar vacios");
             return false;
         }
-    
       //Validar que las contraseñas coincidan 
         if (p1 != p2) {
             mostrarAlertaRechazo("Las contraseñas deben de coincidir");
