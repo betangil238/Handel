@@ -1,0 +1,370 @@
+:root{
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+header{
+   display: flex;
+}
+body{
+   background-image: url(../Img/fondo_Premium.png);
+    background-size: cover;
+    object-fit: none;
+    background-position: right center;
+    height: 100vh;
+}
+ .subastasBody{
+   display: block;
+   padding-bottom: 50px; 
+   position: relative;
+ }
+
+ .subastasHead{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    text-align: center;
+    padding:0px 10%;
+    height: 35px;
+    margin: auto;
+    margin-top: 120px;
+    font-family: 'Garant Pro', sans-serif;
+
+ }
+ .searchDiv input{
+    background-color: rgb(46,46,46);
+    color: var(--white);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 100%;
+    padding: 5px 20px;
+    font-size: 15px;
+    margin: 0px;
+    height: 35px;
+    border-style: none;
+    font-family: 'Garant Pro', sans-serif;
+ }
+
+::placeholder{
+    color: var(--grey);
+    font-family: 'Garant Pro', sans-serif;
+ }
+ .subastasHead h2{
+    font-family: 'TT Rationalist Trl', sans-serif;
+    font-weight: 400; 
+    width: 80%;  
+    color: var(--white);
+ }
+ .subastasHead h3{
+   background-color: rgb(46,46,46);
+   color: var(--white);
+   border-radius: 15px;
+   width: auto;
+   padding: 5px 20px;
+   align-items: center;
+   font-size: 15px;
+   margin: 0px 15px;
+ }
+
+ .headButtons{
+   display: flex;
+   flex-direction: row;
+   width: 40%;
+ }
+
+.searchButton{
+   width:150px;
+   padding: 0 10px;
+   border: none;
+   background-color: var(--gold2);
+   display: flex;
+   text-align: center;
+   align-items: center;   
+   font-family: 'Garant Pro', sans-serif;
+   font-size: 15px;
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+   cursor: pointer;
+}
+.searchButton i{
+   width: auto;
+}
+.filterButton{
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding: 0 10px;
+   width: 150px;
+   border-radius: 7px;
+   border: none;
+   background-color: var(--gold2);
+   margin: 0px 50px;
+   font-family: 'Garant Pro', sans-serif;
+   font-size: 15px;
+   cursor: pointer;
+}
+.filterButton i{
+   width: auto;
+
+}
+
+.addButton{
+   width: 20%;
+   font-family: 'Garant Pro', sans-serif;
+   font-size: 15px;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding: 0 10px;
+   width: 150px;
+   border-radius: 7px;
+   border: none;
+   background-color: var(--white);
+   cursor: pointer;
+}
+.addButton i{
+   width: auto;
+}
+.searchButton:hover{
+   scale: 1.2;
+   transition: 0.9s;
+}
+.filterButton:hover{
+   scale: 1.2;
+   transition: 0.9s;
+}
+.addButton:hover{
+   scale: 1.2;
+   transition: 0.9s;
+}
+
+
+
+/* tabla*/
+
+.tablaSubastas {
+   table-layout: fixed;
+   width: 70%;
+   background-color: rgb(64, 64, 64);
+   color: var(--white);
+   text-align: center;
+   font-family: 'Garant Pro', sans-serif;
+   margin:50px auto;
+   border-radius: 7px;
+   
+}
+.Encabezados{
+   background-color:  rgb(87, 87, 87);
+
+}   
+.Encabezados td{
+   padding: 10px 5px;
+}
+.check{
+   width: 40px;
+}
+.tableItems td {
+   padding:15px 5px;
+   border-color: var(--grey);
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+  
+}
+.tableItems, .Encabezados{
+   width: auto;
+}
+.itemImg img{
+   width: 55px;
+   margin: 0 auto;
+   border-radius: 25px;
+}
+.participarButton{
+   display: flex;
+   align-items: center;
+   text-align: center;
+   padding: 10px;
+   width: auto;
+   border-radius: 20px;
+   border: none;
+   background-color:#d7b0009a;
+   color: var(--white);
+   margin:auto;
+   font-family: 'Garant Pro', sans-serif;
+   font-size: 15px;
+   cursor: pointer;
+}
+.tableItems:hover{
+   background-color: var(--gold2);
+   transition: 0.9s;
+}
+
+ /*filtros*/
+
+
+ .menuFiltros{
+   display: none;
+   background-color: rgb(46, 46, 46);
+   flex-direction: column;
+   width: 370px;
+   position: absolute;
+   left: 68%;
+   margin-top: 10px;
+   box-shadow: -50px 0px 100px black;
+
+ }
+
+ .nombreFiltro{
+   display: flex;
+   flex-direction: row;
+   text-align: left;
+   padding:15px 0px 0px 30px;
+   font-family: 'Garant Pro', sans-serif;
+   color: var(--white);
+   list-style: none;
+   align-items: center;
+ 
+ }
+.buscarFiltros{
+   display: flex;
+   flex-direction: row;
+   margin: 20px auto;
+   width: 90%;
+}
+
+
+.buscarFiltros input{
+   width: 90%;
+   border: none;
+   border-top-left-radius: 7px;
+   border-bottom-left-radius: 7px;
+   padding: 8px;
+   background-color: rgb(87, 87, 87);
+}
+.Filtros input{
+   width: 25px;
+}
+.menuFiltros button{
+   color: var(--black);
+   width: 150px;
+   display: flex;
+   flex-direction: row;
+   border:none;
+   border-top-right-radius: 7px;
+   border-bottom-right-radius: 7px;
+   background-color: var(--gold2);
+   cursor: pointer;
+   font-family: 'Garant Pro', sans-serif;
+   font-size: 15px;
+   padding: 5px;
+   text-align: center;
+}
+.menuFiltros i{
+   width: auto;
+}
+.menuFiltros button:hover{
+   scale: 1.2;
+   transition: 0.9s;
+}
+
+.Filtros{
+   font-family: 'Garant Pro', sans-serif;
+   color: var(--white);
+}
+.tituloFiltro {
+   align-items: center;
+   cursor: pointer;
+}
+.tituloFiltro i{
+   font-size: 24px;
+}
+.tituloFiltro,
+.listaFiltro{
+   padding: 10px 15px;
+   display: flex;
+   flex-direction: row;
+}
+.listaFiltro,
+.listaCategoria{
+   background-color: rgb(64, 64, 64);
+}
+
+.listaCategoria{
+   display: block;
+   /*flex-direction: row;*/
+   text-align: left;
+   flex-wrap: wrap;
+   column-count: 2;
+   padding: 10px 15px;
+}
+
+.listaCategoria input{
+   width: auto;
+}
+.listaColumna1{
+   display: flex;
+   flex-direction: column;
+}
+
+ .mostrarCantidad{
+   color: var(--white);
+   font-family: 'Garant Pro', sans-serif;
+ }
+
+ .pieSubastas{
+   display: flex;
+   flex-direction: row;
+   width: 80%;
+   margin: auto;
+ }
+ .botonesNavegacion{
+   width: 400px;
+   display: flex;
+   flex-direction: row;
+ }
+ .botonesNavegacion button{
+   padding: 10px ;
+   width: 150px;
+   margin: 0 10px;
+   border-color: var(--white);
+   border-radius: 8px;
+   background-color: var(--black);
+   color: var(--white);
+   font-family: 'Garant Pro', sans-serif;
+   cursor: pointer;
+ }
+ .botonAnterior:hover{
+   scale: 1.1;
+   transition: .5s;
+ }
+ .botonSiguiente:hover{
+   scale: 1.1;
+   transition: .5s;
+
+ }
+
+
+
+   
+
+
+
+
+
+ 
+ 
+
+ 
+ 
+ 

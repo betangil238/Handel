@@ -87,6 +87,14 @@ a:link{
     text-align: right;
     padding: 20px;
 }
+.footer_copyright{
+    display: inline;
+    text-align: right;
+}
+.footer_copyright img{
+    width: 250px;
+
+}
 @media  (max-width: 750px){
     #email-footer{
         width: 50%;                           
