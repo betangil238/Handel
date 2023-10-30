@@ -362,6 +362,9 @@ body{
    .addButton>p,.searchButton>p,.filterButton>p{
       display: none;
    }
+   .menuFiltros{
+      left: 50%;
+    }
  }
 
  @media  (max-width: 1050px){
@@ -374,6 +377,10 @@ body{
    .encabezadoCategoria,.itemCategoria,.check,.subastasHead>h2{
       display: none;
    }
+   .menuFiltros{
+      left: 10%;
+      width: 370px;
+    }
  }
 
  @media  (max-width: 690px){
@@ -418,3 +425,10 @@ body{
    }
 
  }
+
+ @media  (max-width: 440px){
+ .menuFiltros{
+   left: 2%;
+
+ }
+}
