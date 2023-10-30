@@ -35,7 +35,7 @@ body{
     flex-direction: row;
     width: 90%;
     text-align: center;
-    padding:0px 10%;
+    padding:0px 5%;
     height: 35px;
     margin: auto;
     margin-top: 120px;
@@ -155,7 +155,7 @@ body{
 
 .tablaSubastas {
    table-layout: fixed;
-   width: 70%;
+   width: 80%;
    background-color: rgb(64, 64, 64);
    color: var(--white);
    text-align: center;
@@ -198,8 +198,8 @@ body{
    width: auto;
    border-radius: 20px;
    border: none;
-   background-color:#d7b0009a;
-   color: var(--white);
+   background-color:#ffffffe7;
+   color: var(--black);
    margin:auto;
    font-family: 'Garant Pro', sans-serif;
    font-size: 15px;
@@ -354,17 +354,67 @@ body{
 
  }
 
+ @media  (max-width: 1255px){
+   .addButton,.searchButton,.filterButton{
+      display: flex;
+      justify-content: center;
+   }
+   .addButton>p,.searchButton>p,.filterButton>p{
+      display: none;
+   }
+ }
 
+ @media  (max-width: 1050px){
+   .itemEstado,.encabezadoestado,.encabezadopujas,.itemPujas{
+      display: none;
+   }
 
-   
+ }
+ @media  (max-width: 790px){
+   .encabezadoCategoria,.itemCategoria,.check,.subastasHead>h2{
+      display: none;
+   }
+ }
 
+ @media  (max-width: 690px){
+   .tablaSubastas{
+      width: 90%;
+   }
+   .subastasHead{
+      padding: 0;
+   }
 
+   .searchButton{
+      width:40px;
+   }
+   .filterButton{
 
+      padding: 0 5px;
+      width: 40px;
+      margin: 0px 5px;
+   }
 
+   .addButton{
+      padding: 0 5px;
+      width: 40px;
+   }
+ }
 
- 
- 
+ @media  (max-width: 550px){
+   .encabezadofecha,.itemFecha{
+      display: none;
+   }
+   .botonesNavegacion{
+      width: 200px;
+    }
+    .participarButton{
+      padding: 7px;
+      width: auto;
+      font-size: 12px;
+   }
 
- 
- 
- 
+   .subastasHead>h3{
+      display: none;
+   }
+
+ }

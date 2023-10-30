@@ -2,7 +2,10 @@
 const filterButton = document.querySelector(".filterButton");
 const menuFiltros = document.querySelector(".menuFiltros");
 
-
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if (!user) {
+    window.location.href="login.html"  
+}
 
 function mostrarFiltros() {
     if (menuFiltros.style.display === "flex" || menuFiltros.style.display === "") {

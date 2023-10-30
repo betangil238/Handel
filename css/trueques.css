@@ -115,6 +115,7 @@
 }
 .filtros{
     display: flex;
+    margin-top: 100px;
     flex-direction: row;
     height: 30px;
     width: 80%;
