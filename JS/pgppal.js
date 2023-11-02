@@ -13,6 +13,13 @@ const obtenerDatos = async () => {
 
 
 obtenerDatos().then(() => {
+
+    if(data.reset == 1 && window.location.href.includes("ajustes.html")){
+        window.location.href='pgppal.html';
+    }
+
+
+
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
@@ -99,9 +106,7 @@ if(window.location.href.includes("ajustes.html")){
 }
 
 
-if(data.reset == 1 && window.location.href.includes("ajustes.html")){
-    window.location.href='pgppal.html';
-}
+
 
 
 

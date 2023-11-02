@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', async (e) => {
     if(data!=null){
         if(data.email==email && data.contrasena==password){
             // Inicializamos una variable que nos permita ingresar al sistema
-            const Users = JSON.parse(localStorage.getItem('users')) || []
+                    //const Users = JSON.parse(localStorage.getItem('users')) || []
                     // // Aquí validamos si los datos son iguales a los que se registraron
                     // const validUser = Users.find(user => user.email === email && user.password === password)
                     // // Inicializamos un condicional, especificando de que si los datos son diferentes, no nos permita iniciar sesión
@@ -29,7 +29,7 @@ loginForm.addEventListener('submit', async (e) => {
                     // // Aquí almacenamos los datos String a JSON para que se guarden en la lista de objetos
                     // localStorage.setItem('login_success', JSON.stringify(validUser))
                     // // Si los datos son correctos, que nos redirija al home del sistema
-            localStorage.setItem('login_success', JSON.stringify({"id":`${data.idusuario}`,"email":`${data.email}`}))
+            localStorage.setItem('login_success', JSON.stringify({"id":`${data.idUsuario}`,"email":`${data.email}`}))
             mostrarAlerta(data.name2)
   
             setTimeout(() => {

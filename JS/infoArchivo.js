@@ -1,3 +1,20 @@
+function base64ToBlob(base64, contentType) {
+    const binaryStr = window.atob(base64);
+    const binaryArray = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        binaryArray[i] = binaryStr.charCodeAt(i);
+    }
+    return new Blob([binaryArray], { type: contentType });
+}
+
+const foto = localStorage.getItem("Objeto")
+const blob = base64ToBlob(foto, "image/jpeg"); // Asegúrate de especificar el tipo de contenido correcto
+const urlDeObjeto = URL.createObjectURL(blob);
+const imagen = document.querySelector(".imagen");
+imagen.src = urlDeObjeto;
+
+
+
 const siguiente=document.getElementById("siguiente");
 siguiente.addEventListener("click",function(){
     const titulo=document.getElementById("titulo").value;

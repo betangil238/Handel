@@ -1,3 +1,5 @@
+let fotoBlob
+
 const user= JSON.parse(localStorage.getItem('login_success')) || false
 if (!user) {
     window.location.href="login.html"  
@@ -45,14 +47,52 @@ imageUploadWrap.addEventListener('dragleave', function () {
     imageUploadWrap.classList.remove('image-dropping');
 });
 
-function validar(){
+async function validar(){
   const fileUpload = document.querySelector('.file-upload-input');
   if(fileUpload.files.length===0 ||contador<=0 ){
     mostrarAlertaRechazo("Cargue una imagen")
   }else{
-    window.location.href = 'informacionArchivo.html'
+    fotoBlob = await crearFoto()
+    const objeto = localStorage.getItem("Objeto") || false
+    if(objeto){
+      localStorage.removeItem("Objeto")
+    }
+    
+    var blob = new Blob([fotoBlob], { type: fotoBlob.type });
+    
+    // Convertir el Blob a una cadena Base64
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var base64Data = event.target.result;
+      
+      // Almacenar la cadena Base64 en el almacenamiento local
+      localStorage.setItem("Objeto", base64Data);
+      
+      // Redireccionar a la página de información del archivo
+      window.location.href = 'informacionArchivo.html';
+    };
+    reader.readAsDataURL(blob);
+
   }
 }
+
+
+async function crearFoto() {
+    return new Promise((resolve, reject) => {
+        const fileInput = document.querySelector('.file-upload-input');
+        const file = fileInput.files[0]; // Obtener el archivo seleccionado
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const arrayBuffer = event.target.result;
+                blob = new Blob([arrayBuffer], {type: file.type });
+                resolve(blob);
+            };
+            reader.readAsArrayBuffer(file);
+        } 
+    });
+}
+
 
   function mostrarAlertaRechazo(mensaje) {
     Swal.fire({
@@ -71,7 +111,6 @@ function validar(){
 
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
-    console.log("Entro")
     mostrarAlerta();
     localStorage.removeItem('login_success')
     setTimeout(() => {
