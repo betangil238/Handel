@@ -3,6 +3,13 @@ if (!user) {
     window.location.href="login.html"  
 }
 
+const foto = localStorage.getItem("FotoObjeto")
+const imagen = document.querySelector(".imagen");
+imagen.src = foto;
+
+
+
+
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
     console.log("Entro")

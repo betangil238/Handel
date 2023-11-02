@@ -66,7 +66,7 @@ async function validar(){
       var base64Data = event.target.result;
       
       // Almacenar la cadena Base64 en el almacenamiento local
-      localStorage.setItem("Objeto", base64Data);
+      localStorage.setItem("FotoObjeto", base64Data);
       
       // Redireccionar a la página de información del archivo
       window.location.href = 'informacionArchivo.html';

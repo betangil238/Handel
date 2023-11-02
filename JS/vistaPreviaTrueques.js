@@ -1,6 +1,48 @@
+let objetoCompleto = {} 
+
+async function consultarUsuario(link){
+    const res = await fetch(link);
+    const data = await res.json();
+    return data;
+}
+
 const user= JSON.parse(localStorage.getItem('login_success')) || false
-if (!user) {
-    window.location.href="login.html"  
+const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
+const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
+
+async function crearObjetoTrueque(link, objeto){
+    const res = await fetch(link, {
+        method: "POST",
+        headers: {'content-Type': 'application/json'},
+        body: JSON.stringify(objeto),
+    });
+}
+
+const obtenerDatos1 = async () => {
+    data = await consultarUsuario(consultaEmail1);
+};
+
+obtenerDatos1().then(() => {
+    const fotoAutor = document.querySelector(".foto_autor")
+    if(data.imagen == null){
+        fotoAutor.src='Img/perfilAlternativo.png'
+    }else{
+        const blob = base64ToBlob(data.imagen, "image/jpeg");
+        const urlDeObjeto = URL.createObjectURL(blob);
+        fotoAutor.src = urlDeObjeto;
+    }
+    const nombreUsu = document.querySelector("#usuario")
+    nombreUsu.textContent = data.usuario1
+    objetoCompleto.idUsuario = data.idUsuario
+})
+
+function base64ToBlob(base64, contentType) {
+    const binaryStr = window.atob(base64);
+    const binaryArray = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        binaryArray[i] = binaryStr.charCodeAt(i);
+    }
+    return new Blob([binaryArray], { type: contentType });
 }
 
 const logout=document.getElementById("logout")
@@ -12,6 +54,28 @@ logout.addEventListener('click',()=>{
         window.location.href='login.html';
     }, 2500);
 })
+
+const foto = localStorage.getItem("FotoObjeto")
+const objeto = JSON.parse(localStorage.getItem("ObjetoInfo"))
+if(objeto){
+    const imagen = document.querySelector(".imagen");
+    imagen.src = foto;
+    //objetoCompleto.imagen = foto
+    objetoCompleto.titulo = objeto.titulo
+    objetoCompleto.descripcion = objeto.descripcion
+    objetoCompleto.etiquetas = objeto.etiquetas
+    objetoCompleto.categoria = objeto.categoria
+    objetoCompleto.visibilidad = objeto.visibilidad
+}else{
+    window.location.href = 'subirarchivo.html';
+}
+
+const titulo = document.querySelector(".titulo")
+const descripcion = document.querySelector(".descripcion_Objeto")
+titulo.textContent = objeto.titulo
+descripcion.textContent = objeto.descripcion
+
+
 
 function mostrarAlerta() {
     Swal.fire({
@@ -29,33 +93,13 @@ function mostrarAlerta() {
 }
 // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
 
-const perfil = document.querySelector(".foto_autor");
 
-if((user.name).toLowerCase()=="daniel betancur giraldo"){
-    perfil.src='Img/DanielBeta.jpeg'
-}else if((user.name).toLowerCase()=="sofia quimbay cadena"){
-    perfil.src='Img/SofiaQuimbay.jpeg'
-}else if((user.name).toLowerCase()=="laura valentina Leon castro"){
-    perfil.src='Img/ValeLeon.jpeg'
-}else if((user.name).toLowerCase()=="maria juliana ortiz patiño"){
-    perfil.src='Img/JuliOrtiz.jpeg'
-}else{
-    perfil.src='Img/perfilAlternativo.png'
-}
 
-const configuracion= JSON.parse(localStorage.getItem('configuracion'))
-const configuracionUsuario= configuracion.find(config =>  user.email ===config.email )
-const usuario = document.getElementById("usuario");
-if(configuracionUsuario.reset==0){
-    usuario.textContent=configuracionUsuario.usuario;
-}else{
-    usuario.textContent=configuracionUsuario.usuario1;
-}
-
-  const publicar = document.querySelector(".publicar");
-  publicar.addEventListener("click", function(){
-        window.location.href="trueques.html"
-  })
+const publicar = document.querySelector(".publicar");
+publicar.addEventListener("click", function(){
+    crearObjetoTrueque(crearObjTrueque,objetoCompleto)
+    //window.location.href="trueques.html"
+})
 
   function mostrarAlertaRechazo(text) {
     Swal.fire({
@@ -71,3 +115,5 @@ if(configuracionUsuario.reset==0){
         }
     });
 }
+
+//console.log(objetoCompleto);
