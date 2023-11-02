@@ -100,7 +100,7 @@ main{
 .logo {
     margin-top: 10px;
     width: 25%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     margin-left: 10%;
 }
 
@@ -119,9 +119,9 @@ main{
 
 /*Imagen perfil de la columna izquierda*/
 .container1imgPerfil {
-    width: 20%;
-    border-radius: 35px;
-    margin-bottom: 5px;
+    width: 25%;
+    shape-outside: circle();
+    clip-path: circle();
 }
 
 /*Información sobre ranking del perfil en subastas, transacciones y puntuación*/

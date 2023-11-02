@@ -126,6 +126,7 @@ h2{
     transition: all .2s ease;
     outline: none;
     font-weight: 700;
+    font-family: 'Garant pro';
 }
   
 .remove-image:hover {

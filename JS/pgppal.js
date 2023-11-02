@@ -66,6 +66,22 @@ function base64ToBlob(base64, contentType) {
 }
 
 
+const botonCargarFoto = document.querySelector(".cargarfoto")
+botonCargarFoto.addEventListener("click", async function(){
+    const fileInput = document.querySelector('.inputfoto');
+    const file = fileInput.files[0]; // Obtener el archivo seleccionado
+    if(file){
+        const linkFoto="https://handelrailway-production.up.railway.app/usuario/"+data.idUsuario+"/imagen";
+        const imagenBlob = await crearFoto2();
+        await actualizarFoto(linkFoto,imagenBlob); 
+        setTimeout(() => {
+            window.location.href='pgppal.html';
+        }, 1500);
+    }else{
+        mostrarAlertaRechazo("Por favor carga una imagen")
+    }
+})
+
 
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
@@ -80,6 +96,11 @@ if(window.location.href.includes("ajustes.html")){
     if (obtenerDatos.reset==1) {
         window.location.href="pgppal.html"  
     }
+}
+
+
+if(data.reset == 1 && window.location.href.includes("ajustes.html")){
+    window.location.href='pgppal.html';
 }
 
 
@@ -154,7 +175,7 @@ guardar.addEventListener("click",async function(){
         }else{
             data.name2=inputname.value;
             data.usuario1="@"+inputusuario.value
-            data.reset=0
+            data.reset=1
             const linkUser="https://handelrailway-production.up.railway.app/usuario";
             await actualizarUsuario(linkUser,data);   
             const fileInput = document.querySelector('.file-upload-input');
@@ -237,6 +258,17 @@ imagenclick.addEventListener("click",function(){
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
 salirProfile.addEventListener("click",function(){
     menuDesplegable.style.display="none"
 });
@@ -315,3 +347,18 @@ async function crearFoto() {
 }
 
 
+async function crearFoto2() {
+    return new Promise((resolve, reject) => {
+        const fileInput = document.querySelector('.inputfoto');
+        const file = fileInput.files[0]; // Obtener el archivo seleccionado
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const arrayBuffer = event.target.result;
+                const blob = new Blob([arrayBuffer], { type: file.type });
+                resolve(blob);
+            };
+            reader.readAsArrayBuffer(file);
+        } 
+    });
+}
