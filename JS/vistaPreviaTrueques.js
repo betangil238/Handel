@@ -11,12 +11,21 @@ const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/va
 const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
 
 async function crearObjetoTrueque(link, objeto){
-    const res = await fetch(link, {
+    const formData = new FormData();
+    formData.append("categoria", objeto.categoria);
+    formData.append("descripcion", objeto.descripcion);
+    formData.append("etiquetas", objeto.etiquetas);
+    formData.append("idUsuario", objeto.idUsuario);
+    formData.append("imagen", objeto.imagen, "nombre_imagen.jpg"); // Asegúrate de cambiar "nombre_imagen.jpg" al nombre real de la imagen
+    formData.append("titulo", objeto.titulo);
+    formData.append("visibilidad", objeto.visibilidad);
+    fetch(link, {
         method: "POST",
-        headers: {'content-Type': 'application/json'},
-        body: JSON.stringify(objeto),
+        headers: {'Content-Type': 'multipart/form-data'},
+        body: formData,
     });
 }
+
 
 const obtenerDatos1 = async () => {
     data = await consultarUsuario(consultaEmail1);
@@ -58,9 +67,21 @@ logout.addEventListener('click',()=>{
 const foto = localStorage.getItem("FotoObjeto")
 const objeto = JSON.parse(localStorage.getItem("ObjetoInfo"))
 if(objeto){
+    
     const imagen = document.querySelector(".imagen");
     imagen.src = foto;
-    //objetoCompleto.imagen = foto
+
+    // Crear un ArrayBuffer a partir de la cadena
+    const buffer = new ArrayBuffer(foto.length);
+    const view = new Uint8Array(buffer);
+    for (let i = 0; i <foto.length; i++) {
+    view[i] = foto.charCodeAt(i);
+    }
+
+    // Crear un Blob a partir del ArrayBuffer
+    const blob = new Blob([buffer], { type: 'text/plain' });
+
+    objetoCompleto.imagen = blob
     objetoCompleto.titulo = objeto.titulo
     objetoCompleto.descripcion = objeto.descripcion
     objetoCompleto.etiquetas = objeto.etiquetas
@@ -116,4 +137,4 @@ publicar.addEventListener("click", function(){
     });
 }
 
-//console.log(objetoCompleto);
+console.log(objetoCompleto);
