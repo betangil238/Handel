@@ -11,6 +11,7 @@ const obtenerDatos = async () => {
     data = await consultarUsuario(consultaEmail);
 };
 
+
 obtenerDatos().then(() => {
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
@@ -34,21 +35,37 @@ icono.addEventListener("click",function(){
     }
 })
 }
+if(!data.imagen){
+// CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
+    const perfil = document.querySelector(".container1imgPerfil");
+    if((data.name2).toLowerCase()=="daniel betancur giraldo"){
+        perfil.src='Img/DanielBeta.jpeg'
+    }else if((data.name2).toLowerCase()=="sofia quimbay cadena"){
+        perfil.src='Img/SofiaQuimbay.jpeg'
+    }else if((data.name2).toLowerCase()=="laura valentina Leon castro"){
+        perfil.src='Img/ValeLeon.jpeg'
+    }else if((data.name2).toLowerCase()=="maria juliana ortiz patiño"){
+        perfil.src='Img/JuliOrtiz.jpeg'
+    }else{
+        perfil.src='Img/perfilAlternativo.png'
+    }
+}else{
+    const perfil = document.querySelector(".container1imgPerfil");
+    const blob = base64ToBlob(data.imagen, "image/jpeg");
+        const urlDeObjeto = URL.createObjectURL(blob);
+        perfil.src = urlDeObjeto;
+}
 
-                    // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
-                    const perfil = document.querySelector(".container1imgPerfil");
+function base64ToBlob(base64, contentType) {
+    const binaryStr = window.atob(base64);
+    const binaryArray = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        binaryArray[i] = binaryStr.charCodeAt(i);
+    }
+    return new Blob([binaryArray], { type: contentType });
+}
 
-                    if((data.name).toLowerCase()=="daniel betancur giraldo"){
-                        perfil.src='Img/DanielBeta.jpeg'
-                    }else if((data.name).toLowerCase()=="sofia quimbay cadena"){
-                        perfil.src='Img/SofiaQuimbay.jpeg'
-                    }else if((data.name).toLowerCase()=="laura valentina Leon castro"){
-                        perfil.src='Img/ValeLeon.jpeg'
-                    }else if((data.name).toLowerCase()=="maria juliana ortiz patiño"){
-                        perfil.src='Img/JuliOrtiz.jpeg'
-                    }else{
-                        perfil.src='Img/perfilAlternativo.png'
-                    }
+
 
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
@@ -126,7 +143,6 @@ const guardar = document.getElementById("guardar");
 guardar.addEventListener("click",async function(){
                             // // verifica si el usuario que se va a asignar ya existe
                             // const verificacion= configuracion.find(config =>  ("@"+inputusuario.value) ===config.usuario1)
-    console.log(foto());
     const consultaUsuario="https://handelrailway-production.up.railway.app/usuario/validusuario/@"+inputusuario.value;
     const validarUsuario = await buscarUsuario(consultaUsuario);
     if(validarUsuario){
@@ -138,7 +154,17 @@ guardar.addEventListener("click",async function(){
         }else{
             data.name2=inputname.value;
             data.usuario1="@"+inputusuario.value
-            data.reset=1
+            data.reset=0
+            const linkUser="https://handelrailway-production.up.railway.app/usuario";
+            await actualizarUsuario(linkUser,data);   
+            const fileInput = document.querySelector('.file-upload-input');
+            const file = fileInput.files[0]; // Obtener el archivo seleccionado
+            console.log(file);
+            if(file){
+                const linkFoto="https://handelrailway-production.up.railway.app/usuario/"+data.idUsuario+"/imagen";
+                const imagenBlob = await crearFoto();
+                await actualizarFoto(linkFoto,imagenBlob); 
+            }
 
                         // // Borramos del local storage toda la seccion de configuracion, debido que no podemos modificar directamente el objeto que ya tiene la informacion sin actualizar almacenada
                         // localStorage.removeItem('configuracion');
@@ -163,7 +189,6 @@ guardar.addEventListener("click",async function(){
     }
 })
 }
-
 // CODIGO PARA EL MENU DESPLEGABLE DE LA IMAGEN DE PERFIL
 const menuDesplegable = document.querySelector(".containerDesplegable");
 const imagenclick= document.querySelector(".container1imgPerfil");
@@ -254,8 +279,39 @@ async function buscarUsuario(link){
     return data
 }
 
-async function foto(){
-    const form = document.querySelector(".file-upload-input");
-    const formData = new FormData(form);
-    console.log(formData.get('file'));
+async function actualizarUsuario(link,usuario){
+    fetch(link,{
+        method: "PUT",
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(usuario),
+    })
 }
+
+async function actualizarFoto(link,foto){
+    const formData = new FormData();
+    formData.append('imagen', foto);
+    fetch(link,{
+        method: "PATCH",
+        body: formData,
+    })
+}
+
+async function crearFoto() {
+    return new Promise((resolve, reject) => {
+        const fileInput = document.querySelector('.file-upload-input');
+        const file = fileInput.files[0]; // Obtener el archivo seleccionado
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const arrayBuffer = event.target.result;
+                const blob = new Blob([arrayBuffer], { type: file.type });
+                resolve(blob);
+            };
+            reader.readAsArrayBuffer(file);
+        } 
+    });
+}
+
+
