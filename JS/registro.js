@@ -1,3 +1,4 @@
+
 //Verificación del input name
 const nombre = document.getElementById("name");
 
@@ -17,7 +18,7 @@ nombre.addEventListener("input", function () {
 const signupForm = document.querySelector('#signupForm')
 
 // Inicializamos una función que nos permitirá envíar los datos del formulario
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', async(e) => {
     //  Nos ayuda a evitar que se envíe datos sin dar click al botón
     e.preventDefault()
     // Inicializamos una variable que almacenará el valor ingresado en el campo del nombre
@@ -46,6 +47,12 @@ signupForm.addEventListener('submit', (e) => {
             window.location.href = 'login.html';
         }, 2500);
     }
+    try {
+        const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+        console.log(error);
+    }
+    
 })
 // Funcion que genera un usuario aleatorio
 function cadena() {
