@@ -1,5 +1,4 @@
 let objetoCompleto = {} 
-let imageneo={};
 
 async function consultarUsuario(link){
     const res = await fetch(link);
@@ -11,9 +10,7 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
 
-async function crearObjetoTrueque(link, objeto,foto){
-    const base64String = await convertImageToBase64(foto.imagen);
-    objeto.imagen = base64String
+async function crearObjetoTrueque(link, objeto){
     const res = await fetch(link, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
@@ -21,9 +18,9 @@ async function crearObjetoTrueque(link, objeto,foto){
     });
     console.log(res);
     if (res.status == 200){
-        //setTimeout(() => {
-            window.location.href='login.html';
-        //}, 2500);
+        setTimeout(() => {
+            window.location.href='trueques.html';
+        }, 2500);
     }else{
         mostrarAlertaRechazo("No se pudo subir el trueque")
     }
@@ -56,32 +53,13 @@ function base64ToBlob(base64, contentType) {
     return new Blob([binaryArray], { type: contentType });
 }
 
-function convertImageToBase64(imageBlob) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-            const base64String = reader.result.split(',')[1];
-            resolve(base64String);
-        };
-        reader.onerror = (error) => {
-            reject(error);
-        };
-        reader.readAsDataURL(imageBlob);
-    });
-}
 
 const foto = localStorage.getItem("FotoObjeto")
+objetoCompleto.imagen = foto
 const objeto = JSON.parse(localStorage.getItem("ObjetoInfo"))
 if(objeto){
     const imagen = document.querySelector(".imagen");
     imagen.src = foto;
-    const buffer = new ArrayBuffer(foto.length);
-    const view = new Uint8Array(buffer);
-    for (let i = 0; i <foto.length; i++) {
-    view[i] = foto.charCodeAt(i);
-    }
-    const blob = new Blob([buffer], { type: 'image/jpeg'}); // "image/jpeg"
-    imageneo.imagen=blob;
     objetoCompleto.titulo = objeto.titulo
     objetoCompleto.descripcion = objeto.descripcion
     objetoCompleto.etiquetas = objeto.etiquetas
@@ -93,12 +71,10 @@ if(objeto){
 
 const publicar = document.querySelector(".publicar");
 publicar.addEventListener("click", function(){
-    crearObjetoTrueque(crearObjTrueque,objetoCompleto,imageneo) 
-
+    crearObjetoTrueque(crearObjTrueque,objetoCompleto) 
     setTimeout(() => {
         window.location.href="trueques.html"
     }, 2500);
-   
 })
 
 const logout=document.getElementById("logout")

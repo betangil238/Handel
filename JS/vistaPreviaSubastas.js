@@ -9,7 +9,6 @@ imagen.src = foto;
 
 
 
-
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
     console.log("Entro")
