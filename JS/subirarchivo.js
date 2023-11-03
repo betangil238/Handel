@@ -53,9 +53,9 @@ async function validar(){
     mostrarAlertaRechazo("Cargue una imagen")
   }else{
     let blob = await crearFoto()
-    const objeto = localStorage.getItem("Objeto") || false
+    const objeto = localStorage.getItem("FotoObjeto") || false
     if(objeto){
-      localStorage.removeItem("Objeto")
+      localStorage.removeItem("FotoObjeto")
     }
     // var blob = new Blob([fotoBlob], { type: fotoBlob.type });
     var reader = new FileReader();

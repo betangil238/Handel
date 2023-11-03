@@ -80,7 +80,7 @@ if(objeto){
     for (let i = 0; i <foto.length; i++) {
     view[i] = foto.charCodeAt(i);
     }
-    const blob = new Blob([buffer], { type: 'text/plain'}); // "image/jpeg"
+    const blob = new Blob([buffer], { type: 'image/jpeg'}); // "image/jpeg"
     imageneo.imagen=blob;
     objetoCompleto.titulo = objeto.titulo
     objetoCompleto.descripcion = objeto.descripcion

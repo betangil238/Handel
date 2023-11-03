@@ -76,9 +76,10 @@ if(!data.imagen){
     }
 }else{
     const perfil = document.querySelector(".container1imgPerfil");
+    
     const blob = base64ToBlob(data.imagen, "image/jpeg");
-        const urlDeObjeto = URL.createObjectURL(blob);
-        perfil.src = urlDeObjeto;
+    const urlDeObjeto = URL.createObjectURL(blob);
+    perfil.src = urlDeObjeto;
 }
 
 function base64ToBlob(base64, contentType) {
