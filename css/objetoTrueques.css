@@ -53,73 +53,6 @@ input{
     width: 100px;
 }
 
-.nav_Main{
-    background-image: url(../Img/fondo_Premium_Cont.png);
-    background-size: cover;
-    object-fit: none;
-    background-position: right center;
-    height: 100vh;
-}
-
-.numeros{
-    display: flex;
-    width: 35%;
-    align-content: center;
-    justify-content: center;
-    margin-left: 30%;
-    margin-top: 100px;
-
-}
-
-.container_Numero{
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    width: 30%;
-    text-align: center;
-}
-
-.circulo_Numero1{
-    width: 30px;
-	height: 30px;
-	shape-outside: circle();
-    clip-path: circle();
-	background: var(--gold2);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-    font-size: 10px;
-
-}
-
-.circulo_Numero{
-    width: 30px;
-	height: 30px;
-	shape-outside: circle();
-    clip-path: circle();
-	background: #535658;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-    font-size: 10px;
-
-}
-
-.texto_Numero{
-    color: var(--white);
-    opacity: 0.8;
-}
-
-.flecha{
-    color: var(--white);
-    display: flex;
-    width: 5%;
-    text-align: center;
-}
-
-
 .container_Principal{
     background-color: #212121;
     width: 70%;
@@ -132,9 +65,9 @@ input{
 }
 
 .conteiner_Arriba{
-    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .conteiner_Info{
@@ -204,28 +137,6 @@ hr{
     margin-bottom: 10px;
 }
 
-.autor_Ganador{
-    display: flex;
-    flex-direction: column;
-}
-
-.ganador{
-    color: var(--white);
-    width: 45%;
-}
-
-.titulo_Oferta{
-    color: var(--white);
-    opacity: 0.5;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-
-.usuario_Oferta{
-    color: var(--white);
-    font-size: 12px;
-}
 
 .autor > p{
     color: var(--white);
@@ -234,7 +145,6 @@ hr{
     font-weight: bold;
     width: 60%;
 }
-
 .foto_us_Autor{
     display: flex;
     align-items: center;
@@ -252,74 +162,6 @@ hr{
     clip-path: circle();
     width: 15%;
 }
-
-
-.valores_Productos{
-    display: flex;
-    flex-direction: column;
-}
-
-.valor_Actual{
-    display: flex;
-}
-
-.valor_Actual > p{
-    color: var(--white);
-    font-size: 12px;
-    opacity: 0.5;
-    width: 80px;
-    font-weight: bold;
-}
-
-.input_ValorActual{
-    background-color: #3F3D46;
-    border: none;
-    border-radius: 5px;
-    width: 40%;
-    font-size: 10px;
-}
-
-
-.visibility{
-    display: flex;
-}
-
-.visibility > p{
-    color: var(--white);
-    font-size: 12px;
-    opacity: 0.5;
-    width: 80px;
-    font-weight: bold;
-}
-
-.visibility > span{
-    color: var(--white);
-    font-size: 12px;
-    font-weight: bold;
-    width: 50%;
-}
-
-
-.incremento{
-    display: flex;
-}
-
-.incremento > p{
-    color: var(--white);
-    font-size: 12px;
-    opacity: 0.5;
-    width: 80px;
-    font-weight: bold;
-}
-
-.input_Incremento{
-    background-color: #3F3D46;
-    border: none;
-    border-radius: 5px;
-    width: 40%;
-    font-size: 10px;
-}
-
 
 
 .borde_Imagen{
@@ -344,8 +186,7 @@ button{
     cursor: pointer;
 }
 
-
-.pujar{
+#lista{
     background-color: var(--white);
     color: #000;
     border: none;
@@ -355,16 +196,13 @@ button{
     padding: 10px 5px;
     width: 50%;
     margin-left: 10%;
-    transition: 1s;
+    border-radius: 10px;
 }
 
-.pujar:hover{
-    scale: 1.2;
-}
-.abandonar{
-    background-color: #000;
-    color: var(--white);
-    border: white solid;
+.ofrecer{
+    background-color: var(--white);
+    color: var(--black);
+    border:2px solid rgb(0, 0, 0) ;
     margin-top: 30px;
     margin-bottom: 10px;
     padding: 10px 5px;
@@ -372,69 +210,12 @@ button{
     width: 50%;
     margin-left: 10%;
     margin-right: 10%;
-    opacity: 0.7;
+    transition: 1s;
 }
 
-
-.footer{
-    background-color: #2A2831;
-    display: flex;
-    flex-direction: row;
-    width: 70%;
-    margin-left: 15%;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-
+.ofrecer:hover{
+    scale: 1.3;
 }
-
-.footer_Textos{
-    margin: 10px 10px 10px 25px ;
-}
-
-.footer_Textos > h4{
-    font-family: 'TT rationalist trl';
-    font-weight: normal;
-    color: var(--white);
-    font-size: 18px;
-}
-
-.footer_Textos > p{
-    color: var(--white);
-    font-size: 12px;
-    opacity: 0.5;
-}
-
-.footer_Botones{
-    display: flex;
-    align-items: center;
-    margin: 10px 25px 10px 10px;
-}
-
-.footer_Botones > button{
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 0px ;
-    width: 30%;
-    height: 80%;
-}
-
-.volver{
-    background-color:  #2A2831;
-    color: var(--white);
-    border: white solid;
-    font-size: 12px;
-    margin-right: 5%;
-    margin-left: 35%;
-}
-
-.publicar{
-    background-color: var(--white);
-    color: black;
-    border: none;
-    font-size: 12px;
-}
-
 
 @media  (min-width: 601px) and (max-width: 1000px){
     .numeros{
@@ -454,12 +235,6 @@ button{
         text-align: center;
         font-size: 12px;
     }
-
-
-
-    
-
-
 }
 
 @media  (min-width: 320px) and (max-width: 600px){
@@ -479,10 +254,7 @@ button{
         width: 30%;
         text-align: center;
         font-size: 12px;
-    }
-
-    
-    
+    }  
 }
 
 @media  (min-width: 650px) and (max-width: 1200px){
@@ -498,32 +270,7 @@ button{
         width: 45%;
         margin-bottom: 15px;
     }
-
-    .autor_Ganador{
-        display: flex;
-        flex-direction: row;
-    }
-
-    
 }
-
-@media  (min-width: 500px) and (max-width: 650px){
-    .autor_Ganador{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .ganador{
-        color: var(--white);
-        width: 100%;
-    }
-
-
-    
-}
-
-
-
 
 @media (min-width:800px) and (max-width:950px){
  
@@ -533,8 +280,7 @@ button{
     }
     .volver{
         width: 50%;
-    }
-    
+    } 
 }
 
 @media  (min-width: 320px) and (max-width: 800px){
@@ -558,19 +304,9 @@ button{
         width: 100%;
         font-weight: bold;
     }
-
-    .valores_Productos{
-        display: flex;
-        flex-direction: column;
-    }
     .volver{
         width: 50%;
     }
-    
-
-    
-    
-
 }
 
 
@@ -595,7 +331,6 @@ button{
         width: 50%;
         margin-left: 25%;
     }
-
 }
 
 @media  (min-width: 500px) and (max-width: 649px){
@@ -611,37 +346,7 @@ button{
         width: 60%;
         margin-bottom: 15px;
     }
-
-
-    
-    .input_ValorActual{
-        background-color: #3F3D46;
-        border: none;
-        border-radius: 5px;
-        width: 40%;
-        margin-left: 0%;
-        font-size: 10px;
-    }
-    
-    
-    .visibility > span{
-        color: var(--white);
-        font-size: 12px;
-        font-weight: bold;
-    }
-    
-    
-    .input_Incremento{
-        background-color: #3F3D46;
-        border: none;
-        border-radius: 5px;
-        width: 40%;
-        font-size: 10px;
-        margin-left: 0%;
-    }
-
-
-    
+  
     .footer_Botones{
         display: flex;
         align-items: center;
@@ -672,9 +377,6 @@ button{
         font-size: 12px;
         margin-left: 10%;
     }
-
-
-
 }
 
 @media  (min-width: 320px) and (max-width: 499px){
@@ -688,61 +390,6 @@ button{
         color: var(--white);
         width: 50%;
         margin-bottom: 15px;
-    }
-
-    .autor_Ganador{
-        display: flex;
-        flex-direction: row;
-    }
-
-    .valor_Actual > p{
-        color: var(--white);
-        font-size: 12px;
-        opacity: 0.5;
-        width: 50%;
-        font-weight: bold;
-    }
-    
-    .input_ValorActual{
-        background-color: #3F3D46;
-        border: none;
-        border-radius: 5px;
-        width: 40%;
-        margin-left: 0%;
-        font-size: 10px;
-    }
-    
-    .visibility > p{
-        color: var(--white);
-        font-size: 12px;
-        opacity: 0.5;
-        width: 50%;
-        font-weight: bold;
-    }
-
-    
-    .visibility > span{
-        color: var(--white);
-        font-size: 12px;
-        font-weight: bold;
-        margin-left: 0%;
-    }
-    
-    .incremento > p{
-        color: var(--white);
-        font-size: 12px;
-        opacity: 0.5;
-        width: 50%;
-        font-weight: bold;
-    }
-    
-    .input_Incremento{
-        background-color: #3F3D46;
-        border: none;
-        border-radius: 5px;
-        width: 40%;
-        font-size: 10px;
-        margin-left: 0%;
     }
 
     .borde_Imagen{
@@ -816,8 +463,6 @@ button{
         margin-left: 0%;
         margin-bottom: 0px;
     }
-
-
 }
 
 @media  (min-width: 320px) and (max-width: 499px){
@@ -856,44 +501,39 @@ button{
         align-items: center;
     }
 
-    .pujar{
+    #lista{
         margin: 20px 0px;
         padding: 10px 5px;
         width: 50%;
     }
     
-    .abandonar{
+    .ofrecer{
         margin: 0;
         padding: 10px 5px;
         font-size: 12px;
         width: 50%;
-        opacity: 0.7;
     }
-
- 
-    
 }
-@media  (min-width: 1400px) {
 
-.container_Principal{
-    background-color: #212121;
-    width: 1000px;
-    margin:auto;
-    margin-top: 30px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px;
-}
-.footer{
-    background-color: #2A2831;
-    display: flex;
-    flex-direction: row;
-    width: 1000px;
-    margin: auto;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-
-}
+@media  (min-width: 1600px) {
+    .container_Principal{
+        background-color: #212121;
+        width: 1100px;
+        margin:auto;
+        margin-top: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+    }
+    .footer{
+        background-color: #2A2831;
+        display: flex;
+        flex-direction: row;
+        width: 1100px;
+        margin: auto;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
 }
