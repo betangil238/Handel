@@ -26,6 +26,7 @@ body {
     background-color: #000;
     display: flex;
 }
+
 input{
     font-family: 'Garant pro';
     color: #ECECEC;
@@ -52,73 +53,6 @@ input{
     color: #fff;
     width: 100px;
 }
-
-.nav_Main{
-    background-image: url(../Img/fondo_Premium_Cont.png);
-    background-size: cover;
-    object-fit: none;
-    background-position: right center;
-    height: 100vh;
-}
-
-.numeros{
-    display: flex;
-    width: 35%;
-    align-content: center;
-    justify-content: center;
-    margin-left: 30%;
-    margin-top: 100px;
-
-}
-
-.container_Numero{
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    width: 30%;
-    text-align: center;
-}
-
-.circulo_Numero1{
-    width: 30px;
-	height: 30px;
-	shape-outside: circle();
-    clip-path: circle();
-	background: var(--gold2);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-    font-size: 10px;
-
-}
-
-.circulo_Numero{
-    width: 30px;
-	height: 30px;
-	shape-outside: circle();
-    clip-path: circle();
-	background: #535658;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-    font-size: 10px;
-
-}
-
-.texto_Numero{
-    color: var(--white);
-    opacity: 0.8;
-}
-
-.flecha{
-    color: var(--white);
-    display: flex;
-    width: 5%;
-    text-align: center;
-}
-
 
 .container_Principal{
     background-color: #212121;
@@ -184,6 +118,7 @@ hr{
     margin-bottom: 20px;
 }
 
+
 .descripcion_Objeto{
     color: var(--white);
     font-size: 13px;
@@ -240,7 +175,6 @@ hr{
     align-items: center;
 }
 
-
 .foto_us_Autor > p{
     margin-left: 10px;
     font-size: 12px;
@@ -253,7 +187,6 @@ hr{
     width: 15%;
 }
 
-
 .valores_Productos{
     display: flex;
     flex-direction: column;
@@ -263,7 +196,7 @@ hr{
     display: flex;
 }
 
-.valor_Actual > p{
+.valor_ActualP{
     color: var(--white);
     font-size: 12px;
     opacity: 0.5;
@@ -271,12 +204,11 @@ hr{
     font-weight: bold;
 }
 
-.input_ValorActual{
-    background-color: #3F3D46;
-    border: none;
-    border-radius: 5px;
-    width: 40%;
-    font-size: 10px;
+.valor_Autor {
+    color: var(--white);
+    font-size: 12px;
+    width: 80px;
+    font-weight: bold;
 }
 
 
@@ -299,12 +231,11 @@ hr{
     width: 50%;
 }
 
-
-.incremento{
+.min_Incremento{
     display: flex;
 }
 
-.incremento > p{
+.min_IncrementoP{
     color: var(--white);
     font-size: 12px;
     opacity: 0.5;
@@ -312,7 +243,26 @@ hr{
     font-weight: bold;
 }
 
-.input_Incremento{
+.incremento_Fijo{
+    color: var(--white);
+    font-size: 12px;
+    width: 80px;
+    font-weight: bold;
+}
+
+.incremento_Adicional {
+    display: flex;
+}
+
+.incremento_Adicional > p {
+    color: var(--white);
+    font-size: 12px;
+    opacity: 0.5;
+    width: 80px;
+    font-weight: bold;
+}
+
+.input_IncrementoAdd {
     background-color: #3F3D46;
     border: none;
     border-radius: 5px;
@@ -435,32 +385,6 @@ button{
     font-size: 12px;
 }
 
-
-@media  (min-width: 601px) and (max-width: 1000px){
-    .numeros{
-        display: flex;
-        width: 50%;
-        align-content: center;
-        justify-content: center;
-        margin-left: 25%;
-
-    }
-    .container_Numero{
-        color: var(--white);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 30%;
-        text-align: center;
-        font-size: 12px;
-    }
-
-
-
-    
-
-
-}
 
 @media  (min-width: 320px) and (max-width: 600px){
     .numeros{
