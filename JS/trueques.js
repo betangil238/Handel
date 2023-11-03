@@ -7,7 +7,6 @@ const linkTrueques="https://handelrailway-production.up.railway.app/objtrueque";
 async function obtenerTrueques(link){
     const res = await fetch(link);
     const data = await res.json();
-    console.log(data);
     producirProductos(data)
 }
 

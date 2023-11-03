@@ -62,7 +62,6 @@ async function validar(){
     reader.onload = function(event) {
       var base64Data = event.target.result;
       localStorage.setItem("FotoObjeto", base64Data);
-      console.log(base64Data);
       window.location.href = 'informacionArchivo.html';
     };
     reader.readAsDataURL(blob);

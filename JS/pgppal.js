@@ -6,6 +6,28 @@ async function consultarUsuario(link){
 
 const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
+const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
+
+
+async function obtenerSubastas(link){
+    const res = await fetch(link);
+    const data = await res.json();
+    await producirSubastas(data)
+
+}
+
+obtenerSubastas(linkSubastas)
+
+const historias = document.querySelector(".historias")
+async function producirSubastas(productos){
+    productos.forEach(e => {
+        historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends">`
+    }); 
+}
+
+
+
+
 
 const obtenerDatos = async () => {
     data = await consultarUsuario(consultaEmail);

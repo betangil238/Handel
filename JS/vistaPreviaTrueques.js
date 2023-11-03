@@ -55,11 +55,11 @@ function base64ToBlob(base64, contentType) {
 
 
 const foto = localStorage.getItem("FotoObjeto")
-objetoCompleto.imagen = foto
 const objeto = JSON.parse(localStorage.getItem("ObjetoInfo"))
 if(objeto){
     const imagen = document.querySelector(".imagen");
     imagen.src = foto;
+    objetoCompleto.imagen = foto
     objetoCompleto.titulo = objeto.titulo
     objetoCompleto.descripcion = objeto.descripcion
     objetoCompleto.etiquetas = objeto.etiquetas
