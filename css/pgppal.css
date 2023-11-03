@@ -466,9 +466,12 @@ hr{
 /*Imágenes de los productos de la sección "Subastas en tendencia"*/
 .container2ImgTrends {
     width: 70px;
-    border-radius: 50px;
+    /*border-radius: 50px;*/
+    shape-outside: circle();
+    clip-path: circle();
     color: rgb(255, 255, 255);
     margin-left: 20px;
+    object-fit: cover;
 }
 
 .historias{
@@ -511,6 +514,9 @@ hr{
 /*Imagen en las cards del objeto que se va a truequear*/
 .imgObjetoTrueque {
     width: 100%;
+    object-fit: cover;
+    max-width: 274.99px;
+    max-height: 274.99px;
     display: flex;
     border-radius: 10px;
 }

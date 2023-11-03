@@ -7,6 +7,36 @@ async function consultarUsuario(link){
 const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
+const linkTrueques="https://handelrailway-production.up.railway.app/objtrueque";
+
+async function obtenerTrueques(link){
+    const res = await fetch(link);
+    const data = await res.json();
+    producirTrueques(data)
+}
+
+obtenerTrueques(linkTrueques);
+
+const conteinerTrueques = document.querySelector(".containerTruequeCards")
+function producirTrueques(productos){
+    productos.forEach(e => {
+        conteinerTrueques.innerHTML += `<div class="truequeCards">
+        <img src="${e.imagen}" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+        <div class="truequeCardInfo">
+            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
+            <div class="cardsTruequeName">
+                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+            </div>
+            <div class="truequeCardsIconNum">
+                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
+            </div>
+            <div class="truequeCardsIconNum">
+                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+            </div>
+        </div>
+        </div>`
+    }); 
+}
 
 
 async function obtenerSubastas(link){
