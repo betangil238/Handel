@@ -20,6 +20,13 @@ async function crearObjetoTrueque(link, objeto,foto){
         body: JSON.stringify(objeto),
     });
     console.log(res);
+    if (res.status == 200){
+        //setTimeout(() => {
+            window.location.href='login.html';
+        //}, 2500);
+    }else{
+        mostrarAlertaRechazo("No se pudo subir el trueque")
+    }
 }
 
 const obtenerDatos1 = async () => {
@@ -87,16 +94,18 @@ if(objeto){
 const publicar = document.querySelector(".publicar");
 publicar.addEventListener("click", function(){
     crearObjetoTrueque(crearObjTrueque,objetoCompleto,imageneo) 
-    window.location.href="trueques.html"
+
+    setTimeout(() => {
+        window.location.href="trueques.html"
+    }, 2500);
+   
 })
 
 const logout=document.getElementById("logout")
 logout.addEventListener('click',()=>{
     mostrarAlerta();
     localStorage.removeItem('login_success')
-    setTimeout(() => {
-        window.location.href='login.html';
-    }, 2500);
+    
 })
 
 const titulo = document.querySelector(".titulo")
