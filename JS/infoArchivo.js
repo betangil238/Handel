@@ -7,9 +7,6 @@ if(foto){
     window.location.href = 'subirarchivo.html';
 }
 
-
-
-
 let etiquetas =[];
 const input = document.getElementById("etiquetaInput");
 const listadoEtiquetas = document.querySelector(".listadoEtiquetas");

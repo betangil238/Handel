@@ -52,30 +52,22 @@ async function validar(){
   if(fileUpload.files.length===0 ||contador<=0 ){
     mostrarAlertaRechazo("Cargue una imagen")
   }else{
-    fotoBlob = await crearFoto()
+    let blob = await crearFoto()
     const objeto = localStorage.getItem("Objeto") || false
     if(objeto){
       localStorage.removeItem("Objeto")
     }
-    
-    var blob = new Blob([fotoBlob], { type: fotoBlob.type });
-    
-    // Convertir el Blob a una cadena Base64
+    // var blob = new Blob([fotoBlob], { type: fotoBlob.type });
     var reader = new FileReader();
     reader.onload = function(event) {
       var base64Data = event.target.result;
-      
-      // Almacenar la cadena Base64 en el almacenamiento local
       localStorage.setItem("FotoObjeto", base64Data);
-      
-      // Redireccionar a la página de información del archivo
       window.location.href = 'informacionArchivo.html';
     };
     reader.readAsDataURL(blob);
 
   }
 }
-
 
 async function crearFoto() {
     return new Promise((resolve, reject) => {

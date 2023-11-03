@@ -42,6 +42,24 @@ icono.addEventListener("click",function(){
     }
 })
 }
+if(window.location.href.includes("pgppal.html")){
+    const botonCargarFoto = document.querySelector(".cargarfoto")
+    botonCargarFoto.addEventListener("click", async function(){
+        const fileInput = document.querySelector('.inputfoto');
+        const file = fileInput.files[0]; // Obtener el archivo seleccionado
+        if(file){
+            const linkFoto="https://handelrailway-production.up.railway.app/usuario/"+data.idUsuario+"/imagen";
+            const imagenBlob = await crearFoto2();
+            await actualizarFoto(linkFoto,imagenBlob); 
+            setTimeout(() => {
+                window.location.href='pgppal.html';
+            }, 1500);
+        }else{
+            mostrarAlertaRechazo("Por favor carga una imagen")
+        }
+    })
+    }
+
 if(!data.imagen){
 // CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
     const perfil = document.querySelector(".container1imgPerfil");
@@ -73,22 +91,6 @@ function base64ToBlob(base64, contentType) {
 }
 
 
-const botonCargarFoto = document.querySelector(".cargarfoto")
-botonCargarFoto.addEventListener("click", async function(){
-    const fileInput = document.querySelector('.inputfoto');
-    const file = fileInput.files[0]; // Obtener el archivo seleccionado
-    if(file){
-        const linkFoto="https://handelrailway-production.up.railway.app/usuario/"+data.idUsuario+"/imagen";
-        const imagenBlob = await crearFoto2();
-        await actualizarFoto(linkFoto,imagenBlob); 
-        setTimeout(() => {
-            window.location.href='pgppal.html';
-        }, 1500);
-    }else{
-        mostrarAlertaRechazo("Por favor carga una imagen")
-    }
-})
-
 
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
@@ -104,10 +106,6 @@ if(window.location.href.includes("ajustes.html")){
         window.location.href="pgppal.html"  
     }
 }
-
-
-
-
 
 
 // conexion del icono y texto de ajustes en la pagina principal y ajustes
@@ -185,7 +183,6 @@ guardar.addEventListener("click",async function(){
             await actualizarUsuario(linkUser,data);   
             const fileInput = document.querySelector('.file-upload-input');
             const file = fileInput.files[0]; // Obtener el archivo seleccionado
-            console.log(file);
             if(file){
                 const linkFoto="https://handelrailway-production.up.railway.app/usuario/"+data.idUsuario+"/imagen";
                 const imagenBlob = await crearFoto();
@@ -265,15 +262,6 @@ imagenclick.addEventListener("click",function(){
 
 
 
-
-
-
-
-
-
-
-
-
 salirProfile.addEventListener("click",function(){
     menuDesplegable.style.display="none"
 });
@@ -350,7 +338,6 @@ async function crearFoto() {
         } 
     });
 }
-
 
 async function crearFoto2() {
     return new Promise((resolve, reject) => {

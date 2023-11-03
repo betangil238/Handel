@@ -20,7 +20,6 @@ async function buscarUsuario(url){
 }
 
 async function guardarUsuario(usuario){
-    console.log("Entre");
     const res = await fetch(rutaPost,{
         method: 'POST',
         headers:{
@@ -35,7 +34,6 @@ async function guardarUsuario(usuario){
         usuario1:usuario.usuario
         }),
     });
-    console.log(res);
 }
 
 // Inicializamos una variable que recibirá los datos del formulario de registro

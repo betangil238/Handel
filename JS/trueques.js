@@ -70,63 +70,6 @@ function producirProductos(){
 producirProductos();
 
 
-const enviar= document.querySelector(".buttonNat");
-enviar.addEventListener("click",function(){
-    const nuevoproducto=[];
-    const tytle = document.querySelector(".tytleNat").value;
-    const categoria = document.getElementById("cate").value;
-    const visibilidad = document.querySelector("#cate1").value;
-    if(tytle==""){
-        mostrarAlertaRechazo("Llene el campo de titulo");
-    }else{
-        const producto= {};
-        producto.imagen=`Img/subastas/${Math.floor((Math.random()*11)+1)}.png`
-        producto.id=tytle;
-        producto.likes=Math.floor((Math.random()*999)+1);
-        producto.vistas=Math.floor((Math.random()*9999)+1);
-        producto.categoria=categoria;
-        producto.visibilidad=visibilidad;
-        producto.etiquetas="musica,reggaeton,Dj";
-        nuevoproducto.push(producto);
-        nuevoproducto.forEach(e => {
-            empaquetador.innerHTML+=`<article class="contenedor" id="contenedor">
-            <div class="imagenContainer">
-                <img src="${e.imagen}" class="imagenPublicacion">
-            </div>
-            <div class="infoProducto">
-                <div class="infoPublicacion">
-                    <p class="NombreUsuario"><span class="idPublicacion">${e.id}</span></p>
-                    <div class="likes_Vistas">
-                        <p class="parrafoLikes"><i class='bx bx-heart' style='color:#f9f9f9'  ></i><span class="CantidadLikes">${e.likes}</span><span>Likes</span></p>
-                        <p class="parrafoVistas"> <span class="material-symbols-outlined">visibility</span><span class="CantidadVistas">${e.vistas}</span><span>Vistas</span></p>
-                    </div>
-                </div>
-                <div class="infoGral">
-                    <div class="statusPublicacion">
-                        <div class="texto">
-                            <label class="titulo">Categoria</label>
-                            <p class="contenido">${e.categoria}</p>
-                        </div>
-                        <div class="texto">
-                            <label class="titulo">Visibilidad</label>
-                            <p class="contenido">${e.visibilidad}</p>
-                        </div>
-                        <div class="texto">
-                            <label class="titulo">Etiquetas</label>
-                            <p class="contenido">${e.etiquetas}</p>
-                        </div>
-                    </div>
-                    <div class="btnParticipar">
-                        <button class="participar">Ofrecer</button>
-                    </div>
-                </div>
-            </div>
-        </article>`
-        });
-        document.querySelector(".tytleNat").value=""
-    }
-}) 
-
 function mostrarAlertaRechazo(text) {
     Swal.fire({
         title: 'Error',

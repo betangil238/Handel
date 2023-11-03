@@ -1,4 +1,5 @@
 let objetoCompleto = {} 
+let imageneo={};
 
 async function consultarUsuario(link){
     const res = await fetch(link);
@@ -10,22 +11,16 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
 
-async function crearObjetoTrueque(link, objeto){
-    const formData = new FormData();
-    formData.append("categoria", objeto.categoria);
-    formData.append("descripcion", objeto.descripcion);
-    formData.append("etiquetas", objeto.etiquetas);
-    formData.append("idUsuario", objeto.idUsuario);
-    formData.append("imagen", objeto.imagen, "nombre_imagen.jpg"); // Asegúrate de cambiar "nombre_imagen.jpg" al nombre real de la imagen
-    formData.append("titulo", objeto.titulo);
-    formData.append("visibilidad", objeto.visibilidad);
-    fetch(link, {
+async function crearObjetoTrueque(link, objeto,foto){
+    const base64String = await convertImageToBase64(foto.imagen);
+    objeto.imagen = base64String
+    const res = await fetch(link, {
         method: "POST",
-        headers: {'Content-Type': 'multipart/form-data'},
-        body: formData,
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(objeto),
     });
+    console.log(res);
 }
-
 
 const obtenerDatos1 = async () => {
     data = await consultarUsuario(consultaEmail1);
@@ -54,34 +49,32 @@ function base64ToBlob(base64, contentType) {
     return new Blob([binaryArray], { type: contentType });
 }
 
-const logout=document.getElementById("logout")
-logout.addEventListener('click',()=>{
-    console.log("Entro")
-    mostrarAlerta();
-    localStorage.removeItem('login_success')
-    setTimeout(() => {
-        window.location.href='login.html';
-    }, 2500);
-})
+function convertImageToBase64(imageBlob) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const base64String = reader.result.split(',')[1];
+            resolve(base64String);
+        };
+        reader.onerror = (error) => {
+            reject(error);
+        };
+        reader.readAsDataURL(imageBlob);
+    });
+}
 
 const foto = localStorage.getItem("FotoObjeto")
 const objeto = JSON.parse(localStorage.getItem("ObjetoInfo"))
 if(objeto){
-    
     const imagen = document.querySelector(".imagen");
     imagen.src = foto;
-
-    // Crear un ArrayBuffer a partir de la cadena
     const buffer = new ArrayBuffer(foto.length);
     const view = new Uint8Array(buffer);
     for (let i = 0; i <foto.length; i++) {
     view[i] = foto.charCodeAt(i);
     }
-
-    // Crear un Blob a partir del ArrayBuffer
-    const blob = new Blob([buffer], { type: 'text/plain' });
-
-    objetoCompleto.imagen = blob
+    const blob = new Blob([buffer], { type: 'text/plain'}); // "image/jpeg"
+    imageneo.imagen=blob;
     objetoCompleto.titulo = objeto.titulo
     objetoCompleto.descripcion = objeto.descripcion
     objetoCompleto.etiquetas = objeto.etiquetas
@@ -91,12 +84,25 @@ if(objeto){
     window.location.href = 'subirarchivo.html';
 }
 
+const publicar = document.querySelector(".publicar");
+publicar.addEventListener("click", function(){
+    crearObjetoTrueque(crearObjTrueque,objetoCompleto,imageneo) 
+    window.location.href="trueques.html"
+})
+
+const logout=document.getElementById("logout")
+logout.addEventListener('click',()=>{
+    mostrarAlerta();
+    localStorage.removeItem('login_success')
+    setTimeout(() => {
+        window.location.href='login.html';
+    }, 2500);
+})
+
 const titulo = document.querySelector(".titulo")
 const descripcion = document.querySelector(".descripcion_Objeto")
 titulo.textContent = objeto.titulo
 descripcion.textContent = objeto.descripcion
-
-
 
 function mostrarAlerta() {
     Swal.fire({
@@ -112,15 +118,6 @@ function mostrarAlerta() {
         }
     });
 }
-// CONFIGURACION DE IMAGEN Y NOMBRE DE PERFIL DEL USUARIO
-
-
-
-const publicar = document.querySelector(".publicar");
-publicar.addEventListener("click", function(){
-    crearObjetoTrueque(crearObjTrueque,objetoCompleto)
-    //window.location.href="trueques.html"
-})
 
   function mostrarAlertaRechazo(text) {
     Swal.fire({
