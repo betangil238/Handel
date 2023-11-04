@@ -4,38 +4,60 @@ async function consultarUsuario(link){
     return data;
 }
 
+
+function base64ToBlob(base64, contentType) {
+    const binaryStr = window.atob(base64);
+    const binaryArray = new Uint8Array(binaryStr.length);
+    for (let i = 0; i < binaryStr.length; i++) {
+        binaryArray[i] = binaryStr.charCodeAt(i);
+    }
+    return new Blob([binaryArray], { type: contentType });
+}
+
 const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
-const linkTrueques="https://handelrailway-production.up.railway.app/objtrueque";
+const linkUsuarios="https://handelrailway-production.up.railway.app/usuario";
 
-async function obtenerTrueques(link){
+async function obtenerUsuarios(link){
     const res = await fetch(link);
     const data = await res.json();
     producirTrueques(data)
 }
 
-obtenerTrueques(linkTrueques);
+obtenerUsuarios(linkUsuarios);
 
 const conteinerTrueques = document.querySelector(".containerTruequeCards")
-function producirTrueques(productos){
-    productos.forEach(e => {
-        conteinerTrueques.innerHTML += `<div class="truequeCards">
-        <img src="${e.imagen}" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-        <div class="truequeCardInfo">
-            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-            <div class="cardsTruequeName">
-                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
+let urlPerfil
+function producirTrueques(usuarios){
+    usuarios.forEach(usu => {
+        productos = usu.objetosDeTrueque
+        if(usu.imagen == null){
+            urlPerfil = 'Img/perfilAlternativo.png'
+        }else{
+            const blob = base64ToBlob(usu.imagen, "image/jpeg");
+            urlPerfil = URL.createObjectURL(blob)
+        }
+        const nombrePerfil = usu.name2
+        productos.forEach(e => {
+            conteinerTrueques.innerHTML += `<div class="truequeCards">
+            <img src="${e.imagen}" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+            <div class="truequeCardInfo">
+                <img src="${urlPerfil}" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
+                <div class="cardsTruequeName">
+                    <p>${nombrePerfil}</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                </div>
+                <div class="truequeCardsIconNum">
+                    <p><i class='bx bx-heart'></i>${e.likes}</p> <!--Icono y número de likes-->
+                </div>
+                <div class="truequeCardsIconNum">
+                    <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+                </div>
             </div>
-            <div class="truequeCardsIconNum">
-                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-            </div>
-            <div class="truequeCardsIconNum">
-                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-            </div>
-        </div>
-        </div>`
-    }); 
+            </div>`
+        }); 
+    })
+   
 }
 
 
@@ -54,8 +76,6 @@ async function producirSubastas(productos){
         historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends">`
     }); 
 }
-
-
 
 
 
@@ -133,19 +153,10 @@ if(!data.imagen){
     perfil.src = urlDeObjeto;
 }
 
-function base64ToBlob(base64, contentType) {
-    const binaryStr = window.atob(base64);
-    const binaryArray = new Uint8Array(binaryStr.length);
-    for (let i = 0; i < binaryStr.length; i++) {
-        binaryArray[i] = binaryStr.charCodeAt(i);
-    }
-    return new Blob([binaryArray], { type: contentType });
-}
+
 
 
 // Conexion de datos con los ID y clases del HTML de pgppal y ajustes
-const nombreperfil = document.querySelector(".nombreprofile");
-const usuarioperfil = document.getElementById("userCode");
                     // Captura de datos del local storage plasmados con el Item de configuracion
                     const configuracion= JSON.parse(localStorage.getItem('configuracion'))
                     // Busqueda del usuario activo al cual corresponde el login sucess del local storage con el de configuracion
@@ -181,8 +192,14 @@ ruedaConfiguracion.addEventListener("click",function(){
     }
 })
 // Este fragmento de codigo es el que asigna el nombre y usuario en el panel lateral izquierdo
+const nombreperfil = document.querySelector(".nombreprofile");
+const usuarioperfil = document.getElementById("userCode");
+const numTrueques = document.querySelector(".numTrueques")
+const numSubastas = document.querySelector(".numSubastas")
 nombreperfil.textContent=data.name2;
 usuarioperfil.textContent=data.usuario1;
+numTrueques.textContent = data.objetosDeTrueque.length
+numSubastas.textContent= data.objetosDeSubasta.length
 
 if(window.location.href.includes("ajustes.html")){
 const inputname = document.getElementById("name");
