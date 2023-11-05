@@ -122,6 +122,8 @@ main{
     width: 25%;
     shape-outside: circle();
     clip-path: circle();
+    height: 120px;
+    object-fit: cover;
 }
 
 /*Información sobre ranking del perfil en subastas, transacciones y puntuación*/
@@ -640,7 +642,6 @@ hr{
     margin-bottom: 2px;
     shape-outside: circle();
     clip-path: circle();
-
 }
 
 
