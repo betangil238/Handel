@@ -21,6 +21,8 @@ const obtenerDatos1 = async () => {
     usuarioLogeado = await consultarDato(consultaEmail1);
     subastaSeleccionada = await consultarDato(buscarSubasta);
     const linkusuarioSubasta="https://handelrailway-production.up.railway.app/usuario/"+subastaSeleccionada.idUsuario;
+    const consultarUsuario="https://handelrailway-production.up.railway.app/usuario/"+subastaSeleccionada.idGanador;
+    usuarioGandor = await consultarDato(consultarUsuario)
     usuSubasta = await consultarDato(linkusuarioSubasta);
 
 };
@@ -50,7 +52,7 @@ obtenerDatos1().then(() => {
     if(subastaSeleccionada.idGanador == null ){
         usuGandor.textContent = "@user"
     }else{
-        usuGandor.textContent = subastaSeleccionada
+        usuGandor.textContent = usuarioGandor.usuario1
     }
     const valor = document.querySelector(".valor_Autor")
     valor.textContent = "$"+subastaSeleccionada.valor
@@ -60,12 +62,40 @@ obtenerDatos1().then(() => {
     incre.textContent = "$"+subastaSeleccionada.incremento
 
 
-    if(usuSubasta.idUsuario == usuarioLogeado.idUsuario){
+    if(usuSubasta.idUsuario == usuarioLogeado.idUsuario || subastaSeleccionada.idGanador == usuarioLogeado.idUsuario){
         const botones = document.querySelector(".botones_derecha")
         botones.style.display = "none"
     }
 
+
+    const botonPujar = document.querySelector(".pujar")
+    botonPujar.addEventListener("click",() => {
+        if(inputAu.value == ""){
+            mostrarAlertaRechazo("Diligencia el incremento")
+        }else if(inputAu.value < subastaSeleccionada.incremento){
+            mostrarAlertaRechazo("El incremento mínimo es de $"+subastaSeleccionada.incremento)
+        }else{
+            subastaSeleccionada.valor += parseInt(inputAu.value)
+            subastaSeleccionada.idGanador = usuarioLogeado.idUsuario
+            subastaSeleccionada.vistas += 1
+            actualizarSub(actualizarSubasta,subastaSeleccionada)
+        }
+    })
+
 })
+
+async function actualizarSub(link,objeto){
+    console.log(objeto);
+    fetch(link,{
+        method: "PUT",
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(objeto),
+    })
+}
+
+
 
 
 const inputAu = document.querySelector(".input_IncrementoAdd")
@@ -77,9 +107,6 @@ inputAu.addEventListener("input", function() {
     // Actualiza el valor del campo de entrada con solo números
     inputAu.value = valorNumerico;
 });
-
-
-
 
 const flecha = document.querySelector(".bxs-left-arrow-circle")
 flecha.addEventListener("click",() => {

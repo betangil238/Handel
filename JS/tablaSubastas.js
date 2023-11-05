@@ -5,6 +5,7 @@ async function obtenerSubastas(link){
     const data = await res.json();
     await producirSubastas(data)
     navegacionTablas()
+    clickSubastas()
 }
 
 obtenerSubastas(linkSubastas);
@@ -31,27 +32,43 @@ function sumarDiasAFecha(fechaStr, dias) {
 const cuerpoTabla = document.querySelector(".cuerpoTabla")
 async function producirSubastas(productos){
     productos.forEach(e => {
+
         if(e.visibilidad == "Todos"){
             let fechaSola = e.fechadecreacion
             let fecha = fechaSola.slice(0,10);
             let fechaCierre = sumarDiasAFecha(fecha,3)
+            
+            let idGanador
+            if(e.idGanador == null){
+                idGanador = "Sin ofertas"
+            }else{
+                idGanador = e.idGanador
+            }
             cuerpoTabla.innerHTML += `<tr class="tableItems">
-            <td class="check"><input type="checkbox"></td>
             <td class="itemImg"><img src="${e.imagen}" alt=""></td>
             <td class="itemObjeto">${e.titulo}</td>
             <td class="itemEstado">${e.visibilidad}</td>
             <td class="itemCategoria">${e.categoria}</td>
-            <td class="itemPujas">${e.titulo}</td>
+            <td class="itemPujas">${idGanador}</td>
             <td class="itemValor">${e.valor}</td>
             <td class="itemFecha">${fechaCierre}</td>
-            <td class="itemParticipar"><button class="participarButton  ${e.idsubastas}" id="${e.idsubastas}">Participar</button></td>
+            <td class="itemParticipar"><button class="participarButton ${e.idsubastas}" id="${e.idsubastas}">Participar</button></td>
             </tr>`
         }
     }); 
 }
 
 
-const todosBotones = document.querySelectorAll(".participarButton")
+
+async function clickSubastas(){
+    const todosBotones = document.querySelectorAll(".participarButton")
+    todosBotones.forEach(e =>{
+        e.addEventListener("click",function(){
+            localStorage.setItem("idSubasta", JSON.stringify({"idSubasta": e.id}))
+            window.location.href='objetoSubastas.html';
+        })
+    })
+}
 
 
 
