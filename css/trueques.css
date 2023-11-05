@@ -255,6 +255,8 @@ i{
     margin-left: 10%;
     width: 90%;
     border-radius: 20px;
+    max-height: 300px;
+    object-fit: cover;
 }
 .infoProducto{
     color: #ECECEC;

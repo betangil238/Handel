@@ -8,6 +8,7 @@ async function obtenerTrueques(link){
     const res = await fetch(link);
     const data = await res.json();
     producirProductos(data)
+    clickTrueques()
 }
 
 obtenerTrueques(linkTrueques);
@@ -44,7 +45,7 @@ function producirProductos(productos){
                         </div>
                     </div>
                     <div class="btnParticipar">
-                        <button class="participar">Ofrecer</button>
+                        <button class="participar" id="${e.idTrueques}">Ofrecer</button>
                     </div>
                 </div>
             </div>
@@ -52,6 +53,17 @@ function producirProductos(productos){
         }
     
     }); 
+}
+
+function clickTrueques(){
+    const containerTrueques = document.querySelectorAll(".participar")
+    containerTrueques.forEach(e => {
+        e.addEventListener("click", function(){
+            const idTrueque = e.id;
+            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque":idTrueque}))
+            window.location.href='objetoTrueques.html';
+        })
+    })
 }
 
 

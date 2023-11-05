@@ -53,6 +53,18 @@ input{
     width: 100px;
 }
 
+.bxs-left-arrow-circle{
+    cursor: pointer;
+    font-size: 30px;
+    transition: 1s;
+    max-width: 30px;
+}
+
+.bxs-left-arrow-circle:hover{
+    scale: 1.5;
+}
+
+
 .container_Principal{
     background-color: #212121;
     width: 70%;
@@ -174,6 +186,9 @@ hr{
 
 .imagen{
     border-radius: 10px;
+    /*max-width: 225px;*/
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .botones_derecha{

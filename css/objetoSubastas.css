@@ -54,11 +54,23 @@ input{
     width: 100px;
 }
 
+.bxs-left-arrow-circle{
+    cursor: pointer;
+    font-size: 30px;
+    transition: 1s;
+    max-width: 30px;
+}
+
+.bxs-left-arrow-circle:hover{
+    scale: 1.5;
+}
+
+
 .container_Principal{
     background-color: #212121;
     width: 70%;
     margin-left:15%;
-    margin-top: 30px;
+    margin-top: 120px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -282,6 +294,8 @@ hr{
 
 .imagen{
     border-radius: 10px;
+    object-fit: cover;
+    max-height: 300px;
 }
 
 .botones_derecha{
@@ -803,7 +817,7 @@ button{
     background-color: #212121;
     width: 1000px;
     margin:auto;
-    margin-top: 30px;
+    margin-top: 120px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

@@ -46,6 +46,10 @@ obtenerDatos1().then(() => {
     vist.textContent = truequeSeleccionado.vistas+" vistas"
     const likes = document.querySelector(".likesTrueque")
     likes.textContent = truequeSeleccionado.likes+" likes"
+    if(usuTrueque.idUsuario == usuarioLogeado.idUsuario){
+        const botones = document.querySelector(".botones_derecha")
+        botones.style.display = "none"
+    }
     const menu = document.getElementById("lista")
     const trueques = usuarioLogeado.objetosDeTrueque;
     trueques.forEach(e => {
@@ -83,6 +87,12 @@ async function crearTrueque(link, objeto){
         mostrarAlertaRechazo("No se pudo subir el trueque")
     }
 }
+
+const flecha = document.querySelector(".bxs-left-arrow-circle")
+flecha.addEventListener("click",() => {
+    window.location.href='pgppal.html';
+})
+
 
 
 function base64ToBlob(base64, contentType) {
@@ -124,7 +134,7 @@ function mostrarAlerta() {
 function mostrarAlertaTruequeExitoso() {
     Swal.fire({
         title: 'Trueque creado',
-        text: 'Espera que sea aceptado',
+        text: 'Espera a que sea aceptado',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
         confirmButtonText: 'Aceptar', // Texto del boton
         customClass: {

@@ -1,6 +1,3 @@
-
-
-
 const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
 
 async function obtenerSubastas(link){
@@ -21,7 +18,6 @@ function sumarDiasAFecha(fechaStr, dias) {
     if (isNaN(fecha)) {
       return "Fecha inválida";
     }
-    
     // Agrega los días
     fecha.setDate(fecha.getDate() + dias);
     
@@ -48,11 +44,16 @@ async function producirSubastas(productos){
             <td class="itemPujas">${e.titulo}</td>
             <td class="itemValor">${e.valor}</td>
             <td class="itemFecha">${fechaCierre}</td>
-            <td class="itemParticipar"><button class="participarButton  ${e.idsubastas}">Participar</button></td>
+            <td class="itemParticipar"><button class="participarButton  ${e.idsubastas}" id="${e.idsubastas}">Participar</button></td>
             </tr>`
         }
     }); 
 }
+
+
+const todosBotones = document.querySelectorAll(".participarButton")
+
+
 
 
 

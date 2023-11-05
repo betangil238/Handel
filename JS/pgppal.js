@@ -25,6 +25,7 @@ async function obtenerUsuarios(link){
     producirTrueques(data);
     obtenerSubastas(linkSubastas);
     clickTrueques()
+    await clickSubastas()
 }
 
 obtenerUsuarios(linkUsuarios);
@@ -64,9 +65,21 @@ function producirTrueques(usuarios){
     })
    
 }
+const historias = document.querySelector(".historias")
+async function producirSubastas(productos){
+    productos.forEach(e => {
+        if(e.visibilidad == "Todos"){
+            historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends" id="${e.idsubastas}">`
+        }
+    }); 
+}
+
+
+
 
 function clickTrueques(){
     const containerTrueques = document.querySelectorAll(".truequeCards")
+    console.log(containerTrueques);
     containerTrueques.forEach(e => {
         e.addEventListener("click", function(){
             const idTrueque = e.id;
@@ -78,6 +91,17 @@ function clickTrueques(){
 }
 
 
+async function clickSubastas(){
+    const histo = document.querySelector(".historias")
+    histo.addEventListener("click", function(e){
+        const imagenClick = e.target 
+        let idImagen = imagenClick.id
+        localStorage.setItem("idSubasta", JSON.stringify({"idSubasta": idImagen}))
+        window.location.href='objetoSubastas.html';
+    })
+}
+
+
 
 
 async function obtenerSubastas(link){
@@ -85,18 +109,6 @@ async function obtenerSubastas(link){
     const data = await res.json();
     await producirSubastas(data)
 }
-
-
-
-const historias = document.querySelector(".historias")
-async function producirSubastas(productos){
-    productos.forEach(e => {
-        if(e.visibilidad == "Todos"){
-            historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends ${e.idsubastas}">`
-        }
-    }); 
-}
-
 
 
 const obtenerDatos = async () => {
