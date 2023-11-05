@@ -22,7 +22,9 @@ const linkUsuarios="https://handelrailway-production.up.railway.app/usuario";
 async function obtenerUsuarios(link){
     const res = await fetch(link);
     const data = await res.json();
-    producirTrueques(data)
+    producirTrueques(data);
+    obtenerSubastas(linkSubastas);
+    clickTrueques()
 }
 
 obtenerUsuarios(linkUsuarios);
@@ -40,40 +42,58 @@ function producirTrueques(usuarios){
         }
         const nombrePerfil = usu.name2
         productos.forEach(e => {
-            conteinerTrueques.innerHTML += `<div class="truequeCards">
-            <img src="${e.imagen}" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-            <div class="truequeCardInfo">
-                <img src="${urlPerfil}" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                <div class="cardsTruequeName">
-                    <p>${nombrePerfil}</p> <!--Nombre del perfil de quien ofrece el objeto-->
+            if(e.visibilidad == "Todos"){
+                conteinerTrueques.innerHTML += `<div class="truequeCards ${e.idTrueques}" id="${e.idTrueques}">
+                <img src="${e.imagen}" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
+                <div class="truequeCardInfo">
+                    <img src="${urlPerfil}" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
+                    <div class="cardsTruequeName">
+                        <p>${nombrePerfil}</p> <!--Nombre del perfil de quien ofrece el objeto-->
+                    </div>
+                    <div class="truequeCardsIconNum">
+                        <p><i class='bx bx-heart'></i>${e.likes}</p> <!--Icono y número de likes-->
+                    </div>
+                    <div class="truequeCardsIconNum">
+                        <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
+                    </div>
                 </div>
-                <div class="truequeCardsIconNum">
-                    <p><i class='bx bx-heart'></i>${e.likes}</p> <!--Icono y número de likes-->
-                </div>
-                <div class="truequeCardsIconNum">
-                    <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                </div>
-            </div>
-            </div>`
+                </div>`
+            }
+            
         }); 
     })
    
 }
+
+function clickTrueques(){
+    const containerTrueques = document.querySelectorAll(".truequeCards")
+    containerTrueques.forEach(e => {
+        e.addEventListener("click", function(){
+            const idTrueque = e.id;
+            console.log(idTrueque);
+            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque":idTrueque}))
+            window.location.href='objetoTrueques.html';
+        })
+    })
+}
+
+
 
 
 async function obtenerSubastas(link){
     const res = await fetch(link);
     const data = await res.json();
     await producirSubastas(data)
-
 }
 
-obtenerSubastas(linkSubastas)
+
 
 const historias = document.querySelector(".historias")
 async function producirSubastas(productos){
     productos.forEach(e => {
-        historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends">`
+        if(e.visibilidad == "Todos"){
+            historias.innerHTML += `<img src="${e.imagen}" class="container2ImgTrends ${e.idsubastas}">`
+        }
     }); 
 }
 
@@ -332,6 +352,17 @@ imagenclick.addEventListener("click",function(){
 salirProfile.addEventListener("click",function(){
     menuDesplegable.style.display="none"
 });
+
+
+
+
+
+const conteinerSubastas = document.querySelector(".historias")
+
+
+
+
+
 
 // funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta(mensaje) {

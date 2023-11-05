@@ -466,12 +466,12 @@ hr{
 /*Imágenes de los productos de la sección "Subastas en tendencia"*/
 .container2ImgTrends {
     width: 70px;
-    /*border-radius: 50px;*/
     shape-outside: circle();
     clip-path: circle();
     color: rgb(255, 255, 255);
     margin-left: 20px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .historias{
@@ -519,6 +519,7 @@ hr{
     max-height: 274.99px;
     display: flex;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /*Container de la información en las cards: foto de perfil, nombre, likes y comentarios*/
@@ -534,7 +535,8 @@ hr{
     width: 20px;
     height: 20px;
     margin-left: 0px;
-    border-radius: 40px
+    border-radius: 40px;
+    object-fit: cover;
 }
 
 /*Nombre del perfil en la card*/

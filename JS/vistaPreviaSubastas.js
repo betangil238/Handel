@@ -22,6 +22,9 @@ async function crearObjetoSubasta(link, objeto){
     });
     console.log(res);
     if (res.status == 200){
+        localStorage.removeItem("FotoObjeto")
+        localStorage.removeItem("ObjetoInfo")
+        localStorage.removeItem("imagenActual")
         setTimeout(() => {
             window.location.href='subastas.html';
         }, 2500);

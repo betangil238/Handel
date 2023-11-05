@@ -18,6 +18,9 @@ async function crearObjetoTrueque(link, objeto){
     });
     console.log(res);
     if (res.status == 200){
+        localStorage.removeItem("FotoObjeto")
+        localStorage.removeItem("ObjetoInfo")
+        localStorage.removeItem("imagenActual")
         setTimeout(() => {
             window.location.href='trueques.html';
         }, 2500);
