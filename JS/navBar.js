@@ -81,9 +81,34 @@ obtenerDatos().then(() => {
     if(data.notificaciones != null){
         const noti = data.notificaciones
         noti.forEach(e =>{
-            notificaciones.innerHTML += `<p><span class="material-symbols-outlined" id="campana">notification_important</span>${e.mensaje}</p>`
+            let contador = 1
+            let id = ""
+            if(e.mensaje[0] == "T"){
+                for(contador; contador <(e.mensaje).length; contador++){
+                    if(parseInt(e.mensaje[contador]) >= 0){
+                        id += e.mensaje[contador]
+                    }else{
+                        break
+                    }
+                }
+                const mensaje = e.mensaje
+                const nuevoMensaje = mensaje.slice(contador, mensaje.length)
+                notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+            }else{
+                notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
+            }
         })
     }
+
+    const notificacionesLink = document.querySelectorAll(".notificacionNuevoTrueque")
+    notificacionesLink.forEach( e => {
+        e.addEventListener("click", () =>{
+            const idT = e.id
+            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque": idT, "notificacion" : 1}))
+            window.location.href = 'objetoTrueques.html'
+        })
+    })
+
     const ajusteAlerta = document.querySelector(".ajustesRedirection");
     ajusteAlerta.addEventListener("click",function(){
     // Validacion de autorizacion para la pagina de ajustes

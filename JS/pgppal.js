@@ -118,17 +118,41 @@ obtenerDatos().then(() => {
     let tamano
     const notificaciones = document.querySelector(".notifications")
     const cantidad = document.querySelector(".cantidad")
-    console.log(data.notificaciones);
     if(data.notificaciones != null){
         const noti = data.notificaciones
         tamano = (noti.length) + 1
         noti.forEach(e =>{
-            notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
+            let contador = 1
+            let id = ""
+            if(e.mensaje[0] == "T"){
+                for(contador; contador <(e.mensaje).length; contador++){
+                    if(parseInt(e.mensaje[contador]) >= 0){
+                        id += e.mensaje[contador]
+                    }else{
+                        break
+                    }
+                }
+                const mensaje = e.mensaje
+                const nuevoMensaje = mensaje.slice(contador, mensaje.length)
+                notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+            }else{
+                notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
+            }
         })
     }else{
         tamano = 1
     }
     cantidad.textContent = tamano
+
+    const notificacionesLink = document.querySelectorAll(".notificacionNuevoTrueque")
+    notificacionesLink.forEach( e => {
+        e.addEventListener("click", () =>{
+            const idT = e.id
+            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque": idT, "notificacion" : 1}))
+            window.location.href = 'objetoTrueques.html'
+        })
+    })
+    
 
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")

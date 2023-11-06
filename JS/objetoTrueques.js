@@ -11,6 +11,11 @@ async function consultarDato(link){
 //Id del trueque seleccionado en Local Storage
 const idtrueque = JSON.parse(localStorage.getItem("idTrueque"))
 const idTruequeSeleccionado = idtrueque.idTrueque
+const notificacion = idtrueque.notificacion
+const footer = document.querySelector(".footer")
+if(notificacion == "1"){
+    footer.style.display = "block"
+}
 objetoTrueque.idObjetoTrueque1 = idTruequeSeleccionado
 
 const user= JSON.parse(localStorage.getItem('login_success')) || false

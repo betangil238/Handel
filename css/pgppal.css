@@ -421,6 +421,15 @@ hr{
     flex-direction: row;
     margin-bottom: 15px;
 }
+.notifications a{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--gold1);
+}
 
 /*Barra de búsqueda*/
 #barraBusqueda {
