@@ -1,4 +1,5 @@
 let objetoTrueque = {}
+let objetoNotificacion = {}
 
 async function consultarDato(link){
     const res = await fetch(link);
@@ -16,6 +17,7 @@ const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const buscarTrueque = "https://handelrailway-production.up.railway.app/objtrueque/"+idTruequeSeleccionado;
 const linkCrearTrueque = "https://handelrailway-production.up.railway.app/trueque";
+const linkCrearNotificacion = "https://handelrailway-production.up.railway.app/notificacion";
 
 
 const obtenerDatos1 = async () => {
@@ -55,7 +57,7 @@ obtenerDatos1().then(() => {
     trueques.forEach(e => {
         menu.innerHTML += `<option value="${e.titulo}">${e.titulo}</option>`
     })
-
+    objetoNotificacion.idUsuario = usuTrueque.idUsuario
     const botonOfrecer = document.querySelector(".ofrecer")
     botonOfrecer.addEventListener("click",() => {
         if(menu.value == ""){
@@ -64,12 +66,14 @@ obtenerDatos1().then(() => {
             trueques.forEach(e => {
                 if(menu.value == e.titulo){
                     objetoTrueque.idObjetoTrueque2 = e.idTrueques
+                    objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
                     crearTrueque(linkCrearTrueque, objetoTrueque)
                 }
             })
         }
     })
 })
+
 
 async function crearTrueque(link, objeto){
     const res = await fetch(link, {
@@ -78,6 +82,7 @@ async function crearTrueque(link, objeto){
         body: JSON.stringify(objeto),
     });
     if (res.status == 200){
+        crearNotificacion(linkCrearNotificacion,objetoNotificacion)
         mostrarAlertaTruequeExitoso()
         localStorage.removeItem("idTrueque")
         setTimeout(() => {
@@ -86,6 +91,14 @@ async function crearTrueque(link, objeto){
     }else{
         mostrarAlertaRechazo("No se pudo subir el trueque")
     }
+}
+
+async function crearNotificacion(link, objeto){
+    const res = await fetch(link, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(objeto),
+    });
 }
 
 const flecha = document.querySelector(".bxs-left-arrow-circle")

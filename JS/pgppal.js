@@ -23,6 +23,7 @@ async function obtenerUsuarios(link){
     const res = await fetch(link);
     const data = await res.json();
     producirTrueques(data);
+    console.log(data);
     obtenerSubastas(linkSubastas);
     clickTrueques()
     await clickSubastas()
@@ -75,15 +76,11 @@ async function producirSubastas(productos){
 }
 
 
-
-
 function clickTrueques(){
     const containerTrueques = document.querySelectorAll(".truequeCards")
-    console.log(containerTrueques);
     containerTrueques.forEach(e => {
         e.addEventListener("click", function(){
             const idTrueque = e.id;
-            console.log(idTrueque);
             localStorage.setItem("idTrueque", JSON.stringify({"idTrueque":idTrueque}))
             window.location.href='objetoTrueques.html';
         })
@@ -102,8 +99,6 @@ async function clickSubastas(){
 }
 
 
-
-
 async function obtenerSubastas(link){
     const res = await fetch(link);
     const data = await res.json();
@@ -115,14 +110,22 @@ const obtenerDatos = async () => {
     data = await consultarUsuario(consultaEmail);
 };
 
-
 obtenerDatos().then(() => {
 
     if(data.reset == 1 && window.location.href.includes("ajustes.html")){
         window.location.href='pgppal.html';
     }
-
-
+    
+    const notificaciones = document.querySelector(".notifications")
+    const cantidad = document.querySelector(".cantidad")
+    if(data.notificaciones != null){
+        const noti = data.notificaciones
+        const tamano = (noti.length) + 1
+        cantidad.textContent = tamano
+        noti.forEach(e =>{
+            notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
+        })
+    }
 
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
@@ -186,14 +189,6 @@ if(!data.imagen){
 }
 
 
-
-
-// Conexion de datos con los ID y clases del HTML de pgppal y ajustes
-                    // Captura de datos del local storage plasmados con el Item de configuracion
-                    const configuracion= JSON.parse(localStorage.getItem('configuracion'))
-                    // Busqueda del usuario activo al cual corresponde el login sucess del local storage con el de configuracion
-                    const configuracionUsuario= configuracion.find(config =>  user.email ===config.email )
-                    // Validacion de autorizacion para la pagina de ajustes
 if(window.location.href.includes("ajustes.html")){
     if (obtenerDatos.reset==1) {
         window.location.href="pgppal.html"  

@@ -77,6 +77,13 @@ const obtenerDatos = async () => {
 };
 
 obtenerDatos().then(() => {
+    const notificaciones = document.querySelector(".notifications")
+    if(data.notificaciones != null){
+        const noti = data.notificaciones
+        noti.forEach(e =>{
+            notificaciones.innerHTML += `<p><span class="material-symbols-outlined" id="campana">notification_important</span>${e.mensaje}</p>`
+        })
+    }
     const ajusteAlerta = document.querySelector(".ajustesRedirection");
     ajusteAlerta.addEventListener("click",function(){
     // Validacion de autorizacion para la pagina de ajustes
