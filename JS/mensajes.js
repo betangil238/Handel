@@ -1,3 +1,34 @@
+async function consultarUsuario1(link){
+  const res = await fetch(link);
+  const data = await res.json();
+  return data;
+}
+
+const user1= JSON.parse(localStorage.getItem('login_success')) || false
+const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email;
+
+
+const obtenerDatos1 = async () => {
+  data = await consultarUsuario1(consultaEmail1);
+};
+
+obtenerDatos1().then(() => {
+  console.log(data);
+  console.log(data.mensajes);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 const inputMessage = document.querySelector(".inputMessage");
 const containerInput = document.querySelector(".containerAllMessages");
 const sendButton = document.querySelector(".sendButtonClick");
