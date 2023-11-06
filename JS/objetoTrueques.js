@@ -81,12 +81,14 @@ async function crearTrueque(link, objeto){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(objeto),
     });
-    if (res.status == 200){
-        crearNotificacion(linkCrearNotificacion,objetoNotificacion)
+    if(res.status == 400){
+        mostrarAlertaRechazo("Este trueque ya fue creado")
+    }else if (res.status == 200){
+        await crearNotificacion(linkCrearNotificacion,objetoNotificacion)
         mostrarAlertaTruequeExitoso()
         localStorage.removeItem("idTrueque")
         setTimeout(() => {
-            window.location.href='pgppal.html';
+            //window.location.href='pgppal.html';
         }, 2500);
     }else{
         mostrarAlertaRechazo("No se pudo subir el trueque")
@@ -94,6 +96,7 @@ async function crearTrueque(link, objeto){
 }
 
 async function crearNotificacion(link, objeto){
+    console.log(objeto);
     const res = await fetch(link, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},

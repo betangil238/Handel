@@ -21,6 +21,7 @@ async function crearObjetoTrueque(link, objeto){
         localStorage.removeItem("FotoObjeto")
         localStorage.removeItem("ObjetoInfo")
         localStorage.removeItem("imagenActual")
+        mostrarAlertaTruequeExitoso()
         setTimeout(() => {
             window.location.href='trueques.html';
         }, 2500);
@@ -91,6 +92,23 @@ const titulo = document.querySelector(".titulo")
 const descripcion = document.querySelector(".descripcion_Objeto")
 titulo.textContent = objeto.titulo
 descripcion.textContent = objeto.descripcion
+
+
+function mostrarAlertaTruequeExitoso() {
+    Swal.fire({
+        title: 'Trueque subido',
+        text: 'Sigue navegando',
+        icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
+        confirmButtonText: 'Aceptar', // Texto del boton
+        customClass: {
+            container: 'mi-alerta',
+            title: 'mi-titulo',
+            content: 'mi-contenido',
+            confirmButton: 'mi-boton'
+        }
+    });
+}
+
 
 function mostrarAlerta() {
     Swal.fire({

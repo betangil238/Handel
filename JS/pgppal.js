@@ -23,7 +23,6 @@ async function obtenerUsuarios(link){
     const res = await fetch(link);
     const data = await res.json();
     producirTrueques(data);
-    console.log(data);
     obtenerSubastas(linkSubastas);
     clickTrueques()
     await clickSubastas()
@@ -116,16 +115,20 @@ obtenerDatos().then(() => {
         window.location.href='pgppal.html';
     }
     
+    let tamano
     const notificaciones = document.querySelector(".notifications")
     const cantidad = document.querySelector(".cantidad")
+    console.log(data.notificaciones);
     if(data.notificaciones != null){
         const noti = data.notificaciones
-        const tamano = (noti.length) + 1
-        cantidad.textContent = tamano
+        tamano = (noti.length) + 1
         noti.forEach(e =>{
             notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
         })
+    }else{
+        tamano = 1
     }
+    cantidad.textContent = tamano
 
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
