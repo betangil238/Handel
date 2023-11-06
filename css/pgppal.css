@@ -100,7 +100,7 @@ main{
 .logo {
     margin-top: 10px;
     width: 25%;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     margin-left: 10%;
 }
 
@@ -119,9 +119,11 @@ main{
 
 /*Imagen perfil de la columna izquierda*/
 .container1imgPerfil {
-    width: 20%;
-    border-radius: 35px;
-    margin-bottom: 5px;
+    width: 25%;
+    shape-outside: circle();
+    clip-path: circle();
+    height: 120px;
+    object-fit: cover;
 }
 
 /*Información sobre ranking del perfil en subastas, transacciones y puntuación*/
@@ -466,9 +468,12 @@ hr{
 /*Imágenes de los productos de la sección "Subastas en tendencia"*/
 .container2ImgTrends {
     width: 70px;
-    border-radius: 50px;
+    shape-outside: circle();
+    clip-path: circle();
     color: rgb(255, 255, 255);
     margin-left: 20px;
+    object-fit: cover;
+    cursor: pointer;
 }
 
 .historias{
@@ -511,8 +516,12 @@ hr{
 /*Imagen en las cards del objeto que se va a truequear*/
 .imgObjetoTrueque {
     width: 100%;
+    object-fit: cover;
+    max-width: 274.99px;
+    max-height: 274.99px;
     display: flex;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /*Container de la información en las cards: foto de perfil, nombre, likes y comentarios*/
@@ -528,7 +537,8 @@ hr{
     width: 20px;
     height: 20px;
     margin-left: 0px;
-    border-radius: 40px
+    border-radius: 40px;
+    object-fit: cover;
 }
 
 /*Nombre del perfil en la card*/
@@ -632,7 +642,6 @@ hr{
     margin-bottom: 2px;
     shape-outside: circle();
     clip-path: circle();
-
 }
 
 

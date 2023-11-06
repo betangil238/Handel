@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vista Previa Trueques</title>
+    <title>Subasta</title>
     <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
     <link href="https://fonts.cdnfonts.com/css/tt-rationalist-trl" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032" rel="stylesheet">  
@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- Referencia a SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="css/vistaPreviaTrueques.css">
+    <link rel="stylesheet" href="css/objetoSubastas.css">
 </head>
 <body>
   
 <!--Navbar -->
-    
+
 <nav class="navBar">
     <div class="logosNav">
         <a class="logoNavBar"  href="pgppal.html"><img src="Img/LogoCompletoBlanco.png" alt="" class="handelImage"> </a> 
@@ -28,7 +28,7 @@
     <div class="linksNavBar">
         <ul id="menuBurger">
             <li class="linksItems"><a href="trueques.html">Trueques</a></li>
-            <li class="linksItems"><a href="subastas.html">Subastas</a></li>
+            <li class="linksItems"><a href="Subastas.html">Subastas</a></li>
             <li class="linksItems"><a href="contactanos.html">Contáctanos</a></li>
             <li class="linksItems"><a href="index.html">About Us</a></li>
             <li class="linksItems"><a href="suscripcion.html">Premium</a></li>
@@ -68,108 +68,79 @@
         <button class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
     </div>
 </nav>
-
 <!--/.Navbar -->
-    <div class="nav_Main">
-        <div class="numeros">
-            <div class="container_Numero">
-                <div class="circulo_Numero1">
-                    <p>1</p>
-                </div>
-                <div class="texto_Numero1">
-                    <p>Subir imagen</p>
-                </div>
-            </div>
 
-            <div class="flecha">
-                <p>></p>
-            </div>
-
-            <div class="container_Numero">
-                <div class="circulo_Numero1">
-                    <p>2</p>
-                </div>
-                <div class="texto_Numero1">
-                    <p>Información</p>
-                </div>
-            </div>
-
-            <div class="flecha">
-                <p>></p>
-            </div>
-
-            <div class="container_Numero">
-                <div class="circulo_Numero1">
-                    <p>3</p>
-                </div>
-                <div class="texto_Numero">
-                    <p>Vista previa</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="container_Principal">
-            <div class="conteiner_Arriba">
-                <div class="conteiner_Info">
-                    <div class="vistas_Likes">
-                        <div class="likes">
-                            <i class='bx bx-heart'></i>
-                            <p>0 likes</p>
-                        </div>
-                        <div class="vistas">
-                            <span class="material-symbols-outlined">visibility</span>
-                            <p>0 Vistas</p>
-                        </div>
-                    </div>
-                    <div class="titulo_Conteiner">
-                        <h2 class="titulo">Tuhinulla #96433</h2>
-                    </div>
-                    <hr>
-                    <div class="descripcion_Objeto">
-                        <p>Just say anything, George, say what ever's natural, the first thing that comes to your mind. Take that you mutated son-of-a-bitch. My pine, why you. You space bastard, you killed a pine. You do? Yeah, it's 8:00. Hey, McFly, I thought I told you never to come in here. Well it's gonna cost you. How much money you got on you?</p>
-                    </div>
-                    <div class="autor_Propiedades">
-                            <div class="autor">
-                                <p>Autor</p>
-                                <div class="foto_us_Autor">
-                                    <img class="foto_autor">
-                                    <p id="usuario"></p>
-                                </div>
-                        </div>
-
-                    </div>
-                
-                </div>
-                <div class="container_Img_Botones">
-                    <div class="borde_Imagen">
-                        <img class= "imagen" src="">
-                    </div>
-                    <div class="botones_derecha">
-                        <select name="lista" id="lista">
-                            <option value="Carro">Carro</option>
-                            <option value="Avion">Avion</option>
-                        </select>
-
-                        <button class="ofrecer">Ofrecer articulo</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            <div class="footer_Textos">
-                <h4>Por favor verificalo antes de publicar</h4>
-                <p>Estas a un click de realizar tu sueño</p>
-            </div>
-            <div class="footer_Botones">
-                <button class="volver" onclick="location.href = 'informacionArchivo.html'">Volver</button>
-                <button class="publicar" type="button">Publicar</button>
-            </div>
-        </div>
-
+<div class="container_Principal">
+    <div class="containerFlecha">
+        <i class='bx bxs-left-arrow-circle' style='color:#d7ae00'></i>
     </div>
-    <script src="JS/vistaPreviaTrueques.js"></script>
-    <script defer src="JS/navBar.js"></script>
+    <div class="conteiner_Arriba">
+        <div class="conteiner_Info">
+            <div class="vistas_Likes">
+                <div class="likes">
+                    <i class='bx bx-heart'></i>
+                    <p class="likesSubastas"></p>
+                </div>
+                <div class="vistas">
+                    <span class="material-symbols-outlined">visibility</span>
+                    <p class="vistasSubastas"></p>
+                </div>
+            </div>
+            <div class="titulo_Conteiner">
+                <h2 class="tituloSubasta"></h2>
+            </div>
+            <hr>
+            <div class="descripcion_Objeto">
+                <p class="descripcionSubasta"></p>
+            </div>
+            <div class="autor_Propiedades">
+                <div class="autor_Ganador">
+                    <div class="autor">
+                        <p>Autor</p>
+                        <div class="foto_us_Autor">
+                            <img class="foto_autor">
+                            <p id="usuario"></p>
+                        </div>
+                    </div>
+                    <div  class="ganador">
+                        <p class="titulo_Oferta">Mayor Oferta</p>
+                        <p class="usuario_Oferta"></p>
+                    </div>
+                </div>
+                <div class="valores_Productos">
+                    <div class="valor_Actual">
+                        <p class="valor_ActualP">Valor actual</p>
+                        <p class="valor_Autor"></p>
+                    </div>
+                    <div class="visibility">
+                        <p>Visibility</p>
+                        <span class="visi"></span>
+                    </div>
+                    <div class="min_Incremento">
+                        <p class="min_IncrementoP">Incremento mínimo</p>
+                        <p class="incremento_Fijo"></p>
+                    </div>
+                    <div class="incremento_Adicional">
+                        <p>Aumento</p>
+                        <input placeholder="+$XXXX" class="input_IncrementoAdd">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_Img_Botones">
+            <div class="borde_Imagen">
+                <img class= "imagen" src="">
+            </div>
+            <div class="botones_derecha">
+                <button class="pujar">Pujar</button>
+                <button class="abandonar">Abandonar subasta</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="JS/objetoSubastas.js"></script>
+<script defer src="JS/navBar.js"></script>
 </body>
 </html>

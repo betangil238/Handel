@@ -22,22 +22,46 @@
 //     }
 // })
 // Funcion que se ejecuta con click desde el HTML de FORGOTPASSWORD
-
 if(window.location.href.includes("forgotPassword.html")){
-function validar(){
-    const verificacionPrevia= JSON.parse(localStorage.getItem('USUARIO')) || false
-    if (verificacionPrevia) {
+
+const validarCorreo= document.getElementById("submit");
+validarCorreo.addEventListener("click",async function(){
+    const verificacionPrevia= await JSON.parse(localStorage.getItem('USUARIO')) || false
+    if (verificacionPrevia || verificacionPrevia==false) {
         localStorage.removeItem('USUARIO'); 
     }
-    let email = document.querySelector('#email').value
-    console.log(email);
-    const Users = JSON.parse(localStorage.getItem('users')) || []
-    // Aquí validamos si los datos son iguales a los que se registraron
-    let validUser = Users.find(user => user.email === email)
-    // CREAMOS TEMPORALMENTE UNA SESION DE ALMACENAMIENTO DE DATOS EN EL LOCAL STORAGE
-    localStorage.setItem('USUARIO', JSON.stringify(validUser));
+    validar();
+})
+async function validar(){
+        let email = document.querySelector('#email').value
+        const Users = JSON.parse(localStorage.getItem('users')) || []
+        // Aquí validamos si los datos son iguales a los que se registraron
+        let validUser = Users.find(user => user.email === email)
+        if(validUser) {
+            // CREAMOS TEMPORALMENTE UNA SESION DE ALMACENAMIENTO DE DATOS EN EL LOCAL STORAGE
+            localStorage.setItem('USUARIO', JSON.stringify(validUser));
+        }
+        
+        
     // Inicializamos un condicional, especificando de que si los datos son diferentes, no nos permita iniciar sesión
-    if(!validUser) {
+    // if(!validUser) {
+    //     mostrarAlertaRechazo(`Este usuario no existe- Registrate`);
+    //     setTimeout(() => {
+    //         window.location.href = 'registro.html';
+    //     }, 2500);
+    //     // return alert ('Usuario y/o contraseña son incorrectos o no existen')
+    // }else{
+    //         window.location.href = 'newPassword.html';  
+    // }
+
+    // CODIGO PARA FETCH 
+
+    let emailBD = document.querySelector('#email').value
+    const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+emailBD;
+   
+    try {
+    let data = await buscarUsuario(consultaEmail);
+    if(data==null) {
         mostrarAlertaRechazo(`Este usuario no existe- Registrate`);
         setTimeout(() => {
             window.location.href = 'registro.html';
@@ -46,19 +70,20 @@ function validar(){
     }else{
             window.location.href = 'newPassword.html';  
     }
+}catch(error){
+    console.error("Error:", error);
 }
-
-const validarCorreo= document.getElementById("submit")
-validarCorreo.addEventListener("click",function(){
-    validar();
-})
-
 }
-
+}
+async function buscarUsuario(url){
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+}
 
 if(window.location.href.includes("newPassword.html")){
 const contra = document.getElementById('submit1');
-contra.addEventListener('click', (e)=>{
+contra.addEventListener('click', async(e)=>{
     // TOMAMOS LOS DATOS DEL LOCAL STORAGE KEY usuario, CREADO EN EL HTML FORGOT PASSWORD
     const usuario = JSON.parse(localStorage.getItem('USUARIO'));
     // CAPTURAMOS LA CONTRASENA DEL INPUT
@@ -82,6 +107,11 @@ contra.addEventListener('click', (e)=>{
         localStorage.setItem('users', JSON.stringify(Users))
         // eliminamos el contenedor USUARIO temporal que nos sirvio para capturar la informacion del forgot password
         localStorage.removeItem('USUARIO');
+        const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+usuario.email;
+        const putUsuario="https://handelrailway-production.up.railway.app/usuario";
+        let usuarioDB=  await buscarUsuario(consultaEmail);
+        usuarioDB.contrasena=p1;
+        updatePassword(usuarioDB,putUsuario)
         mostrarAlerta();
         setTimeout(() => {
             window.location.href = 'login.html';
@@ -90,6 +120,15 @@ contra.addEventListener('click', (e)=>{
 })
 }
 
+async function updatePassword(usuario,link){
+    const res = await fetch(link,{
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(usuario)
+    })
+}
 
 function validarpassword(){
     //Id de contraseña de HTML
@@ -137,7 +176,7 @@ function validarpassword(){
         });
     }
     // funcion que muestra una alerta de error
-function mostrarAlertaRechazo(mensaje) {
+    function mostrarAlertaRechazo(mensaje) {
     Swal.fire({
         title: 'Error',
         text: mensaje,
@@ -150,4 +189,5 @@ function mostrarAlertaRechazo(mensaje) {
             confirmButton: 'mi-boton-error'
         }
     });
-}
+    }
+

@@ -1,6 +1,7 @@
 
 //Verificación del input name
 const nombre = document.getElementById("name");
+const rutaPost= "https://handelrailway-production.up.railway.app/usuario"
 
 nombre.addEventListener("input", function () {
     //Verificar si el valor del input contiene números
@@ -13,12 +14,34 @@ nombre.addEventListener("input", function () {
     } 
 });
 
+async function buscarUsuario(url){
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+}
+
+async function guardarUsuario(usuario){
+    const res = await fetch(rutaPost,{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+        name: usuario.name,
+        name2: usuario.name2,
+        email: usuario.email,
+        contrasena: usuario.contrasena,
+        usuario: usuario.usuario,
+        usuario1:usuario.usuario
+        }),
+    });
+}
 
 // Inicializamos una variable que recibirá los datos del formulario de registro
 const signupForm = document.querySelector('#signupForm')
 
 // Inicializamos una función que nos permitirá envíar los datos del formulario
-signupForm.addEventListener('submit', async(e) => {
+signupForm.addEventListener('submit', async (e) => {
     //  Nos ayuda a evitar que se envíe datos sin dar click al botón
     e.preventDefault()
     // Inicializamos una variable que almacenará el valor ingresado en el campo del nombre
@@ -28,32 +51,39 @@ signupForm.addEventListener('submit', async(e) => {
     // Inicializamos una variable que almacenará el valor ingresado en el campo de password
     const password = document.querySelector('#password').value
     if(validarpassword() && validarUsuario() && validarCorreo() ){
-        const Users = JSON.parse(localStorage.getItem('users')) || []
-        const Configuracion = JSON.parse(localStorage.getItem('configuracion')) || []
-        // Aquí especificamos que nos agregue los datos a la lista
-        Users.push({name: name, email: email, password: password})
-        Configuracion.push({name: name, name2:"",email: email,reset:0,usuario:cadena(),usuario1:""})
-        // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
-        localStorage.setItem('users', JSON.stringify(Users))
-        localStorage.setItem('configuracion', JSON.stringify(Configuracion))
-
-        // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
-        // alert('Registro Exitoso!')
-        
-        mostrarAlerta();
-        signupForm.reset();
-        // Si el registro fue exitoso, nos redigirá al login luego de 3 segundos
-        setTimeout(() => {
-            window.location.href = 'login.html';
-        }, 2500);
-    }
-    try {
-        const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-        console.log(error);
+    
+        // POST FETCH PARA GUARDAR UN USUARIO
+        const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+email;
+        const data = await buscarUsuario(consultaEmail);
+        if(data==null){
+            const Users = JSON.parse(localStorage.getItem('users')) || []
+            const Configuracion = JSON.parse(localStorage.getItem('configuracion')) || []
+            // Aquí especificamos que nos agregue los datos a la lista
+            Users.push({name: name, email: email, password: password})
+            const usercadena= cadena();
+            Configuracion.push({name: name, name2:"",email: email,reset:0,usuario:usercadena,usuario1:""})
+            // Aquí especificamos que nos permita recibir los datos en formato String para podernos loguear
+            localStorage.setItem('users', JSON.stringify(Users))
+            localStorage.setItem('configuracion', JSON.stringify(Configuracion))
+            // Aquí especificamos de que si el registro fue correcto, entonces nos aparecerá un msj de alerta de que fue exitoso
+            // alert('Registro Exitoso!')
+            
+            guardarUsuario({name:`${name}`,name2:`${name}`, email:`${email}`,contrasena:`${password}`,usuario:`${usercadena}`});
+            mostrarAlerta();
+            signupForm.reset();
+            // Si el registro fue exitoso, nos redigirá al login luego de 3 segundos
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 2500);
+        }else{
+            mostrarAlertaRechazo(`El usuario ya esta registrado!`);
+        }  
     }
     
+    
 })
+
+    
 // Funcion que genera un usuario aleatorio
 function cadena() {
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

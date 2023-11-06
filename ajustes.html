@@ -94,12 +94,12 @@
                 <h2>Subir nueva imagen </h2>
                 <p>Aceptamos jpg, .npg, .raw</p>
 
-                <div class="image-upload-wrap"> 
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*">
+                <form class="image-upload-wrap"> 
+                    <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*">
                     <i class='bx bxs-file-blank' ></i>
                     <p>Subir archivo desde dispositivo</p>
                     <p class="texto_Archivo">Tamaño máximo 50MB</p>
-                </div> 
+                </form> 
 
                 <div class="file-upload-content">
                     <img class="file-upload-image" src="#" alt="your image" />

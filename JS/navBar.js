@@ -53,20 +53,41 @@ icono.addEventListener("click",function(){
 })
 
 
-const ajusteAlerta = document.querySelector(".ajustesRedirection");
-// Captura de datos del local storage plasmados con el Item de configuracion
-const configuracionLocal= JSON.parse(localStorage.getItem('configuracion'))
-// Busqueda del usuario activo al cual corresponde el login sucess del local storage con el de configuracion
-const configuracionUser= configuracionLocal.find(config =>  user.email ===config.email )
-ajusteAlerta.addEventListener("click",function(){
-// Validacion de autorizacion para la pagina de ajustes
-if(configuracionUser.reset==1){
-    mostrarAlertaRechazo("Lo sentimos,ya cambiaste tu nombre y usuario");
 
-}else {
-    window.location.href='ajustes.html';
+
+
+// Captura de datos del local storage plasmados con el Item de configuracion
+//const configuracionLocal= JSON.parse(localStorage.getItem('configuracion'))
+// Busqueda del usuario activo al cual corresponde el login sucess del local storage con el de configuracion
+//const configuracionUser= configuracionLocal.find(config =>  user.email ===config.email )
+
+async function consultarUsuario(link){
+    const res = await fetch(link);
+    const data = await res.json();
+    return data;
 }
+
+
+const loginsucess = JSON.parse(localStorage.getItem('login_success'))
+
+const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+loginsucess.email;
+
+const obtenerDatos = async () => {
+    data = await consultarUsuario(consultaEmail);
+};
+
+obtenerDatos().then(() => {
+    const ajusteAlerta = document.querySelector(".ajustesRedirection");
+    ajusteAlerta.addEventListener("click",function(){
+    // Validacion de autorizacion para la pagina de ajustes
+    if(data.reset==1){
+        mostrarAlertaRechazo("Lo sentimos,ya cambiaste tu nombre y usuario");
+    }else {
+        window.location.href='ajustes.html';
+    }
 }) 
+})
+
 
 function mostrarAlertaRechazo(mensaje) {
     Swal.fire({

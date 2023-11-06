@@ -55,7 +55,7 @@
                             <p class="saldoTitle"><i class='bx bx-wallet'></i>Tu saldo es:</p>
                             <p class="saldo">$0</p>
                         </div>
-                            <button class="recargarButton" id="charge">Recargar</button>
+                        <button class="recargarButton" id="charge" onclick="window.open('https://link.mercadopago.com.co/billeterahandel')">Recargar</button>
                     </div>
                 <a class="ajustesRedirection"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
                 <hr>
@@ -65,49 +65,9 @@
         <div class="menuButton">
             <button class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
         </div>
-
     </nav>
 <!--/.Navbar -->
     <main class="Cuerpo">
-        <div class="porNatalia">
-            <div class="tituloNat">
-                <label for="tytleNat">Titulo</label>
-                <input type="text" class="tytleNat" placeholder="Titulo">
-            </div>
-            <div class="categoria">
-                <p>Categoría</p>
-                <form action="#">
-                    <select name="categorias" id="cate">
-                      <option value="Ropa">Ropa</option>
-                      <option value="Utensilios">Utensilios</option>
-                      <option value="Juguetes">Juguetes</option>
-                      <option value="Tecnologia">Tecnología</option>
-                      <option value="Vehiculo">Vehículos</option>
-                      <option value="Deportes">Deportes</option>
-                      <option value="Electrodomesticos">Electrodomésticos</option>
-                      <option value="Belleza">Belleza</option>
-                      <option value="Papeleria">Papelería</option>
-                      <option value="Bebes">Bebes</option>
-                      <option value="Moda">Moda</option>
-                      <option value="Videojuegos">Videojuegos</option>
-                      <option value="Hogar">Hogar</option>
-                      <option value="Otros">Otros</option>
-                    </select>
-                </form>
-            </div>
-            <div class="vistas">
-                <p>¿Quién puede verlo?</p>
-                <form action="#">
-                    <select name="privacidad" id="cate1">
-                      <option value="Público">Todos(Público)</option>
-                      <option value="Privado">Privado</option>
-                    </select>
-                </form>
-            </div>
-            <button class="buttonNat">Enviar</button>
-
-        </div>
-
         <div class="Cuerpo_editable">
             <section class="filtros">
                 <div class="publicaciones">
@@ -127,39 +87,6 @@
                 </div>
             </section>
             <section class="ContenidoSubastas">
-                <article  class="contenedor"   id="contenedor">
-                    <div class="imagenContainer">
-                        <img src="Img/truque.png" class="imagenPublicacion">
-                    </div>
-                    <div class="infoProducto">
-                        <div class="infoPublicacion">
-                            <p class="NombreUsuario">True<span class="idPublicacion">#96433</span></p>
-                            <div class="likes_Vistas">
-                                <p class="parrafoLikes"><i class='bx bx-heart' style='color:#f9f9f9'  ></i><span class="CantidadLikes">324</span><span>Likes</span></p>
-                                <p class="parrafoVistas"> <span class="material-symbols-outlined">visibility</span><span class="CantidadVistas">42342</span><span>Vistas</span></p>
-                            </div>
-                        </div>
-                        <div class="infoGral">
-                            <div class="statusPublicacion">
-                                <div class="texto">
-                                    <label class="titulo">Categoria</label>
-                                    <p class="contenido">Audio</p>
-                                </div>
-                                <div class="texto">
-                                    <label class="titulo">Visibilidad</label>
-                                    <p class="contenido">Público</p>
-                                </div>
-                                <div class="texto">
-                                    <label class="titulo">Etiquetas</label>
-                                    <p class="contenido">Coser,ropa,moda</p>
-                                </div>
-                            </div>
-                            <div class="btnParticipar">
-                                <button class="participar">Ofrecer</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
             </section>
         </div>
     </main>

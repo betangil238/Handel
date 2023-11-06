@@ -43,18 +43,18 @@
                     <h4 class="container1NombrePerfil1"><span class="nombreprofile1"></span></h4>
                     <h4><span id="userCode1"></span></h5>
                     <h3 class="tituloFoto">Cargar foto</h3>
-                    <input type="file" class="inputfoto">
+                    <input type="file" class="inputfoto"  accept="image/*">
                     <button class="cargarfoto">Cargar</button>
                 </div>
 
                 <!--Este div contiene los datos de ranking del perfil (números de subastas, transacciones y puntuación)-->
                 <div class="container1RankingPerfil">
                     <div class="containerSubastas">
-                        <p>000</p>
+                        <p class="numSubastas">000</p>
                         <p>Subastas</p>
                     </div>
                     <div class="containerTransacciones">
-                        <p>000</p>
+                        <p class="numTrueques">000</p>
                         <p>Canjes</p>
                     </div>
                     <div class="containerPuntuacion">
@@ -130,13 +130,7 @@
                         <h3>Subastas en tendencia</h3>
                     </div>
                     <!--Este div contiene las imágenes de tendencias-->
-                    <div class="historias">
-                        <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
-                        <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
-                        <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
-                        <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
-                        <img src="Img/imgPpPpal/imgTrends2.jpg" class="container2ImgTrends">
-                    </div> 
+                    <div class="historias"></div> 
                 </div>
                 <!--Títutlo de la sección Trueques-->
                 <div class="titleTrueques">
@@ -144,178 +138,6 @@
                 </div>
                 <!--Este div contiene las tarjetas de truques (img, foto perfil, likes y comentarios)-->
                 <div class="containerTruequeCards">
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            
-                                <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                           
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="truequeCards">
-                        <img src="Img/imgPpPpal/imgTrends5.jpg" class="imgObjetoTrueque"><!--Imagen del objeto que está en trueque-->
-                        <div class="truequeCardInfo">
-                            <img src="Img/imgPpPpal/usuario.png" class="imgPerfilTrueque"> <!--Imagen pequeña del perfil-->
-                            <div class="cardsTruequeName">
-                                <p>Nombre</p> <!--Nombre del perfil de quien ofrece el objeto-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-heart'></i>0</p> <!--Icono y número de likes-->
-                            </div>
-                            <div class="truequeCardsIconNum">
-                                <p><i class='bx bx-comment-detail'></i>0</p> <!--Icono y número de comentarios-->
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
             </div>

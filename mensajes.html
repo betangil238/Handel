@@ -61,7 +61,7 @@
                         <p class="saldoTitle"><i class='bx bx-wallet'></i>Tu saldo es:</p>
                         <p class="saldo">$0</p>
                     </div>
-                        <button class="recargarButton" id="charge">Recargar</button>
+                    <button class="recargarButton" id="charge" onclick="window.open('https://link.mercadopago.com.co/billeterahandel')">Recargar</button>
                 </div>
             <a class="ajustesRedirection"><i class='bx bx-cog'></i>Configuración de la cuenta</a>
             <hr>
@@ -72,6 +72,7 @@
         <button class="burgerMenu"><a class="burgerMenu" href="#"><i class='bx bx-menu'></i></a></button>
     </div>
 </nav>
+<!--/Navbar-->
 
     <!--CONTENEDOR 1 - IZQUIERDA-->
         <!--Contenedor de barra de búsqueda, reciente y mensajes-->
@@ -294,33 +295,36 @@
                 </div>
             </div>
 
-            <!--Container barra de escribir mensaje + íconos (emoji, imgs, cámara) + botón enviar-->
-            <div class="writingTextBar"> 
-                <!--Container barra de escribir mensajes + íconos-->
+            <!-- Container barra de escribir mensaje + íconos (emoji, imgs, cámara) + botón enviar -->
+            <div class="writingTextBar">
+                <!-- Container barra de escribir mensajes + íconos -->
                 <div class="writingMessageInput">
-                    <!--Ícono emojis-->
+                    <!-- Ícono emojis -->
                     <i class='bx bxs-happy-alt'></i>
-                    <input type="text" placeholder="Escribe tu mensaje..." class="inputMessage">
-                    <!--Ícono img-->
+                    <input type="text" accept="image/*" placeholder="Escribe tu mensaje..." class="inputMessage">
+            
+                    <!-- Ícono img para adjuntar imágenes -->
                     <div class="sendImageChat">
-                        <label for="fileInput">
-                            <i class='bx bx-image-alt' alt="Cargar imagen"></i>
-                        </label>
-                   </div> 
-                    <!--Ícono cámara-->
+                        <i id="imgButton" class='bx bx-image-alt'></i>
+                    </div>
+
+                    <!-- Ícono cámara -->
                     <i class='bx bx-camera'></i>
                 </div>
-                <!--Container botón e ícono de enviar mensaje-->
+
+                <!-- Container botón e ícono de enviar mensaje -->
                 <div class="iconSendMessage">
                     <button class="sendButtonClick"><i class='bx bxs-send'></i></button>
                 </div>
             </div>
         </section>
+        <!--Visualización sin chat seleccionado-->
         <section class="conteinerInicial">
             <div class="conteinerMensaje">
                 <p class="mensajeBienvenida">Bienvenido a tu sección de mensajes</p>
             </div>
         </section>
+        <!--Botón de enviar emojis-->
         <div class="emoji-container">
             <div class="emoji-list">
                 <div class="emoji" >😄</div>

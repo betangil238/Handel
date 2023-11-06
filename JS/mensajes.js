@@ -112,3 +112,51 @@ flecha.addEventListener("click", function(){
 })
 
 
+//Funcionalidad de enviar imagen
+let contador = 0; // Declaración e inicialización del contador
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imgButton = document.getElementById("imgButton");
+
+    imgButton.addEventListener("click", function () {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.accept = "image/*"; // Limita la selección solo a imágenes
+        fileInput.style.display = "none"; // Oculta el elemento de entrada
+
+        fileInput.addEventListener("change", function () {
+            const selectedImage = fileInput.files[0];
+            if (selectedImage) {
+                const imageElement = document.createElement("img");
+                imageElement.src = URL.createObjectURL(selectedImage);
+                imageElement.className = `chat-image${contador}`;
+
+                const horaActual = obtenerHoraActual();
+                // Crear el elemento del mensaje con una clase única
+                const greyMessagesSent = document.createElement("div");
+                greyMessagesSent.className = `greyMessages`;
+                const messageSentElement = document.createElement("div");
+                messageSentElement.className = `messageSent ${contador}`;
+
+                // Agregar el contenido del mensaje
+                messageSentElement.innerHTML = `
+                    <p><span class="hora">${horaActual}</span></p>`;
+                messageSentElement.appendChild(imageElement);
+
+                messageSentElement.style.flexDirection = "column-reverse";
+                // Agregar el mensaje al contenedor de mensajes
+                greyMessagesSent.appendChild(messageSentElement);
+                containerInput.appendChild(greyMessagesSent);
+
+                // Limpia el input de archivos
+                fileInput.value = null;
+                contador++;
+            }
+        });
+
+        // Dispara el selector de archivos
+        fileInput.click();
+    });
+});
+
+
