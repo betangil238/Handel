@@ -33,50 +33,64 @@ const obtenerDatos1 = async () => {
 };
 
 obtenerDatos1().then(() => {
-    const fotoAutor = document.querySelector(".foto_autor")
-    if(usuTrueque.imagen == null){
-        fotoAutor.src='Img/perfilAlternativo.png'
+    if(truequeSeleccionado.visibilidad == "Privado"){
+        mostrarAlertaRechazo("Este trueque ya no esta disponible")
+        setTimeout(() => {
+            window.location.href='pgppal.html';
+        }, 2500);
     }else{
-        const blob = base64ToBlob(usuTrueque.imagen, "image/jpeg");
-        const urlDeObjeto = URL.createObjectURL(blob);
-        fotoAutor.src = urlDeObjeto;
-    }
-    const nombreUsu = document.querySelector("#usuario")
-    nombreUsu.textContent = usuTrueque.usuario1
-    const foto = document.querySelector(".imagen");
-    foto.src = truequeSeleccionado.imagen
-    const titulo = document.querySelector(".tituloTrueque")
-    titulo.textContent = truequeSeleccionado.titulo
-    const descripcion = document.querySelector(".descripcionTrueque")
-    descripcion.textContent = truequeSeleccionado.descripcion
-    const vist = document.querySelector(".vistasTrueque")
-    vist.textContent = truequeSeleccionado.vistas+" vistas"
-    const likes = document.querySelector(".likesTrueque")
-    likes.textContent = truequeSeleccionado.likes+" likes"
-    if(usuTrueque.idUsuario == usuarioLogeado.idUsuario){
-        const botones = document.querySelector(".botones_derecha")
-        botones.style.display = "none"
-    }
-    const menu = document.getElementById("lista")
-    const trueques = usuarioLogeado.objetosDeTrueque;
-    trueques.forEach(e => {
-        menu.innerHTML += `<option value="${e.titulo}">${e.titulo}</option>`
-    })
-    objetoNotificacion.idUsuario = usuTrueque.idUsuario
-    const botonOfrecer = document.querySelector(".ofrecer")
-    botonOfrecer.addEventListener("click",() => {
-        if(menu.value == ""){
-            mostrarAlertaRechazo("No tienes ningún objeto para truequear")
+        const fotoAutor = document.querySelector(".foto_autor")
+        if(usuTrueque.imagen == null){
+            fotoAutor.src='Img/perfilAlternativo.png'
         }else{
-            trueques.forEach(e => {
-                if(menu.value == e.titulo){
-                    objetoTrueque.idObjetoTrueque2 = e.idTrueques
-                    objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
-                    crearTrueque(linkCrearTrueque, objetoTrueque)
-                }
-            })
+            const blob = base64ToBlob(usuTrueque.imagen, "image/jpeg");
+            const urlDeObjeto = URL.createObjectURL(blob);
+            fotoAutor.src = urlDeObjeto;
         }
-    })
+        const nombreUsu = document.querySelector("#usuario")
+        nombreUsu.textContent = usuTrueque.usuario1
+        const foto = document.querySelector(".imagen");
+        foto.src = truequeSeleccionado.imagen
+        const titulo = document.querySelector(".tituloTrueque")
+        titulo.textContent = truequeSeleccionado.titulo
+        const descripcion = document.querySelector(".descripcionTrueque")
+        descripcion.textContent = truequeSeleccionado.descripcion
+        const vist = document.querySelector(".vistasTrueque")
+        vist.textContent = truequeSeleccionado.vistas+" vistas"
+        const likes = document.querySelector(".likesTrueque")
+        likes.textContent = truequeSeleccionado.likes+" likes"
+        if(usuTrueque.idUsuario == usuarioLogeado.idUsuario){
+            const botones = document.querySelector(".botones_derecha")
+            botones.style.display = "none"
+        }
+        const menu = document.getElementById("lista")
+        const trueques = usuarioLogeado.objetosDeTrueque;
+        trueques.forEach(e => {
+            if(e.visibilidad == "Todos"){
+                menu.innerHTML += `<option value="${e.titulo}">${e.titulo}</option>`
+            }
+        })
+        objetoNotificacion.idUsuario = usuTrueque.idUsuario
+        const botonOfrecer = document.querySelector(".ofrecer")
+        botonOfrecer.addEventListener("click",() => {
+            if(menu.value == ""){
+                mostrarAlertaRechazo("No tienes ningún objeto para truequear")
+            }else{
+                trueques.forEach(e => {
+                    if(menu.value == e.titulo){
+                        objetoTrueque.idObjetoTrueque2 = e.idTrueques
+                        const footer = document.querySelector(".footer")
+                        if(getComputedStyle(footer).display == "none"){
+                            objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
+                        }else if(getComputedStyle(footer).display == "block"){
+                            objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado a cambio de ${truequeSeleccionado.titulo}`
+                        }
+                        crearTrueque(linkCrearTrueque, objetoTrueque)
+                    }
+                })
+            }
+        })
+    }
 })
 
 
@@ -89,11 +103,15 @@ async function crearTrueque(link, objeto){
     if(res.status == 400){
         mostrarAlertaRechazo("Este trueque ya fue creado")
     }else if (res.status == 200){
-        await crearNotificacion(linkCrearNotificacion,objetoNotificacion)
-        mostrarAlertaTruequeExitoso()
+        crearNotificacion(linkCrearNotificacion,objetoNotificacion)
+        if(objetoNotificacion.mensaje[0] == "M"){
+            mostrarAlertaExitoso()
+        }else{
+            mostrarAlertaTruequeExitoso()
+        }
         localStorage.removeItem("idTrueque")
         setTimeout(() => {
-            //window.location.href='pgppal.html';
+            window.location.href='pgppal.html';
         }, 2500);
     }else{
         mostrarAlertaRechazo("No se pudo subir el trueque")
@@ -156,6 +174,21 @@ function mostrarAlertaTruequeExitoso() {
     Swal.fire({
         title: 'Trueque creado',
         text: 'Espera a que sea aceptado',
+        icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
+        confirmButtonText: 'Aceptar', // Texto del boton
+        customClass: {
+            container: 'mi-alerta',
+            title: 'mi-titulo',
+            content: 'mi-contenido',
+            confirmButton: 'mi-boton'
+        }
+    });
+}
+
+function mostrarAlertaExitoso() {
+    Swal.fire({
+        title: 'Trueque exitoso',
+        text: 'Ve a la sección de mensajes',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
         confirmButtonText: 'Aceptar', // Texto del boton
         customClass: {

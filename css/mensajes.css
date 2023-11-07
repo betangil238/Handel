@@ -74,8 +74,8 @@
     flex-direction: row;
     overflow: auto;
     gap: 10px;
-
 }
+
 
 .containerImgsReciente::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -110,14 +110,20 @@
 
 /*Especificaciones contenedor imagen y nombre de perfil en Reciente*/
 .imgNameReciente {
-    width: 30%;
+    width: 20%;
     text-align: center;
 }
 
 /*Especificaciones imagen de perfil en Reciente*/
 .imgNameReciente img {
-    width: 20px;
+    width: 30px;
     border-radius: 50px;
+}
+.fotoChatsRecientes{
+    height: 40px;
+    shape-outside: circle();
+    clip-path: circle();
+    object-fit: cover;
 }
 
 /*Especificaciones nombre de usuario en Reciente*/
@@ -187,7 +193,11 @@
 }
 
 .chatIndivImg img {
-    border-radius: 30px;
+    width: 35px;
+    shape-outside: circle();
+    clip-path: circle();
+    height: 35px;
+    object-fit: cover;
 }
 
 /*Especificaciones contenedor nombre de usuario y mensaje recibido en chat Individual*/
@@ -332,7 +342,7 @@
     font-size: 10px;
     text-align: center;
     background-color: #302f2fe5;
-    width: 10%;
+    width: 20%;
     border-radius: 5px;
     margin-left: 45%;
     margin-bottom: 10px;
@@ -357,6 +367,7 @@
 
 /*Especificaciones container de los mensajes recibidos*/
 .messageReceived {
+    align-items: left;
     height: auto;
     display: flex;
     flex-wrap: wrap;
