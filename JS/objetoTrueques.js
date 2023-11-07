@@ -94,7 +94,7 @@ async function crearTrueque(link, objeto){
     if(res.status == 400){
         mostrarAlertaRechazo("Este trueque ya fue creado")
     }else if (res.status == 200){
-        await crearNotificacion(linkCrearNotificacion,objetoNotificacion)
+        crearNotificacion(linkCrearNotificacion,objetoNotificacion)
         mostrarAlertaTruequeExitoso()
         localStorage.removeItem("idTrueque")
         setTimeout(() => {
