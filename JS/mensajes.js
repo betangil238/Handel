@@ -1,28 +1,141 @@
-async function consultarUsuario1(link){
+async function consultarDato(link){
   const res = await fetch(link);
   const data = await res.json();
   return data;
 }
 
 const user1= JSON.parse(localStorage.getItem('login_success')) || false
-const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email;
+const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
 
 
 const obtenerDatos1 = async () => {
-  data = await consultarUsuario1(consultaEmail1);
+  data = await consultarDato(consultaEmail1);
+  const mensajesRecibidos = data.mensajes2
+  const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+mensajesRecibidos[0].idUsuario1
+  usuarioReceptor = await consultarDato(linkusuarioTrueque)
 };
 
 obtenerDatos1().then(() => {
   console.log(data);
-  console.log(data.mensajes);
+  const containerFotosRecientes = document.querySelector(".containerImgsReciente")
+  const mensajesRe = data.mensajes2
+  const mensajesRecibidos = mensajesRe[(mensajesRe.length)-1]
+  const blob = base64ToBlob(usuarioReceptor.imagen, "image/jpeg");
+  const urlDeObjeto = URL.createObjectURL(blob);
+  containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
+  <img class="fotoChatsRecientes" src="${urlDeObjeto}">
+  <p class="nombreChatsRecientes">${usuarioReceptor.name2}</p>
+  </div>`
+  const chatsGenerales = document.querySelector(".chatsGenerales")
+  chatsGenerales.innerHTML += `<div class="chatIndividual">
+  <div class="chatIndivImg">
+      <img src="${urlDeObjeto}">
+  </div>
+  <div class="chatUserNameMessage" id="ocultarContainer()">
+      <h4 class="chatUserName">${usuarioReceptor.name2}</h4>
+      <p class="chatMessage">${mensajesRecibidos.mensaje}</span></p>
+  </div>
+  <div class="chatInfoChatIndividual">
+      <p class="numberMessages"><span>1</span></p>
+      <p>13:00</p>
+  </div>
+  </div>`
+
+  const chatIndividual = document.querySelectorAll(".chatIndividual");
+  const contenedor2 = document.querySelector(".container2");
+  const contenedor1 = document.querySelector(".container1");
+  const contenedorInicial = document.querySelector(".conteinerInicial");
+
+  const chatNameUser = document.querySelector(".userNameChat");
+  chatIndividual.forEach((chat) =>{
+    chat.addEventListener("click", function(){
+      const nameUser = chat.querySelector(".chatUserName").textContent;
+      chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
+      if(window.screen.width <= 500){
+        contenedor1.style.display = "none";
+        contenedorInicial.style.display = "none";
+        contenedor2.style.display = "flex";
+      }else{
+        chat.style.backgroundColor = "#343434";
+        contenedorInicial.style.display = "none";
+        contenedor2.style.display = "flex";
+      }
+      const fecha = document.querySelector(".textoFechaChat")
+      const mensRecibido = document.querySelector(".messageReceived")
+      const mensEnviado = document.querySelector(".messageSent")
+      const horaMensajes1 = document.querySelector(".horaInicial1")
+      const horaMensajes2 = document.querySelector(".horaInicial2")
+      const fechaBD = mensajesRe[0].horaMensaje
+      const mensajeReciBD =  mensajesRe[0].mensaje
+      const mensajeEnviBD =  data.mensajes1[0].mensaje
+      const resultado = restarHorasAFecha(fechaBD)
+      fecha.textContent = resultado.nuevaFecha
+      mensEnviado.innerHTML = `<p>${mensajeEnviBD}<span class="hora">${resultado.nuevaHora}</span></p>`
+      mensRecibido.innerHTML = `<p>${mensajeReciBD}<br><span class="hora">${resultado.nuevaHora}</span></p>`
+    });
+  });
+
+
 })
 
+function restarHorasAFecha(fechaHora) {
+  // Divide la fecha y hora
+  const [fecha, hora] = fechaHora.split('T');
+
+  // Divide la fecha en partes (año, mes y día)
+  const partesFecha = fecha.split('-');
+  const ano = parseInt(partesFecha[0], 10);
+  const mes = parseInt(partesFecha[1], 10);
+  let dia = parseInt(partesFecha[2], 10);
+
+  // Divide la hora en partes (horas, minutos y segundos)
+  const partesHora = hora.split(':');
+  let horas = parseInt(partesHora[0], 10);
+  const minutos = parseInt(partesHora[1], 10);
+  const segundos = parseInt(partesHora[2], 10);
+
+  // Resta 5 horas a las horas actuales
+  horas -= 5;
+
+  // Ajusta las horas y el día si son negativos
+  if (horas < 0) {
+    horas = 24 + horas;
+    dia -= 1;
+    if (dia < 1) {
+      // Ajusta el mes y el año si el día es menor que 1
+      mes -= 1;
+      if (mes < 1) {
+        ano -= 1;
+        mes = 12;
+      }
+      // Determina el último día del mes ajustado
+      const ultimoDiaDelMes = new Date(ano, mes, 0).getDate();
+      dia = ultimoDiaDelMes;
+    }
+  }
+
+  // Formatea la nueva fecha en el formato "YYYY-MM-DD"
+  const nuevaFecha = `${ano}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
+
+  // Formatea la nueva hora en el formato "HH:MM:SS"
+  const nuevaHora = `${horas < 10 ? '0' : ''}${horas}:${minutos < 10 ? '0' : ''}${minutos}`;
+
+  return { nuevaFecha, nuevaHora };
+}
 
 
 
 
 
 
+function base64ToBlob(base64, contentType) {
+  const binaryStr = window.atob(base64);
+  const binaryArray = new Uint8Array(binaryStr.length);
+  for (let i = 0; i < binaryStr.length; i++) {
+      binaryArray[i] = binaryStr.charCodeAt(i);
+  }
+  return new Blob([binaryArray], { type: contentType });
+}
 
 
 
@@ -102,28 +215,7 @@ emojis.forEach((emoji) => {
 });
 
 
-const chatIndividual = document.querySelectorAll(".chatIndividual");
-const contenedor2 = document.querySelector(".container2");
-const contenedor1 = document.querySelector(".container1");
-const contenedorInicial = document.querySelector(".conteinerInicial");
 
-const chatNameUser = document.querySelector(".userNameChat");
-chatIndividual.forEach((chat) =>{
-  chat.addEventListener("click", function(){
-    const nameUser = chat.querySelector(".chatUserName").textContent;
-    chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
-    if(window.screen.width <= 500){
-      contenedor1.style.display = "none";
-      contenedorInicial.style.display = "none";
-      contenedor2.style.display = "flex";
-    }else{
-      chat.style.backgroundColor = "#343434";
-      contenedorInicial.style.display = "none";
-      contenedor2.style.display = "flex";
-    }
-
-  });
-});
 
 
 const flecha = document.querySelector(".bx-arrow-back");
