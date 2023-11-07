@@ -110,7 +110,7 @@ const obtenerDatos = async () => {
 };
 
 obtenerDatos().then(() => {
-
+    console.log(data);
     if(data.reset == 1 && window.location.href.includes("ajustes.html")){
         window.location.href='pgppal.html';
     }
@@ -135,6 +135,9 @@ obtenerDatos().then(() => {
                 const mensaje = e.mensaje
                 const nuevoMensaje = mensaje.slice(contador, mensaje.length)
                 notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+            }else if(e.mensaje[0] == "M"){
+                const nuevoMensaje = mensaje.slice(1, mensaje.length)
+                notificaciones.innerHTML += `<a class="notificacionNuevoTrueque href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
             }else{
                 notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
             }

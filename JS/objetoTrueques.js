@@ -71,7 +71,12 @@ obtenerDatos1().then(() => {
             trueques.forEach(e => {
                 if(menu.value == e.titulo){
                     objetoTrueque.idObjetoTrueque2 = e.idTrueques
-                    objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
+                    const footer = document.querySelector(".footer")
+                    if(footer.style.display == "none"){
+                        objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
+                    }else if(footer.style.display == "block"){
+                        objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado cambio de ${truequeSeleccionado.titulo}`
+                    }
                     crearTrueque(linkCrearTrueque, objetoTrueque)
                 }
             })
@@ -93,7 +98,7 @@ async function crearTrueque(link, objeto){
         mostrarAlertaTruequeExitoso()
         localStorage.removeItem("idTrueque")
         setTimeout(() => {
-            //window.location.href='pgppal.html';
+            window.location.href='pgppal.html';
         }, 2500);
     }else{
         mostrarAlertaRechazo("No se pudo subir el trueque")
