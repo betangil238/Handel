@@ -75,17 +75,8 @@ obtenerDatos1().then(() => {
         contenedor2.style.display = "flex";
       }
       const fecha = document.querySelector(".textoFechaChat")
-      const mensRecibido = document.querySelector(".messageReceived")
-      const mensEnviado = document.querySelector(".messageSent")
-      const horaMensajes1 = document.querySelector(".horaInicial1")
-      const horaMensajes2 = document.querySelector(".horaInicial2")
-      const fechaBD = mensajesRe[0].horaMensaje
-      const mensajeReciBD =  mensajesRe[0].mensaje
-      const mensajeEnviBD =  data.mensajes1[0].mensaje
       const resultado = restarHorasAFecha(fechaBD)
       fecha.textContent = resultado.nuevaFecha
-      mensEnviado.innerHTML = `<p>${mensajeEnviBD}<span class="hora">${resultado.nuevaHora}</span></p>`
-      mensRecibido.innerHTML = `<p>${mensajeReciBD}<br><span class="hora">${resultado.nuevaHora}</span></p>`
     });
 
     sendButton.addEventListener("click", function() {
