@@ -19,109 +19,156 @@ async function crearMensaje(link, objeto){
   console.log(res);
 }
 
-
-
-
-const obtenerDatos1 = async () => {
-  data = await consultarDato(consultaEmail1);
-  const mensajesRecibidos = data.mensajes2
-  const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+mensajesRecibidos[0].idUsuario1
-  usuarioReceptor = await consultarDato(linkusuarioTrueque)
-};
-
-obtenerDatos1().then(() => {
-  console.log(data);
-  const containerFotosRecientes = document.querySelector(".containerImgsReciente")
-  const mensajesRe = data.mensajes2
-  const mensajesRecibidos = mensajesRe[(mensajesRe.length)-1]
-  const blob = base64ToBlob(usuarioReceptor.imagen, "image/jpeg");
-  const urlDeObjeto = URL.createObjectURL(blob);
-  containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
-  <img class="fotoChatsRecientes" src="${urlDeObjeto}">
-  <p class="nombreChatsRecientes">${usuarioReceptor.name2}</p>
-  </div>`
-  const chatsGenerales = document.querySelector(".chatsGenerales")
-  chatsGenerales.innerHTML += `<div class="chatIndividual">
-  <div class="chatIndivImg">
-      <img src="${urlDeObjeto}">
-  </div>
-  <div class="chatUserNameMessage" id="ocultarContainer()">
-      <h4 class="chatUserName">${usuarioReceptor.name2}</h4>
-      <p class="chatMessage">${mensajesRecibidos.mensaje}</span></p>
-  </div>
-  <div class="chatInfoChatIndividual">
-      <p class="numberMessages"><span>1</span></p>
-      <p>13:00</p>
-  </div>
-  </div>`
-
-  const chatIndividual = document.querySelectorAll(".chatIndividual");
-  const contenedor2 = document.querySelector(".container2");
-  const contenedor1 = document.querySelector(".container1");
-  const contenedorInicial = document.querySelector(".conteinerInicial");
-
-  const chatNameUser = document.querySelector(".userNameChat");
-  chatIndividual.forEach((chat) =>{
-    chat.addEventListener("click", function(){
-      const nameUser = chat.querySelector(".chatUserName").textContent;
-      chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
-      if(window.screen.width <= 500){
-        contenedor1.style.display = "none";
-        contenedorInicial.style.display = "none";
-        contenedor2.style.display = "flex";
-      }else{
-        chat.style.backgroundColor = "#343434";
-        contenedorInicial.style.display = "none";
-        contenedor2.style.display = "flex";
-      }
-      const fecha = document.querySelector(".textoFechaChat")
-      const resultado = restarHorasAFecha(fechaBD)
-      fecha.textContent = resultado.nuevaFecha
-    });
-
-    sendButton.addEventListener("click", function() {
-      const message = inputMessage.value;
-      if (message) {
-        const horaActual = obtenerHoraActual();
-        containerInput.innerHTML += `
-          <div class="greyMessages">
-            <div class="messageSent">
-              <p>${message}<span class="hora">${horaActual}</span></p>
-            </div>
-          </div>`;
-        inputMessage.value = "";
-        objetoMensaje.mensaje = message
-        objetoMensaje.idUsuario1 = data.idUsuario
-        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
-        console.log(objetoMensaje);
-        crearMensaje(linkMensajes,objetoMensaje)
-      }
-    });
-
-    inputMessage.addEventListener("keydown", function(e) {
-      if (e.key === 'Enter' && inputMessage.value) {
+async function obtenerDatos1(link){
+  const res = await fetch(link);
+  const data = await res.json();
+  await producirMensajes(data);
+  await visibilidadChats()
+  async function visibilidadChats(){
+    console.log("Entro");
+    const chatGeneral = document.querySelector(".chatsGenerales")
+    const chatIndividual = document.querySelectorAll(".chatIndividual");
+    const contenedor2 = document.querySelector(".container2");
+    const contenedor1 = document.querySelector(".container1");
+    const contenedorInicial = document.querySelector(".conteinerInicial");
+    const chatNameUser = document.querySelector(".userNameChat");
+    chatIndividual.forEach(chat =>{;
+      chat.addEventListener("click", function(){
+        console.log("aa");
+        const nameUser = chat.querySelector(".chatUserName").textContent;
+        chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
+        if(window.screen.width <= 500){
+          contenedor1.style.display = "none";
+          contenedorInicial.style.display = "none";
+          contenedor2.style.display = "flex";
+        }else{
+          chat.style.backgroundColor = "#343434";
+          contenedorInicial.style.display = "none";
+          contenedor2.style.display = "flex";
+        }
+        const fecha = document.querySelector(".textoFechaChat")
+        const resultado = restarHorasAFecha(fechaBD)
+        fecha.textContent = resultado.nuevaFecha
+      });
+  
+      const inputMessage = document.querySelector(".inputMessage");
+      const containerInput = document.querySelector(".containerAllMessages");
+      const sendButton = document.querySelector(".sendButtonClick");
+      sendButton.addEventListener("click", function() {
         const message = inputMessage.value;
-        const horaActual = obtenerHoraActual();
-        containerInput.innerHTML += `
-          <div class="greyMessages">
-            <div class="messageSent">
-              <p>${message}<span class="hora">${horaActual}</span></p>
-            </div>
-          </div>`;
-        inputMessage.value = "";
-        objetoMensaje.mensaje = message
-        objetoMensaje.idUsuario1 = data.idUsuario
-        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
-        crearMensaje(linkMensajes,objetoMensaje)
-      }
+        if (message) {
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          inputMessage.value = "";
+        }
+      });
+  
+      inputMessage.addEventListener("keydown", function(e) {
+        if (e.key === 'Enter' && inputMessage.value) {
+          const message = inputMessage.value;
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          inputMessage.value = "";
+        }
+      });
+  
     });
-    
+  }
+}
+
+obtenerDatos1(consultaEmail1);
+
+function producirMensajes(data){
+  const containerFotosRecientes = document.querySelector(".containerImgsReciente")
+  const mensa1 = data.mensajes1
+  const mensa2 = data.mensajes2
+  if(mensa1 != null){
+    mensa1.forEach(c =>{
+      const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+c.idUsuario2
+      const obtenerUsuario = async () =>{
+        usuarioChat = await consultarDato(linkusuarioTrueque)
+      }
+      obtenerUsuario().then(() =>{
+        let urlPerfil
+        if(usuarioChat.imagen == null){
+          urlPerfil = 'Img/perfilAlternativo.png'
+        }else{
+          const blob = base64ToBlob(usuarioChat.imagen, "image/jpeg");
+          urlPerfil = URL.createObjectURL(blob);
+        }
+        containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
+        <img class="fotoChatsRecientes" src="${urlPerfil}">
+        <p class="nombreChatsRecientes">${usuarioChat.name2}</p>
+        </div>`
+        const chatsGenerales = document.querySelector(".chatsGenerales")
+        chatsGenerales.innerHTML += `<div class="chatIndividual">
+        <div class="chatIndivImg">
+            <img src="${urlPerfil}">
+        </div>
+        <div class="chatUserNameMessage" id="ocultarContainer()">
+            <h4 class="chatUserName">${usuarioChat.name2}</h4>
+            <p class="chatMessage"></span></p>
+        </div>
+        <div class="chatInfoChatIndividual">
+            <p class="numberMessages"><span>1</span></p>
+            <p>13:00</p>
+        </div>
+        </div>`
+      })
+    })
+  }
+  if(mensa2 != null){
+    mensa2.forEach(c =>{
+      const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+c.idUsuario1
+      const obtenerUsuario = async () =>{
+        usuarioChat = await consultarDato(linkusuarioTrueque)
+      }
+      obtenerUsuario().then(() =>{
+        let urlPerfil
+        if(usuarioChat.imagen == null){
+          urlPerfil = 'Img/perfilAlternativo.png'
+        }else{
+          const blob = base64ToBlob(usuarioChat.imagen, "image/jpeg");
+          urlPerfil = URL.createObjectURL(blob);
+        }
+        containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
+        <img class="fotoChatsRecientes" src="${urlPerfil}">
+        <p class="nombreChatsRecientes">${usuarioChat.name2}</p>
+        </div>`
+        const chatsGenerales = document.querySelector(".chatsGenerales")
+        chatsGenerales.innerHTML += `<div class="chatIndividual">
+        <div class="chatIndivImg">
+            <img src="${urlPerfil}">
+        </div>
+        <div class="chatUserNameMessage" id="ocultarContainer()">
+            <h4 class="chatUserName">${usuarioChat.name2}</h4>
+            <p class="chatMessage"></span></p>
+        </div>
+        <div class="chatInfoChatIndividual">
+            <p class="numberMessages"><span>1</span></p>
+            <p>13:00</p>
+        </div>
+        </div>`
+      })
+    })
+  }
+  const chatIndividual = document.querySelectorAll(".chatIndividual");
+  console.log(chatIndividual);
+}
 
 
-  });
 
 
-})
 
 function restarHorasAFecha(fechaHora) {
   // Divide la fecha y hora
@@ -176,11 +223,6 @@ function base64ToBlob(base64, contentType) {
   }
   return new Blob([binaryArray], { type: contentType });
 }
-
-
-const inputMessage = document.querySelector(".inputMessage");
-const containerInput = document.querySelector(".containerAllMessages");
-const sendButton = document.querySelector(".sendButtonClick");
 
 
 // Función para obtener la hora actual en formato HH:MM
