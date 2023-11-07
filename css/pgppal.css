@@ -429,7 +429,15 @@ hr{
     margin-bottom: 15px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.notificacionNuevoTrueque{
     color: var(--gold1);
+}
+
+.notificacionTruequeExitoso{
+    color: rgb(30, 125, 14);
+    font-weight: bold;
 }
 
 /*Barra de búsqueda*/

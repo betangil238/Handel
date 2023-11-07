@@ -136,8 +136,9 @@ obtenerDatos().then(() => {
                 const nuevoMensaje = mensaje.slice(contador, mensaje.length)
                 notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
             }else if(e.mensaje[0] == "M"){
+                const mensaje = e.mensaje
                 const nuevoMensaje = mensaje.slice(1, mensaje.length)
-                notificaciones.innerHTML += `<a class="notificacionNuevoTrueque href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+                notificaciones.innerHTML += `<a class="notificacionTruequeExitoso" href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
             }else{
                 notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
             }
