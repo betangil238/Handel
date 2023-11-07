@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/tt-rationalist-trl" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/garant-pro?styles=143035,143032" rel="stylesheet">  
+    <link rel="shortcut icon" href="Img/LogoSinFondoBlanco.ico"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/tablaSubastas.css".css">
+    <title>Subastas</title>
+</head>
+<body>
+
+
+    <section class="subastasBody">
+        <div class="subastasHead">
+            <h2>Subastas activas</h2>
+            <h3>&nbsp;<span class="numeroSubastas"></span>subastas</h3>
+            <div class="searchDiv">
+                <input type="search" placeholder=" &nbsp; Buscar">
+            </div>
+            <div class="headButtons">
+                <button class="searchButton"><i class='bx bx-search'></i>&nbsp; Buscar</button>
+                <button class="filterButton"><i class='bx bx-filter-alt'></i>&nbsp; Filtros</button>
+                <button class="addButton"><i class='bx bx-plus' ></i>&nbsp;  Crear</button>
+            </div>
+            
+        </div>
+            
+        <div class="menuFiltros">
+            <div class="titulos">
+                <h3>Filtros</h3>
+                <a href="#">Limpiar</a>
+            </div>
+            <input type="search" placeholder="Buscar"><a href=""><i class='bx bx-search'></i></a>
+            <div class="Filtros">
+                <div></div>
+                <div class="tituloFiltro">
+                    <h3>Nombre</h3>
+                </div>
+                <div class="listaFiltro">
+                    <input type="checkbox" name="" id=""><p>A-Z ↓</p>
+                    <input type="checkbox" name="" id=""><p>Z-A ↑</p>
+                </div>
+            </div>
+            <div class="Filtros">
+                <div class="tituloFiltro">
+                    <h3>Estado</h3>
+                </div>
+                <div class="listaFiltro">
+                    <input type="checkbox" name="" id=""><p>Activa</p>
+                    <input type="checkbox" name="" id=""><p>Inactiva</p>
+                </div>
+            </div>
+            <div class="Filtros">
+                <div class="tituloFiltro">
+                    <h3>Categoría</h3>
+                </div>
+                <div class="listaFiltro">
+                    <input type="checkbox" name="" id=""><p>Ropa</p>
+                    <input type="checkbox" name="" id=""><p>Utensilios</p>
+                    <input type="checkbox" name="" id=""><p>Juguetes</p>
+                    <input type="checkbox" name="" id=""><p>Tecnología</p>
+                    <input type="checkbox" name="" id=""><p>Vehículos</p>
+                    <input type="checkbox" name="" id=""><p>Deportes</p>
+                    <input type="checkbox" name="" id=""><p>Electrodomésticos</p>
+                    <input type="checkbox" name="" id=""><p>Belleza</p>
+                    <input type="checkbox" name="" id=""><p>Papelería</p>
+                    <input type="checkbox" name="" id=""><p>Bebés</p>
+                    <input type="checkbox" name="" id=""><p>Moda</p>
+                    <input type="checkbox" name="" id=""><p>Videojuegos</p>
+                    <input type="checkbox" name="" id=""><p>Hogar</p>
+                    <input type="checkbox" name="" id=""><p>Otros</p>
+                    <a href="#">Ver todos</a><i class='bx bx-chevron-down'></i><i class='bx bx-chevron-up' ></i>
+                </div>
+            </div>
+            <div class="Filtros">
+                <div class="tituloFiltro">
+                    <h3>Valor actual</h3>
+                </div>
+                <div class="listaFiltro">
+                    <input type="checkbox" name="" id=""><p>Mayor ↓</p>
+                    <input type="checkbox" name="" id=""><p>Menor ↑</p>
+                </div>
+            </div>
+            <div class="Filtros">
+                <div class="tituloFiltro">
+                    <h3>Fecha de cierre</h3>
+                </div>
+                <div class="listaFiltro">
+                    <input type="checkbox" name="" id=""><p>Más cercana</p>
+                    <input type="checkbox" name="" id=""><p>Más lejana</p>
+                </div>
+            </div>
+        </div>
+    
+        <table class="tablaSubastas">
+            <thead>
+                <tr class="Encabezados">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="encabezado"> Subastador</td>
+                    <td class="encabezado">Estado</td>
+                    <td class="encabezado">Categoria</td>
+                    <td class="encabezado">Pujas</td>
+                    <td class="encabezado">Valor actual</td>
+                    <td class="encabezado">Fecha de cierre</td>
+                    <td class="encabezado">Participar</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                <tr class="tableItems">
+                    <td class="check"><input type="checkbox"></td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                    <td class="itemSubasta">Ejemplo</td>
+                </tr>
+                
+            </tbody>
+            
+        </table>
+        <div class="mostrarCantidad">
+            <p>Mostrar <span>0</span> de <span>0</span> resultados</p>
+        </div>
+        <div class="botonesNavegacion">
+            <button>Anterior</button>
+            <button>Siguiente</button>
+        </div>
+    </section>
+    
+    
+</body>
+</html>
