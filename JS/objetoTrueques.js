@@ -83,7 +83,7 @@ obtenerDatos1().then(() => {
                         if(getComputedStyle(footer).display == "none"){
                             objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
                         }else if(getComputedStyle(footer).display == "block"){
-                            objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado a cambio de ${truequeSeleccionado.titulo}`
+                            objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado cambio de ${truequeSeleccionado.titulo}`
                         }
                         crearTrueque(linkCrearTrueque, objetoTrueque)
                     }
