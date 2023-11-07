@@ -1,0 +1,72 @@
+:root{
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+body{
+    color: white; 
+    background-image: url(/Img/fondoPFinal.png);
+    background-size: cover;                                     
+}
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Garant Pro', sans-serif; 
+}
+.volverInicio{
+    text-align: left;
+    padding: 30px;
+    font-size: 22px;
+    cursor: pointer;
+    width: 300px;
+
+}
+.volverInicio:hover{
+    scale: 1.1;
+    transition: 0.9s;
+}
+.volverInicio a{
+    text-decoration: none;
+    color: var(--white);
+}
+.volverInicio i{
+    width: auto;
+    color: var(--gold2);
+}
+.tituloGracias img{
+    width: 275px;
+
+}
+.tituloGracias{
+    font-weight: 400;
+    font-size: 70px;
+    text-align: center;
+    width: 700px;
+    margin: auto;
+    margin-top: 30px;
+}
+.subtituloGracias{
+    font-size: 25px;
+    font-weight: 100;
+}
+span{
+    color: var(--gold2);
+}
+.logoCodeTrade{
+    width: 200px;
+}
+.parrafoGracias{
+    margin-top: 20px;
+    padding-right: 100px;
+    text-align: right;
+}
+.footerGracias{
+    text-align: right;
+    width: auto;
+    padding-right: 30px;
+}
