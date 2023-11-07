@@ -110,7 +110,7 @@
 
 /*Especificaciones contenedor imagen y nombre de perfil en Reciente*/
 .imgNameReciente {
-    width: 30%;
+    width: 20%;
     text-align: center;
 }
 
@@ -342,7 +342,7 @@
     font-size: 10px;
     text-align: center;
     background-color: #302f2fe5;
-    width: 10%;
+    width: 20%;
     border-radius: 5px;
     margin-left: 45%;
     margin-bottom: 10px;

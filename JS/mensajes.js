@@ -1,3 +1,5 @@
+let objetoMensaje = {}
+
 async function consultarDato(link){
   const res = await fetch(link);
   const data = await res.json();
@@ -6,6 +8,18 @@ async function consultarDato(link){
 
 const user1= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
+const linkMensajes = "https://handelrailway-production.up.railway.app/mensaje"
+
+async function crearMensaje(link, objeto){
+  const res = await fetch(link, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(objeto),
+  });
+  console.log(res);
+}
+
+
 
 
 const obtenerDatos1 = async () => {
@@ -73,6 +87,46 @@ obtenerDatos1().then(() => {
       mensEnviado.innerHTML = `<p>${mensajeEnviBD}<span class="hora">${resultado.nuevaHora}</span></p>`
       mensRecibido.innerHTML = `<p>${mensajeReciBD}<br><span class="hora">${resultado.nuevaHora}</span></p>`
     });
+
+    sendButton.addEventListener("click", function() {
+      const message = inputMessage.value;
+      if (message) {
+        const horaActual = obtenerHoraActual();
+        containerInput.innerHTML += `
+          <div class="greyMessages">
+            <div class="messageSent">
+              <p>${message}<span class="hora">${horaActual}</span></p>
+            </div>
+          </div>`;
+        inputMessage.value = "";
+        objetoMensaje.mensaje = message
+        objetoMensaje.idUsuario1 = data.idUsuario
+        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
+        console.log(objetoMensaje);
+        crearMensaje(linkMensajes,objetoMensaje)
+      }
+    });
+
+    inputMessage.addEventListener("keydown", function(e) {
+      if (e.key === 'Enter' && inputMessage.value) {
+        const message = inputMessage.value;
+        const horaActual = obtenerHoraActual();
+        containerInput.innerHTML += `
+          <div class="greyMessages">
+            <div class="messageSent">
+              <p>${message}<span class="hora">${horaActual}</span></p>
+            </div>
+          </div>`;
+        inputMessage.value = "";
+        objetoMensaje.mensaje = message
+        objetoMensaje.idUsuario1 = data.idUsuario
+        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
+        crearMensaje(linkMensajes,objetoMensaje)
+      }
+    });
+    
+
+
   });
 
 
@@ -123,11 +177,6 @@ function restarHorasAFecha(fechaHora) {
   return { nuevaFecha, nuevaHora };
 }
 
-
-
-
-
-
 function base64ToBlob(base64, contentType) {
   const binaryStr = window.atob(base64);
   const binaryArray = new Uint8Array(binaryStr.length);
@@ -136,10 +185,6 @@ function base64ToBlob(base64, contentType) {
   }
   return new Blob([binaryArray], { type: contentType });
 }
-
-
-
-
 
 
 const inputMessage = document.querySelector(".inputMessage");
@@ -156,39 +201,16 @@ function obtenerHoraActual() {
 }
 
 // Evento para manejar el clic en el botón de enviar
-sendButton.addEventListener("click", function() {
-  const message = inputMessage.value;
-
-  if (message) {
-    const horaActual = obtenerHoraActual();
-    containerInput.innerHTML += `
-      <div class="greyMessages">
-        <div class="messageSent">
-          <p>${message}<span class="hora">${horaActual}</span></p>
-        </div>
-      </div>`;
-    inputMessage.value = "";
-  }
-});
 
 // Evento para manejar la tecla Enter en el input
-inputMessage.addEventListener("keydown", function(e) {
-  if (e.key === 'Enter' && inputMessage.value) {
-    const message = inputMessage.value;
-    const horaActual = obtenerHoraActual();
-    containerInput.innerHTML += `
-      <div class="greyMessages">
-        <div class="messageSent">
-          <p>${message}<span class="hora">${horaActual}</span></p>
-        </div>
-      </div>`;
-    inputMessage.value = "";
-  }
-});
+
 
 const contenedorEmoji=document.querySelector(".emoji-container");
 const botonEmoji=document.querySelector(".bxs-happy-alt");
-
+const chatIndividual = document.querySelectorAll(".chatIndividual");
+const contenedor2 = document.querySelector(".container2");
+const contenedor1 = document.querySelector(".container1");
+const contenedorInicial = document.querySelector(".conteinerInicial");
 
 // Agrega un evento de clic al botón de emoji
 botonEmoji.addEventListener("click", function () {
