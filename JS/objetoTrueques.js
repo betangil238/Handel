@@ -124,7 +124,6 @@ async function crearTrueque(link, objeto){
 }
 
 async function crearNotificacion(link, objeto){
-    console.log(objeto);
     const res = await fetch(link, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
