@@ -41,7 +41,6 @@ async function buscarUsuarios(arrayId) {
     arrayUsuarios.push(usuarioChat, arrayId[i][1]);
     arrayCompleto.push(arrayUsuarios)
   }
-  console.log(arrayCompleto);
   return arrayCompleto;
 }
 
@@ -126,7 +125,6 @@ async function visibilidadChats(){
       }
       id = chat.id;
       const infoChat = await buscarIdChat(id);
-      console.log(infoChat);
       const resultado = restarHorasAFecha(infoChat.horaMensaje)
       const fecha = resultado.nuevaFecha
       const containerInput = document.querySelector(".containerAllMessages");
@@ -134,20 +132,46 @@ async function visibilidadChats(){
         <h4 class="textoFechaChat">${fecha}</h4>
         </div>`
       infoChat.mensajes.forEach(men => {
+        const resultado =  restarHorasAFecha(men.fechadecreacion)
         if(men.idUsuario1 != user1.id){
           containerInput.innerHTML += `<div class="yellowMessages">
             <div class="messageReceived">
-              <p>${men.mensaje}<br><span class="hora">${men.createdDate}</span></p>
+              <p>${men.mensaje}<br><span class="hora">${resultado.nuevaHora}</span></p>
             </div>
           </div>`;
         }else{
           containerInput.innerHTML += `<div class="greyMessages">
             <div class="messageSent">
-              <p>${men.mensaje}<span class="hora">${men.createdDate}</span></p>
+              <p>${men.mensaje}<span class="hora">${resultado.nuevaHora}</span></p>
             </div>
           </div>`;
         }
       })
+
+
+      const contenedorEmoji=document.querySelector(".emoji-container");
+      const botonEmoji=document.querySelector(".bxs-happy-alt");
+      // Agrega un evento de clic al botón de emoji
+      botonEmoji.addEventListener("click", function () {
+        if (getComputedStyle(contenedorEmoji).display === 'none') {
+          contenedorEmoji.style.display = "flex";
+        } else {
+          contenedorEmoji.style.display = "none";
+        }
+      });
+// Obtiene todos los elementos emoji dentro del contenedor emoji
+      const emojis = contenedorEmoji.querySelectorAll(".emoji");
+// Agrega un evento de clic a cada emoji
+      emojis.forEach((emoji) => {
+        emoji.addEventListener("click", function () {
+          // Obtiene el emoji del elemento actual
+          const emojiSeleccionado = emoji.textContent;
+          // Agrega el emoji al valor del input
+          inputMessage.value += emojiSeleccionado;
+          // Oculta el contenedor de emojis
+          contenedorEmoji.style.display = "none";
+        });
+      });
 
       const inputMessage = document.querySelector(".inputMessage");
       const sendButton = document.querySelector(".sendButtonClick");
@@ -269,36 +293,7 @@ function obtenerHoraActual() {
 // Evento para manejar la tecla Enter en el input
 
 
-const contenedorEmoji=document.querySelector(".emoji-container");
-const botonEmoji=document.querySelector(".bxs-happy-alt");
-const chatIndividual = document.querySelectorAll(".chatIndividual");
-const contenedor2 = document.querySelector(".container2");
-const contenedor1 = document.querySelector(".container1");
-const contenedorInicial = document.querySelector(".conteinerInicial");
 
-// Agrega un evento de clic al botón de emoji
-botonEmoji.addEventListener("click", function () {
-  if (getComputedStyle(contenedorEmoji).display === 'none') {
-    contenedorEmoji.style.display = "flex";
-  } else {
-    contenedorEmoji.style.display = "none";
-  }
-});
-
-// Obtiene todos los elementos emoji dentro del contenedor emoji
-const emojis = contenedorEmoji.querySelectorAll(".emoji");
-
-// Agrega un evento de clic a cada emoji
-emojis.forEach((emoji) => {
-  emoji.addEventListener("click", function () {
-    // Obtiene el emoji del elemento actual
-    const emojiSeleccionado = emoji.textContent;
-    // Agrega el emoji al valor del input
-    inputMessage.value += emojiSeleccionado;
-    // Oculta el contenedor de emojis
-    contenedorEmoji.style.display = "none";
-  });
-});
 
 
 
