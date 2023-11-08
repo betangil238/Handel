@@ -440,6 +440,11 @@ hr{
     font-weight: bold;
 }
 
+.notificacionCierre{
+    color: var(--gold2);
+    font-weight: bold;
+}
+
 /*Barra de búsqueda*/
 #barraBusqueda {
     width: 80%;

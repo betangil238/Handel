@@ -183,6 +183,11 @@ a{
     cursor: pointer;
 }
 
+.notificacionCierre{
+    color: var(--gold2);
+    font-weight: bold;
+}
+
 /*Especificaciones sección Billetera*/
 .containerBilletera {
     display: none;
