@@ -18,7 +18,7 @@ async function crearMensaje(link, objeto){
   });
   console.log(res);
 }
-
+obtenerDatos1(consultaEmail1);
 async function obtenerDatos1(link){
   const res = await fetch(link);
   const data = await res.json();
@@ -86,7 +86,7 @@ async function obtenerDatos1(link){
   }
 }
 
-obtenerDatos1(consultaEmail1);
+
 
 function producirMensajes(data){
   const containerFotosRecientes = document.querySelector(".containerImgsReciente")
