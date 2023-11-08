@@ -19,16 +19,19 @@ const consultaEmail="https://handelrailway-production.up.railway.app/usuario/val
 const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
 const linkUsuarios="https://handelrailway-production.up.railway.app/usuario";
 
-async function obtenerUsuarios(link){
-    const res = await fetch(link);
-    const data = await res.json();
-    producirTrueques(data);
-    obtenerSubastas(linkSubastas);
-    clickTrueques()
-    await clickSubastas()
-}
+if(window.location.href.includes("pgppal.html")){
 
-obtenerUsuarios(linkUsuarios);
+    async function obtenerUsuarios(link){
+        const res = await fetch(link);
+        const data = await res.json();
+        producirTrueques(data);
+        obtenerSubastas(linkSubastas);
+        clickTrueques()
+        await clickSubastas()
+    }
+
+    obtenerUsuarios(linkUsuarios);
+}
 
 const conteinerTrueques = document.querySelector(".containerTruequeCards")
 let urlPerfil
@@ -74,18 +77,19 @@ async function producirSubastas(productos){
     }); 
 }
 
+if(window.location.href.includes("pgppal.html")){
 
-function clickTrueques(){
-    const containerTrueques = document.querySelectorAll(".truequeCards")
-    containerTrueques.forEach(e => {
-        e.addEventListener("click", function(){
-            const idTrueque = e.id;
-            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque":idTrueque}))
-            window.location.href='objetoTrueques.html';
+    function clickTrueques(){
+        const containerTrueques = document.querySelectorAll(".truequeCards")
+        containerTrueques.forEach(e => {
+            e.addEventListener("click", function(){
+                const idTrueque = e.id;
+                localStorage.setItem("idTrueque", JSON.stringify({"idTrueque":idTrueque}))
+                window.location.href='objetoTrueques.html';
+            })
         })
-    })
+    }
 }
-
 
 async function clickSubastas(){
     const histo = document.querySelector(".historias")
@@ -97,66 +101,66 @@ async function clickSubastas(){
     })
 }
 
-
 async function obtenerSubastas(link){
     const res = await fetch(link);
     const data = await res.json();
     await producirSubastas(data)
 }
 
-
 const obtenerDatos = async () => {
     data = await consultarUsuario(consultaEmail);
 };
 
 obtenerDatos().then(() => {
-    console.log(data);
-    if(data.reset == 1 && window.location.href.includes("ajustes.html")){
-        window.location.href='pgppal.html';
-    }
-    
-    let tamano
-    const notificaciones = document.querySelector(".notifications")
-    const cantidad = document.querySelector(".cantidad")
-    if(data.notificaciones != null){
-        const noti = data.notificaciones
-        tamano = (noti.length) + 1
-        noti.forEach(e =>{
-            let contador = 1
-            let id = ""
-            if(e.mensaje[0] == "T"){
-                for(contador; contador <(e.mensaje).length; contador++){
-                    if(parseInt(e.mensaje[contador]) >= 0){
-                        id += e.mensaje[contador]
-                    }else{
-                        break
-                    }
-                }
-                const mensaje = e.mensaje
-                const nuevoMensaje = mensaje.slice(contador, mensaje.length)
-                notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
-            }else if(e.mensaje[0] == "M"){
-                const mensaje = e.mensaje
-                const nuevoMensaje = mensaje.slice(1, mensaje.length)
-                notificaciones.innerHTML += `<a class="notificacionTruequeExitoso" href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
-            }else{
-                notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
-            }
-        })
-    }else{
-        tamano = 1
-    }
-    cantidad.textContent = tamano
+    if(window.location.href.includes("ajustes.html")){
 
-    const notificacionesLink = document.querySelectorAll(".notificacionNuevoTrueque")
-    notificacionesLink.forEach( e => {
-        e.addEventListener("click", () =>{
-            const idT = e.id
-            localStorage.setItem("idTrueque", JSON.stringify({"idTrueque": idT, "notificacion" : 1}))
-            window.location.href = 'objetoTrueques.html'
+    }else {
+        let tamano
+        if(data.reset == 1 && window.location.href.includes("ajustes.html")){
+            window.location.href='pgppal.html';
+        }
+
+        const notificaciones = document.querySelector(".notifications")
+        const cantidad = document.querySelector(".cantidad")
+        if(data.notificaciones != null){
+            const noti = data.notificaciones
+            tamano = (noti.length) + 1
+            noti.forEach(e =>{
+                let contador = 1
+                let id = ""
+                if(e.mensaje[0] == "T"){
+                    for(contador; contador <(e.mensaje).length; contador++){
+                        if(parseInt(e.mensaje[contador]) >= 0){
+                            id += e.mensaje[contador]
+                        }else{
+                            break
+                        }
+                    }
+                    const mensaje = e.mensaje
+                    const nuevoMensaje = mensaje.slice(contador, mensaje.length)
+                    notificaciones.innerHTML += `<a class="notificacionNuevoTrueque" id="${id}"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+                }else if(e.mensaje[0] == "M"){
+                    const mensaje = e.mensaje
+                    const nuevoMensaje = mensaje.slice(1, mensaje.length)
+                    notificaciones.innerHTML += `<a class="notificacionTruequeExitoso" href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+                }else{
+                    notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
+                }
+            })
+        }else{
+            tamano = 1
+        }
+        cantidad.textContent = tamano
+
+        const notificacionesLink = document.querySelectorAll(".notificacionNuevoTrueque")
+        notificacionesLink.forEach( e => {
+            e.addEventListener("click", () =>{
+                const idT = e.id
+                localStorage.setItem("idTrueque", JSON.stringify({"idTrueque": idT, "notificacion" : 1}))
+                window.location.href = 'objetoTrueques.html'
+            })
         })
-    })
-    
+    }
 
 // Configuracion para salir de la pagina y redireccionar al login
 const logout=document.getElementById("logout")
@@ -256,8 +260,13 @@ const numTrueques = document.querySelector(".numTrueques")
 const numSubastas = document.querySelector(".numSubastas")
 nombreperfil.textContent=data.name2;
 usuarioperfil.textContent=data.usuario1;
-numTrueques.textContent = data.objetosDeTrueque.length
-numSubastas.textContent= data.objetosDeSubasta.length
+if(data.objetosDeTrueque != 0 ){
+    numTrueques.textContent = data.objetosDeTrueque.length
+}
+
+if(data.objetosDeSubasta != 0){
+    numSubastas.textContent= data.objetosDeSubasta.length
+}
 
 if(window.location.href.includes("ajustes.html")){
 const inputname = document.getElementById("name");
@@ -345,7 +354,7 @@ const usuarioperfil1 = document.getElementById("userCode1");
 const todo = document.querySelector(":not(.containerDesplegable)");
 const tituloFoto=document.querySelector(".tituloFoto");
 const botonCargar=document.querySelector(".cargarfoto");
-const salirProfile= document.querySelector(".Salir");
+const salirProfile= document.querySelector(".salir");
 imagenclick.addEventListener("click",function(){
     if((window.getComputedStyle(menuDesplegable)).display=="none"){
         menuDesplegable.style.display="flex"
@@ -384,8 +393,6 @@ imagenclick.addEventListener("click",function(){
         botonCargar.style.marginLeft="25%"
     }
 });
-
-
 
 salirProfile.addEventListener("click",function(){
     menuDesplegable.style.display="none"
