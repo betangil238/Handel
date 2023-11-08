@@ -1,4 +1,7 @@
-//let objetoSubasta = {}
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
 
 async function consultarDato(link){
     const res = await fetch(link);
@@ -11,7 +14,6 @@ const idsubasta = JSON.parse(localStorage.getItem("idSubasta"))
 const idSubastaSeleccionada = idsubasta.idSubasta
 //objetoSubasta.idSubasta = idSubastaSeleccionada
 
-const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const buscarSubasta = "https://handelrailway-production.up.railway.app/objsubasta/"+idSubastaSeleccionada;
 const actualizarSubasta = "https://handelrailway-production.up.railway.app/objsubasta";

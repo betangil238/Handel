@@ -1,3 +1,8 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
+
 let objetoCompleto = {} 
 
 async function consultarUsuario(link){
@@ -6,7 +11,7 @@ async function consultarUsuario(link){
     return data;
 }
 
-const user= JSON.parse(localStorage.getItem('login_success')) || false
+
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
 

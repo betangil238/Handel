@@ -1,3 +1,9 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
+
+
 let objetoTrueque = {}
 let objetoNotificacion = {}
 
@@ -18,7 +24,6 @@ if(notificacion == "1"){
 }
 objetoTrueque.idObjetoTrueque1 = idTruequeSeleccionado
 
-const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const buscarTrueque = "https://handelrailway-production.up.railway.app/objtrueque/"+idTruequeSeleccionado;
 const linkCrearTrueque = "https://handelrailway-production.up.railway.app/trueque";
