@@ -1,58 +1,179 @@
 let objetoMensaje = {}
 
-async function consultarDato(link){
+function base64ToBlob(base64, contentType) {
+  const binaryStr = window.atob(base64);
+  const binaryArray = new Uint8Array(binaryStr.length);
+  for (let i = 0; i < binaryStr.length; i++) {
+      binaryArray[i] = binaryStr.charCodeAt(i);
+  }
+  return new Blob([binaryArray], { type: contentType });
+}
+
+const user1= JSON.parse(localStorage.getItem('login_success')) || false
+const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
+const linkMensajes = "https://handelrailway-production.up.railway.app/contenido"
+
+async function obtenerMensajes(link){
+  const res = await fetch(link);
+  const data = await res.json();
+  const arrayId = await idUsuarios(data)
+  const arrayUs = await buscarUsuarios(arrayId)
+  await producirMensajes(arrayUs);
+  let id
+  await visibilidadChats();
+
+}
+
+obtenerMensajes(consultaEmail1);
+
+async function buscarIdChat(id){
+  const linkBuscarChat = "https://handelrailway-production.up.railway.app/mensaje/"+ id;
+  const chat = await consultarUsuario(linkBuscarChat);
+  return chat
+}
+
+async function buscarUsuarios(arrayId) {
+  let arrayCompleto = [];
+  for (let i = 0; i < arrayId.length; i++) {
+    let arrayUsuarios = [];
+    const linkusuarioTrueque = "https://handelrailway-production.up.railway.app/usuario/" + arrayId[i][0];
+    const usuarioChat = await consultarUsuario(linkusuarioTrueque);
+    arrayUsuarios.push(usuarioChat, arrayId[i][1]);
+    arrayCompleto.push(arrayUsuarios)
+  }
+  return arrayCompleto;
+}
+
+async function consultarUsuario(link){
   const res = await fetch(link);
   const data = await res.json();
   return data;
 }
 
-const user1= JSON.parse(localStorage.getItem('login_success')) || false
-const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
-const linkMensajes = "https://handelrailway-production.up.railway.app/mensaje"
-
-async function crearMensaje(link, objeto){
-  const res = await fetch(link, {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(objeto),
-  });
-  console.log(res);
+async function idUsuarios(data){
+  const mensaje1 = data.mensajes1
+  const mensaje2 = data.mensajes2
+  let idCompleto = []
+  let ids = []
+  mensaje1.forEach(id => {
+    ids = []
+    ids.push(id.idUsuario2,id.idmensajes)
+    idCompleto.push(ids)
+  })
+  mensaje2.forEach(id => {
+    ids = []
+    ids.push(id.idUsuario1, id.idmensajes)
+    idCompleto.push(ids)
+  })
+  return idCompleto;
 }
 
-async function obtenerDatos1(link){
-  const res = await fetch(link);
-  const data = await res.json();
-  await producirMensajes(data);
-  await visibilidadChats()
-  async function visibilidadChats(){
-    console.log("Entro");
-    const chatGeneral = document.querySelector(".chatsGenerales")
-    const chatIndividual = document.querySelectorAll(".chatIndividual");
-    const contenedor2 = document.querySelector(".container2");
-    const contenedor1 = document.querySelector(".container1");
-    const contenedorInicial = document.querySelector(".conteinerInicial");
-    const chatNameUser = document.querySelector(".userNameChat");
-    chatIndividual.forEach(chat =>{;
-      chat.addEventListener("click", function(){
-        console.log("aa");
-        const nameUser = chat.querySelector(".chatUserName").textContent;
-        chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
-        if(window.screen.width <= 500){
-          contenedor1.style.display = "none";
-          contenedorInicial.style.display = "none";
-          contenedor2.style.display = "flex";
-        }else{
-          chat.style.backgroundColor = "#343434";
-          contenedorInicial.style.display = "none";
-          contenedor2.style.display = "flex";
-        }
-        const fecha = document.querySelector(".textoFechaChat")
-        const resultado = restarHorasAFecha(fechaBD)
-        fecha.textContent = resultado.nuevaFecha
-      });
+const containerFotosRecientes = document.querySelector(".containerImgsReciente")
+let urlPerfil
+async function producirMensajes(arrayUs){
+  arrayUs.forEach(us =>{
+    if(us[0].imagen == null){
+      urlPerfil = 'Img/perfilAlternativo.png'
+    }else{
+      const blob = base64ToBlob(us[0].imagen, "image/jpeg");
+      urlPerfil = URL.createObjectURL(blob);
+    }
+    containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
+    <img class="fotoChatsRecientes" src="${urlPerfil}">
+    <p class="nombreChatsRecientes">${us[0].name2}</p>
+    </div>`
+    const chatsGenerales = document.querySelector(".chatsGenerales")
+    chatsGenerales.innerHTML += `<div class="chatIndividual" id="${us[1]}">
+    <div class="chatIndivImg">
+        <img src="${urlPerfil}">
+    </div>
+    <div class="chatUserNameMessage" id="ocultarContainer()">
+        <h4 class="chatUserName">${us[0].name2}</h4>
+        <p class="chatMessage"></span></p>
+    </div>
+    <div class="chatInfoChatIndividual">
+        <p class="numberMessages"><span>1</span></p>
+        <p>13:00</p>
+    </div>
+    </div>`
+  })
+}
   
-      const inputMessage = document.querySelector(".inputMessage");
+
+
+async function visibilidadChats(){
+  let id
+  const chatIndividual = document.querySelectorAll(".chatIndividual");
+  const contenedor2 = document.querySelector(".container2");
+  const contenedor1 = document.querySelector(".container1");
+  const contenedorInicial = document.querySelector(".conteinerInicial");
+  const chatNameUser = document.querySelector(".userNameChat");
+  chatIndividual.forEach(chat =>{;
+    chat.addEventListener("click", async function(){
+      const containerInput1 = document.querySelector(".containerAllMessages");
+      containerInput1.textContent = ""
+      const nameUser = chat.querySelector(".chatUserName").textContent;
+      chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
+      if(window.screen.width <= 500){
+        contenedor1.style.display = "none";
+        contenedorInicial.style.display = "none";
+        contenedor2.style.display = "flex";
+      }else{
+        chat.style.backgroundColor = "#343434";
+        contenedorInicial.style.display = "none";
+        contenedor2.style.display = "flex";
+      }
+      id = chat.id;
+      const infoChat = await buscarIdChat(id);
+      const resultado = restarHorasAFecha(infoChat.horaMensaje)
+      const fecha = resultado.nuevaFecha
       const containerInput = document.querySelector(".containerAllMessages");
+      containerInput.innerHTML += `<div class="fechaChat">
+        <h4 class="textoFechaChat">${fecha}</h4>
+        </div>`
+      infoChat.mensajes.forEach(men => {
+        const resultado =  restarHorasAFecha(men.fechadecreacion)
+        if(men.idUsuario1 != user1.id){
+          containerInput.innerHTML += `<div class="yellowMessages">
+            <div class="messageReceived">
+              <p>${men.mensaje}<br><span class="hora">${resultado.nuevaHora}</span></p>
+            </div>
+          </div>`;
+        }else{
+          containerInput.innerHTML += `<div class="greyMessages">
+            <div class="messageSent">
+              <p>${men.mensaje}<span class="hora">${resultado.nuevaHora}</span></p>
+            </div>
+          </div>`;
+        }
+      })
+
+
+      const contenedorEmoji=document.querySelector(".emoji-container");
+      const botonEmoji=document.querySelector(".bxs-happy-alt");
+      // Agrega un evento de clic al botón de emoji
+      botonEmoji.addEventListener("click", function () {
+        if (getComputedStyle(contenedorEmoji).display === 'none') {
+          contenedorEmoji.style.display = "flex";
+        } else {
+          contenedorEmoji.style.display = "none";
+        }
+      });
+// Obtiene todos los elementos emoji dentro del contenedor emoji
+      const emojis = contenedorEmoji.querySelectorAll(".emoji");
+// Agrega un evento de clic a cada emoji
+      emojis.forEach((emoji) => {
+        emoji.addEventListener("click", function () {
+          // Obtiene el emoji del elemento actual
+          const emojiSeleccionado = emoji.textContent;
+          // Agrega el emoji al valor del input
+          inputMessage.value += emojiSeleccionado;
+          // Oculta el contenedor de emojis
+          contenedorEmoji.style.display = "none";
+        });
+      });
+
+      const inputMessage = document.querySelector(".inputMessage");
       const sendButton = document.querySelector(".sendButtonClick");
       sendButton.addEventListener("click", function() {
         const message = inputMessage.value;
@@ -65,9 +186,15 @@ async function obtenerDatos1(link){
               </div>
             </div>`;
           inputMessage.value = "";
+          const date = new Date()
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
         }
-      });
-  
+      })
       inputMessage.addEventListener("keydown", function(e) {
         if (e.key === 'Enter' && inputMessage.value) {
           const message = inputMessage.value;
@@ -78,97 +205,34 @@ async function obtenerDatos1(link){
                 <p>${message}<span class="hora">${horaActual}</span></p>
               </div>
             </div>`;
+          const date = new Date()
           inputMessage.value = "";
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
         }
-      });
-  
+      })
+      
+
+
+      
     });
-  }
-}
-
-obtenerDatos1(consultaEmail1);
-
-function producirMensajes(data){
-  const containerFotosRecientes = document.querySelector(".containerImgsReciente")
-  const mensa1 = data.mensajes1
-  const mensa2 = data.mensajes2
-  if(mensa1 != null){
-    mensa1.forEach(c =>{
-      const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+c.idUsuario2
-      const obtenerUsuario = async () =>{
-        usuarioChat = await consultarDato(linkusuarioTrueque)
-      }
-      obtenerUsuario().then(() =>{
-        let urlPerfil
-        if(usuarioChat.imagen == null){
-          urlPerfil = 'Img/perfilAlternativo.png'
-        }else{
-          const blob = base64ToBlob(usuarioChat.imagen, "image/jpeg");
-          urlPerfil = URL.createObjectURL(blob);
-        }
-        containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
-        <img class="fotoChatsRecientes" src="${urlPerfil}">
-        <p class="nombreChatsRecientes">${usuarioChat.name2}</p>
-        </div>`
-        const chatsGenerales = document.querySelector(".chatsGenerales")
-        chatsGenerales.innerHTML += `<div class="chatIndividual">
-        <div class="chatIndivImg">
-            <img src="${urlPerfil}">
-        </div>
-        <div class="chatUserNameMessage" id="ocultarContainer()">
-            <h4 class="chatUserName">${usuarioChat.name2}</h4>
-            <p class="chatMessage"></span></p>
-        </div>
-        <div class="chatInfoChatIndividual">
-            <p class="numberMessages"><span>1</span></p>
-            <p>13:00</p>
-        </div>
-        </div>`
-      })
-    })
-  }
-  if(mensa2 != null){
-    mensa2.forEach(c =>{
-      const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+c.idUsuario1
-      const obtenerUsuario = async () =>{
-        usuarioChat = await consultarDato(linkusuarioTrueque)
-      }
-      obtenerUsuario().then(() =>{
-        let urlPerfil
-        if(usuarioChat.imagen == null){
-          urlPerfil = 'Img/perfilAlternativo.png'
-        }else{
-          const blob = base64ToBlob(usuarioChat.imagen, "image/jpeg");
-          urlPerfil = URL.createObjectURL(blob);
-        }
-        containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
-        <img class="fotoChatsRecientes" src="${urlPerfil}">
-        <p class="nombreChatsRecientes">${usuarioChat.name2}</p>
-        </div>`
-        const chatsGenerales = document.querySelector(".chatsGenerales")
-        chatsGenerales.innerHTML += `<div class="chatIndividual">
-        <div class="chatIndivImg">
-            <img src="${urlPerfil}">
-        </div>
-        <div class="chatUserNameMessage" id="ocultarContainer()">
-            <h4 class="chatUserName">${usuarioChat.name2}</h4>
-            <p class="chatMessage"></span></p>
-        </div>
-        <div class="chatInfoChatIndividual">
-            <p class="numberMessages"><span>1</span></p>
-            <p>13:00</p>
-        </div>
-        </div>`
-      })
-    })
-  }
-  const chatIndividual = document.querySelectorAll(".chatIndividual");
-  console.log(chatIndividual);
+  });
 }
 
 
-
-
+async function crearMensaje(link, objeto){
+  console.log(objeto);
+  const res = await fetch(link, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(objeto),
+  });
+  console.log(res);
+}
 
 function restarHorasAFecha(fechaHora) {
   // Divide la fecha y hora
@@ -215,15 +279,6 @@ function restarHorasAFecha(fechaHora) {
   return { nuevaFecha, nuevaHora };
 }
 
-function base64ToBlob(base64, contentType) {
-  const binaryStr = window.atob(base64);
-  const binaryArray = new Uint8Array(binaryStr.length);
-  for (let i = 0; i < binaryStr.length; i++) {
-      binaryArray[i] = binaryStr.charCodeAt(i);
-  }
-  return new Blob([binaryArray], { type: contentType });
-}
-
 
 // Función para obtener la hora actual en formato HH:MM
 function obtenerHoraActual() {
@@ -238,36 +293,7 @@ function obtenerHoraActual() {
 // Evento para manejar la tecla Enter en el input
 
 
-const contenedorEmoji=document.querySelector(".emoji-container");
-const botonEmoji=document.querySelector(".bxs-happy-alt");
-const chatIndividual = document.querySelectorAll(".chatIndividual");
-const contenedor2 = document.querySelector(".container2");
-const contenedor1 = document.querySelector(".container1");
-const contenedorInicial = document.querySelector(".conteinerInicial");
 
-// Agrega un evento de clic al botón de emoji
-botonEmoji.addEventListener("click", function () {
-  if (getComputedStyle(contenedorEmoji).display === 'none') {
-    contenedorEmoji.style.display = "flex";
-  } else {
-    contenedorEmoji.style.display = "none";
-  }
-});
-
-// Obtiene todos los elementos emoji dentro del contenedor emoji
-const emojis = contenedorEmoji.querySelectorAll(".emoji");
-
-// Agrega un evento de clic a cada emoji
-emojis.forEach((emoji) => {
-  emoji.addEventListener("click", function () {
-    // Obtiene el emoji del elemento actual
-    const emojiSeleccionado = emoji.textContent;
-    // Agrega el emoji al valor del input
-    inputMessage.value += emojiSeleccionado;
-    // Oculta el contenedor de emojis
-    contenedorEmoji.style.display = "none";
-  });
-});
 
 
 
@@ -336,5 +362,4 @@ document.addEventListener("DOMContentLoaded", function () {
         fileInput.click();
     });
 });
-
 
