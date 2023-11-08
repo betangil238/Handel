@@ -526,6 +526,7 @@ hr{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 15px;
     /* width: 65%;
     display: grid;
     grid-template-columns:50% 50% 50%; */
