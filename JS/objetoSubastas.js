@@ -60,16 +60,12 @@ obtenerDatos1().then(() => {
     visibi.textContent = subastaSeleccionada.visibilidad
     const incre = document.querySelector(".incremento_Fijo")
     incre.textContent = "$"+subastaSeleccionada.incremento
-
-
     if(usuSubasta.idUsuario == usuarioLogeado.idUsuario || subastaSeleccionada.idGanador == usuarioLogeado.idUsuario){
         const botones = document.querySelector(".botones_derecha")
         botones.style.display = "none"
     }
-
-
     const botonPujar = document.querySelector(".pujar")
-    botonPujar.addEventListener("click",() => {
+    botonPujar.addEventListener("click",async () => {
         if(inputAu.value == ""){
             mostrarAlertaRechazo("Diligencia el incremento")
         }else if(inputAu.value < subastaSeleccionada.incremento){
@@ -78,6 +74,7 @@ obtenerDatos1().then(() => {
             subastaSeleccionada.valor += parseInt(inputAu.value)
             subastaSeleccionada.idGanador = usuarioLogeado.idUsuario
             subastaSeleccionada.vistas += 1
+            console.log(1);
             actualizarSub(actualizarSubasta,subastaSeleccionada)
         }
     })
@@ -85,16 +82,23 @@ obtenerDatos1().then(() => {
 })
 
 async function actualizarSub(link,objeto){
-    console.log(objeto);
-    fetch(link,{
+    const res = await fetch(link,{
         method: "PUT",
         headers:{
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(objeto),
     })
+    console.log(res);    
+    if(res.status == 200){
+        mostrarAlertaPujaExitosa()
+        setTimeout(() => {
+            window.location.href='subastas.html';
+        },2500);
+    }else{
+        mostrarAlertaRechazo("No se pudo realizar la puja")
+    }
 }
-
 
 
 
@@ -151,10 +155,10 @@ function mostrarAlerta() {
     });
 }
 
-function mostrarAlertaTruequeExitoso() {
+function mostrarAlertaPujaExitosa() {
     Swal.fire({
-        title: 'Trueque creado',
-        text: 'Espera a que sea aceptado',
+        title: 'Puja exitosa',
+        text: 'Debes estar atento a otras pujas ',
         icon: 'success', // Puedes cambiar el icono (success, error, warning, info, etc.)
         confirmButtonText: 'Aceptar', // Texto del boton
         customClass: {
