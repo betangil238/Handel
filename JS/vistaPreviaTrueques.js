@@ -1,3 +1,8 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
+
 let objetoCompleto = {} 
 
 async function consultarUsuario(link){
@@ -6,7 +11,7 @@ async function consultarUsuario(link){
     return data;
 }
 
-const user= JSON.parse(localStorage.getItem('login_success')) || false
+
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const crearObjTrueque = "https://handelrailway-production.up.railway.app/objtrueque"
 
@@ -16,7 +21,6 @@ async function crearObjetoTrueque(link, objeto){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(objeto),
     });
-    console.log(res);
     if (res.status == 200){
         localStorage.removeItem("FotoObjeto")
         localStorage.removeItem("ObjetoInfo")
@@ -140,4 +144,3 @@ function mostrarAlerta() {
     });
 }
 
-console.log(objetoCompleto);

@@ -362,7 +362,17 @@ hr{
     justify-content: end;
     padding-right: 40px;
     cursor: pointer;
+    align-items: center;
     /* margin-right: 40px; */
+}
+
+
+.bx-bell{
+    font-size: 20px;
+}
+
+.bx-store-all{
+    font-size: 20px;
 }
 
 .notifications{
@@ -437,6 +447,11 @@ hr{
 
 .notificacionTruequeExitoso{
     color: rgb(30, 125, 14);
+    font-weight: bold;
+}
+
+.notificacionCierre{
+    color: var(--gold2);
     font-weight: bold;
 }
 
@@ -526,6 +541,7 @@ hr{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 15px;
     /* width: 65%;
     display: grid;
     grid-template-columns:50% 50% 50%; */

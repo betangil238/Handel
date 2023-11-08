@@ -417,7 +417,7 @@
 /*Especificaciones de la barra para escribir y enviar el mensaje*/
 .writingTextBar {
     display: grid;
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 85% 15%;
     padding: 5px 20px 0 20px;
     text-align: center;
 }
@@ -425,7 +425,7 @@
 /*Especificaciones de la barra que contiene ícono emoji, input, ícono img e ícono cámara*/
 .writingMessageInput {
     display: grid;
-    grid-template-columns: 10% 70% 10% 10%;
+    grid-template-columns: 10% 80% 10% ;
     background: #1E1E1E;
     border-radius: 10px;
 }
@@ -470,6 +470,7 @@
 
 .sendButtonClick{
     transition: 1s;
+    width: 40px;
 }
 
 .sendButtonClick:hover{

@@ -189,6 +189,8 @@ body{
    width: 55px;
    margin: 0 auto;
    border-radius: 25px;
+   height: 55px;
+   object-fit: cover;
 }
 .participarButton{
    display: flex;

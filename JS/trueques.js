@@ -23,7 +23,7 @@ function producirProductos(productos){
             </div>
             <div class="infoProducto">
                 <div class="infoPublicacion">
-                    <p class="NombreUsuario">Trueque <span class="idPublicacion">${e.titulo}</span></p>
+                    <p class="NombreUsuario"><span class="idPublicacion">${e.titulo}</span></p>
                     <div class="likes_Vistas">
                         <p class="parrafoLikes"><i class='bx bx-heart' style='color:#f9f9f9'  ></i><span class="CantidadLikes">${e.likes}</span><span>Likes</span></p>
                         <p class="parrafoVistas"> <span class="material-symbols-outlined">visibility</span><span class="CantidadVistas">${e.vistas}</span><span>Vistas</span></p>

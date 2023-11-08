@@ -116,7 +116,7 @@ font-family: 'Garant pro';
 .nameProduct{
     margin-bottom: 20px;
     justify-content: start;
-    font-size: 15px;
+    font-size: 13px;
     padding-left: 25px;
     font-family: 'Garant pro';
 }
@@ -160,6 +160,6 @@ font-family: 'Garant pro';
     align-items: center;
     border-radius: 10px;
     margin-right: 20px;
-    font-size: 12px;
+    font-size: 14px;
     height: 35px;
 }

@@ -1,3 +1,9 @@
+const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
+
+
 let objetoTrueque = {}
 let objetoNotificacion = {}
 
@@ -18,7 +24,6 @@ if(notificacion == "1"){
 }
 objetoTrueque.idObjetoTrueque1 = idTruequeSeleccionado
 
-const user= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const buscarTrueque = "https://handelrailway-production.up.railway.app/objtrueque/"+idTruequeSeleccionado;
 const linkCrearTrueque = "https://handelrailway-production.up.railway.app/trueque";
@@ -83,7 +88,7 @@ obtenerDatos1().then(() => {
                         if(getComputedStyle(footer).display == "none"){
                             objetoNotificacion.mensaje = `T${e.idTrueques}El usuario ${usuarioLogeado.usuario1} ha ofertado un ${e.titulo} por tu ${truequeSeleccionado.titulo}`
                         }else if(getComputedStyle(footer).display == "block"){
-                            objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado a cambio de ${truequeSeleccionado.titulo}`
+                            objetoNotificacion.mensaje = `MTu trueque del ${e.titulo} ha sido aceptado cambio de ${truequeSeleccionado.titulo}`
                         }
                         crearTrueque(linkCrearTrueque, objetoTrueque)
                     }
@@ -119,7 +124,6 @@ async function crearTrueque(link, objeto){
 }
 
 async function crearNotificacion(link, objeto){
-    console.log(objeto);
     const res = await fetch(link, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
