@@ -97,9 +97,9 @@ obtenerDatos().then(() => {
             }else if(e.mensaje[0] == "M"){
                 const mensaje = e.mensaje
                 const nuevoMensaje = mensaje.slice(1, mensaje.length)
-                notificaciones.innerHTML += `<a class="notificacionTruequeExitoso" href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
+                notificaciones.innerHTML += `<a class="notificacionTruequeExitoso" id="campana2" href="mensajes.html"><span class="material-symbols-outlined">notification_important</span>${nuevoMensaje}</a>`
             }else if(e.mensaje[0] == "G" || e.mensaje[0] == "g" ){
-                notificaciones.innerHTML += `<a class="notificacionCierre" href="notificacionCierre.html"><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</a>`
+                notificaciones.innerHTML += `<a class="notificacionCierre" id="campana2" href="notificacionCierre.html"><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</a>`
             }else{
                 notificaciones.innerHTML += `<p><span class="material-symbols-outlined">notification_important</span>${e.mensaje}</p>`
             }

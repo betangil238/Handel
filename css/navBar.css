@@ -148,6 +148,9 @@
     color: #D7AE00;
 }
 
+
+
+
 .notifications p{
     margin-top: 10px;
     display: flex;
@@ -163,10 +166,10 @@
     margin-bottom: 15px;
     cursor: pointer;
     text-decoration: none;
-    color: var(--gold1);
     font-family: 'Garant Pro';
     font-size: 15px;
     font-weight: normal;
+    color: var(--gold1);
 }
 
 .notificacionNuevoTrueque span{
@@ -183,10 +186,6 @@ a{
     cursor: pointer;
 }
 
-.notificacionCierre{
-    color: var(--gold2);
-    font-weight: bold;
-}
 
 /*Especificaciones sección Billetera*/
 .containerBilletera {
