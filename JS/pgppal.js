@@ -15,6 +15,9 @@ function base64ToBlob(base64, contentType) {
 }
 
 const user= JSON.parse(localStorage.getItem('login_success')) || false
+if(!user){
+    window.location.href='login.html';
+}
 const consultaEmail="https://handelrailway-production.up.railway.app/usuario/validacion/"+user.email;
 const linkSubastas="https://handelrailway-production.up.railway.app/objsubasta";
 const linkUsuarios="https://handelrailway-production.up.railway.app/usuario";
@@ -301,8 +304,6 @@ inputusuario.addEventListener('input', e=>{
 const guardar = document.getElementById("guardar");
 // Aqui se genera las acciones al dar click en guardar
 guardar.addEventListener("click",async function(){
-                            // // verifica si el usuario que se va a asignar ya existe
-                            // const verificacion= configuracion.find(config =>  ("@"+inputusuario.value) ===config.usuario1)
     const consultaUsuario="https://handelrailway-production.up.railway.app/usuario/validusuario/@"+inputusuario.value;
     const validarUsuario = await buscarUsuario(consultaUsuario);
     if(validarUsuario){
@@ -324,22 +325,6 @@ guardar.addEventListener("click",async function(){
                 const imagenBlob = await crearFoto();
                 await actualizarFoto(linkFoto,imagenBlob); 
             }
-
-                        // // Borramos del local storage toda la seccion de configuracion, debido que no podemos modificar directamente el objeto que ya tiene la informacion sin actualizar almacenada
-                        // localStorage.removeItem('configuracion');
-                        // // Busca el indice en el arreglo obtenido del local storage capturado en configuracion con los datos de "ConfiguracionUsuario"
-                        // let indiceAEliminar =  configuracion.indexOf(configuracionUsuario);
-                        // // Elimina del array el objeto
-                        // configuracion.splice(indiceAEliminar,1);
-                        // // Cambiamos los atributos del objeto eliminado en el arreglo
-                        // configuracionUsuario.name2=inputname.value;
-                        // configuracionUsuario.usuario1="@"+inputusuario.value;
-                        // configuracionUsuario.reset=1;
-                        // // Agregamos el objeto actualizado con los parametros correspondientes
-                        // configuracion.push(configuracionUsuario);
-                        // // Creamos nuevamente la seccion configuracion con toda la informacion actualizada
-                        // localStorage.setItem('configuracion', JSON.stringify(configuracion))
-                        // // Notificamos un cambio exitoso y redireccionamos a la pagina ppal luego de 2 segundos y medio
             mostrarAlerta('Cambios guardados con exito');
             setTimeout(() => {
                 window.location.href='pgppal.html';
@@ -399,17 +384,6 @@ imagenclick.addEventListener("click",function(){
 salirProfile.addEventListener("click",function(){
     menuDesplegable.style.display="none"
 });
-
-
-
-
-
-const conteinerSubastas = document.querySelector(".historias")
-
-
-
-
-
 
 // funcion que muestra una alerta de resultado exitoso
 function mostrarAlerta(mensaje) {
