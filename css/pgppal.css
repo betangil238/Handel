@@ -362,7 +362,17 @@ hr{
     justify-content: end;
     padding-right: 40px;
     cursor: pointer;
+    align-items: center;
     /* margin-right: 40px; */
+}
+
+
+.bx-bell{
+    font-size: 20px;
+}
+
+.bx-store-all{
+    font-size: 20px;
 }
 
 .notifications{

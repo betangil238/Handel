@@ -253,6 +253,7 @@ a{
     flex-direction: row;
     font-family: 'Garant pro';
     padding: 10px 0;
+    align-items: center;
 }
 .profileList a:hover{
     background-color: var(--black);

@@ -7,7 +7,7 @@
 }
 body{
     color: white; 
-    background-image: url(/Img/fondoPFinal.png);
+    background-image: url(../Img/fondoPFinal.png);
     background-size: cover;                                     
 }
 *{
