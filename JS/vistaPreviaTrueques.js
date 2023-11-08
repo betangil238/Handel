@@ -21,7 +21,6 @@ async function crearObjetoTrueque(link, objeto){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(objeto),
     });
-    console.log(res);
     if (res.status == 200){
         localStorage.removeItem("FotoObjeto")
         localStorage.removeItem("ObjetoInfo")
@@ -145,4 +144,3 @@ function mostrarAlerta() {
     });
 }
 
-console.log(objetoCompleto);
