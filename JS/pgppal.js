@@ -260,11 +260,11 @@ const numTrueques = document.querySelector(".numTrueques")
 const numSubastas = document.querySelector(".numSubastas")
 nombreperfil.textContent=data.name2;
 usuarioperfil.textContent=data.usuario1;
-if(data.objetosDeTrueque != 0 ){
+if(data.objetosDeTrueque != undefined ){
     numTrueques.textContent = data.objetosDeTrueque.length
 }
 
-if(data.objetosDeSubasta != 0){
+if(data.objetosDeSubasta != undefined){
     numSubastas.textContent= data.objetosDeSubasta.length
 }
 
