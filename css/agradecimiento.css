@@ -1,0 +1,63 @@
+:root{
+    --transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    text-align: center;
+    font-family: 'Garant pro';
+    background-color: #000;
+}
+
+.block{
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p{
+    padding: 20px;
+    color: white;
+}
+
+#message{
+    margin-left: 20px;
+    border-radius: 5px;
+    width: 20%;
+    padding-top: 5px;
+}
+
+label{
+    font-size: 25px;
+}
+
+.id{
+    margin-left: 20px;
+    border-radius: 5px;
+    height: 30px;
+}
+button{
+    margin-left: 20px;
+    width: 110px;
+    border-radius: 20px;
+    padding: 8px 0px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+button :hover{
+    scale: 1.6;
+}
+
