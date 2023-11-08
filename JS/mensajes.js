@@ -1,68 +1,118 @@
 let objetoMensaje = {}
 
-async function consultarDato(link){
+function base64ToBlob(base64, contentType) {
+  const binaryStr = window.atob(base64);
+  const binaryArray = new Uint8Array(binaryStr.length);
+  for (let i = 0; i < binaryStr.length; i++) {
+      binaryArray[i] = binaryStr.charCodeAt(i);
+  }
+  return new Blob([binaryArray], { type: contentType });
+}
+
+const user1= JSON.parse(localStorage.getItem('login_success')) || false
+const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
+const linkMensajes = "https://handelrailway-production.up.railway.app/contenido"
+
+async function obtenerMensajes(link){
+  const res = await fetch(link);
+  const data = await res.json();
+  const arrayId = await idUsuarios(data)
+  const arrayUs = await buscarUsuarios(arrayId)
+  await producirMensajes(arrayUs);
+  let id
+  await visibilidadChats();
+
+}
+
+obtenerMensajes(consultaEmail1);
+
+async function buscarIdChat(id){
+  const linkBuscarChat = "https://handelrailway-production.up.railway.app/mensaje/"+ id;
+  const chat = await consultarUsuario(linkBuscarChat);
+  return chat
+}
+
+async function buscarUsuarios(arrayId) {
+  let arrayCompleto = [];
+  for (let i = 0; i < arrayId.length; i++) {
+    let arrayUsuarios = [];
+    const linkusuarioTrueque = "https://handelrailway-production.up.railway.app/usuario/" + arrayId[i][0];
+    const usuarioChat = await consultarUsuario(linkusuarioTrueque);
+    arrayUsuarios.push(usuarioChat, arrayId[i][1]);
+    arrayCompleto.push(arrayUsuarios)
+  }
+  console.log(arrayCompleto);
+  return arrayCompleto;
+}
+
+async function consultarUsuario(link){
   const res = await fetch(link);
   const data = await res.json();
   return data;
 }
 
-const user1= JSON.parse(localStorage.getItem('login_success')) || false
-const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
-const linkMensajes = "https://handelrailway-production.up.railway.app/mensaje"
-
-async function crearMensaje(link, objeto){
-  const res = await fetch(link, {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(objeto),
-  });
-  console.log(res);
+async function idUsuarios(data){
+  const mensaje1 = data.mensajes1
+  const mensaje2 = data.mensajes2
+  let idCompleto = []
+  let ids = []
+  mensaje1.forEach(id => {
+    ids = []
+    ids.push(id.idUsuario2,id.idmensajes)
+    idCompleto.push(ids)
+  })
+  mensaje2.forEach(id => {
+    ids = []
+    ids.push(id.idUsuario1, id.idmensajes)
+    idCompleto.push(ids)
+  })
+  return idCompleto;
 }
 
+const containerFotosRecientes = document.querySelector(".containerImgsReciente")
+let urlPerfil
+async function producirMensajes(arrayUs){
+  arrayUs.forEach(us =>{
+    if(us[0].imagen == null){
+      urlPerfil = 'Img/perfilAlternativo.png'
+    }else{
+      const blob = base64ToBlob(us[0].imagen, "image/jpeg");
+      urlPerfil = URL.createObjectURL(blob);
+    }
+    containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
+    <img class="fotoChatsRecientes" src="${urlPerfil}">
+    <p class="nombreChatsRecientes">${us[0].name2}</p>
+    </div>`
+    const chatsGenerales = document.querySelector(".chatsGenerales")
+    chatsGenerales.innerHTML += `<div class="chatIndividual" id="${us[1]}">
+    <div class="chatIndivImg">
+        <img src="${urlPerfil}">
+    </div>
+    <div class="chatUserNameMessage" id="ocultarContainer()">
+        <h4 class="chatUserName">${us[0].name2}</h4>
+        <p class="chatMessage"></span></p>
+    </div>
+    <div class="chatInfoChatIndividual">
+        <p class="numberMessages"><span>1</span></p>
+        <p>13:00</p>
+    </div>
+    </div>`
+  })
+}
+  
 
 
-
-const obtenerDatos1 = async () => {
-  data = await consultarDato(consultaEmail1);
-  const mensajesRecibidos = data.mensajes2
-  const linkusuarioTrueque="https://handelrailway-production.up.railway.app/usuario/"+mensajesRecibidos[0].idUsuario1
-  usuarioReceptor = await consultarDato(linkusuarioTrueque)
-};
-
-obtenerDatos1().then(() => {
-  console.log(data);
-  const containerFotosRecientes = document.querySelector(".containerImgsReciente")
-  const mensajesRe = data.mensajes2
-  const mensajesRecibidos = mensajesRe[(mensajesRe.length)-1]
-  const blob = base64ToBlob(usuarioReceptor.imagen, "image/jpeg");
-  const urlDeObjeto = URL.createObjectURL(blob);
-  containerFotosRecientes.innerHTML += `<div class="imgNameReciente">
-  <img class="fotoChatsRecientes" src="${urlDeObjeto}">
-  <p class="nombreChatsRecientes">${usuarioReceptor.name2}</p>
-  </div>`
-  const chatsGenerales = document.querySelector(".chatsGenerales")
-  chatsGenerales.innerHTML += `<div class="chatIndividual">
-  <div class="chatIndivImg">
-      <img src="${urlDeObjeto}">
-  </div>
-  <div class="chatUserNameMessage" id="ocultarContainer()">
-      <h4 class="chatUserName">${usuarioReceptor.name2}</h4>
-      <p class="chatMessage">${mensajesRecibidos.mensaje}</span></p>
-  </div>
-  <div class="chatInfoChatIndividual">
-      <p class="numberMessages"><span>1</span></p>
-      <p>13:00</p>
-  </div>
-  </div>`
-
+async function visibilidadChats(){
+  let id
   const chatIndividual = document.querySelectorAll(".chatIndividual");
   const contenedor2 = document.querySelector(".container2");
   const contenedor1 = document.querySelector(".container1");
   const contenedorInicial = document.querySelector(".conteinerInicial");
-
   const chatNameUser = document.querySelector(".userNameChat");
-  chatIndividual.forEach((chat) =>{
-    chat.addEventListener("click", function(){
+  chatIndividual.forEach(chat =>{;
+    chat.addEventListener("click", async function(){
+      const containerInput1 = document.querySelector(".containerAllMessages");
+      containerInput1.textContent = ""
       const nameUser = chat.querySelector(".chatUserName").textContent;
       chatNameUser.innerHTML = `<h4 class="nombreUsuario">${nameUser}</h4>`;
       if(window.screen.width <= 500){
@@ -74,63 +124,91 @@ obtenerDatos1().then(() => {
         contenedorInicial.style.display = "none";
         contenedor2.style.display = "flex";
       }
-      const fecha = document.querySelector(".textoFechaChat")
-      const mensRecibido = document.querySelector(".messageReceived")
-      const mensEnviado = document.querySelector(".messageSent")
-      const horaMensajes1 = document.querySelector(".horaInicial1")
-      const horaMensajes2 = document.querySelector(".horaInicial2")
-      const fechaBD = mensajesRe[0].horaMensaje
-      const mensajeReciBD =  mensajesRe[0].mensaje
-      const mensajeEnviBD =  data.mensajes1[0].mensaje
-      const resultado = restarHorasAFecha(fechaBD)
-      fecha.textContent = resultado.nuevaFecha
-      mensEnviado.innerHTML = `<p>${mensajeEnviBD}<span class="hora">${resultado.nuevaHora}</span></p>`
-      mensRecibido.innerHTML = `<p>${mensajeReciBD}<br><span class="hora">${resultado.nuevaHora}</span></p>`
-    });
-
-    sendButton.addEventListener("click", function() {
-      const message = inputMessage.value;
-      if (message) {
-        const horaActual = obtenerHoraActual();
-        containerInput.innerHTML += `
-          <div class="greyMessages">
-            <div class="messageSent">
-              <p>${message}<span class="hora">${horaActual}</span></p>
+      id = chat.id;
+      const infoChat = await buscarIdChat(id);
+      console.log(infoChat);
+      const resultado = restarHorasAFecha(infoChat.horaMensaje)
+      const fecha = resultado.nuevaFecha
+      const containerInput = document.querySelector(".containerAllMessages");
+      containerInput.innerHTML += `<div class="fechaChat">
+        <h4 class="textoFechaChat">${fecha}</h4>
+        </div>`
+      infoChat.mensajes.forEach(men => {
+        if(men.idUsuario1 != user1.id){
+          containerInput.innerHTML += `<div class="yellowMessages">
+            <div class="messageReceived">
+              <p>${men.mensaje}<br><span class="hora">${men.createdDate}</span></p>
             </div>
           </div>`;
-        inputMessage.value = "";
-        objetoMensaje.mensaje = message
-        objetoMensaje.idUsuario1 = data.idUsuario
-        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
-        console.log(objetoMensaje);
-        crearMensaje(linkMensajes,objetoMensaje)
-      }
-    });
+        }else{
+          containerInput.innerHTML += `<div class="greyMessages">
+            <div class="messageSent">
+              <p>${men.mensaje}<span class="hora">${men.createdDate}</span></p>
+            </div>
+          </div>`;
+        }
+      })
 
-    inputMessage.addEventListener("keydown", function(e) {
-      if (e.key === 'Enter' && inputMessage.value) {
+      const inputMessage = document.querySelector(".inputMessage");
+      const sendButton = document.querySelector(".sendButtonClick");
+      sendButton.addEventListener("click", function() {
         const message = inputMessage.value;
-        const horaActual = obtenerHoraActual();
-        containerInput.innerHTML += `
-          <div class="greyMessages">
-            <div class="messageSent">
-              <p>${message}<span class="hora">${horaActual}</span></p>
-            </div>
-          </div>`;
-        inputMessage.value = "";
-        objetoMensaje.mensaje = message
-        objetoMensaje.idUsuario1 = data.idUsuario
-        objetoMensaje.idUsuario2 = usuarioReceptor.idUsuario
-        crearMensaje(linkMensajes,objetoMensaje)
-      }
+        if (message) {
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          inputMessage.value = "";
+          const date = new Date()
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
+        }
+      })
+      inputMessage.addEventListener("keydown", function(e) {
+        if (e.key === 'Enter' && inputMessage.value) {
+          const message = inputMessage.value;
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          const date = new Date()
+          inputMessage.value = "";
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
+        }
+      })
+      
+
+
+      
     });
-    
-
-
   });
+}
 
 
-})
+async function crearMensaje(link, objeto){
+  console.log(objeto);
+  const res = await fetch(link, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(objeto),
+  });
+  console.log(res);
+}
 
 function restarHorasAFecha(fechaHora) {
   // Divide la fecha y hora
@@ -176,20 +254,6 @@ function restarHorasAFecha(fechaHora) {
 
   return { nuevaFecha, nuevaHora };
 }
-
-function base64ToBlob(base64, contentType) {
-  const binaryStr = window.atob(base64);
-  const binaryArray = new Uint8Array(binaryStr.length);
-  for (let i = 0; i < binaryStr.length; i++) {
-      binaryArray[i] = binaryStr.charCodeAt(i);
-  }
-  return new Blob([binaryArray], { type: contentType });
-}
-
-
-const inputMessage = document.querySelector(".inputMessage");
-const containerInput = document.querySelector(".containerAllMessages");
-const sendButton = document.querySelector(".sendButtonClick");
 
 
 // Función para obtener la hora actual en formato HH:MM
@@ -303,5 +367,4 @@ document.addEventListener("DOMContentLoaded", function () {
         fileInput.click();
     });
 });
-
 
