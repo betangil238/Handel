@@ -108,7 +108,7 @@ async function visibilidadChats(){
   const contenedor1 = document.querySelector(".container1");
   const contenedorInicial = document.querySelector(".conteinerInicial");
   const chatNameUser = document.querySelector(".userNameChat");
-  chatIndividual.forEach(chat =>{;
+  chatIndividual.forEach(chat =>{
     chat.addEventListener("click", async function(){
       const containerInput1 = document.querySelector(".containerAllMessages");
       containerInput1.textContent = ""
@@ -133,18 +133,37 @@ async function visibilidadChats(){
         </div>`
       infoChat.mensajes.forEach(men => {
         const resultado =  restarHorasAFecha(men.fechadecreacion)
-        if(men.idUsuario1 != user1.id){
-          containerInput.innerHTML += `<div class="yellowMessages">
-            <div class="messageReceived">
-              <p>${men.mensaje}<br><span class="hora">${resultado.nuevaHora}</span></p>
-            </div>
-          </div>`;
-        }else{
-          containerInput.innerHTML += `<div class="greyMessages">
+        if(men.mensaje.length > 400){
+          if(men.idUsuario1 != user1.id){
+            containerInput.innerHTML += `<div class="yellowMessages">
+              <div class="messageReceived">
+              <img src="${men.mensaje}">
+                <p><br><span class="hora">${resultado.nuevaHora}</span></p>
+              </div>
+            </div>`;
+          }else{
+            console.log(men.mensaje);
+            containerInput.innerHTML += `<div class="greyMessages">
             <div class="messageSent">
-              <p>${men.mensaje}<span class="hora">${resultado.nuevaHora}</span></p>
+              <img src="${men.mensaje}">
+              <p><span class="hora">${resultado.nuevaHora}</span></p>
             </div>
           </div>`;
+          }
+        }else {
+          if(men.idUsuario1 != user1.id){
+            containerInput.innerHTML += `<div class="yellowMessages">
+              <div class="messageReceived">
+                <p>${men.mensaje}<br><span class="hora">${resultado.nuevaHora}</span></p>
+              </div>
+            </div>`;
+          }else{
+            containerInput.innerHTML += `<div class="greyMessages">
+              <div class="messageSent">
+                <p>${men.mensaje}<span class="hora">${resultado.nuevaHora}</span></p>
+              </div>
+            </div>`;
+          }
         }
       })
 
@@ -215,11 +234,96 @@ async function visibilidadChats(){
           console.log(objetoMensaje);
         }
       })
-      
+      const flecha = document.querySelector(".bx-arrow-back");
+      flecha.addEventListener("click", function(){
+        if(window.screen.width <= 500){
+          contenedor1.style.display = "block";
+          contenedorInicial.style.display = "none";
+          contenedor2.style.display = "none";
+        }else{
+          contenedorInicial.style.display = "flex";
+          contenedor2.style.display = "none";
+          chatIndividual.forEach((chat) =>{
+            chat.style.backgroundColor  = "#000";
+          })
+        }
+        contenedorEmoji.style.display = "none";
+      })
+      //Funcionalidad de enviar imagen
+      let contador = 0; // Declaración e inicialización del contador
+      const fileInput = document.createElement("input");
+      //document.addEventListener("DOMContentLoaded", function () {
+        const imgButton = document.getElementById("imgButton");
+        console.log("algo");
+        imgButton.addEventListener("click", async function () {
+          fileInput.type = "file";
+          fileInput.accept = "image/*"; // Limita la selección solo a imágenes
+          fileInput.style.display = "none"; // Oculta el elemento de entrada
+          fileInput.addEventListener("change", async function () {
+            const selectedImage = fileInput.files[0];
+            if (selectedImage) {
+                const imageElement = document.createElement("img");
+                imageElement.src = URL.createObjectURL(selectedImage);
+                const url = URL.createObjectURL(selectedImage);
+                const blob = await crearFoto(selectedImage);
+                var reader = new FileReader();
+                const Base64Promise = new Promise((resolve) => {
+                  reader.onload = function (e) {
+                    resolve(e.target.result);
+                  };
+                });
+                reader.readAsDataURL(blob);
+                const Base64 = await Base64Promise;
+                reader.readAsDataURL(blob)
+                imageElement.className = `chat-image${contador}`;
 
+                const horaActual = obtenerHoraActual();
+                // Crear el elemento del mensaje con una clase única
+                const greyMessagesSent = document.createElement("div");
+                greyMessagesSent.className = `greyMessages`;
+                const messageSentElement = document.createElement("div");
+                messageSentElement.className = `messageSent ${contador}`;
 
-      
+                // Agregar el contenido del mensaje
+                messageSentElement.innerHTML = `
+                    <p><span class="hora">${horaActual}</span></p>`;
+                messageSentElement.appendChild(imageElement);
+
+                messageSentElement.style.flexDirection = "column-reverse";
+                // Agregar el mensaje al contenedor de mensajes
+                greyMessagesSent.appendChild(messageSentElement);
+                containerInput.appendChild(greyMessagesSent);
+
+                const date = new Date()
+                objetoMensaje.mensaje = Base64 
+                objetoMensaje.idUsuario1 = user1.id
+                objetoMensaje.idChat = id
+                objetoMensaje.fechadecreacion = date
+                crearMensaje(linkMensajes, objetoMensaje)
+                // Limpia el input de archivos
+                fileInput.value = null;
+                contador++;
+            }
+          });
+
+              // Dispara el selector de archivos
+          fileInput.click();
+        });
+      //});
     });
+  });
+}
+
+async function crearFoto(file) {
+  return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+          const arrayBuffer = event.target.result;
+          const blob = new Blob([arrayBuffer], { type: file.type });
+          resolve(blob);
+      };
+      reader.readAsArrayBuffer(file);
+      
   });
 }
 
@@ -294,72 +398,4 @@ function obtenerHoraActual() {
 
 
 
-
-
-
-
-
-const flecha = document.querySelector(".bx-arrow-back");
-flecha.addEventListener("click", function(){
-  if(window.screen.width <= 500){
-    contenedor1.style.display = "block";
-    contenedorInicial.style.display = "none";
-    contenedor2.style.display = "none";
-  }else{
-    contenedorInicial.style.display = "flex";
-    contenedor2.style.display = "none";
-    chatIndividual.forEach((chat) =>{
-      chat.style.backgroundColor  = "#000";
-    })
-  }
-  contenedorEmoji.style.display = "none";
-})
-
-
-//Funcionalidad de enviar imagen
-let contador = 0; // Declaración e inicialización del contador
-
-document.addEventListener("DOMContentLoaded", function () {
-    const imgButton = document.getElementById("imgButton");
-
-    imgButton.addEventListener("click", function () {
-        const fileInput = document.createElement("input");
-        fileInput.type = "file";
-        fileInput.accept = "image/*"; // Limita la selección solo a imágenes
-        fileInput.style.display = "none"; // Oculta el elemento de entrada
-
-        fileInput.addEventListener("change", function () {
-            const selectedImage = fileInput.files[0];
-            if (selectedImage) {
-                const imageElement = document.createElement("img");
-                imageElement.src = URL.createObjectURL(selectedImage);
-                imageElement.className = `chat-image${contador}`;
-
-                const horaActual = obtenerHoraActual();
-                // Crear el elemento del mensaje con una clase única
-                const greyMessagesSent = document.createElement("div");
-                greyMessagesSent.className = `greyMessages`;
-                const messageSentElement = document.createElement("div");
-                messageSentElement.className = `messageSent ${contador}`;
-
-                // Agregar el contenido del mensaje
-                messageSentElement.innerHTML = `
-                    <p><span class="hora">${horaActual}</span></p>`;
-                messageSentElement.appendChild(imageElement);
-
-                messageSentElement.style.flexDirection = "column-reverse";
-                // Agregar el mensaje al contenedor de mensajes
-                greyMessagesSent.appendChild(messageSentElement);
-                containerInput.appendChild(greyMessagesSent);
-
-                // Limpia el input de archivos
-                fileInput.value = null;
-                contador++;
-            }
-        });
-
-        // Dispara el selector de archivos
-        fileInput.click();
-    });
-});
 
