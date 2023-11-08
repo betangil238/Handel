@@ -351,13 +351,14 @@ hr{
 .navBarra {
     font-family: 'Garant Pro';
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 4fr 3fr;
     margin-top: 20px;
     align-items: center;
 }
 
 .navBarra_iconos{
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
     flex-direction: row;
     justify-content: end;
     padding-right: 40px;
@@ -369,10 +370,14 @@ hr{
 
 .bx-bell{
     font-size: 20px;
+    width: 40px;
+    height: 25px;
 }
 
 .bx-store-all{
-    font-size: 20px;
+    font-size: 30px;
+    width: 30px;
+    height: 25px;
 }
 
 .notifications{
