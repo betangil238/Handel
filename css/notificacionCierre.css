@@ -1,0 +1,130 @@
+:root{
+    --black: #000;
+    --grey: #ECECEC;
+    --white: #fff;
+    --gold1: #FFE680;
+    --gold2: #D7AE00;
+}
+body{
+    color: white; 
+    background-image: url(/Img/fondoPFinal.png);
+    background-size: cover;                                     
+}
+*{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Garant Pro', sans-serif; 
+}
+.volverInicio{
+    text-align: left;
+    padding: 30px ;
+    font-size: 22px;
+    cursor: pointer;
+    width: 300px;
+
+}
+.volverInicio:hover{
+    scale: 1.1;
+    transition: 0.9s;
+}
+.volverInicio a{
+    text-decoration: none;
+    color: var(--white);
+}
+.volverInicio i{
+    width: auto;
+    color: var(--gold2);
+}
+.tituloGracias img{
+    width: 275px;
+
+}
+.tituloGracias{
+    font-weight: 400;
+    font-size: 60px;
+    text-align: center;
+    width: 700px;
+    margin: auto;
+
+}
+.subtituloGracias{
+    font-size: 27px;
+    font-weight: 100;
+}
+span{
+    color: var(--gold2);
+    font-size: 28px;
+}
+.logoCodeTrade{
+    width: 200px;
+}
+.parrafoGracias{
+    margin-top: 20px;
+    padding-right: 100px;
+    text-align: center;
+}
+.contactGracias{
+     margin: 30px auto;
+     width: 600px;
+     font-weight: 100;
+     font-size: 20px;
+}
+.contactGracias a{
+    text-decoration: none;
+    color: var(--gold2);
+    font-size: 22px;
+}
+
+.footerGracias{
+    text-align: center;
+    width: auto;
+    padding-right: 30px;
+    margin: auto;
+}
+@media  (max-width: 1800px){
+    body{
+
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    
+}
+@media (max-width: 600px){
+    .volverInicio{
+        padding: 35px;
+    }
+    .tituloGracias{
+        width: 300px;
+        font-size: 35px;
+        text-align: center;
+        margin: auto;
+    }
+    .tituloGracias img{
+        width: 180px;
+    }
+    .subtituloGracias{
+        font-size: 22px;
+        width: 200px;
+        margin: 20px auto;
+    }
+    span {
+        font-size: 24px;
+    }
+    .contactGracias{
+        margin: auto;
+        width: 200px;
+        font-size: 16px;
+    }
+    .linkContacto:hover {
+        scale: 1.2;
+        transition: 0.9s;
+    }
+    .logoCodeTrade{
+        width: 150px;
+    }
+}

@@ -1,3 +1,4 @@
+
 //Verificación del input name
 const nombre = document.getElementById("name");
 const rutaPost= "https://handelrailway-production.up.railway.app/usuario"
@@ -78,6 +79,8 @@ signupForm.addEventListener('submit', async (e) => {
             mostrarAlertaRechazo(`El usuario ya esta registrado!`);
         }  
     }
+    
+    
 })
 
     
