@@ -11,7 +11,7 @@ function base64ToBlob(base64, contentType) {
 
 const user1= JSON.parse(localStorage.getItem('login_success')) || false
 const consultaEmail1="https://handelrailway-production.up.railway.app/usuario/validacion/"+user1.email; 
-const linkMensajes = "https://handelrailway-production.up.railway.app/mensaje"
+const linkMensajes = "https://handelrailway-production.up.railway.app/contenido"
 
 async function obtenerMensajes(link){
   const res = await fetch(link);
@@ -149,47 +149,59 @@ async function visibilidadChats(){
         }
       })
 
+      const inputMessage = document.querySelector(".inputMessage");
+      const sendButton = document.querySelector(".sendButtonClick");
+      sendButton.addEventListener("click", function() {
+        const message = inputMessage.value;
+        if (message) {
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          inputMessage.value = "";
+          const date = new Date()
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
+        }
+      })
+      inputMessage.addEventListener("keydown", function(e) {
+        if (e.key === 'Enter' && inputMessage.value) {
+          const message = inputMessage.value;
+          const horaActual = obtenerHoraActual();
+          containerInput.innerHTML += `
+            <div class="greyMessages">
+              <div class="messageSent">
+                <p>${message}<span class="hora">${horaActual}</span></p>
+              </div>
+            </div>`;
+          const date = new Date()
+          inputMessage.value = "";
+          objetoMensaje.mensaje = message
+          objetoMensaje.idUsuario1 = user1.id
+          objetoMensaje.idChat = id
+          objetoMensaje.fechadecreacion = date
+          crearMensaje(linkMensajes, objetoMensaje)
+          console.log(objetoMensaje);
+        }
+      })
+      
+
 
       
     });
   });
 }
 
-const inputMessage = document.querySelector(".inputMessage");
-const containerInput = document.querySelector(".containerAllMessages");
-const sendButton = document.querySelector(".sendButtonClick");
-sendButton.addEventListener("click", function() {
-  const message = inputMessage.value;
-  if (message) {
-    const horaActual = obtenerHoraActual();
-    containerInput.innerHTML += `
-      <div class="greyMessages">
-        <div class="messageSent">
-          <p>${message}<span class="hora">${horaActual}</span></p>
-        </div>
-      </div>`;
-    inputMessage.value = "";
-    objetoMensaje.mensaje = message
-    
-  }
-})
-
-inputMessage.addEventListener("keydown", function(e) {
-  if (e.key === 'Enter' && inputMessage.value) {
-    const message = inputMessage.value;
-    const horaActual = obtenerHoraActual();
-    containerInput.innerHTML += `
-      <div class="greyMessages">
-        <div class="messageSent">
-          <p>${message}<span class="hora">${horaActual}</span></p>
-        </div>
-      </div>`;
-    inputMessage.value = "";
-  }
-})
-
 
 async function crearMensaje(link, objeto){
+  console.log(objeto);
   const res = await fetch(link, {
       method: "POST",
       headers: {'Content-Type': 'application/json'},
