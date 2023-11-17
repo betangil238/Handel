@@ -1,9 +1,7 @@
 # RED SOCIAL HANDEL
 
 <p align="center" >
-     <img width="200" heigth="200" src="![imagen](https://github.com/betangil238/Handel/assets/121052500/bbc85675-c0c6-4865-9c17-f72fc34eebe8)">
-     ![imagen](https://github.com/betangil238/Handel/assets/121052500/2a487694-712e-4075-8009-06fbc5991a83)
-
+     <img width="200" heigth="200" src="https://github.com/betangil238/Handel/assets/121052500/bbc85675-c0c6-4865-9c17-f72fc34eebe8">
 </p>
 
 ### ¡Bienvenido a nuestro proyecto de Handel! 
